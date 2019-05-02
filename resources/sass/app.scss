@@ -1,0 +1,23 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+@import "~material-design-icons-iconfont/src/material-design-icons";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+// Vuetify
+@import '~vuetify/dist/vuetify.min.css';
+
+.application, .display-1, .display-2, .display-3, .display-4, .title, .headline {
+  font-family: "Nunito", sans-serif;
+}
+
+.v-card {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.v-btn__content {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}

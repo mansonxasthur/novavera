@@ -1,0 +1,81 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+@import "../../../node_modules/material-design-icons-iconfont/src/material-design-icons";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+// Vuetify
+@import '../../../node_modules/vuetify/dist/vuetify.min.css';
+
+$nova-primary: #14152E;
+$nova-secondary: #558C9B;
+$nova-accent-1: #D91818;
+$nova-accent-2: #EB6231;
+$nova-black: #0D0D0D;
+
+.application, .display-1, .display-2, .display-3, .display-4, .title, .headline {
+  font-family: "Nunito", sans-serif;
+}
+
+.application {
+
+  .v-card {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
+
+  .v-btn__content {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .nova-gradient {
+    background-image: linear-gradient(to bottom right, rgba(217, 24, 24, 1), rgba(235, 98, 49, 1));
+  }
+
+  .nova-primary-text {
+    color: $nova-primary;
+  }
+
+  .nova-secondary-text {
+    color: $nova-secondary;
+  }
+
+  .nova-red-text {
+    color: $nova-accent-1;
+  }
+
+  .nova-orange-text {
+    color: $nova-accent-2;
+  }
+
+  .nova-black-text {
+    color: $nova-black;
+  }
+
+  .nova-primary-bg {
+    background-color: $nova-primary;
+    border-color: $nova-primary;
+  }
+
+  .nova-secondary-bg {
+    background-color: $nova-secondary;
+    border-color: $nova-secondary;
+  }
+
+  .nova-red-bg {
+    background-color: $nova-accent-1;
+    border-color: $nova-accent-1;
+  }
+
+  .nova-orange-bg {
+    background-color: $nova-accent-2;
+    border-color: $nova-accent-2;
+  }
+
+  .nova-black-bg {
+    background-color: $nova-black;
+    border-color: $nova-black;
+  }
+
+}
