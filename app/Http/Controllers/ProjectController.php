@@ -9,6 +9,6 @@ class ProjectController extends Controller
 {
     public function show(Project $project)
     {
-        return view('project')->with(['project' => $project]);
+        return view('project.show')->with(['project' => $project->load(['developer', 'location'])]);
     }
 }

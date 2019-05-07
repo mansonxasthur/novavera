@@ -14,7 +14,7 @@ class Project extends Model
 
     protected $fillable = ['name', 'price', 'down_payment', 'installment_years', 'delivery_date', 'description', 'lat', 'lng', 'slug'];
     protected $translationAttributes = ['name', 'description'];
-    protected $with = ['developer', 'location', 'propertyTypes', 'images', 'translation'];
+    protected $with = ['propertyTypes', 'images', 'translation'];
     protected $appends = ['logo_url'];
 
     public function developer()

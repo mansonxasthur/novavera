@@ -21,8 +21,8 @@ class ProjectController extends Controller
     public function create()
     {
         return view('admin.project.create')->with([
-            'developers' => Developer::all(),
-            'locations' => Location::all(),
+            'developers'    => Developer::all(),
+            'locations'     => Location::all(),
             'propertyTypes' => PropertyType::all(),
         ]);
     }
@@ -30,15 +30,15 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'arabicName' => 'required',
-            'developer' => 'required',
-            'propertyTypes' => 'required',
-            'projectType' => 'required',
-            'location' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
-            'description' => 'required',
+            'name'              => 'required',
+            'arabicName'        => 'required',
+            'developer'         => 'required',
+            'propertyTypes'     => 'required',
+            'projectType'       => 'required',
+            'location'          => 'required',
+            'lat'               => 'required',
+            'lng'               => 'required',
+            'description'       => 'required',
             'arabicDescription' => 'required'
         ]);
 
@@ -46,15 +46,15 @@ class ProjectController extends Controller
             $project = Project::installation($request);
 
             $project->addTranslation([
-               'name' => $request->arabicName,
-               'description' => $request->arabicDescription,
+                'name'        => $request->arabicName,
+                'description' => $request->arabicDescription,
             ]);
 
             $uploadedImages = $request->images;
 
-            if (!empty($uploadedImages)){
+            if (!empty($uploadedImages)) {
                 $images = [];
-                foreach($uploadedImages as $image){
+                foreach ($uploadedImages as $image) {
                     $images[] = ['path' => $project->uploadImage($image)];
                 }
 
@@ -62,9 +62,9 @@ class ProjectController extends Controller
             }
 
             $propertyTypes = json_decode($request->propertyTypes);
-            if (!empty($propertyTypes)){
+            if (!empty($propertyTypes)) {
                 if (is_object($propertyTypes[0])) {
-                    $propertyTypes = collect($propertyTypes)->map(function($type) {
+                    $propertyTypes = collect($propertyTypes)->map(function ($type) {
                         return $type->id;
                     });
                 }
@@ -83,39 +83,41 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         return view('admin.project.edit')->with([
-            'developers' => Developer::all(),
-            'locations' => Location::all(),
+            'developers'    => Developer::all(),
+            'locations'     => Location::all(),
             'propertyTypes' => PropertyType::all(),
-            'project' => $project
+            'project'       => $project->load([
+                'developer', 'location'
+            ])
         ]);
     }
 
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'name' => 'required',
-            'arabicName' => 'required',
-            'developer' => 'required',
-            'propertyTypes' => 'required',
-            'projectType' => 'required',
-            'location' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
-            'description' => 'required',
+            'name'              => 'required',
+            'arabicName'        => 'required',
+            'developer'         => 'required',
+            'propertyTypes'     => 'required',
+            'projectType'       => 'required',
+            'location'          => 'required',
+            'lat'               => 'required',
+            'lng'               => 'required',
+            'description'       => 'required',
             'arabicDescription' => 'required'
         ]);
 
         try {
             if ($project->updateInstallation($request)) {
                 $project->updateTranslation([
-                    'name' => $request->arabicName,
+                    'name'        => $request->arabicName,
                     'description' => $request->arabicDescription,
                 ]);
 
                 $uploadedImages = $request->images;
-                if (!empty($uploadedImages)){
+                if (!empty($uploadedImages)) {
                     $images = [];
-                    foreach($uploadedImages as $image){
+                    foreach ($uploadedImages as $image) {
                         $images[] = ['path' => $project->uploadImage($image)];
                     }
 
@@ -123,9 +125,9 @@ class ProjectController extends Controller
                 }
 
                 $propertyTypes = json_decode($request->propertyTypes);
-                if (!empty($propertyTypes)){
+                if (!empty($propertyTypes)) {
                     if (is_object($propertyTypes[0])) {
-                        $propertyTypes = collect($propertyTypes)->map(function($type) {
+                        $propertyTypes = collect($propertyTypes)->map(function ($type) {
                             return $type->id;
                         });
                     }
@@ -133,7 +135,7 @@ class ProjectController extends Controller
                     $project->propertyTypes()->sync($propertyTypes);
                 }
 
-                if (!empty($request->deletedImages)){
+                if (!empty($request->deletedImages)) {
                     $images = json_decode($request->deletedImages);
 
                     Image::destroy($images);

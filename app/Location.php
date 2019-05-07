@@ -16,6 +16,7 @@ class Location extends Model
 
     protected $with = ['translation'];
 
+
     public function projects()
     {
         return $this->hasMany(Project::class);

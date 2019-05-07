@@ -21,6 +21,7 @@ class Developer extends Model
     {
         return $this->hasMany(Project::class);
     }
+
     /**
      * @param string $value
      */

@@ -30,9 +30,9 @@ class CreateProjectsTable extends Migration
             $table->string('slug');
             $table->text('meta')->nullable();
             $table->text('keywords')->nullable();
+            $table->timestamps();
 
             $table->foreign('developer_id')->references('id')->on('developers')->onCascade('delete');
-            $table->timestamps();
         });
     }
 

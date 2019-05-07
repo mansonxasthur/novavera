@@ -29,6 +29,8 @@ Vue.component('infinite-slide-bar', InfiniteSlideBar);
 Vue.component('slider', require('./components/Slider').default);
 Vue.component('developer-carousel', require('./components/DeveloperCarousel').default);
 Vue.component('project', require('./components/Project').default);
+Vue.component('developers', require('./components/Developers').default);
+Vue.component('developer', require('./components/Developer').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
