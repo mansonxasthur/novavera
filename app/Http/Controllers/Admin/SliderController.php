@@ -94,18 +94,10 @@ class SliderController extends Controller
 
     public function addSlide(Request $request, Slider $slider)
     {
+
         $request->validate(['image' => 'required|image|mimes:png,jpg,jpeg,webp,svg|max:5000']);
         try {
             $sliderImage = $slider->addSlide($request);
-
-            if ($sliderImage) {
-
-                $sliderImage->addTranslation([
-                    'title' => $request->arabicTitle,
-                    'subtitle' => $request->arabicSubtitle,
-                    'btn_label' => $request->arabicLabel,
-                ]);
-            }
 
             return response()->json(['message' => 'Success', 'data' => $sliderImage->load('translation')], 201);
         } catch (\Exception $e) {
@@ -117,19 +109,7 @@ class SliderController extends Controller
     public function updateSlide(Request $request, Slider $slider, SliderImage $sliderImage)
     {
         try {
-            $sliderImage->title = $request->title;
-            $sliderImage->subtitle = $request->subtitle;
-            $sliderImage->btn_label = $request->label;
-            $sliderImage->btn_link = $request->labelLink;
-            $sliderImage->updateTranslation([
-                'title' => $request->arabicTitle,
-                'subtitle' => $request->arabicSubtitle,
-                'btn_label' => $request->arabicLabel,
-            ]);
-
-            if ($request->hasFile('image')) {
-                $sliderImage->path = $sliderImage->updateImage($request->image, $sliderImage->path);
-            }
+            $slider->updateSlide($sliderImage, $request);
 
             $sliderImage->save();
 

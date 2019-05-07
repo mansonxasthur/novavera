@@ -27,7 +27,7 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function store(Request $request, Project $project)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -43,20 +43,7 @@ class ProjectController extends Controller
         ]);
 
         try {
-            $project->name = $request->name;
-            $project->slug = $request->name;
-            $project->developer_id = $request->developer;
-            $project->project_type = $request->projectType;
-            $project->location_id = $request->location;
-            $project->lat = $request->lat;
-            $project->lng = $request->lng;
-            $project->description = $request->description;
-            $project->meta = $request->meta;
-            $project->keywords = $request->keywords;
-            if ($request->hasFile('logo')) {
-                $project->logo = $project->uploadImage($request->logo);
-            }
-            $project->save();
+            $project = Project::installation($request);
 
             $project->addTranslation([
                'name' => $request->arabicName,
@@ -64,6 +51,7 @@ class ProjectController extends Controller
             ]);
 
             $uploadedImages = $request->images;
+
             if (!empty($uploadedImages)){
                 $images = [];
                 foreach($uploadedImages as $image){
@@ -118,51 +106,40 @@ class ProjectController extends Controller
         ]);
 
         try {
-            $project->name = $request->name;
-            $project->slug = $request->name;
-            $project->developer_id = $request->developer;
-            $project->project_type = $request->projectType;
-            $project->location_id = $request->location;
-            $project->lat = $request->lat;
-            $project->lng = $request->lng;
-            $project->description = $request->description;
-            $project->meta = $request->meta;
-            $project->keywords = $request->keywords;
-            if ($request->hasFile('logo')) {
-                $project->logo = $project->updateImage($request->logo, $project->logo);
-            }
-            $project->save();
-            $project->updateTranslation([
-                'name' => $request->arabicName,
-                'description' => $request->arabicDescription,
-            ]);
+            if ($project->updateInstallation($request)) {
+                $project->updateTranslation([
+                    'name' => $request->arabicName,
+                    'description' => $request->arabicDescription,
+                ]);
 
-            $uploadedImages = $request->images;
-            if (!empty($uploadedImages)){
-                $images = [];
-                foreach($uploadedImages as $image){
-                    $images[] = ['path' => $project->uploadImage($image)];
+                $uploadedImages = $request->images;
+                if (!empty($uploadedImages)){
+                    $images = [];
+                    foreach($uploadedImages as $image){
+                        $images[] = ['path' => $project->uploadImage($image)];
+                    }
+
+                    $project->images()->createMany($images);
                 }
 
-                $project->images()->createMany($images);
-            }
+                $propertyTypes = json_decode($request->propertyTypes);
+                if (!empty($propertyTypes)){
+                    if (is_object($propertyTypes[0])) {
+                        $propertyTypes = collect($propertyTypes)->map(function($type) {
+                            return $type->id;
+                        });
+                    }
 
-            $propertyTypes = json_decode($request->propertyTypes);
-            if (!empty($propertyTypes)){
-                if (is_object($propertyTypes[0])) {
-                    $propertyTypes = collect($propertyTypes)->map(function($type) {
-                       return $type->id;
-                    });
+                    $project->propertyTypes()->sync($propertyTypes);
                 }
 
-                $project->propertyTypes()->sync($propertyTypes);
+                if (!empty($request->deletedImages)){
+                    $images = json_decode($request->deletedImages);
+
+                    Image::destroy($images);
+                }
             }
 
-            if (!empty($request->deletedImages)){
-                $images = json_decode($request->deletedImages);
-
-                Image::destroy($images);
-            }
 
             return response()->json(['message' => 'Success'], 200);
         } catch (\Exception $e) {

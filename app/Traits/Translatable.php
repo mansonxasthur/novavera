@@ -66,10 +66,8 @@ trait Translatable
     {
         $locale = $locale ?? $this->defaultLocale;
         $filteredTranslations = [];
-        foreach($translations as $key => $value) {
-            if ($value !== '' || $value !== null) {
-                $filteredTranslations[$key] = $value;
-            }
+        foreach ($translations as $key => $value) {
+            if ($value) $filteredTranslations[$key] = $value;
         }
         $this->translation()->create(array_merge(['locale' => $locale], $filteredTranslations));
     }
@@ -82,14 +80,10 @@ trait Translatable
     {
         if ($this->translation()->first()) {
             $filteredTranslations = [];
-            foreach($translations as $key => $value) {
-                if ($value !== null && $value !== 'null') {
-                    $filteredTranslations[$key] = $value;
-                } else {
-                    $filteredTranslations[$key] = '';
-                }
+            foreach ($translations as $key => $value) {
+                if ($value) $filteredTranslations[$key] = $value;
             }
-            $this->translation()->update($translations);
+            $this->translation()->update($filteredTranslations);
         } else {
             $this->addTranslation($translations);
         }

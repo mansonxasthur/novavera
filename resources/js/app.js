@@ -11,6 +11,13 @@ window.Vuetify = require('vuetify');
 
 Vue.use(Vuetify);
 
+import InfiniteSlideBar from 'vue-infinite-slide-bar';
+
+Vue.component('infinite-slide-bar', InfiniteSlideBar);
+
+
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +26,9 @@ Vue.use(Vuetify);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-//Vue.component('locations', require('./components/admin/location/List').default);
+Vue.component('slider', require('./components/Slider').default);
+Vue.component('developer-carousel', require('./components/DeveloperCarousel').default);
+Vue.component('project', require('./components/Project').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

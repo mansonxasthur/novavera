@@ -5,13 +5,14 @@ namespace App;
 use App\Traits\ImageUploader;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class Project extends Model
 {
     use Translatable, ImageUploader;
 
-    protected $fillable = ['name', 'description', 'lat', 'lng', 'slug'];
+    protected $fillable = ['name', 'price', 'down_payment', 'installment_years', 'delivery_date', 'description', 'lat', 'lng', 'slug'];
     protected $translationAttributes = ['name', 'description'];
     protected $with = ['developer', 'location', 'propertyTypes', 'images', 'translation'];
     protected $appends = ['logo_url'];
@@ -78,6 +79,78 @@ class Project extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public static function installation(Request $request): Project
+    {
+        $project = new static();
+        $project->name = $request->name;
+        $project->slug = $request->name;
+        $project->developer_id = $request->developer;
+        $project->project_type = $request->projectType;
+        $project->location_id = $request->location;
+        $project->lat = $request->lat;
+        $project->lng = $request->lng;
+        $project->description = $request->description;
+        $project->meta = $request->meta;
+        $project->keywords = $request->keywords;
+        if ($request->hasFile('logo')) {
+            $project->logo = $project->uploadImage($request->logo);
+        }
+
+        if ($request->has('price') && $request->price !== null) {
+            $project->price = $request->price;
+        }
+
+        if ($request->has('down_payment') && $request->down_payment !== null) {
+            $project->down_payment = $request->down_payment;
+        }
+
+        if ($request->has('installment_years') && $request->installment_years !== null) {
+            $project->installment_years = $request->installment_years;
+        }
+
+        if ($request->has('delivery_date') && $request->delivery_date !== null) {
+            $project->delivery_date = $request->delivery_date;
+        }
+
+        $project->save();
+
+        return $project;
+    }
+
+    public function updateInstallation(Request $request): bool
+    {
+        $this->name = $request->name;
+        $this->slug = $request->name;
+        $this->developer_id = $request->developer;
+        $this->project_type = $request->projectType;
+        $this->location_id = $request->location;
+        $this->lat = $request->lat;
+        $this->lng = $request->lng;
+        $this->description = $request->description;
+        $this->meta = $request->meta;
+        $this->keywords = $request->keywords;
+
+        if ($request->has('price') && $request->price !== null) {
+            $this->price = $request->price;
+        }
+
+        if ($request->has('down_payment') && $request->down_payment !== null) {
+            $this->down_payment = $request->down_payment;
+        }
+
+        if ($request->has('installment_years') && $request->installment_years !== null) {
+            $this->installment_years = $request->installment_years;
+        }
+
+        if ($request->has('delivery_date') && $request->delivery_date !== null) {
+            $this->delivery_date = $request->delivery_date;
+        }
+        if ($request->hasFile('logo')) {
+            $this->logo = $this->updateImage($request->logo, $this->logo);
+        }
+        return $this->save();
     }
 
 }

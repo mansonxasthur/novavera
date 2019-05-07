@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Traits\ImageUploader;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -20,23 +21,60 @@ class Slider extends Model
 
     public function addSlide(Request $request): SliderImage
     {
-        $path = '';
+        $sliderImage = new SliderImage;
         if ($request->has('image')) {
-            $path = $this->uploadImage($request->image);
+            $sliderImage->path = $sliderImage->uploadImage($request->image);
         }
 
-        return $this->images()->create([
-            'title' => $request->title !== '' && $request->title !== 'null' ? $request->title : null,
-            'subtitle' => $request->subtitle !== '' && $request->subtitle !== 'null' ? $request->subtitle : null,
-            'btn_label' => $request->btn_label !== '' && $request->btn_label !== 'null' ? $request->btn_label : null,
-            'btn_link' => $request->btn_link !== '' && $request->btn_link !== 'null' ? $request->btn_link : null,
-            'path' => $path,
-            'order' => $this->images()->count() + 1
-        ]);
+        foreach ($request->all() as $key => $value) {
+            if (in_array($key, $sliderImage->getFillable())) {
+                if ($value) {
+                    $sliderImage->{$key} = $value;
+                }
+            }
+        }
+
+        $sliderImage->order = $this->images()->count() + 1;
+        $sliderImage = $this->images()->create($sliderImage->toArray());
+        if ($sliderImage) {
+            if ($request->has('translation')) {
+                $translations = [];
+                foreach ($request->translation as $key => $value) {
+                    if ($value) $translations[$key] = $value;
+                }
+
+                $sliderImage->addTranslation($translations);
+            }
+        }
+
+        return $sliderImage;
     }
 
-    public function updateSlide(SliderImage $sliderImage)
+    public function updateSlide(SliderImage $sliderImage, Request $request)
     {
-        return $this->images()->where('id', $sliderImage->id)->update($sliderImage->toArray());
+        foreach ($request->all() as $key => $value) {
+            if (key_exists($key, $sliderImage->attributes)) {
+                if ($value) $sliderImage->{$key} = $value;
+            }
+        }
+
+        if ($request->hasFile('image')) {
+            $sliderImage->path = $sliderImage->updateImage($request->image, $sliderImage->path);
+        }
+
+        $sliderImage->save();
+        if ($request->has('translation')) {
+            $translations = [];
+            foreach ($request->translation as $key => $value) {
+                if ($value) $translations[$key] = $value;
+            }
+
+            $sliderImage->updateTranslation($translations);
+        }
+    }
+
+    public function scopeMain(Builder $query): Builder
+    {
+        return $query->whereMain(true);
     }
 }

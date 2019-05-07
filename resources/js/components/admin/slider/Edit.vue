@@ -1,7 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <v-container fluid>
-        <v-layout row wrap justify-center>
-            <v-flex xs12 sm10>
+        <v-layout row wrap justify-center px-3>
+            <v-flex xs12>
                 <v-card class="mt-5">
                     <v-card-title>
                         <v-text-field
@@ -144,7 +144,7 @@
                                     </td>
                                     <td>{{ props.item.title | nullable}}</td>
                                     <td class="text-xs-right">{{ props.item.translation ? props.item.translation.title : '' | nullable}}</td>
-                                    <td>{{ props.item.subtitle | nullable}}</td>
+                                    <td v-html="props.item.subtitle"></td>
                                     <td class="text-xs-right">{{ props.item.translation ? props.item.translation.subtitle : '' | nullable}}</td>
                                     <td>{{ props.item.btn_label | nullable}}</td>
                                     <td class="text-xs-right">{{ props.item.translation ? props.item.translation.btn_label : '' | nullable}}</td>
@@ -262,27 +262,27 @@
             slider: {},
             editedIndex: -1,
             editedItem: {
-                title: '',
-                subtitle: '',
-                btn_label: '',
-                btn_link: '',
-                order: '',
+                title: null,
+                subtitle: null,
+                btn_label: null,
+                btn_link: null,
+                order: null,
                 translation: {
-                    title: '',
-                    subtitle: '',
-                    btn_label: '',
+                    title: null,
+                    subtitle: null,
+                    btn_label: null,
                 }
             },
             defaultItem: {
-                title: '',
-                subtitle: '',
-                btn_label: '',
-                btn_link: '',
-                order: '',
+                title: null,
+                subtitle: null,
+                btn_label: null,
+                btn_link: null,
+                order: null,
                 translation: {
-                    title: '',
-                    subtitle: '',
-                    btn_label: '',
+                    title: null,
+                    subtitle: null,
+                    btn_label: null,
                 }
             },
             search: '',
@@ -335,9 +335,9 @@
             editedItem(val) {
                 if (this.editedItem.translation === null) {
                     this.editedItem.translation = {};
-                    this.editedItem.translation.title = '';
-                    this.editedItem.translation.subtitle = '';
-                    this.editedItem.translation.btn_label = '';
+                    this.editedItem.translation.title = null;
+                    this.editedItem.translation.subtitle = null;
+                    this.editedItem.translation.btn_label = null;
                 }
                 this.image = this.editedItem.path_url;
             }
@@ -358,21 +358,31 @@
                 let vm = this;
                 vm.loading = true;
                 let slide = new FormData();
-                slide.set('title', vm.editedItem.title);
-                slide.set('arabicTitle', vm.editedItem.translation.title);
-                slide.set('subtitle', vm.editedItem.subtitle);
-                slide.set('arabicSubtitle', vm.editedItem.translation.subtitle);
-                slide.set('label', vm.editedItem.btn_label);
-                slide.set('arabicLabel', vm.editedItem.translation.btn_label);
-                slide.set('labelLink', vm.editedItem.btn_link);
-                slide.set('order', vm.editedItem.order);
-                slide.append('image', vm.editedItem.image);
+                Object.keys(vm.editedItem).forEach(key => {
+                    if (key === 'path_url') return;
+
+                    if (!!vm.editedItem[key]) {
+                        if (key === 'image') {
+                            slide.append(key, vm.editedItem[key]);
+                            return;
+                        }
+
+                        if (key === 'translation') {
+                            Object.keys(vm.editedItem[key]).forEach(translationKey => {
+                                if (!!vm.editedItem[key][translationKey])
+                                    slide.set(`translation[${translationKey}]`, vm.editedItem[key][translationKey]);
+                            });
+                            return;
+                        }
+                        slide.set(key, vm.editedItem[key]);
+                    }
+                });
+
                 if (vm.editedIndex > -1) {
                     let form = 'imageForm';
                     let collection = 'slider';
                     let subcollection = 'images';
-                    if (this.validate(form)) {
-                        let vm = this;
+                    if (vm.validate(form)) {
                         vm.loading = true;
                         let formSubmit = axios.post(vm.updateImageRoute + vm.editedItem.id, slide)
                             .then(res => {

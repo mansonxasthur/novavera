@@ -18,6 +18,10 @@ class CreateProjectsTable extends Migration
             $table->unsignedInteger('developer_id');
             $table->unsignedInteger('location_id')->index();
             $table->string('name');
+            $table->string('price')->nullable();
+            $table->string('down_payment')->nullable();
+            $table->string('installment_years')->nullable();
+            $table->string('delivery_date')->nullable();
             $table->longText('description');
             $table->enum('project_type', ['residential', 'commercial', 'both']);
             $table->string('lat');

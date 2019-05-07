@@ -33,6 +33,30 @@
                                                     required
                                             ></v-text-field>
                                         </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="price"
+                                                    label="Price"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="down_payment"
+                                                    label="Down Payment"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="installment_years"
+                                                    label="Installment Years"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="delivery_date"
+                                                    label="Delivery Date"
+                                            ></v-text-field>
+                                        </v-flex>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-select
                                                     v-model="selectedDeveloper"
@@ -265,25 +289,29 @@
                         text: 'Both'
                     },
                 ],
-                name: '',
-                arabicName: '',
-                description: '',
-                arabicDescription: '',
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                selectedDeveloper: '',
+                name: null,
+                arabicName: null,
+                description: null,
+                arabicDescription: null,
+                selectedDeveloper: null,
                 selectedPropertyTypes: [],
-                selectedProjectType: '',
-                selectedLocation: '',
-                lat: '',
-                lng: '',
+                selectedProjectType: null,
+                selectedLocation: null,
+                lat: null,
+                lng: null,
+                meta:null,
+                keywords: null,
+                price: null,
+                down_payment: null,
+                installment_years: null,
+                delivery_date: null,
                 previewImages: [],
                 uploadedImages: [],
                 viewImages: false,
-                meta: '',
-                keywords: '',
                 previewLogo: '',
                 uploadedLogo: {},
             }
@@ -395,8 +423,13 @@
                     let vm = this;
                     vm.loading = true;
                     let project = new FormData();
+
                     project.set('name', this.name);
                     project.set('arabicName', this.arabicName);
+                    project.set('price', this.price);
+                    project.set('down_payment', this.down_payment);
+                    project.set('installment_years', this.installment_years);
+                    project.set('delivery_date', this.delivery_date);
                     project.set('developer', this.selectedDeveloper);
                     project.set('propertyTypes', JSON.stringify(this.selectedPropertyTypes));
                     project.set('projectType', this.selectedProjectType);
@@ -411,7 +444,7 @@
                         project.append('images[]', image);
                     });
                     project.append('logo', this.uploadedLogo);
-                    axios.post('/dashboard/project', project)
+                    axios.post('/dashboard/projects', project)
                         .then(res => {
                             vm.reset(res);
                         })

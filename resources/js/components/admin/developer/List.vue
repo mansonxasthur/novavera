@@ -1,7 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <v-container>
+    <v-container fluid>
         <v-layout row wrap justify-center>
-            <v-flex xs12 sm10 md8 lg6>
+            <v-flex xs12 sm10 md8>
                 <v-card class="mt-5">
                     <v-card-title>
                         <span class="title">
@@ -133,7 +133,7 @@
             </v-flex>
         </v-layout>
         <delete-dialog
-                @confirm="confirmDelete('developers', 'slug')"
+                @confirm="confirmDelete('developers', '','slug')"
                 @closeDialog="closeDeleteDialog"
                 :loading="loading"
                 :delete-dialog="deleteDialog"

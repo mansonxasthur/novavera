@@ -33,6 +33,30 @@
                                                     required
                                             ></v-text-field>
                                         </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="project.price"
+                                                    label="Price"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="project.down_payment"
+                                                    label="Down Payment"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="project.installment_years"
+                                                    label="Installment Years"
+                                            ></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6 md3 class="my-3">
+                                            <v-text-field
+                                                    v-model="project.delivery_date"
+                                                    label="Delivery Date"
+                                            ></v-text-field>
+                                        </v-flex>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-select
                                                     v-model="selectedDeveloper"
@@ -428,6 +452,10 @@
                     let project = new FormData();
                     project.set('name', this.project.name);
                     project.set('arabicName', this.project.translation.name);
+                    project.set('price', this.project.price);
+                    project.set('down_payment', this.project.down_payment);
+                    project.set('installment_years', this.project.installment_years);
+                    project.set('delivery_date', this.project.delivery_date);
                     project.set('developer', this.selectedDeveloper);
                     project.set('propertyTypes', JSON.stringify(this.selectedPropertyTypes));
                     project.set('projectType', this.selectedProjectType);
@@ -443,7 +471,7 @@
                         project.append('images[]', image);
                     });
                     project.append('logo', this.uploadedLogo);
-                    axios.post('/dashboard/project/' + this.project.slug, project)
+                    axios.post('/dashboard/projects/' + this.project.slug, project)
                         .then(res => {
                             vm.reset(res);
                         })

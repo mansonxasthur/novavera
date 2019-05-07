@@ -49,6 +49,7 @@ trait ImageUploader
             }
             throw new \Exception('Failed to delete old image');
         }
+
         return $this->uploadImage($file);
     }
 

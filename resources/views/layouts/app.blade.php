@@ -9,8 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,9 +17,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 <body>
-    <v-app id="app">
+    <v-app id="app" v-cloak>
         <v-navigation-drawer
                 fixed
                 v-model="drawer"
@@ -46,13 +46,15 @@
                 </v-list-tile>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app fixed clipped-left color="white">
+        <v-toolbar app scroll-off-screen clipped-left color="white">
             <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
-            <v-toolbar-title>{{ config('app.name') }}</v-toolbar-title>
+            <a href="/#app" style="width: 170px">
+                <img src="{{ asset('assets/logo.svg') }}" alt="">
+            </a>
             <v-spacer></v-spacer>
 
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat>Home</v-btn>
+                <v-btn href="/#app" flat>Home</v-btn>
                 <v-menu :nudge-width="100"
                         offset-y
                         transition="slide-x-transition"
@@ -80,6 +82,31 @@
         <v-content>
             @yield('content')
         </v-content>
+
+            <v-footer
+                    height="auto"
+                    class="nova-primary-bg"
+            >
+                <v-layout
+                        justify-center
+                        row
+                        wrap
+                >
+                    <v-flex
+                            primary
+                            py-3
+                            text-xs-center
+                            white--text
+                            xs12
+                    >
+                        Copyright © 2019 Novavera<sup>®</sup> - All Rights Reserved.
+                    </v-flex>
+                </v-layout>
+            </v-footer>
+
     </v-app>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('scripts')
 </body>
 </html>

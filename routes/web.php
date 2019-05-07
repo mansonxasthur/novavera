@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 
 Auth::routes();
@@ -24,9 +22,7 @@ Route::post('/register', function () {
     abort(403);
 });
 
-/******************** admin Area ************************/
-
-
+/******************** Admin Area ************************/
 Route::prefix('dashboard')->namespace('Admin')->group(function() {
     Route::get('', 'DashboardController@index')->name('dashboard');
 
@@ -97,3 +93,8 @@ Route::prefix('dashboard')->namespace('Admin')->group(function() {
     Route::put('sliders/{slider}', 'SliderController@update')->name('admin.sliders.update');
     Route::delete('sliders/{slider}', 'SliderController@destroy')->name('admin.sliders.destroy');
 });
+
+/******************** Public Area ************************/
+
+// Projects
+Route::get('/projects/{project}', 'ProjectController@show');

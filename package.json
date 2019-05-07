@@ -25,7 +25,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",
+        "animate.css": "^3.7.0",
         "material-design-icons-iconfont": "^4.0.5",
+        "vue-infinite-slide-bar": "^1.0.8",
         "vuetify": "^1.5.13"
     }
 }
