@@ -2195,6 +2195,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Slider",
   props: {
@@ -2240,7 +2246,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fluid {\n  padding: 0;\n}\nh1, h2, h3 {\n  text-transform: uppercase;\n}\n.slide-info {\n  position: relative;\n  -webkit-margin-start: 10%;\n  -moz-margin-start: 10%;\n  border-radius: 1px;\n  max-width: 30%;\n  top: 20%;\n  color: #fff;\n  background: rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n.slide-info .v-btn {\n  -webkit-margin-start: 0;\n  -moz-margin-start: 0;\n  color: #E8DAAD;\n}", ""]);
+exports.push([module.i, ".fluid {\n  padding: 0;\n}\nh1, h2, h3 {\n  text-transform: uppercase;\n}\n.slide-info {\n  position: relative;\n  /*-webkit-margin-start: 10%;\n  -moz-margin-start: 10%;*/\n  border-radius: 1px;\n  top: 20%;\n  color: #fff;\n  background: rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n.slide-info .v-btn {\n  -webkit-margin-start: 0;\n  -moz-margin-start: 0;\n  color: #E8DAAD;\n}", ""]);
 
 // exports
 
@@ -24917,37 +24923,58 @@ var render = function() {
           }
         },
         [
-          image.title
-            ? _c(
-                "section",
-                { staticClass: "slide-info" },
+          _c(
+            "v-container",
+            { attrs: { "fill-height": "" } },
+            [
+              _c(
+                "v-layout",
                 [
-                  _c("h1", {
-                    staticClass: "display-1 mb-5 animated flipInX delay-1s",
-                    domProps: { innerHTML: _vm._s(image.title) }
-                  }),
-                  _vm._v(" "),
-                  image.subtitle
-                    ? _c("h3", {
-                        staticClass:
-                          "title mb-5 animated lightSpeedIn delay-1s",
-                        domProps: { innerHTML: _vm._s(image.subtitle) }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  image.btn_label && image.btn_link
-                    ? _c("v-btn", {
-                        staticClass:
-                          "nova-btn-primary animated fadeInUp delay-2s",
-                        attrs: { dark: "", href: image.btn_link },
-                        domProps: { textContent: _vm._s(image.btn_label) }
-                      })
-                    : _vm._e()
+                  _c("v-flex", { attrs: { xs12: "", sm8: "", md6: "" } }, [
+                    image.title
+                      ? _c(
+                          "section",
+                          { staticClass: "slide-info" },
+                          [
+                            _c("h1", {
+                              staticClass:
+                                "display-1 mb-5 animated flipInX delay-1s",
+                              domProps: { innerHTML: _vm._s(image.title) }
+                            }),
+                            _vm._v(" "),
+                            image.subtitle
+                              ? _c("h3", {
+                                  staticClass:
+                                    "title mb-5 animated lightSpeedIn delay-1s",
+                                  domProps: {
+                                    innerHTML: _vm._s(image.subtitle)
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            image.btn_label && image.btn_link
+                              ? _c("v-btn", {
+                                  staticClass:
+                                    "nova-btn-primary animated fadeInUp delay-2s",
+                                  attrs: { dark: "", href: image.btn_link },
+                                  domProps: {
+                                    textContent: _vm._s(image.btn_label)
+                                  }
+                                })
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ])
                 ],
                 1
               )
-            : _vm._e()
-        ]
+            ],
+            1
+          )
+        ],
+        1
       )
     }),
     1

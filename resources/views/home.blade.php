@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/flaticon/flaticon.css') }}"
-          xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+          xmlns:v-slot="http://www.w3.org/1999/XSL/Transform" xmlns:v-slot="">
     <style>
         [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
             font-family: Flaticon, serif;
@@ -64,10 +64,24 @@
             color: #14152E
         }
         .service_box  p{
-            color:#14152E;
+            color:#14152E!important;
             margin:0;
             opacity:0;
             transition: all 0.30s linear 0s;
+        }
+        @media (max-width: 600px) {
+            .service_box  p{
+                opacity:1;
+            }
+
+            .service_box h3{
+                top:-40px;
+                color: #14152E
+            }
+
+            .service_box .service_icon{
+                transform: translateY(-100%);
+            }
         }
         .service_box:hover p{
             opacity:1;
@@ -150,13 +164,13 @@
                             <v-flex>
                                 <v-layout justify-center>
                                     <v-flex shrink class="mt-0 grey lighten-5 py-3 px-4">
-                                        <h3 class="black--text lighten-2">Worldwide</h3>
+                                        <h3 class="black--text lighten-2 text-xs-center">Worldwide</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="pt-4">
                                 <v-layout column align-center>
-                                    <v-flex shrink class="pb-3"><h2>CITIZENSHIP & RESIDENCY</h2></v-flex>
+                                    <v-flex shrink class="pb-3 text-xs-center"><h2>CITIZENSHIP & RESIDENCY</h2></v-flex>
                                     <v-flex shrink
                                             class="red darken-2"
                                             style="height: 3px; width: 50px">
@@ -172,7 +186,7 @@
                             </v-flex>
                             <v-flex grow>
                                 <v-layout row wrap class="text-xs-center">
-                                    <v-flex xs12 md6 class="pa-5">
+                                    <v-flex xs12 md6 class="pa-5 text-xs-center">
                                         <h2 class="headline">Citizenship</h2>
                                         <v-layout></v-layout>
                                     </v-flex>
@@ -201,13 +215,13 @@
                     <v-flex>
                         <v-layout justify-center>
                             <v-flex shrink class="mt-0 white py-3 px-4">
-                                <h3 class="black--text lighten-2">Worldwide</h3>
+                                <h3 class="black--text lighten-2 text-xs-center">Worldwide</h3>
                             </v-flex>
                         </v-layout>
                     </v-flex>
                     <v-flex shrink class="pt-4">
                         <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1">CITIZENSHIP & RESIDENCY</h2></v-flex>
+                            <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">CITIZENSHIP & RESIDENCY</h2></v-flex>
                             <v-flex shrink
                                     class="red darken-2"
                                     style="height: 3px; width: 50px">
@@ -339,7 +353,7 @@
             <v-flex xs12 my-5>
                 <section id="free-consultation">
                     <v-layout column align-center>
-                        <v-flex shrink class="py-3" dark>
+                        <v-flex shrink class="py-3 text-xs-center" dark>
                             <h1 class="display-1">Free Consultation?</h1>
                         </v-flex>
                         <v-flex shrink>
@@ -402,7 +416,7 @@
             <v-flex xs12 my-5>
                 <section id="our-offices">
                     <v-layout column align-center>
-                        <v-flex shrink class="py-3">
+                        <v-flex shrink class="py-3 text-xs-center">
                             <h1 class="display-1">Worldwide Offices</h1>
                         </v-flex>
                         <v-flex shrink
@@ -411,7 +425,7 @@
                         </v-flex>
                     </v-layout>
                     <v-layout row wrap>
-                        <v-flex xs12 sm6 md3>
+                        <v-flex xs12 sm6 md3 mb-3>
                             <v-layout column>
                                 <v-flex>
                                     <v-img src="{{ asset('assets/img/office/vienna.webp') }}"
@@ -426,7 +440,7 @@
                                 </v-flex>
                             </v-layout>
                         </v-flex>
-                        <v-flex xs12 sm6 md3>
+                        <v-flex xs12 sm6 md3 mb-3>
                             <v-layout column>
                                 <v-flex>
                                     <v-img src="{{ asset('assets/img/office/linz.webp') }}" alt="Linz Office"
@@ -441,7 +455,7 @@
                                 </v-flex>
                             </v-layout>
                         </v-flex>
-                        <v-flex xs12 sm6 md3>
+                        <v-flex xs12 sm6 md3 mb-3>
                             <v-layout column>
                                 <v-flex>
                                     <v-img src="{{ asset('assets/img/office/hungary.webp') }}"
@@ -456,7 +470,7 @@
                                 </v-flex>
                             </v-layout>
                         </v-flex>
-                        <v-flex xs12 sm6 md3>
+                        <v-flex xs12 sm6 md3 mb-3>
                             <v-layout column>
                                 <v-flex>
                                     <v-img src="{{ asset('assets/img/office/capital.webp') }}"
