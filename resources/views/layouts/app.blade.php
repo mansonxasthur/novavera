@@ -70,6 +70,11 @@
                         <v-list-tile>
                             <v-list-tile-title>Residential Projects</v-list-tile-title>
                         </v-list-tile>
+                        <v-list-tile>
+                            <v-list-tile-title>
+                                <v-btn flat href="{{ route('developers.index') }}"></v-btn>
+                            </v-list-tile-title>
+                        </v-list-tile>
                     </v-list>
                 </v-menu>
 

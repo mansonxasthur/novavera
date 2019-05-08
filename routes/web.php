@@ -100,5 +100,5 @@ Route::prefix('dashboard')->namespace('Admin')->group(function() {
 Route::get('/projects/{project}', 'ProjectController@show');
 
 // Developers
-Route::get('/developers', 'DeveloperController@index');
-Route::get('/developers/{developer}', 'DeveloperController@show');
+Route::get('/developers', 'DeveloperController@index')->name('developers.index');
+Route::get('/developers/{developer}', 'DeveloperController@show')->name('developers.show');
