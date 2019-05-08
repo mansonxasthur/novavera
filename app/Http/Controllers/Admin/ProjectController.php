@@ -15,7 +15,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        return view('admin.project.index')->with(['projects' => Project::all()]);
+        return view('admin.project.index')->with(['projects' => Project::with('developer', 'locations')->get()]);
     }
 
     public function create()
