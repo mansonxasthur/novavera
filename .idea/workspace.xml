@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Slider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Slider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,15 +101,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="442" column="49" selection-start-line="442" selection-start-column="49" selection-end-line="442" selection-end-column="49" />
-              <caret line="457" column="49" selection-start-line="457" selection-start-column="49" selection-end-line="457" selection-end-column="49" />
-              <caret line="427" column="49" selection-start-line="427" selection-start-column="49" selection-end-line="427" selection-end-column="49" />
-              <caret line="472" column="49" selection-start-line="472" selection-start-column="49" selection-end-line="472" selection-end-column="49" />
+            <state relative-caret-position="736">
+              <caret line="586" column="82" selection-start-line="586" selection-start-column="82" selection-end-line="586" selection-end-column="82" />
+              <caret line="601" column="82" selection-start-line="601" selection-start-column="82" selection-end-line="601" selection-end-column="82" />
+              <caret line="613" column="82" selection-start-line="613" selection-start-column="82" selection-end-line="613" selection-end-column="82" />
               <folding>
                 <element signature="e#3294#3326#0#HTML" expanded="true" />
                 <element signature="e#17647#20138#0#HTML" />
                 <element signature="e#20635#20667#0#HTML" expanded="true" />
+                <element signature="e#24830#30341#0#HTML" />
+                <element signature="e#31586#32418#0#HTML" />
+                <element signature="e#31659#32276#0#HTML" />
+                <element signature="e#31757#32208#0#HTML" />
+                <element signature="e#32685#33430#0#HTML" />
+                <element signature="e#32766#33274#0#HTML" />
+                <element signature="e#32871#33198#0#HTML" />
+                <element signature="e#33683#34450#0#HTML" />
+                <element signature="e#33764#34294#0#HTML" />
+                <element signature="e#33869#34218#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -339,7 +343,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="66" />
     <option name="y" value="309" />
     <option name="width" value="1883" />
@@ -482,12 +486,12 @@
       <workItem from="1557240612179" duration="753000" />
       <workItem from="1557241389450" duration="7572000" />
       <workItem from="1557265257447" duration="1633000" />
-      <workItem from="1557323357872" duration="6530000" />
+      <workItem from="1557323357872" duration="9559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296172000" />
+    <option name="totallyTimeSpent" value="299201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -956,15 +960,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="442" column="49" selection-start-line="442" selection-start-column="49" selection-end-line="442" selection-end-column="49" />
-          <caret line="457" column="49" selection-start-line="457" selection-start-column="49" selection-end-line="457" selection-end-column="49" />
-          <caret line="427" column="49" selection-start-line="427" selection-start-column="49" selection-end-line="427" selection-end-column="49" />
-          <caret line="472" column="49" selection-start-line="472" selection-start-column="49" selection-end-line="472" selection-end-column="49" />
+        <state relative-caret-position="736">
+          <caret line="586" column="82" selection-start-line="586" selection-start-column="82" selection-end-line="586" selection-end-column="82" />
+          <caret line="601" column="82" selection-start-line="601" selection-start-column="82" selection-end-line="601" selection-end-column="82" />
+          <caret line="613" column="82" selection-start-line="613" selection-start-column="82" selection-end-line="613" selection-end-column="82" />
           <folding>
             <element signature="e#3294#3326#0#HTML" expanded="true" />
             <element signature="e#17647#20138#0#HTML" />
             <element signature="e#20635#20667#0#HTML" expanded="true" />
+            <element signature="e#24830#30341#0#HTML" />
+            <element signature="e#31586#32418#0#HTML" />
+            <element signature="e#31659#32276#0#HTML" />
+            <element signature="e#31757#32208#0#HTML" />
+            <element signature="e#32685#33430#0#HTML" />
+            <element signature="e#32766#33274#0#HTML" />
+            <element signature="e#32871#33198#0#HTML" />
+            <element signature="e#33683#34450#0#HTML" />
+            <element signature="e#33764#34294#0#HTML" />
+            <element signature="e#33869#34218#0#HTML" />
           </folding>
         </state>
       </provider>

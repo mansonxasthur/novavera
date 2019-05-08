@@ -501,7 +501,7 @@
                         </v-flex>
                     </v-layout>
                     <v-flex>
-                        <v-container>
+                        <v-container fluid>
                             <v-layout row wrap>
                                 <v-flex xs12 lg8 pa-2>
                                     <v-card flat>
@@ -582,42 +582,47 @@
                                                     <v-icon large>location_on</v-icon>
                                                     Our office
                                                 </h2>
-                                                <address class="subheading">
-                                                    <v-tooltip left>
-                                                        <template v-slot:activator="{ on }">
-                                                            <v-btn v-on="on" flat flat>Cairo</v-btn>
-                                                        </template>
-                                                        <span>City</span>
-                                                    </v-tooltip>
-                                                    <v-tooltip left>
-                                                        <template v-slot:activator="{ on }">
-                                                            <v-btn href="https://goo.gl/maps/4y74kX6UDg5We5Ud7"
-                                                                   target="_blank" role="link" v-on="on" flat>
-                                                                Capital Business Park, Sheikh Zayed
-                                                                Building 6 , Office 314
-                                                            </v-btn>
-                                                        </template>
-                                                        <span>Address</span>
-                                                    </v-tooltip>
-                                                    <v-tooltip left>
-                                                        <template v-slot:activator="{ on }">
-                                                            <v-btn href="tel:+201019699911" role="tel" v-on="on" flat>
-                                                                (+20) 1019699911
-                                                            </v-btn>
-                                                        </template>
-                                                        <span>Phone</span>
-                                                    </v-tooltip>
-                                                </address>
-                                                <address class="subheading">
-                                                    <v-tooltip left>
-                                                        <template v-slot:activator="{ on }">
-                                                            <v-btn href="mailto:realestate@novavera.com" role="email"
-                                                                   v-on="on" flat>realestate@novavera.com
-                                                            </v-btn>
-                                                        </template>
-                                                        <span>Email</span>
-                                                    </v-tooltip>
-                                                </address>
+
+                                                <v-layout column>
+                                                    <v-flex class="subheading py-2">
+                                                        <address>
+                                                            <v-tooltip left>
+                                                            <template v-slot:activator="{ on }">
+
+                                                                <a href="https://goo.gl/maps/4y74kX6UDg5We5Ud7" target="_blank" role="link" v-on="on"
+                                                                   style="text-decoration: none; color:inherit">
+                                                                    Cairo, Capital Business Park, Sheikh Zayed
+                                                                    Building 6 , Office 314
+                                                                </a>
+                                                            </template>
+                                                            <span>Address</span>
+                                                        </v-tooltip>
+                                                        </address>
+                                                    </v-flex>
+                                                    <v-flex class="subheading py-2">
+                                                        <v-tooltip left>
+                                                            <template v-slot:activator="{ on }">
+                                                                <a href="tel:+201019699911" role="tel" v-on="on"
+                                                                   style="text-decoration: none; color:inherit">
+                                                                    (+20) 1019699911
+                                                                </a>
+                                                            </template>
+                                                            <span>Phone</span>
+                                                        </v-tooltip>
+
+                                                    </v-flex>
+                                                    <v-flex class="subheading py-2">
+                                                        <v-tooltip left>
+                                                            <template v-slot:activator="{ on }">
+                                                                <a href="mailto:realestate@novavera.com" role="email" v-on="on"
+                                                                   style="text-decoration: none; color:inherit">
+                                                                    realestate@novavera.com
+                                                                </a>
+                                                            </template>
+                                                            <span>Email</span>
+                                                        </v-tooltip>
+                                                    </v-flex>
+                                                </v-layout>
                                             </v-flex>
                                         </v-card-text>
                                     </v-card>
