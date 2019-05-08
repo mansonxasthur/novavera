@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +55,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="17" column="100" lean-forward="true" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
+            <state relative-caret-position="528">
+              <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/List.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+              <folding>
+                <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-icon#0;n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-icon#0;n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-btn#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,7 +162,6 @@
         <option value="$PROJECT_DIR$/resources/js/components/Slider.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/DeveloperCarousel.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/project/Create.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/developer/List.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/slider/List.vue" />
@@ -165,6 +186,7 @@
         <option value="$PROJECT_DIR$/resources/views/developer/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/Developer.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" />
       </list>
     </option>
   </component>
@@ -253,7 +275,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="66" />
     <option name="y" value="309" />
     <option name="width" value="1883" />
@@ -396,12 +418,12 @@
       <workItem from="1557240612179" duration="753000" />
       <workItem from="1557241389450" duration="7572000" />
       <workItem from="1557265257447" duration="1633000" />
-      <workItem from="1557323357872" duration="1950000" />
+      <workItem from="1557323357872" duration="2036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291592000" />
+    <option name="totallyTimeSpent" value="291678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -569,29 +591,6 @@
           <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#v-flex#1;n#v-layout#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/List.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-          <folding>
-            <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-icon#0;n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-icon#0;n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="e#4110#5246#0" />
-            <element signature="n#style#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -903,8 +902,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="17" column="100" lean-forward="true" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
+        <state relative-caret-position="528">
+          <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/List.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+          <folding>
+            <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

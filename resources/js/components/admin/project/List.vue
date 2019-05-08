@@ -34,7 +34,7 @@
                                 <td>{{ props.item.location.name }}</td>
                                 <td>{{ props.item.project_type | capitalize }}</td>
                                 <td class="text-xs-center">
-                                    <a :href="'/dashboard/project/' + props.item.slug + '/edit'">
+                                    <a :href="'/dashboard/projects/' + props.item.slug + '/edit'">
                                         <v-btn flat small fab>
                                             <v-icon
                                                     small

@@ -33841,7 +33841,7 @@ var render = function() {
                                       {
                                         attrs: {
                                           href:
-                                            "/dashboard/project/" +
+                                            "/dashboard/projects/" +
                                             props.item.slug +
                                             "/edit"
                                         }
