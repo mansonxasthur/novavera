@@ -115,6 +115,7 @@
                                     v-model="name"
                                     required
                                     autocomplete="name"
+                                    color="primary"
                                 >
                                 </v-text-field>
                             </v-flex>
@@ -126,6 +127,7 @@
                                         v-model="email"
                                         required
                                         autocomplete="email"
+                                        color="primary"
                                 >
                                 </v-text-field>
                             </v-flex>
@@ -135,6 +137,7 @@
                                         prepend-icon="message"
                                         v-model="message"
                                         required
+                                        color="primary"
                                 >
 
                                 </v-textarea>

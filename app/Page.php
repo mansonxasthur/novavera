@@ -4,6 +4,7 @@ namespace App;
 
 use App\Traits\ImageUploader;
 use App\Traits\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -51,6 +52,11 @@ class Page extends Model
         return $slug;
     }
 
+    public function path()
+    {
+        return '/p/' . $this->slug;
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -59,5 +65,10 @@ class Page extends Model
     public function getHeaderUrlAttribute()
     {
         return $this->getImageUrl($this->header);
+    }
+
+    public function scopePublished(Builder $builder)
+    {
+        return $builder->where('published', true);
     }
 }

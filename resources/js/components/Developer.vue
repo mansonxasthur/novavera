@@ -6,9 +6,9 @@
                     <v-flex xs12>
                         <h2 class="display-1 developer-name pl-3">{{ developer.name }}</h2>
                     </v-flex>
-                    <v-flex xs12 sm3>
-                        <v-layout column>
-                            <v-flex text-xs-center my-5 class="developer">
+                    <v-flex xs12 sm3 class="developer">
+                        <v-layout column align-center justify-center>
+                            <v-flex text-xs-center my-5>
                                 <v-card flat hover>
                                     <v-card-text>
                                         <img :src="developer.logo_url" :alt="developer.name" class="developer-image">
@@ -27,13 +27,13 @@
                     <v-flex pa-5>
                         <h2 class="display-1 developer-name pl-3">Projects</h2>
                     </v-flex>
-                    <v-flex>
+                    <v-flex v-if="projects.length">
                         <v-layout column align-center>
                             <v-flex shrink>
                                 <v-toolbar dense flat color="white">
                                     <v-toolbar-items>
-                                        <v-btn flat @click="all()">All</v-btn>
-                                        <v-btn flat v-for="location in locations" :key="location.id"
+                                        <v-btn class="text-capitalize font-weight-bold" flat @click="all()">All</v-btn>
+                                        <v-btn class="text-capitalize font-weight-bold" flat v-for="location in locations" :key="location.id"
                                                @click="projectsOf(location)">{{ location.name }}
                                         </v-btn>
                                     </v-toolbar-items>
@@ -41,9 +41,16 @@
                             </v-flex>
                         </v-layout>
                     </v-flex>
+                    <v-flex v-else>
+                        <v-layout column align-center justify-center>
+                            <v-flex>
+                                <div class="display-1 grey--text text--darken-1">This developer doesn't have projects yet</div>
+                            </v-flex>
+                        </v-layout>
+                    </v-flex>
                     <v-flex mt-4>
                         <v-layout row wrap>
-                            <v-flex xs12 sm6 md3 v-for="project in projects" :key="project.id" class="animated zoomIn faster">
+                            <v-flex xs12 sm6 md4 lg3 v-for="project in projects" :key="project.id" class="animated zoomIn faster">
                                 <a :href="'/projects/' + project.slug" style="text-decoration: none; color: inherit;">
                                     <v-img :src="projectImage(project)" :alt="project.name">
                                         <v-layout fill-height column align-center justify-center class="project-image">

@@ -16,12 +16,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        a.sub-menu {
+            text-decoration: none; color: inherit;
+        }
+    </style>
     @stack('styles')
 </head>
 <body>
 <v-app id="app" v-cloak>
     <v-navigation-drawer
             fixed
+            disable-resize-watcher
             v-model="drawer"
             app
             class="hidden-sm-and-up"
@@ -53,24 +59,25 @@
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn href="/#app" flat>Home</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" href="/#app" flat>Home</v-btn>
             <v-menu :nudge-width="100"
                     offset-y
                     transition="slide-x-transition"
             >
                 <template v-slot:activator="{ on }">
-                    <v-btn flat v-on="on">
+                    <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
                         <span>Real State Brokerage</span>
                         <v-icon>arrow_drop_down</v-icon>
                     </v-btn>
                 </template>
 
                 <v-list>
-                    <v-list-tile>
-                        <v-list-tile-title>Residential Projects</v-list-tile-title>
-                    </v-list-tile>
-
-                    <a href="{{ route('developers.index') }}" style="text-decoration: none; color: inherit">
+                    <a href="" class="sub-menu">
+                        <v-list-tile>
+                            <v-list-tile-title>Residential Projects</v-list-tile-title>
+                        </v-list-tile>
+                    </a>
+                    <a href="{{ route('developers.index') }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>Developers</v-list-tile-title>
                         </v-list-tile>
@@ -80,10 +87,14 @@
                 </v-list>
             </v-menu>
 
-            <v-btn flat>Citizenship & Residency</v-btn>
-            <v-btn flat>About</v-btn>
-            <v-btn flat>Contact</v-btn>
-            <v-btn flat>Become a Partner</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" flat>Citizenship & Residency</v-btn>
+            @if($pages->count())
+                @foreach($pages as $page)
+                    <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ $page->path() }}">{{ $page->title }}</v-btn>
+                @endforeach
+            @endif
+            <v-btn class="text-capitalize font-weight-bold subheading" flat>Contact</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-content>

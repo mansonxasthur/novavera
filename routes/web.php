@@ -23,7 +23,7 @@ Route::post('/register', function () {
 });
 
 /******************** Admin Area ************************/
-Route::prefix('dashboard')->namespace('Admin')->group(function() {
+Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(function() {
     Route::get('', 'DashboardController@index')->name('dashboard');
 
     // Locations
@@ -102,3 +102,6 @@ Route::get('/projects/{project}', 'ProjectController@show');
 // Developers
 Route::get('/developers', 'DeveloperController@index')->name('developers.index');
 Route::get('/developers/{developer}', 'DeveloperController@show')->name('developers.show');
+
+// Pages
+Route::get('/p/{page}', 'PageController@show')->name('pages.show');

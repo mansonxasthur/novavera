@@ -31,6 +31,7 @@ Vue.component('developer-carousel', require('./components/DeveloperCarousel').de
 Vue.component('project', require('./components/Project').default);
 Vue.component('developers', require('./components/Developers').default);
 Vue.component('developer', require('./components/Developer').default);
+Vue.component('page', require('./components/Page').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

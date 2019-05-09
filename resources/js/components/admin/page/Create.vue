@@ -217,7 +217,7 @@
                     page.set('arabicBody', this.arabicBody);
                     page.set('meta', this.meta);
                     page.set('keywords', this.keywords);
-                    page.set('style', this.style);
+                    page.append('style', this.style);
                     page.append('header', this.uploadedHeader);
                     axios.post('/dashboard/pages', page)
                         .then(res => {

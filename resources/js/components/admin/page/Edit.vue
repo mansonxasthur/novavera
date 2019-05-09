@@ -140,20 +140,12 @@
             return {
                 loading: false,
                 page: {},
-                title: '',
-                arabicTitle: '',
-                body: '',
-                arabicBody: '',
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                meta: '',
-                keywords: '',
-                style: '',
                 previewHeader: '',
                 uploadedHeader: {},
-                selectedTags: [],
             }
         },
         created() {
@@ -234,7 +226,7 @@
                     page.set('arabicBody', this.page.translation.body);
                     page.set('meta', this.page.meta);
                     page.set('keywords', this.page.keywords);
-                    page.set('style', this.page.style);
+                    page.append('style', this.page.style);
                     page.append('header', this.uploadedHeader);
                     axios.post('/dashboard/pages/' + this.page.slug, page)
                         .then(res => {

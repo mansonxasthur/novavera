@@ -27,7 +27,6 @@
             min-height: 380px;
         }
 
-
         .service_box:hover{
             background: #fff;
         }

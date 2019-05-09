@@ -2,24 +2,23 @@
     <v-container>
         <v-layout>
             <v-flex>
-                <h2 class="display-1 novadev-title pl-3">NOVAVERA DEVELOPERS</h2>
-                <v-layout row wrap py-5>
-                    <v-flex xs6 sm4 md3 lg2
-                            pa-2
-                            text-xs-center
-                            v-for="developer in developers" :key="developer.id">
-
-                        <a :href="path(developer)" class="developer-path">
-                            <v-card flat hover>
-                                <v-card-text>
-                                    <img :src="developer.logo_url" :alt="developer.name" height="150px">
-
-                                    <h5 class="title mt-3" v-text="developer.name"></h5>
-                                </v-card-text>
-                            </v-card>
-                        </a>
-                    </v-flex>
-                </v-layout>
+                <h2 class="display-1 novadev-title px-3">NOVAVERA DEVELOPERS</h2>
+                <v-container grid-list-md>
+                    <v-layout row wrap py-5>
+                        <v-flex xs6 sm4 md3 lg2
+                                text-xs-center
+                                v-for="developer in developers" :key="developer.id">
+                            <a :href="path(developer)" class="developer-path">
+                                <v-card flat hover>
+                                    <v-card-text>
+                                        <img :src="developer.logo_url" :alt="developer.name" class="developer-img">
+                                        <h5 class="title mt-3" v-text="developer.name"></h5>
+                                    </v-card-text>
+                                </v-card>
+                            </a>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
             </v-flex>
         </v-layout>
     </v-container>
@@ -48,4 +47,5 @@
     }
 
     a.developer-path {text-decoration: none}
+    .developer-img {max-height: 100px; max-width: 100%}
 </style>
