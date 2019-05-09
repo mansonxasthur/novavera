@@ -1,15 +1,17 @@
 <template>
-    <v-container>
+    <v-container fluid>
         <v-layout column>
-            <v-flex>
-                <h2 class="display-1 developer-name pl-3">{{ developer.name }}</h2>
+            <v-flex pa-5>
                 <v-layout row wrap>
+                    <v-flex xs12>
+                        <h2 class="display-1 developer-name pl-3">{{ developer.name }}</h2>
+                    </v-flex>
                     <v-flex xs12 sm3>
                         <v-layout column>
                             <v-flex text-xs-center my-5 class="developer">
                                 <v-card flat hover>
                                     <v-card-text>
-                                        <img :src="developer.logo_url" :alt="developer.name" height="170px">
+                                        <img :src="developer.logo_url" :alt="developer.name" class="developer-image">
                                     </v-card-text>
                                 </v-card>
                             </v-flex>
@@ -20,8 +22,41 @@
                     </v-flex>
                 </v-layout>
             </v-flex>
-            <v-flex my-5>
-                <h2 class="display-1 developer-name pl-3">Projects</h2>
+            <v-flex mt-5>
+                <v-layout column>
+                    <v-flex pa-5>
+                        <h2 class="display-1 developer-name pl-3">Projects</h2>
+                    </v-flex>
+                    <v-flex>
+                        <v-layout column align-center>
+                            <v-flex shrink>
+                                <v-toolbar dense flat color="white">
+                                    <v-toolbar-items>
+                                        <v-btn flat @click="all()">All</v-btn>
+                                        <v-btn flat v-for="location in locations" :key="location.id"
+                                               @click="projectsOf(location)">{{ location.name }}
+                                        </v-btn>
+                                    </v-toolbar-items>
+                                </v-toolbar>
+                            </v-flex>
+                        </v-layout>
+                    </v-flex>
+                    <v-flex mt-4>
+                        <v-layout row wrap>
+                            <v-flex xs12 sm6 md3 v-for="project in projects" :key="project.id" class="animated zoomIn faster">
+                                <a :href="'/projects/' + project.slug" style="text-decoration: none; color: inherit;">
+                                    <v-img :src="projectImage(project)" :alt="project.name">
+                                        <v-layout fill-height column align-center justify-center class="project-image">
+                                            <v-flex shrink>
+                                                <h4 class="headline white--text">{{ project.name }}</h4>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-img>
+                                </a>
+                            </v-flex>
+                        </v-layout>
+                    </v-flex>
+                </v-layout>
             </v-flex>
         </v-layout>
     </v-container>
@@ -38,17 +73,63 @@
             locations: {
                 required: true,
                 type: Array,
+            },
+        },
+        data() {
+            return {
+                projects: [],
+                allProjects: [],
+            }
+        },
+        mounted() {
+            this.locations.map(location => {
+                Array.prototype.push.apply(this.allProjects, location.projects);
+            });
+            this.all();
+        },
+        methods: {
+            all() {
+                this.projects = this.allProjects;
+            },
+            projectsOf(location) {
+                this.projects = location.projects;
+            },
+            projectImage(project) {
+                try {
+                    if (project.images.length) {
+                        let images = project.images;
+
+                        if (images.length) {
+                            return images[0].image_url;
+                        }
+                    }
+                    return '';
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     }
 </script>
 
 <style scoped>
+    .fluid {
+        padding: 0;
+    }
+
     .developer-name {
         border-left: 3px #cc0000 solid;
     }
 
     .developer {
         border-right: 3px #14152E solid;
+    }
+
+    .developer-image {
+        max-height: 170px;
+    }
+
+    .project-image {
+        background: rgba(20, 21, 46, 0.6);
     }
 </style>
