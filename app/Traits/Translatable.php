@@ -24,40 +24,6 @@ trait Translatable
     }
 
     /**
-     * Check if the called eloquent model has translations
-     * or the fallback locale
-     *
-     * @return bool
-     */
-    private function hasTranslation(): bool
-    {
-        return $this->translation()->first() !== null;
-    }
-
-    /**
-     * Getter for called eloquent model translation attributes
-     *
-     * @param $name
-     * @return mixed
-     */
-    /*public function __get($name)
-    {
-        if (app()->getLocale() === $this->defaultLocale) {
-            if (in_array($name, $this->translationAttributes)) {
-                if ($this->hasTranslation()) {
-                    return $this->translation()->first()->$name;
-                }
-            }
-        }
-
-        if (isset($this->attributes[$name])) {
-            return $this->attributes[$name];
-        }
-
-        return null;
-    }*/
-
-    /**
      * @param array $translations
      * @param string $locale
      * @return void
