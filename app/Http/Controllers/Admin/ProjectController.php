@@ -10,6 +10,8 @@ use App\Location;
 use App\Project;
 use App\PropertyType;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Input;
 
 class ProjectController extends Controller
 {
@@ -30,36 +32,41 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'              => 'required',
-            'arabicName'        => 'required',
-            'developer'         => 'required',
-            'propertyTypes'     => 'required',
-            'projectType'       => 'required',
-            'location'          => 'required',
-            'lat'               => 'required',
-            'lng'               => 'required',
-            'description'       => 'required',
-            'arabicDescription' => 'required'
+            'name'                    => 'required',
+            'developer'               => 'required',
+            'propertyTypes'           => 'required',
+            'projectType'             => 'required',
+            'location'                => 'required',
+            'lat'                     => 'required',
+            'lng'                     => 'required',
+            'description'             => 'required',
+            'translation.name'        => 'required',
+            'translation.description' => 'required'
         ]);
 
         try {
             $project = Project::installation($request);
 
             $project->addTranslation([
-                'name'        => $request->arabicName,
-                'description' => $request->arabicDescription,
+                'name'        => $request->translation['name'],
+                'description' => $request->translation['description'],
             ]);
 
-            $uploadedImages = $request->images;
+            if ($request->has('images')) {
+                $uploadedImages = $request->images;
 
-            if (!empty($uploadedImages)) {
-                $images = [];
-                foreach ($uploadedImages as $image) {
-                    $images[] = ['path' => $project->uploadImage($image)];
+                if (is_array($uploadedImages) && !empty($uploadedImages)) {
+                    $images = [];
+                    foreach ($uploadedImages as $image) {
+                        if ($image->isValid()) {
+                            $images[] = ['path' => $project->uploadImage($image)];
+                        }
+                    }
+
+                    $project->images()->createMany($images);
                 }
-
-                $project->images()->createMany($images);
             }
+
 
             $propertyTypes = json_decode($request->propertyTypes);
             if (!empty($propertyTypes)) {
@@ -95,34 +102,40 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'name'              => 'required',
-            'arabicName'        => 'required',
-            'developer'         => 'required',
-            'propertyTypes'     => 'required',
-            'projectType'       => 'required',
-            'location'          => 'required',
-            'lat'               => 'required',
-            'lng'               => 'required',
-            'description'       => 'required',
-            'arabicDescription' => 'required'
+            'name'                    => 'required',
+            'developer'               => 'required',
+            'propertyTypes'           => 'required',
+            'projectType'             => 'required',
+            'location'                => 'required',
+            'lat'                     => 'required',
+            'lng'                     => 'required',
+            'description'             => 'required',
+            'translation.name'        => 'required',
+            'translation.description' => 'required'
         ]);
 
         try {
             if ($project->updateInstallation($request)) {
                 $project->updateTranslation([
-                    'name'        => $request->arabicName,
-                    'description' => $request->arabicDescription,
+                    'name'        => $request->translation['name'],
+                    'description' => $request->translation['description'],
                 ]);
 
-                $uploadedImages = $request->images;
-                if (!empty($uploadedImages)) {
-                    $images = [];
-                    foreach ($uploadedImages as $image) {
-                        $images[] = ['path' => $project->uploadImage($image)];
-                    }
+                if ($request->has('images')) {
+                    $uploadedImages = $request->images;
 
-                    $project->images()->createMany($images);
+                    if (is_array($uploadedImages) && !empty($uploadedImages)) {
+                        $images = [];
+                        foreach ($uploadedImages as $image) {
+                            if ($image->isValid()) {
+                                $images[] = ['path' => $project->uploadImage($image)];
+                            }
+                        }
+
+                        $project->images()->createMany($images);
+                    }
                 }
+
 
                 $propertyTypes = json_decode($request->propertyTypes);
                 if (!empty($propertyTypes)) {

@@ -6,6 +6,7 @@ use App\Traits\ImageUploader;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class Page extends Model
@@ -70,5 +71,37 @@ class Page extends Model
     public function scopePublished(Builder $builder)
     {
         return $builder->where('published', true);
+    }
+
+    public static function installation(Request $request): Page
+    {
+        $page = new static();
+
+        $page->slug = $page->title = $request->title;
+        $page->body = $request->body;
+        $page->meta = $request->meta;
+        $page->keywords = $request->keywords;
+        $page->style = $request->style;
+
+        if ($request->hasFile('header')) {
+            $page->header = $page->uploadImage($request->header);
+        }
+        $page->save();
+
+        return $page;
+    }
+
+    public function updateInstallation(Request $request): bool
+    {
+        $this->slug = $this->title = $request->title;
+        $this->body = $request->body;
+        $this->meta = $request->meta;
+        $this->keywords = $request->keywords;
+        $this->style = $request->style;
+        if ($request->hasFile('header')) {
+            $this->header = $this->updateImage($request->header, $this->header);
+        }
+
+        return $this->save();
     }
 }

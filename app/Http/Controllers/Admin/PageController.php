@@ -19,31 +19,23 @@ class PageController extends Controller
         return view('admin.page.create');
     }
 
-    public function store(Request $request, Page $page)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'arabicTitle' => 'required',
             'body' => 'required',
-            'arabicBody' => 'required',
+            'translation.title' => 'required',
+            'translation.body' => 'required',
             'header' => 'required|image|mimes:png,jpg,jpeg,webp,svg|max:5000'
         ]);
 
         try {
-            $page->title = $request->title;
-            $page->slug = $request->title;
-            $page->body = $request->body;
-            $page->meta = $request->meta;
-            $page->keywords = $request->keywords;
-            $page->style = $request->style;
-            if ($request->hasFile('header')) {
-                $page->header = $page->uploadImage($request->header);
-            }
-            $page->save();
+
+            $page = Page::installation($request);
 
             $page->addTranslation([
-                'title' => $request->arabicTitle,
-                'body' => $request->arabicBody,
+                'title' => $request->translation['title'],
+                'body' => $request->translation['body'],
             ]);
 
             return response()->json(['message' => 'Success'], 201);
@@ -65,26 +57,19 @@ class PageController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'arabicTitle' => 'required',
             'body' => 'required',
-            'arabicBody' => 'required',
+            'translation.title' => 'required',
+            'translation.body' => 'required',
         ]);
 
         try {
-            $page->title = $request->title;
-            $page->slug = $request->title;
-            $page->body = $request->body;
-            $page->meta = $request->meta;
-            $page->keywords = $request->keywords;
-            $page->style = $request->style;
-            if ($request->hasFile('header')) {
-                $page->header = $page->updateImage($request->header, $page->header);
+            if ($page->updateInstallation($request)) {
+                $page->updateTranslation([
+                    'title' => $request->translation['title'],
+                    'body' => $request->translation['body'],
+                ]);
             }
-            $page->save();
-            $page->updateTranslation([
-                'title' => $request->arabicTitle,
-                'body' => $request->arabicBody,
-            ]);
+
 
             return response()->json(['message' => 'Success'], 200);
         } catch (\Exception $e) {

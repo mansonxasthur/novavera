@@ -17,7 +17,7 @@
                                     <v-layout row wrap>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="title"
+                                                    v-model="post.title"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="Title"
@@ -26,7 +26,7 @@
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="arabicTitle"
+                                                    v-model="post.translation.title"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="العنوان"
@@ -89,19 +89,19 @@
                                             <v-layout row wrap>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="meta"
+                                                            v-model="post.meta"
                                                             label="Meta Description"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="keywords"
+                                                            v-model="post.keywords"
                                                             label="Keywords"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12>
                                                     <v-textarea
-                                                            v-model="style"
+                                                            v-model="post.style"
                                                             label="Custom Style"
                                                     ></v-textarea>
                                                 </v-flex>
@@ -163,19 +163,23 @@
             return {
                 loading: false,
                 tags: [],
-                title: '',
-                arabicTitle: '',
-                body: '',
-                arabicBody: '',
+                post: {
+                    title: null,
+                    body: null,
+                    meta: null,
+                    keywords: null,
+                    style: null,
+                    featured_image: null,
+                    translation: {
+                        title: null,
+                        body: null,
+                    }
+                },
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                meta: '',
-                keywords: '',
-                style: '',
                 previewFeaturedImage: '',
-                uploadedFeaturedImage: {},
                 selectedTags: [],
             }
         },
@@ -192,7 +196,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.body = contents;
+                            vm.post.body = contents;
                         }
                     }
                 });
@@ -206,7 +210,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.arabicBody = contents;
+                            vm.post.translation.body = contents;
                         }
                     }
                 });
@@ -230,7 +234,7 @@
                 let vm = this;
                 let image = e.target.files[0]; //sames as here
 
-                vm.uploadedFeaturedImage = image;
+                vm.post.featured_image = image;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -245,22 +249,36 @@
             },
             removeFeaturedImage() {
                 this.previewFeaturedImage = '';
-                this.uploadedFeaturedImage = {};
+                this.post.featured_image = null;
             },
             submit() {
                 if (this.$refs.form.validate()) {
                     let vm = this;
+                    let item = vm.post;
                     vm.loading = true;
                     let post = new FormData();
-                    post.set('title', this.title);
-                    post.set('arabicTitle', this.arabicTitle);
+
+                    Object.keys(item).forEach(key => {
+                        if (key === 'feature_image_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'featured_image') {
+                                post.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        post.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            post.set(key, item[key]);
+                        }
+                    });
+
                     post.set('tags', JSON.stringify(this.selectedTags));
-                    post.set('body', this.body);
-                    post.set('arabicBody', this.arabicBody);
-                    post.set('meta', this.meta);
-                    post.set('keywords', this.keywords);
-                    post.set('style', this.style);
-                    post.append('featuredImage', this.uploadedFeaturedImage);
                     axios.post('/dashboard/posts', post)
                         .then(res => {
                             vm.reset(res);
@@ -278,7 +296,7 @@
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
                 this.previewFeaturedImage = '';
-                this.uploadedFeaturedImage = {};
+                this.post.featured_image = null;
                 this.loading = false;
             }
         },

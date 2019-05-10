@@ -98,7 +98,7 @@
                                         </v-flex>
                                         <v-flex xs12 md6>
                                             <v-img :src="page.header_url" width="auto"
-                                                   v-if="page.header !== ''"></v-img>
+                                                   v-if="page.header_url !== ''"></v-img>
                                             <v-img :src="previewHeader" width="auto" v-if="previewHeader !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
@@ -145,7 +145,6 @@
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
                 previewHeader: '',
-                uploadedHeader: {},
             }
         },
         created() {
@@ -197,7 +196,7 @@
                 let image = e.target.files[0]; //sames as here
 
 
-                vm.uploadedHeader = image;
+                vm.page.header = image;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -205,7 +204,7 @@
                 };
 
                 if (image) {
-                    vm.page.header = '';
+                    vm.page.header_url = '';
                     reader.readAsDataURL(image); //reads the data as a URL
                 }
 
@@ -219,15 +218,28 @@
                 if (this.$refs.form.validate()) {
                     let vm = this;
                     vm.loading = true;
+                    let item = vm.page;
                     let page = new FormData();
-                    page.set('title', this.page.title);
-                    page.set('arabicTitle', this.page.translation.title);
-                    page.set('body', this.page.body);
-                    page.set('arabicBody', this.page.translation.body);
-                    page.set('meta', this.page.meta);
-                    page.set('keywords', this.page.keywords);
-                    page.append('style', this.page.style);
-                    page.append('header', this.uploadedHeader);
+                    Object.keys(item).forEach(key => {
+                        if (key === 'header_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'header') {
+                                page.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        page.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            page.set(key, item[key]);
+                        }
+                    });
+
                     axios.post('/dashboard/pages/' + this.page.slug, page)
                         .then(res => {
                             vm.reset(res);

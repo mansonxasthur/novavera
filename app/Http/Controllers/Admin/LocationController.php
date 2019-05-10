@@ -16,13 +16,13 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'english_name' => 'required',
-            'arabic_name' => 'required'
+            'name' => 'required',
+            'translation.name' => 'required'
         ]);
 
         try {
-            $location = Location::create(['name' => $request->english_name]);
-            $location->addTranslation(['name' => $request->arabic_name]);
+            $location = Location::create(['name' => $request->name]);
+            $location->addTranslation(['name' => $request->translation['name']]);
 
             return response()->json(['message' => 'Success', 'data' => $location->load('translation')], 201);
         } catch (\Exception $e) {

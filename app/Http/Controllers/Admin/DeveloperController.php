@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class DeveloperController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('admin.developer.index', ['developers' => Developer::all()]);
     }
 
@@ -24,17 +25,17 @@ class DeveloperController extends Controller
             $developer->logo = $developer->uploadImage($request->logo);
 
             $developer->slug = $developer->name = $request->name;
-            if ($request->has('description') && $request->description !== '') {
+            if ($request->has('description') && $request->description !== null) {
                 $developer->description = $request->description;
             }
 
             $developer->save();
-            if ($request->has('arabic_description') && $request->arabic_description !== '') {
-                $developer->addTranslation(['description' => $request->arabic_description]);
-            }
+
+            $developer->addTranslation(['description' => $request->translation['description'] ?? null]);
+
 
             return response()->json(['message' => 'Success', 'data' => $developer->load('translation')]);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);
         }
@@ -51,19 +52,21 @@ class DeveloperController extends Controller
                 $developer->logo = $developer->updateImage($request->logo, $developer->logo);
             }
 
-            $developer->slug = $developer->name = $request->name;
+            if ($developer->name !== $request->name) {
+                $developer->slug = $developer->name = $request->name;
+            }
+
             if ($request->has('description') && $request->description !== '') {
                 $developer->description = $request->description;
             }
 
-            if ($request->has('arabic_description') && $request->arabic_description !== '') {
-                $developer->updateTranslation(['description' => $request->arabic_description]);
-            }
+
+            $developer->updateTranslation(['description' => $request->translation['description'] ?? null]);
 
             $developer->save();
 
             return response()->json(['message' => 'Success', 'data' => $developer->load('translation')], 200);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);
         }

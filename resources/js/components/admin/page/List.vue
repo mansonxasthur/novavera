@@ -62,7 +62,7 @@
             </v-flex>
         </v-layout>
         <delete-dialog
-                @confirm="confirmDelete('pages', 'slug')"
+                @confirm="confirmDelete('pages', '', 'slug')"
                 @closeDialog="closeDeleteDialog"
                 :loading="loading"
                 :delete-dialog="deleteDialog"

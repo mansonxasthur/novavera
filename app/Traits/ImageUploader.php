@@ -41,9 +41,9 @@ trait ImageUploader
      * @return string
      * @throws \Exception
      */
-    public function updateImage(UploadedFile $file, string $oldFileName): string
+    public function updateImage(UploadedFile $file, ?string $oldFileName): string
     {
-        if (Storage::disk(config('filesystems.default'))->exists($oldFileName)) {
+        if ( $oldFileName && Storage::disk(config('filesystems.default'))->exists($oldFileName)) {
             if ($this->deleteImage($oldFileName)) {
                 return $this->uploadImage($file);
             }
@@ -114,9 +114,9 @@ trait ImageUploader
      */
     protected function storeImage($image, $extension): string
     {
-        $optimizedName = Str::random(40) . '.' . $extension;
-        $path = storage_path('app/public/' . $this->imagePath . '/' . $optimizedName);
+        $fileName = Str::random(40) . '.' . $extension;
+        $path = storage_path('app/public/' . $this->imagePath . '/' . $fileName);
         $image->save($path);
-        return $this->imagePath . '/' . $optimizedName;
+        return $this->imagePath . '/' . $fileName;
     }
 }

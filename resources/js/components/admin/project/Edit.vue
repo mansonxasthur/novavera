@@ -247,7 +247,7 @@
                                         </v-flex>
                                         <v-flex xs12 md6>
                                             <v-img :src="project.logo_url" width="auto"
-                                                   v-if="project.logo !== ''"></v-img>
+                                                   v-if="project.logo_url !== ''"></v-img>
                                             <v-img :src="previewLogo" width="auto" v-if="previewLogo !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
@@ -302,10 +302,6 @@
                         text: 'Commercial'
                     },
                 ],
-                name: '',
-                arabicName: '',
-                description: '',
-                arabicDescription: '',
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
@@ -314,15 +310,10 @@
                 selectedPropertyTypes: [],
                 selectedProjectType: '',
                 selectedLocation: '',
-                lat: '',
-                lng: '',
                 previewImages: [],
                 uploadedImages: [],
                 viewImages: false,
-                meta: '',
-                keywords: '',
                 previewLogo: '',
-                uploadedLogo: {},
                 deletedImages: [],
             }
         },
@@ -416,7 +407,7 @@
                 let logo = e.target.files[0]; //sames as here
 
 
-                vm.uploadedLogo = logo;
+                vm.project.logo = logo;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -424,7 +415,7 @@
                 };
 
                 if (logo) {
-                    vm.project.logo = '';
+                    vm.project.logo_url = '';
                     reader.readAsDataURL(logo); //reads the data as a URL
                 } else {
                     vm.previewLogo = '';
@@ -443,35 +434,49 @@
             },
             removeLogo() {
                 this.previewLogo = '';
-                this.uploadedLogo = {};
             },
             post() {
-                let vm = this;
-                vm.loading = true;
+
                 if (this.$refs.form.validate()) {
+                    let vm = this;
+                    let item = vm.project;
+                    vm.loading = true;
                     let project = new FormData();
-                    project.set('name', this.project.name);
-                    project.set('arabicName', this.project.translation.name);
-                    project.set('price', this.project.price);
-                    project.set('down_payment', this.project.down_payment);
-                    project.set('installment_years', this.project.installment_years);
-                    project.set('delivery_date', this.project.delivery_date);
-                    project.set('developer', this.selectedDeveloper);
-                    project.set('propertyTypes', JSON.stringify(this.selectedPropertyTypes));
-                    project.set('projectType', this.selectedProjectType);
-                    project.set('location', this.selectedLocation);
-                    project.set('lat', this.project.lat);
-                    project.set('lng', this.project.lng);
-                    project.set('description', this.project.description);
-                    project.set('arabicDescription', this.project.translation.description);
-                    project.set('meta', this.meta);
-                    project.set('keywords', this.keywords);
-                    project.set('deletedImages', JSON.stringify(this.deletedImages));
-                    this.uploadedImages.forEach(image => {
-                        project.append('images[]', image);
+
+                    Object.keys(item).forEach(key => {
+                        if (key === 'logo_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'logo') {
+                                project.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        project.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            project.set(key, item[key]);
+                        }
                     });
-                    project.append('logo', this.uploadedLogo);
-                    axios.post('/dashboard/projects/' + this.project.slug, project)
+
+
+                    project.set('developer', vm.selectedDeveloper);
+                    project.set('propertyTypes', JSON.stringify(vm.selectedPropertyTypes));
+                    project.set('projectType', vm.selectedProjectType);
+                    project.set('location', vm.selectedLocation);
+                    project.set('deletedImages', JSON.stringify(vm.deletedImages));
+
+                    if (vm.uploadedImages.length) {
+                        vm.uploadedImages.forEach(image => {
+                            project.append('images[]', image);
+                        });
+                    }
+
+                    axios.post('/dashboard/projects/' + vm.project.slug, project)
                         .then(res => {
                             vm.reset(res);
                         })

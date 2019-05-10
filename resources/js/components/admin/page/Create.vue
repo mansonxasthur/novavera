@@ -17,7 +17,7 @@
                                     <v-layout row wrap>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="title"
+                                                    v-model="page.title"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="Title"
@@ -26,7 +26,7 @@
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="arabicTitle"
+                                                    v-model="page.translation.title"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="العنوان"
@@ -61,19 +61,19 @@
                                             <v-layout row wrap>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="meta"
+                                                            v-model="page.meta"
                                                             label="Meta Description"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="keywords"
+                                                            v-model="page.keywords"
                                                             label="Keywords"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12>
                                                     <v-textarea
-                                                            v-model="style"
+                                                            v-model="page.style"
                                                             label="Custom Style"
                                                     ></v-textarea>
                                                 </v-flex>
@@ -133,19 +133,23 @@
         data() {
             return {
                 loading: false,
-                title: '',
-                arabicTitle: '',
-                body: '',
-                arabicBody: '',
+                page: {
+                    title: null,
+                    body: null,
+                    meta: null,
+                    keywords: null,
+                    style: null,
+                    header: null,
+                    translation: {
+                        title: null,
+                        body: null
+                    }
+                },
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                meta: '',
-                keywords: '',
-                style: '',
                 previewHeader: '',
-                uploadedHeader: {},
             }
         },
         created() {
@@ -161,7 +165,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.body = contents;
+                            vm.page.body = contents;
                         }
                     }
                 });
@@ -175,7 +179,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.arabicBody = contents;
+                            vm.page.translation.body = contents;
                         }
                     }
                 });
@@ -189,7 +193,7 @@
                 let vm = this;
                 let image = e.target.files[0]; //sames as here
 
-                vm.uploadedHeader = image;
+                vm.page.header = image;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -209,16 +213,29 @@
             submit() {
                 if (this.$refs.form.validate()) {
                     let vm = this;
+                    let item = vm.page;
                     vm.loading = true;
                     let page = new FormData();
-                    page.set('title', this.title);
-                    page.set('arabicTitle', this.arabicTitle);
-                    page.set('body', this.body);
-                    page.set('arabicBody', this.arabicBody);
-                    page.set('meta', this.meta);
-                    page.set('keywords', this.keywords);
-                    page.append('style', this.style);
-                    page.append('header', this.uploadedHeader);
+
+                    Object.keys(item).forEach(key => {
+                        if (key === 'header_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'header') {
+                                page.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        page.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            page.set(key, item[key]);
+                        }
+                    });
                     axios.post('/dashboard/pages', page)
                         .then(res => {
                             vm.reset(res);
@@ -236,7 +253,7 @@
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
                 this.previewHeader = '';
-                this.uploadedHeader = {};
+                this.page.header = {};
                 this.loading = false;
             }
         }

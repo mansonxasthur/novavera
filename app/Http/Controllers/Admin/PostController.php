@@ -22,32 +22,23 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request, Post $post)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'arabicTitle' => 'required',
             'tags' => 'required',
             'body' => 'required',
-            'arabicBody' => 'required',
-            'featuredImage' => 'required|image|mimes:png,jpg,jpeg,webp,svg|max:5000'
+            'translation.title' => 'required',
+            'translation.body' => 'required',
+            'featured_image' => 'required|image|mimes:png,jpg,jpeg,webp,svg|max:5000'
         ]);
 
         try {
-            $post->title = $request->title;
-            $post->slug = $request->title;
-            $post->body = $request->body;
-            $post->meta = $request->meta;
-            $post->keywords = $request->keywords;
-            $post->style = $request->style;
-            if ($request->hasFile('featuredImage')) {
-                $post->featured_image = $post->uploadImage($request->featuredImage);
-            }
-            $post->save();
+            $post = Post::installation($request);
 
             $post->addTranslation([
-                'title' => $request->arabicTitle,
-                'body' => $request->arabicBody,
+                'title' => $request->translation['title'],
+                'body' => $request->translation['body'],
             ]);
 
             $tags = json_decode($request->tags);

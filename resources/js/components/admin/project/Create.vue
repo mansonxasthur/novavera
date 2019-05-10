@@ -17,7 +17,7 @@
                                     <v-layout row wrap>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="name"
+                                                    v-model="project.name"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="Name"
@@ -26,7 +26,7 @@
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
                                             <v-text-field
-                                                    v-model="arabicName"
+                                                    v-model="project.translation.name"
                                                     :counter="30"
                                                     :rules="nameRules"
                                                     label="الأسم"
@@ -35,25 +35,25 @@
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
-                                                    v-model="price"
+                                                    v-model="project.price"
                                                     label="Price"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
-                                                    v-model="down_payment"
+                                                    v-model="project.down_payment"
                                                     label="Down Payment"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
-                                                    v-model="installment_years"
+                                                    v-model="project.installment_years"
                                                     label="Installment Years"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
-                                                    v-model="delivery_date"
+                                                    v-model="project.delivery_date"
                                                     label="Delivery Date"
                                             ></v-text-field>
                                         </v-flex>
@@ -92,14 +92,14 @@
                                             <v-layout row wrap>
                                                 <v-flex xs12 md6>
                                                     <v-text-field
-                                                            v-model="lat"
+                                                            v-model="project.lat"
                                                             label="Latitude"
                                                             required
                                                     ></v-text-field>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-text-field
-                                                            v-model="lng"
+                                                            v-model="project.lng"
                                                             label="Longitude"
                                                             required
                                                     ></v-text-field>
@@ -163,13 +163,13 @@
                                             <v-layout row wrap>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="meta"
+                                                            v-model="project.meta"
                                                             label="Meta Description"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
-                                                            v-model="keywords"
+                                                            v-model="project.keywords"
                                                             label="Keywords"
                                                     ></v-textarea>
                                                 </v-flex>
@@ -293,27 +293,31 @@
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                name: null,
-                arabicName: null,
-                description: null,
-                arabicDescription: null,
+                project: {
+                    name: null,
+                    description: null,
+                    lat: null,
+                    lng: null,
+                    meta:null,
+                    keywords: null,
+                    price: null,
+                    logo: null,
+                    down_payment: null,
+                    installment_years: null,
+                    delivery_date: null,
+                    translation: {
+                        name: null,
+                        description: null,
+                    }
+                },
                 selectedDeveloper: null,
                 selectedPropertyTypes: [],
                 selectedProjectType: null,
                 selectedLocation: null,
-                lat: null,
-                lng: null,
-                meta:null,
-                keywords: null,
-                price: null,
-                down_payment: null,
-                installment_years: null,
-                delivery_date: null,
                 previewImages: [],
                 uploadedImages: [],
                 viewImages: false,
                 previewLogo: '',
-                uploadedLogo: {},
             }
         },
         created() {
@@ -329,7 +333,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.description = contents;
+                            vm.project.description = contents;
                         }
                     }
                 });
@@ -343,7 +347,7 @@
                     },
                     callbacks: {
                         onChange: function (contents) {
-                            vm.arabicDescription = contents;
+                            vm.project.translation.description = contents;
                         }
                     }
                 });
@@ -395,7 +399,7 @@
                 let logo = e.target.files[0]; //sames as here
 
 
-                vm.uploadedLogo = logo;
+                vm.project.logo = logo;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -421,29 +425,42 @@
             post() {
                 if (this.$refs.form.validate()) {
                     let vm = this;
+                    let item = vm.project;
                     vm.loading = true;
                     let project = new FormData();
 
-                    project.set('name', this.name);
-                    project.set('arabicName', this.arabicName);
-                    project.set('price', this.price);
-                    project.set('down_payment', this.down_payment);
-                    project.set('installment_years', this.installment_years);
-                    project.set('delivery_date', this.delivery_date);
-                    project.set('developer', this.selectedDeveloper);
-                    project.set('propertyTypes', JSON.stringify(this.selectedPropertyTypes));
-                    project.set('projectType', this.selectedProjectType);
-                    project.set('location', this.selectedLocation);
-                    project.set('lat', this.lat);
-                    project.set('lng', this.lng);
-                    project.set('description', this.description);
-                    project.set('arabicDescription', this.arabicDescription);
-                    project.set('meta', this.meta);
-                    project.set('keywords', this.keywords);
-                    this.uploadedImages.forEach(image  => {
-                        project.append('images[]', image);
+                    Object.keys(item).forEach(key => {
+                        if (key === 'logo_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'logo') {
+                                project.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        project.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            project.set(key, item[key]);
+                        }
                     });
-                    project.append('logo', this.uploadedLogo);
+
+                    project.set('developer', vm.selectedDeveloper);
+                    project.set('propertyTypes', JSON.stringify(vm.selectedPropertyTypes));
+                    project.set('projectType', vm.selectedProjectType);
+                    project.set('location', vm.selectedLocation);
+
+                    if (vm.uploadedImages.length) {
+                        vm.uploadedImages.forEach(image => {
+                            project.append('images[]', image);
+                        });
+                    }
+
+
                     axios.post('/dashboard/projects', project)
                         .then(res => {
                             vm.reset(res);
@@ -461,7 +478,7 @@
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
                 this.previewLogo = '';
-                this.uploadedLogo = {};
+                this.page.logo = null;
                 this.uploadedImages = [];
                 this.previewImages = [];
                 this.loading = false;

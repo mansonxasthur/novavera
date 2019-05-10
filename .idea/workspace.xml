@@ -4,26 +4,36 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php" line="13" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Page.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/page/show.blade.php" afterDir="false" />
+    <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="bug fixes and improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/mans0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/mans0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DeveloperController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DeveloperController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SliderImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SliderImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/ImageUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/ImageUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/Translatable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Translatable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Developer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Developer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Developers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Developers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Project.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Project.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/developer/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/developer/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/location/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/location/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/page/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/page/Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/page/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/page/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/post/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/post/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/project/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/project/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/mixins/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/mixins/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,331 +82,116 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/Create.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-702">
+              <caret line="406" column="18" lean-forward="true" selection-start-line="406" selection-start-column="18" selection-end-line="406" selection-end-column="18" />
+              <folding>
+                <element signature="n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#v-flex#10;n#v-layout#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#v-btn#0;n#v-img#0;n#v-flex#1;n#v-layout#0;n#v-flex#3;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
+        <entry file="file://$PROJECT_DIR$/app/Traits/ImageUploader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="114" column="61" lean-forward="true" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Post.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
-              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/page/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/Page.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#v-layout#0;n#v-parallax#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#23#52#0#PHP" expanded="true" />
+                <element signature="e#520#1027#0#PHP" />
+                <element signature="e#1033#1148#0#PHP" />
+                <element signature="e#1198#1430#0#PHP" />
+                <element signature="e#1501#1976#0#PHP" />
+                <element signature="e#1982#2050#0#PHP" />
+                <element signature="e#2056#2172#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="218" column="49" selection-start-line="218" selection-start-column="49" selection-end-line="218" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Create.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="171" column="36" selection-start-line="171" selection-start-column="36" selection-end-line="175" selection-end-column="45" />
+            <state relative-caret-position="447">
+              <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
               <folding>
-                <element signature="e#0#5#0" />
-                <element signature="e#0#37452#0#Blade" />
-                <element signature="e#330#472#0#HTML" />
-                <element signature="e#872#913#0#HTML" />
-                <element signature="e#949#1238#0#HTML" />
-                <element signature="e#1279#1332#0#HTML" />
-                <element signature="e#1369#1407#0#HTML" />
-                <element signature="e#1431#1727#0#HTML" />
-                <element signature="e#1757#1818#0#HTML" />
-                <element signature="e#1842#1980#0#HTML" />
-                <element signature="e#1989#2299#0#HTML" />
-                <element signature="e#2044#2086#0#HTML" />
-                <element signature="e#2115#2188#0#HTML" />
-                <element signature="e#2228#2289#0#HTML" />
-                <element signature="e#2328#2419#0#HTML" />
-                <element signature="e#2495#2626#0#HTML" />
-                <element signature="e#2759#6347#0#HTML" />
-                <element signature="e#2890#3252#0#HTML" />
-                <element signature="e#2931#3214#0#HTML" />
-                <element signature="e#2993#3170#0#HTML" />
-                <element signature="e#3281#3800#0#HTML" />
-                <element signature="e#3342#3762#0#HTML" />
-                <element signature="e#3515#3718#0#HTML" />
-                <element signature="e#3830#4172#0#HTML" />
-                <element signature="e#3924#4134#0#HTML" />
-                <element signature="e#4201#6010#0#HTML" />
-                <element signature="e#4247#5972#0#HTML" />
-                <element signature="e#4326#4566#0#HTML" />
-                <element signature="e#4603#4845#0#HTML" />
-                <element signature="e#4882#5113#0#HTML" />
-                <element signature="e#5150#5382#0#HTML" />
-                <element signature="e#5419#5650#0#HTML" />
-                <element signature="e#5687#5928#0#HTML" />
-                <element signature="e#6039#6281#0#HTML" />
-                <element signature="e#6115#6243#0#HTML" />
-                <element signature="e#6503#6891#0#HTML" />
-                <element signature="e#6544#6853#0#HTML" />
-                <element signature="e#6606#6809#0#HTML" />
-                <element signature="e#7292#7324#0#HTML" expanded="true" />
-                <element signature="e#7484#7827#0#HTML" />
-                <element signature="e#7578#7789#0#HTML" />
-                <element signature="e#7856#8545#0#HTML" />
-                <element signature="e#7902#8507#0#HTML" />
-                <element signature="e#7981#8212#0#HTML" />
-                <element signature="e#8249#8463#0#HTML" />
-                <element signature="e#8574#8809#0#HTML" />
-                <element signature="e#8650#8771#0#HTML" />
-                <element signature="e#8939#9069#0#HTML" />
-                <element signature="e#9083#16973#0#HTML" />
-                <element signature="e#9150#16951#0#HTML" />
-                <element signature="e#9208#9539#0#HTML" />
-                <element signature="e#9241#9509#0#HTML" />
-                <element signature="e#9295#9473#0#HTML" />
-                <element signature="e#9560#10048#0#HTML" />
-                <element signature="e#9613#10018#0#HTML" />
-                <element signature="e#9803#9982#0#HTML" />
-                <element signature="e#10070#10555#0#HTML" />
-                <element signature="e#10156#10525#0#HTML" />
-                <element signature="e#10576#11162#0#HTML" />
-                <element signature="e#10614#11132#0#HTML" />
-                <element signature="e#10685#10877#0#HTML" />
-                <element signature="e#10906#11096#0#HTML" />
-                <element signature="e#11183#11386#0#HTML" />
-                <element signature="e#11251#11356#0#HTML" />
-                <element signature="e#11408#11905#0#HTML" />
-                <element signature="e#11461#11875#0#HTML" />
-                <element signature="e#11660#11839#0#HTML" />
-                <element signature="e#11927#12368#0#HTML" />
-                <element signature="e#12013#12338#0#HTML" />
-                <element signature="e#12389#16779#0#HTML" />
-                <element signature="e#12422#16749#0#HTML" />
-                <element signature="e#12500#16710#0#HTML" />
-                <element signature="e#12552#13283#0#HTML" />
-                <element signature="e#12611#13241#0#HTML" />
-                <element signature="e#12666#12806#0#HTML" />
-                <element signature="e#12847#13193#0#HTML" />
-                <element signature="e#12992#13143#0#HTML" />
-                <element signature="e#13316#13957#0#HTML" />
-                <element signature="e#13375#13915#0#HTML" />
-                <element signature="e#13430#13571#0#HTML" />
-                <element signature="e#13612#13867#0#HTML" />
-                <element signature="e#13990#14633#0#HTML" />
-                <element signature="e#14049#14591#0#HTML" />
-                <element signature="e#14104#14239#0#HTML" />
-                <element signature="e#14280#14543#0#HTML" />
-                <element signature="e#14666#15329#0#HTML" />
-                <element signature="e#14725#15287#0#HTML" />
-                <element signature="e#14780#14925#0#HTML" />
-                <element signature="e#14966#15239#0#HTML" />
-                <element signature="e#15362#16008#0#HTML" />
-                <element signature="e#15421#15966#0#HTML" />
-                <element signature="e#15476#15617#0#HTML" />
-                <element signature="e#15658#15918#0#HTML" />
-                <element signature="e#16041#16670#0#HTML" />
-                <element signature="e#16100#16628#0#HTML" />
-                <element signature="e#16155#16293#0#HTML" />
-                <element signature="e#16334#16580#0#HTML" />
-                <element signature="e#16800#16923#0#HTML" />
-                <element signature="e#16987#17542#0#HTML" />
-                <element signature="e#17022#17520#0#HTML" />
-                <element signature="e#17075#17493#0#HTML" />
-                <element signature="e#17130#17286#0#HTML" />
-                <element signature="e#17311#17461#0#HTML" />
-                <element signature="e#17556#20654#0#HTML" />
-                <element signature="e#17613#20632#0#HTML" />
-                <element signature="e#17668#20605#0#HTML" />
-                <element signature="e#17723#17860#0#HTML" />
-                <element signature="e#17885#18057#0#HTML" />
-                <element signature="e#18082#20573#0#HTML" />
-                <element signature="e#18119#20539#0#HTML" />
-                <element signature="e#18165#20496#0#HTML" />
-                <element signature="e#18221#18946#0#HTML" />
-                <element signature="e#18284#18900#0#HTML" />
-                <element signature="e#18354#18508#0#HTML" />
-                <element signature="e#18619#18853#0#HTML" />
-                <element signature="e#18983#19783#0#HTML" />
-                <element signature="e#19046#19737#0#HTML" />
-                <element signature="e#19116#19273#0#HTML" />
-                <element signature="e#19382#19690#0#HTML" />
-                <element signature="e#19820#20452#0#HTML" />
-                <element signature="e#19883#20406#0#HTML" />
-                <element signature="e#19953#20110#0#HTML" />
-                <element signature="e#20668#24645#0#HTML" />
-                <element signature="e#20703#24623#0#HTML" />
-                <element signature="e#20750#21184#0#HTML" />
-                <element signature="e#20805#20955#0#HTML" />
-                <element signature="e#20980#21152#0#HTML" />
-                <element signature="e#21205#24596#0#HTML" />
-                <element signature="e#21249#22052#0#HTML" />
-                <element signature="e#21304#22018#0#HTML" />
-                <element signature="e#21354#21598#0#HTML" />
-                <element signature="e#21399#21556#0#HTML" />
-                <element signature="e#21631#21978#0#HTML" />
-                <element signature="e#21755#21936#0#HTML" />
-                <element signature="e#22077#22877#0#HTML" />
-                <element signature="e#22132#22843#0#HTML" />
-                <element signature="e#22182#22422#0#HTML" />
-                <element signature="e#22227#22380#0#HTML" />
-                <element signature="e#22455#22803#0#HTML" />
-                <element signature="e#22577#22761#0#HTML" />
-                <element signature="e#22902#23719#0#HTML" />
-                <element signature="e#22957#23685#0#HTML" />
-                <element signature="e#23007#23253#0#HTML" />
-                <element signature="e#23052#23211#0#HTML" />
-                <element signature="e#23286#23645#0#HTML" />
-                <element signature="e#23411#23603#0#HTML" />
-                <element signature="e#23744#24564#0#HTML" />
-                <element signature="e#23799#24530#0#HTML" />
-                <element signature="e#23849#24093#0#HTML" />
-                <element signature="e#23894#24051#0#HTML" />
-                <element signature="e#24126#24490#0#HTML" />
-                <element signature="e#24249#24448#0#HTML" />
-                <element signature="e#24659#34864#0#HTML" />
-                <element signature="e#24694#34842#0#HTML" />
-                <element signature="e#24740#25152#0#HTML" />
-                <element signature="e#24795#24923#0#HTML" />
-                <element signature="e#24948#25120#0#HTML" />
-                <element signature="e#25173#34815#0#HTML" />
-                <element signature="e#25206#34785#0#HTML" />
-                <element signature="e#25254#34746#0#HTML" />
-                <element signature="e#25306#30817#0#HTML" />
-                <element signature="e#25365#30775#0#HTML" />
-                <element signature="e#25419#30729#0#HTML" />
-                <element signature="e#25472#30367#0#HTML" />
-                <element signature="e#25534#30308#0#HTML" />
-                <element signature="e#25606#29567#0#HTML" />
-                <element signature="e#25676#29505#0#HTML" />
-                <element signature="e#25756#26548#0#HTML" />
-                <element signature="e#25843#26478#0#HTML" />
-                <element signature="e#26609#27491#0#HTML" />
-                <element signature="e#26696#27421#0#HTML" />
-                <element signature="e#27552#28430#0#HTML" />
-                <element signature="e#27639#28360#0#HTML" />
-                <element signature="e#28491#29437#0#HTML" />
-                <element signature="e#28578#29367#0#HTML" />
-                <element signature="e#11#259#0" />
-                <element signature="e#14#257#1" />
-                <element signature="e#26#256#1" />
-                <element signature="e#29620#30248#0#HTML" />
-                <element signature="e#29695#30186#0#HTML" />
-                <element signature="e#30412#30679#0#HTML" />
-                <element signature="e#30850#34706#0#HTML" />
-                <element signature="e#30909#34664#0#HTML" />
-                <element signature="e#30963#34618#0#HTML" />
-                <element signature="e#31021#34563#0#HTML" />
-                <element signature="e#31083#31313#0#HTML" />
-                <element signature="e#31363#34509#0#HTML" />
-                <element signature="e#31433#32592#0#HTML" />
-                <element signature="e#31522#32530#0#HTML" />
-                <element signature="e#31592#32463#0#HTML" />
-                <element signature="e#31669#32313#0#HTML" />
-                <element signature="e#31771#32241#0#HTML" />
-                <element signature="e#32645#33510#0#HTML" />
-                <element signature="e#32734#33447#0#HTML" />
-                <element signature="e#32811#33299#0#HTML" />
-                <element signature="e#32912#33227#0#HTML" />
-                <element signature="e#33563#34449#0#HTML" />
-                <element signature="e#33652#34387#0#HTML" />
-                <element signature="e#33729#34239#0#HTML" />
-                <element signature="e#33830#34167#0#HTML" />
-                <element signature="e#34878#37399#0#HTML" />
-                <element signature="e#34913#37377#0#HTML" />
-                <element signature="e#34953#36144#0#HTML" />
-                <element signature="e#35010#36114#0#HTML" />
-                <element signature="e#35081#35573#0#HTML" />
-                <element signature="e#35127#35534#0#HTML" />
-                <element signature="e#35250#35496#0#HTML" />
-                <element signature="e#35602#36078#0#HTML" />
-                <element signature="e#35648#35780#0#HTML" />
-                <element signature="e#35813#36040#0#HTML" />
-                <element signature="e#36165#37349#0#HTML" />
-                <element signature="e#36222#37319#0#HTML" />
-                <element signature="e#36293#36794#0#HTML" />
-                <element signature="e#36339#36755#0#HTML" />
-                <element signature="e#36471#36717#0#HTML" />
-                <element signature="e#36823#37283#0#HTML" />
-                <element signature="e#36869#36990#0#HTML" />
-                <element signature="e#37023#37245#0#HTML" />
+                <element signature="e#521#1676#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="31" column="72" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="72" />
+            <state relative-caret-position="418">
+              <caret line="445" column="62" selection-start-line="445" selection-start-column="62" selection-end-line="445" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-              <folding>
-                <element signature="e#33#46#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding>
-                <element signature="e#40#53#0#PHP" expanded="true" />
+                <element signature="e#46#82#0#PHP" expanded="true" />
+                <element signature="e#321#913#0#PHP" />
+                <element signature="e#919#1524#0#PHP" />
+                <element signature="e#1530#1821#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Page.php">
+        <entry file="file://$PROJECT_DIR$/app/Location.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-              <folding>
-                <element signature="e#468#507#0#PHP" />
-                <element signature="e#574#694#0#PHP" />
-                <element signature="e#750#810#0#PHP" />
-                <element signature="e#955#1261#0#PHP" />
-                <element signature="e#1028#1218#0#PHP" />
-                <element signature="e#1079#1203#0#PHP" />
-                <element signature="e#1113#1196#1#PHP" />
-              </folding>
+            <state relative-caret-position="368">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Traits/Translatable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="298" selection-start-line="298" selection-end-line="298" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172928_create_post_tag_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -414,10 +209,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>close</find>
-      <find>defaultI</find>
-      <find>logo</find>
-      <find>defaultIte</find>
       <find>type</find>
       <find>Dash</find>
       <find>uploadL</find>
@@ -442,8 +233,12 @@
       <find>transf</find>
       <find>slider</find>
       <find>worldwide of</find>
-      <find>border</find>
       <find>proj</find>
+      <find>border</find>
+      <find>descrip</find>
+      <find>form</find>
+      <find>form)</find>
+      <find>logo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -452,41 +247,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/admin/app.js" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/config/filesystems.php" />
-        <option value="$PROJECT_DIR$/app/Traits/Translatable.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" />
-        <option value="$PROJECT_DIR$/app/Traits/ImageUploader.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/admin/app.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/DeveloperCarousel.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/project/Create.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/developer/List.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/slider/List.vue" />
-        <option value="$PROJECT_DIR$/app/SliderImage.php" />
         <option value="$PROJECT_DIR$/app/Slider.php" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/slider/Edit.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue" />
         <option value="$PROJECT_DIR$/resources/views/project.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/utilities/gmaps.js" />
         <option value="$PROJECT_DIR$/resources/views/developer/index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_25_172338_create_projects_table.php" />
         <option value="$PROJECT_DIR$/app/Developer.php" />
-        <option value="$PROJECT_DIR$/app/Location.php" />
-        <option value="$PROJECT_DIR$/app/Project.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DeveloperController.php" />
         <option value="$PROJECT_DIR$/resources/views/developer/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Slider.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Developers.vue" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
@@ -495,14 +268,36 @@
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
-        <option value="$PROJECT_DIR$/app/Page.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/page/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/page/Create.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/Page.vue" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/js/mixins/Form.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/developer/List.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DeveloperController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/location/List.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/page/List.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/page/Create.vue" />
+        <option value="$PROJECT_DIR$/app/Page.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/Page.vue" />
+        <option value="$PROJECT_DIR$/resources/views/page/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/project/List.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/post/Create.vue" />
+        <option value="$PROJECT_DIR$/app/SliderImage.php" />
+        <option value="$PROJECT_DIR$/app/Project.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_25_172928_create_post_tag_table.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php" />
+        <option value="$PROJECT_DIR$/app/Tag.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" />
+        <option value="$PROJECT_DIR$/app/Location.php" />
+        <option value="$PROJECT_DIR$/app/Post.php" />
+        <option value="$PROJECT_DIR$/app/Traits/Translatable.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LocationController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/project/Create.vue" />
+        <option value="$PROJECT_DIR$/app/Traits/ImageUploader.php" />
       </list>
     </option>
   </component>
@@ -616,37 +411,18 @@
             <path>
               <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
               <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Traits" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
               <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
@@ -660,6 +436,24 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novaverarealestate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novaverarealestate" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="novavera" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -677,7 +471,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -745,24 +539,37 @@
       <workItem from="1557241389450" duration="7572000" />
       <workItem from="1557265257447" duration="1633000" />
       <workItem from="1557323357872" duration="18274000" />
-      <workItem from="1557409914096" duration="13462000" />
+      <workItem from="1557409914096" duration="19581000" />
+      <workItem from="1557436000459" duration="243000" />
+      <workItem from="1557436261734" duration="9239000" />
+      <workItem from="1557493040169" duration="2054000" />
+      <workItem from="1557495358742" duration="5874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321378000" />
+    <option name="totallyTimeSpent" value="344907000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13205537" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.30830672" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32776618" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5005325" side_tool="true" weight="0.6691023" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32985386" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32881" />
@@ -770,8 +577,9 @@
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32985386" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32941177" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946752" visible="true" weight="0.6691023" />
       <window_info anchor="right" id="Database" order="0" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -781,289 +589,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bug fixes and improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes and improvements" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/logs/novavera/novavera-2019-05-05.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="759">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/mixins/Form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="125" column="8" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/flaticon/flaticon.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DeveloperController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/DeveloperCarousel.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#v-flex#1;n#v-layout#0;n#section#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/developer/List.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/slider/Edit.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1357">
-          <caret line="149" column="145" lean-forward="true" selection-start-line="149" selection-start-column="145" selection-end-line="149" selection-end-column="145" />
-          <folding>
-            <element signature="n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#input#0;n#v-flex#8;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#v-btn#0;n#td#0;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#td#1;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#v-icon#0;n#v-img#0;n#v-dialog#0;n#td#1;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#11959#13774#0" />
-            <element signature="e#13853#14178#0" />
-            <element signature="e#14205#14530#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/slider/List.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Slider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
-          <folding>
-            <element signature="e#23#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
-          <folding>
-            <element signature="e#222#336#0#PHP" />
-            <element signature="e#342#477#0#PHP" />
-            <element signature="e#537#602#0#PHP" />
-            <element signature="e#556#601#1#PHP" />
-            <element signature="e#613#915#0#PHP" />
-            <element signature="e#783#915#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SliderImage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="e#23#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/Create.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="431" column="69" selection-start-line="428" selection-start-column="19" selection-end-line="431" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#v-btn#0;n#v-img#0;n#v-flex#1;n#v-layout#0;n#v-flex#3;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#16821#18128#0" />
-            <element signature="e#16892#17948#0" />
-            <element signature="e#18509#18590#0" />
-            <element signature="e#18624#18704#0" />
-            <element signature="e#18734#19437#0" />
-            <element signature="e#19465#20008#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10764">
-          <caret line="468" column="85" selection-start-line="468" selection-start-column="85" selection-end-line="468" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/admin/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-          <folding>
-            <element signature="e#460#480#0" />
-            <element signature="e#562#602#0" />
-            <element signature="e#630#720#0" />
-            <element signature="e#740#830#0" />
-            <element signature="e#977#1008#0" />
-            <element signature="e#1033#1066#0" />
-            <element signature="e#1085#1117#0" />
-            <element signature="e#1139#1171#0" />
-            <element signature="e#1192#1221#0" />
-            <element signature="e#1242#1317#0" />
-            <element signature="e#1340#1419#0" />
-            <element signature="e#1436#1513#0" />
-            <element signature="e#1533#1610#0" />
-            <element signature="e#1629#1700#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/utilities/gmaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="56" selection-start-column="56" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DeveloperTranslation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#40#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/project/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/developer/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172338_create_projects_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Developer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
-          <folding>
-            <element signature="e#23#51#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeveloperController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/developer/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Slider.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1071,35 +601,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Image.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/List.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-icon#0;n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-icon#0;n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#v-btn#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Developers.vue">
       <provider selected="true" editor-type-id="text-editor">
@@ -1148,19 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
-          <caret line="76" column="86" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
-          <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
-          <caret line="81" column="76" selection-start-line="81" selection-start-column="76" selection-end-line="81" selection-end-column="76" />
-          <folding>
-            <element signature="n#v-list#0;n#v-navigation-drawer#0;n#v-app#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Project.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
@@ -1171,13 +661,6 @@
             <element signature="n#v-layout#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
             <element signature="n#script#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Traits/ImageUploader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1197,22 +680,6 @@
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="e#468#507#0#PHP" />
-            <element signature="e#574#694#0#PHP" />
-            <element signature="e#750#810#0#PHP" />
-            <element signature="e#955#1261#0#PHP" />
-            <element signature="e#1028#1218#0#PHP" />
-            <element signature="e#1079#1203#0#PHP" />
-            <element signature="e#1113#1196#1#PHP" />
           </folding>
         </state>
       </provider>
@@ -1451,41 +918,382 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="624">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/department/List.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="218" column="49" selection-start-line="218" selection-start-column="49" selection-end-line="218" selection-end-column="49" />
+        <state relative-caret-position="-1721" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DeveloperController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Create.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/location/List.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="138" column="31" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+        <state relative-caret-position="2800">
+          <caret line="176" column="19" selection-start-line="176" selection-start-column="19" selection-end-line="176" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/slider/Edit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4704">
+          <caret line="408" column="91" selection-start-line="408" selection-start-column="91" selection-end-line="408" selection-end-column="91" />
+          <folding>
+            <element signature="n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#input#0;n#v-flex#8;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-btn#0;n#td#0;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#td#1;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#v-icon#0;n#v-img#0;n#v-dialog#0;n#td#1;n#tr#0;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#18218#19426#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/novavera/novavera-2019-05-09.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/slider/List.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/mixins/Form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="802">
+          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/List.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="97" column="37" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+          <folding>
+            <element signature="e#510#549#0#PHP" />
+            <element signature="e#554#786#0#PHP" />
+            <element signature="e#616#736#0#PHP" />
+            <element signature="e#792#852#0#PHP" />
+            <element signature="e#857#1332#0#PHP" />
+            <element signature="e#997#1303#0#PHP" />
+            <element signature="e#1070#1260#0#PHP" />
+            <element signature="e#1121#1245#0#PHP" />
+            <element signature="e#1155#1238#1#PHP" />
+            <element signature="e#1338#1408#0#PHP" />
+            <element signature="e#1414#1482#0#PHP" />
+            <element signature="e#1488#1589#0#PHP" />
+            <element signature="e#1595#1706#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Page.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="32">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#v-layout#0;n#v-parallax#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <caret line="76" column="86" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
+          <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
+          <caret line="81" column="76" selection-start-line="81" selection-start-column="76" selection-end-line="81" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Edit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="212" column="28" selection-start-line="212" selection-start-column="28" selection-end-line="212" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/page/Create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="219" column="20" selection-start-line="219" selection-start-column="20" selection-end-line="237" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="339" column="20" selection-start-line="339" selection-start-column="20" selection-end-line="339" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/Edit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="471" selection-start-line="471" selection-end-line="471" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/novavera/novavera-2019-05-10.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/List.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="123" column="49" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+          <folding>
+            <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#0;n#a#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#0;n#td#5;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="8" column="51789" selection-start-line="8" selection-start-column="51789" selection-end-line="8" selection-end-column="51789" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/post/Create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3264">
+          <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/developer/List.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="244" selection-start-line="244" selection-end-line="244" />
+          <folding>
+            <element signature="n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#span#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-text-field#0;n#v-card-title#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-avatar#0;n#td#1;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#td#3;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#td#4;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#td#4;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#0;n#td#4;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#1;n#td#4;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-icon#0;n#v-btn#1;n#td#4;n#template#0;n#v-data-table#0;n#v-card-text#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#template#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#template#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-card-title#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-flex#0;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-layout#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-avatar#0;n#v-layout#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-flex#1;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-text-field#0;n#v-flex#1;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-textarea#0;n#v-flex#2;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-btn#0;n#v-flex#4;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#v-card-actions#0;n#v-card#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#delete-dialog#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#snackbar#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProjectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2224">
+          <caret line="148" column="17" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SliderImage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172747_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+          <folding>
+            <element signature="e#23#51#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172400_create_project_property_type_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172822_create_tags_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+          <folding>
+            <element signature="e#521#1676#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_25_172928_create_post_tag_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="445" column="62" selection-start-line="445" selection-start-column="62" selection-end-line="445" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#23#52#0#PHP" expanded="true" />
+            <element signature="e#520#1027#0#PHP" />
+            <element signature="e#1033#1148#0#PHP" />
+            <element signature="e#1198#1430#0#PHP" />
+            <element signature="e#1501#1976#0#PHP" />
+            <element signature="e#1982#2050#0#PHP" />
+            <element signature="e#2056#2172#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Traits/Translatable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+            <element signature="e#321#913#0#PHP" />
+            <element signature="e#919#1524#0#PHP" />
+            <element signature="e#1530#1821#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/project/Create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-702">
+          <caret line="406" column="18" lean-forward="true" selection-start-line="406" selection-start-column="18" selection-end-line="406" selection-end-column="18" />
+          <folding>
+            <element signature="n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#v-flex#10;n#v-layout#0;n#v-flex#0;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#v-btn#0;n#v-img#0;n#v-flex#1;n#v-layout#0;n#v-flex#3;n#v-layout#0;n#v-container#0;n#v-form#0;n#v-card-text#0;n#v-card#0;n#v-layout#0;n#v-container#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Traits/ImageUploader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="114" column="61" lean-forward="true" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
         </state>
       </provider>
     </entry>

@@ -105,7 +105,7 @@
                                                 </v-flex>
                                                 <v-flex xs12>
                                                     <input type="file" id="logoUploader" style="visibility: hidden"
-                                                           @change="previewFile">
+                                                           @change="uploadLogo">
                                                     <v-spacer></v-spacer>
                                                     <v-btn
                                                             color="deep-orange accent-3"
@@ -153,6 +153,7 @@
         props: ['developerCollection'],
         data: () => ({
             dialog: false,
+            loading: false,
             paginationSync : {rowsPerPage: 10},
             headers: [
                 {
@@ -184,25 +185,19 @@
             developers: [],
             editedIndex: -1,
             editedItem: {
-                id: 0,
-                name: '',
-                description: '',
-                logo: '',
-                slug: '',
+                name: null,
+                description: null,
+                logo: null,
                 translation: {
-                    description: ''
+                    description: null
                 }
             },
             defaultItem: {
-                name: '',
-                description: '',
-                logo: '',
-                slug: '',
+                name: null,
+                description: null,
+                logo: null,
                 translation: {
-                    id: 0,
-                    developer_id: 0,
-                    locale: '',
-                    description: ''
+                    description: null
                 }
             },
             search: '',
@@ -243,38 +238,58 @@
         },
         methods: {
             save() {
-                let form = new FormData();
+                let vm = this;
+                let developer = new FormData();
                 let item = this.editedItem;
 
-                form.set('name', item.name);
-                form.set('description', item.description);
-                form.set('arabic_description', item.translation.description);
-                form.append('logo', item.logo);
+                vm.loading = true;
+                Object.keys(item).forEach(key => {
+                    if (key === 'logo_url') return;
+
+                    if (!!item[key]) {
+                        if (key === 'logo') {
+                            developer.append(key, item[key]);
+                            return;
+                        }
+
+                        if (key === 'translation') {
+                            Object.keys(item[key]).forEach(translationKey => {
+                                if (!!item[key][translationKey])
+                                    developer.set(`translation[${translationKey}]`, item[key][translationKey]);
+                            });
+                            return;
+                        }
+                        developer.set(key, item[key]);
+                    }
+                });
+
                 if (this.editedIndex > -1) {
                     if (this.validate('developerForm')) {
                         let vm = this;
                         vm.loading = true;
-                        axios.post(vm.updateRoute + item.slug, form)
+                        axios.post(vm.updateRoute + item.slug, developer)
                             .then(res => {
+                                console.log(item);
                                 Object.assign(vm.developers[vm.editedIndex], res.data.data);
                                 vm.reset('developerForm');
                                 vm.activateSnackbar('success', res.data.message);
                             })
                             .catch(error => {
+                                console.log(error);
                                 vm.loading = false;
                                 vm.activateSnackbar('error', error.response.data.message);
                             })
                     }
 
                 } else {
-                    this.post(form, 'developerForm', 'developers') ? this.logo = '' : null;
+                    this.post(developer, 'developerForm', 'developers') ? this.logo = '' : null;
                 }
             },
             triggerUpload() {
                 let logoUploader = document.querySelector('#logoUploader');
                 logoUploader.click();
             },
-            previewFile(e) {
+            uploadLogo(e) {
                 let vm = this;
                 let file = e.target.files[0]; //sames as here
                 let reader = new FileReader();

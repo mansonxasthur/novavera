@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@push('styles')
-{!! $page->style !!}
-@endpush
+@if($page->style)
+    @push('styles')
+        {!! $page->style !!}
+    @endpush
+@endif
 @section('content')
     <page :page="{{ $page }}"></page>
 @endsection

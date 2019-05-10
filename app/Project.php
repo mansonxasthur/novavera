@@ -84,8 +84,8 @@ class Project extends Model
     public static function installation(Request $request): Project
     {
         $project = new static();
-        $project->name = $request->name;
-        $project->slug = $request->name;
+
+        $project->slug = $project->name = $request->name;
         $project->developer_id = $request->developer;
         $project->project_type = $request->projectType;
         $project->location_id = $request->location;
@@ -94,6 +94,7 @@ class Project extends Model
         $project->description = $request->description;
         $project->meta = $request->meta;
         $project->keywords = $request->keywords;
+
         if ($request->hasFile('logo')) {
             $project->logo = $project->uploadImage($request->logo);
         }
@@ -121,8 +122,7 @@ class Project extends Model
 
     public function updateInstallation(Request $request): bool
     {
-        $this->name = $request->name;
-        $this->slug = $request->name;
+        $this->slug = $this->name = $request->name;
         $this->developer_id = $request->developer;
         $this->project_type = $request->projectType;
         $this->location_id = $request->location;
@@ -150,6 +150,7 @@ class Project extends Model
         if ($request->hasFile('logo')) {
             $this->logo = $this->updateImage($request->logo, $this->logo);
         }
+
         return $this->save();
     }
 

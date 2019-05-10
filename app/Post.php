@@ -5,6 +5,7 @@ namespace App;
 use App\Traits\ImageUploader;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class Post extends Model
@@ -16,6 +17,23 @@ class Post extends Model
     protected $with = ['tags', 'translation'];
     protected $appends = ['featured_image_url'];
     protected $casts = ['published' => 'boolean'];
+
+    public static function installation(Request $request): Post
+    {
+        $post = new static();
+
+        $post->slug = $post->title = $request->title;
+        $post->body = $request->body;
+        $post->meta = $request->meta;
+        $post->keywords = $request->keywords;
+        $post->style = $request->style;
+        if ($request->hasFile('featured_image')) {
+            $post->featured_image = $post->uploadImage($request->featured_image);
+        }
+        $post->save();
+
+        return $post;
+    }
 
     public function tags()
     {

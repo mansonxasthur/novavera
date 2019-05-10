@@ -139,19 +139,15 @@
             locations: [],
             editedIndex: -1,
             editedItem: {
-                id: 0,
-                name: '',
+                name: null,
                 translation: {
-                    name: ''
+                    name: null
                 }
             },
             defaultItem: {
-                name: '',
+                name: null,
                 translation: {
-                    id: 0,
-                    location_id: 0,
-                    locale: '',
-                    name: ''
+                    name: null
                 }
             },
             search: '',
@@ -174,8 +170,7 @@
             },
             editedItem(val) {
                 if (this.editedItem.translation === null) {
-                    this.editedItem.translation = {};
-                    this.editedItem.translation.name = '';
+                    this.editedItem.translation = {name: null};
                 }
             }
         },
@@ -189,10 +184,7 @@
                         this.editedItem, this.editedItem.id
                         , 'locationForm', 'locations');
                 } else {
-                    this.post({
-                        english_name: this.editedItem.name,
-                        arabic_name: this.editedItem.translation.name,
-                    }, 'locationForm', 'locations');
+                    this.post(this.editedItem, 'locationForm', 'locations');
                 }
             }
         }

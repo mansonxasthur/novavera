@@ -10,6 +10,7 @@ export default {
     },
     methods: {
         post(item, form, collection = '', subcollection = '') {
+            let success = false;
             if (this.validate(form)) {
                 let vm = this;
                 vm.loading = true;
@@ -24,14 +25,16 @@ export default {
                         }
                         vm.reset(form);
                         vm.activateSnackbar('success', res.data.message);
-                        return true;
+                        success = true;
                     })
                     .catch(error => {
                         vm.loading = false;
                         vm.activateSnackbar('error', error.response.data.message);
-                        return false;
+                        success = false;
                     })
             }
+
+            return success;
         },
         update(item, key, form, collection = '', subcollection = '') {
             if (this.validate(form)) {

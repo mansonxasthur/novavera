@@ -64,7 +64,7 @@
             </v-flex>
         </v-layout>
         <delete-dialog
-                @confirm="confirmDelete('projects', 'slug')"
+                @confirm="confirmDelete('projects','', 'slug')"
                 @closeDialog="closeDeleteDialog"
                 :loading="loading"
                 :delete-dialog="deleteDialog"
@@ -121,7 +121,7 @@
                     {text: 'Actions', align: 'center', value: 'name', sortable: false}
                 ],
                 search: '',
-                deleteRoute: '/dashboard/project/',
+                deleteRoute: '/dashboard/projects/',
             }
         },
         created() {

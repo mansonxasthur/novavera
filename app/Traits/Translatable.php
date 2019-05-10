@@ -40,7 +40,7 @@ trait Translatable
      * @param $name
      * @return mixed
      */
-    public function __get($name)
+    /*public function __get($name)
     {
         if (app()->getLocale() === $this->defaultLocale) {
             if (in_array($name, $this->translationAttributes)) {
@@ -55,7 +55,7 @@ trait Translatable
         }
 
         return null;
-    }
+    }*/
 
     /**
      * @param array $translations
@@ -83,7 +83,7 @@ trait Translatable
             foreach ($translations as $key => $value) {
                 if ($value) $filteredTranslations[$key] = $value;
             }
-            $this->translation()->update($filteredTranslations);
+            empty($filteredTranslations) ?: $this->translation()->update($filteredTranslations);
         } else {
             $this->addTranslation($translations);
         }
