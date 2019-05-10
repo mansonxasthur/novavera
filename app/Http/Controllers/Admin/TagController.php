@@ -17,12 +17,17 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'translation.name' => 'required',
         ]);
 
         try {
             $tag = Tag::create(['name' => $request->name]);
 
-            return response()->json(['message' => 'Success', 'data' => $tag], 201);
+            $tag->addTranslation([
+                'name' => $request->translation['name'],
+            ]);
+
+            return response()->json(['message' => 'Success', 'data' => $tag->load('translation')], 201);
         } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);
@@ -33,12 +38,16 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'translation.name' => 'required',
         ]);
 
         try {
             $tag->update(['name' => $request->name]);
+            $tag->updateTranslation([
+                'name' => $request->translation['name'],
+            ]);
 
-            return response()->json(['message' => 'Success', 'data' => $tag], 200);
+            return response()->json(['message' => 'Success', 'data' => $tag->load('translation')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);

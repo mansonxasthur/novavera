@@ -123,11 +123,10 @@
             propertyTypes: [],
             editedIndex: -1,
             editedItem: {
-                id: 0,
-                name: '',
+                name: null,
             },
             defaultItem: {
-                name: '',
+                name: null,
             },
             search: '',
             nameRules: [

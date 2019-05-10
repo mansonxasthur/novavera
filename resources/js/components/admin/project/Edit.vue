@@ -478,6 +478,10 @@
 
                     axios.post('/dashboard/projects/' + vm.project.slug, project)
                         .then(res => {
+                            if (('slug' in res.data) && res.data.slug !== vm.project.slug ) {
+                                window.location = '/dashboard/projects/' + res.data.slug + '/edit';
+                            }
+
                             vm.reset(res);
                         })
                         .catch(error => {

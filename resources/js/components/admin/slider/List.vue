@@ -132,10 +132,10 @@
             ],
             sliders: [],
             editedItem: {
-                name: '',
+                name: null,
             },
             defaultItem: {
-                name: '',
+                name: null,
             },
             search: '',
             nameRules: [

@@ -70,16 +70,16 @@
                                                             v-model="editedItem.name"
                                                             :counter="30"
                                                             :rules="nameRules"
-                                                            label="English Name"
+                                                            label="Name"
                                                             required
                                                     ></v-text-field>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-text-field
                                                             v-model="editedItem.translation.name"
-                                                            :counter="20"
+                                                            :counter="30"
                                                             :rules="nameRules"
-                                                            label="الأسم العربي"
+                                                            label="الأسم"
                                                             required
                                                     ></v-text-field>
                                                 </v-flex>

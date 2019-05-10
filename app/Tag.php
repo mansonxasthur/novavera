@@ -11,11 +11,11 @@ class Tag extends Model
 
     public $timestamps = false;
     protected $fillable = ['name'];
-    /* @todo tag translation */
-
+    protected $translationAttributes = ['name'];
+    protected $with = ['translation'];
 
     public function posts()
     {
-        return $this->belongsToMany(Post::class , 'post_tag');
+        return $this->belongsToMany(Post::class);
     }
 }

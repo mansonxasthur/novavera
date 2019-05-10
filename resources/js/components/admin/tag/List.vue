@@ -25,6 +25,8 @@
                         >
                             <template v-slot:items="props">
                                 <td>{{ props.item.name }}</td>
+                                <td>{{ props.item.translation !== null ?
+                                    props.item.translation.name : '' }}</td>
                                 <td class="text-xs-center">
                                     <v-btn flat fab small>
                                         <v-icon
@@ -68,6 +70,13 @@
                                                             :counter="30"
                                                             :rules="nameRules"
                                                             label="Name"
+                                                            required
+                                                    ></v-text-field>
+                                                    <v-text-field
+                                                            v-model="editedItem.translation.name"
+                                                            :counter="30"
+                                                            :rules="nameRules"
+                                                            label="الأسم"
                                                             required
                                                     ></v-text-field>
                                                 </v-flex>
@@ -115,16 +124,26 @@
                     align: 'left',
                     value: 'name'
                 },
+                {
+                    text: 'الأسم',
+                    align: 'right',
+                    value: 'translation.name'
+                },
                 {text: 'Actions', align: 'center', value: 'name', sortable: false}
             ],
             tags: [],
             editedIndex: -1,
             editedItem: {
-                id: 0,
-                name: '',
+                name: null,
+                translation: {
+                    name: null
+                }
             },
             defaultItem: {
-                name: '',
+                name: null,
+                translation: {
+                    name: null
+                }
             },
             search: '',
             nameRules: [
@@ -155,9 +174,8 @@
                         this.editedItem, this.editedItem.id
                         , 'tagForm', 'tags');
                 } else {
-                    this.post({
-                        name: this.editedItem.name,
-                    }, 'tagForm', 'tags');
+                    this.post(
+                        this.editedItem, 'tagForm', 'tags');
                 }
             }
         }

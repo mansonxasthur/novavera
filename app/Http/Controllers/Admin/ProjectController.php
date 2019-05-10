@@ -156,7 +156,7 @@ class ProjectController extends Controller
             }
 
 
-            return response()->json(['message' => 'Success'], 200);
+            return response()->json(['message' => 'Success', 'slug' => $project->slug], 200);
         } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);

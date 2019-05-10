@@ -220,6 +220,7 @@
                     vm.loading = true;
                     let item = vm.page;
                     let page = new FormData();
+
                     Object.keys(item).forEach(key => {
                         if (key === 'header_url') return;
 
@@ -242,6 +243,9 @@
 
                     axios.post('/dashboard/pages/' + this.page.slug, page)
                         .then(res => {
+                            if (('slug' in res.data) && res.data.slug !== vm.page.slug ) {
+                                window.location = '/dashboard/pages/' + res.data.slug + '/edit';
+                            }
                             vm.reset(res);
                         })
                         .catch(error => {

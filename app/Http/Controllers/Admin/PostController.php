@@ -72,40 +72,32 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'arabicTitle' => 'required',
             'tags' => 'required',
             'body' => 'required',
-            'arabicBody' => 'required',
+            'translation.title' => 'required',
+            'translation.body' => 'required',
         ]);
 
         try {
-            $post->title = $request->title;
-            $post->slug = $request->title;
-            $post->body = $request->body;
-            $post->meta = $request->meta;
-            $post->keywords = $request->keywords;
-            $post->style = $request->style;
-            if ($request->hasFile('featuredImage')) {
-                $post->featured_image = $post->updateImage($request->featuredImage, $post->featured_image);
-            }
-            $post->save();
-            $post->updateTranslation([
-                'title' => $request->arabicTitle,
-                'body' => $request->arabicBody,
-            ]);
+            if ($post->updateInstallation($request)) {
+                $post->updateTranslation([
+                    'title' => $request->arabicTitle,
+                    'body' => $request->arabicBody,
+                ]);
 
-            $tags = json_decode($request->tags);
-            if (!empty($tags)){
-                if (is_object($tags[0])) {
-                    $tags = collect($tags)->map(function($type) {
-                        return $type->id;
-                    });
+                $tags = json_decode($request->tags);
+                if (!empty($tags)){
+                    if (is_object($tags[0])) {
+                        $tags = collect($tags)->map(function($type) {
+                            return $type->id;
+                        });
+                    }
+
+                    $post->tags()->sync($tags);
                 }
-
-                $post->tags()->sync($tags);
             }
 
-            return response()->json(['message' => 'Success'], 200);
+            return response()->json(['message' => 'Success', 'slug' => $post->slug], 200);
         } catch (\Exception $e) {
             Logger::error($e);
             return response()->json(['message' => 'Failure'], 500);

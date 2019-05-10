@@ -83,4 +83,19 @@ class Post extends Model
     {
         return $this->getImageUrl($this->featured_image);
     }
+
+    public function updateInstallation(Request $request):bool
+    {
+        $this->slug = $this->title = $request->title;
+        $this->body = $request->body;
+        $this->meta = $request->meta;
+        $this->keywords = $request->keywords;
+        $this->style = $request->style;
+
+        if ($request->hasFile('featured_image')) {
+            $this->featured_image = $this->updateImage($request->featured_image, $this->featured_image);
+        }
+
+        return $this->save();
+    }
 }

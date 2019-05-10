@@ -169,19 +169,11 @@
                 loading: false,
                 post: {},
                 tags: [],
-                title: '',
-                arabicTitle: '',
-                body: '',
-                arabicBody: '',
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
                 ],
-                meta: '',
-                keywords: '',
-                style: '',
                 previewFeaturedImage: '',
-                uploadedFeaturedImage: {},
                 selectedTags: [],
             }
         },
@@ -245,7 +237,7 @@
                 let image = e.target.files[0]; //sames as here
 
 
-                vm.uploadedFeaturedImage = image;
+                vm.post.featured_image = image;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
@@ -253,7 +245,7 @@
                 };
 
                 if (image) {
-                    vm.post.featured_image = '';
+                    vm.post.featured_image_url = '';
                     reader.readAsDataURL(image); //reads the data as a URL
                 }
 
@@ -261,24 +253,41 @@
             },
             removeFeaturedImage() {
                 this.previewFeaturedImage = '';
-                this.uploadedFeaturedImage = {};
+                this.post.featured_image = {};
             },
             submit() {
                 if (this.$refs.form.validate()) {
                     let vm = this;
+                    let item = vm.post;
                     vm.loading = true;
                     let post = new FormData();
-                    post.set('title', this.post.title);
-                    post.set('arabicTitle', this.post.translation.title);
+
+                    Object.keys(item).forEach(key => {
+                        if (key === 'feature_image_url') return;
+
+                        if (!!item[key]) {
+                            if (key === 'featured_image') {
+                                post.append(key, item[key]);
+                                return;
+                            }
+
+                            if (key === 'translation') {
+                                Object.keys(item[key]).forEach(translationKey => {
+                                    if (!!item[key][translationKey])
+                                        post.set(`translation[${translationKey}]`, item[key][translationKey]);
+                                });
+                                return;
+                            }
+                            post.set(key, item[key]);
+                        }
+                    });
+
                     post.set('tags', JSON.stringify(this.selectedTags));
-                    post.set('body', this.post.body);
-                    post.set('arabicBody', this.post.translation.body);
-                    post.set('meta', this.post.meta);
-                    post.set('keywords', this.post.keywords);
-                    post.set('style', this.post.style);
-                    post.append('featuredImage', this.uploadedFeaturedImage);
                     axios.post('/dashboard/posts/' + this.post.slug, post)
                         .then(res => {
+                            if (('slug' in res.data) && res.data.slug !== vm.post.slug ) {
+                                window.location = '/dashboard/posts/' + res.data.slug + '/edit';
+                            }
                             vm.reset(res);
                         })
                         .catch(error => {
