@@ -2,6 +2,7 @@
     <v-carousel
             :height="height"
             hide-delimiters
+            v-if="images.length"
     >
         <v-carousel-item
                 v-for="(image,i) in images"

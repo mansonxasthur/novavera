@@ -11,8 +11,8 @@
                             <v-flex>
                                 <v-layout row justify-center>
                                     <v-flex shrink>
-                                        <v-avatar size="160" class="mt-5 elevation-2">
-                                            <img :src="project.logo_url" :alt="project.name">
+                                        <v-avatar size="160" class="mt-5" tile>
+                                            <img :src="project.logo_url !== '' ? project.logo_url : project.developer.logo_url" :alt="project.name">
                                         </v-avatar>
                                     </v-flex>
                                 </v-layout>
@@ -79,7 +79,7 @@
                         <v-layout column>
                             <v-flex text-xs-center my-5 class="developer">
                                 <h5 class="title mb-3">Developed by</h5>
-                                <v-avatar size="150" class="elevation-1">
+                                <v-avatar size="150" tile>
                                     <img :src="project.developer.logo_url" :alt="project.developer.name">
                                 </v-avatar>
                             </v-flex>

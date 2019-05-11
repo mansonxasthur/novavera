@@ -13,10 +13,28 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home')->with([
-            'slider' => Slider::main()->first(),
-            'developers' => Developer::all(),
-            'projects' => Location::has('projects')->with('projects')->get()
-        ]);
+        $slider = Slider::main()->first();
+        $developers = Developer::all();
+        $residentialProjectLocations = Location::whereHas('projects', function ($query) {
+            $query->where('project_type', 'residential')
+                ->orWhere('project_type', 'both');
+        })
+            ->with(['projects' => function ($query) {
+                $query->where('project_type', 'residential')
+                    ->orWhere('project_type', 'both');
+            }])
+            ->get();
+
+        $commercialProjectLocations = Location::whereHas('projects', function ($query) {
+            $query->where('project_type', 'commercial')
+                ->orWhere('project_type', 'both');
+        })
+            ->with(['projects' => function ($query) {
+                $query->where('project_type', 'commercial')
+                    ->orWhere('project_type', 'both');
+            }])
+            ->get();
+
+        return view('home', compact(['projects', 'slider', 'developers', 'residentialProjectLocations', 'commercialProjectLocations']));
     }
 }

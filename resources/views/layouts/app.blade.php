@@ -72,9 +72,14 @@
                 </template>
 
                 <v-list>
-                    <a href="" class="sub-menu">
+                    <a href="{{ route('projects.index', ['projectType' => 'residential']) }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>Residential Projects</v-list-tile-title>
+                        </v-list-tile>
+                    </a>
+                    <a href="{{ route('projects.index', ['projectType' => 'commercial']) }}" class="sub-menu">
+                        <v-list-tile>
+                            <v-list-tile-title>Commercial Projects</v-list-tile-title>
                         </v-list-tile>
                     </a>
                     <a href="{{ route('developers.index') }}" class="sub-menu">
@@ -93,7 +98,7 @@
                     <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ $page->path() }}">{{ $page->title }}</v-btn>
                 @endforeach
             @endif
-            <v-btn class="text-capitalize font-weight-bold subheading" flat>Contact</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">Contact</v-btn>
             <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
         </v-toolbar-items>
     </v-toolbar>

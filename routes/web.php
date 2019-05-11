@@ -97,7 +97,8 @@ Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(functi
 /******************** Public Area ************************/
 
 // Projects
-Route::get('/projects/{project}', 'ProjectController@show');
+Route::get('/projects/{projectType}/{project}', 'ProjectController@show');
+Route::get('/projects/{projectType}', 'ProjectController@index')->name('projects.index');
 
 // Developers
 Route::get('/developers', 'DeveloperController@index')->name('developers.index');

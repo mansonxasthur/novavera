@@ -51,8 +51,8 @@
                     <v-flex mt-4>
                         <v-layout row wrap>
                             <v-flex xs12 sm6 md4 lg3 v-for="project in projects" :key="project.id" class="animated zoomIn faster">
-                                <a :href="'/projects/' + project.slug" style="text-decoration: none; color: inherit;">
-                                    <v-img :src="projectImage(project)" :alt="project.name">
+                                <a :href="projectPath(project)" style="text-decoration: none; color: inherit;">
+                                    <v-img :src="projectImage(project)" :alt="project.name" max-height="150">
                                         <v-layout fill-height column align-center justify-center class="project-image">
                                             <v-flex shrink>
                                                 <h4 class="headline white--text">{{ project.name }}</h4>
@@ -114,6 +114,9 @@
                 } catch (error) {
                     console.log(error);
                 }
+            },
+            projectPath(project) {
+                return `/projects/${project.project_type}/${project.slug}`;
             }
         }
     }

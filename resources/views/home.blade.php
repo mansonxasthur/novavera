@@ -17,75 +17,82 @@
 
         /* why us */
 
-        .service_box{
-            margin:20px 0;
-            padding:40px 20px;
+        .service_box {
+            margin: 20px 0;
+            padding: 40px 20px;
             text-align: center;
-            border-radius:5px;
+            border-radius: 5px;
             background: #ffff;
             transition: all 0.30s ease 0s;
             min-height: 380px;
         }
 
-        .service_box:hover{
+        .service_box:hover {
             background: #fff;
         }
 
-        .service_box .service_icon{
-            width:70px;
-            height:70px;
+        .service_box .service_icon {
+            width: 70px;
+            height: 70px;
             margin: 0 auto;
-            font-size:35px;
+            font-size: 35px;
             background: #fff;
-            line-height:70px;
-            border-radius:50px;
+            line-height: 70px;
+            border-radius: 50px;
             transform: translateY(0);
             transition: all 0.30s ease 0s;
         }
-        .service_box:hover .service_icon{
+
+        .service_box:hover .service_icon {
             transform: translateY(-100%);
         }
-        .service_box .service_icon i{
-            color:#14152E;
+
+        .service_box .service_icon i {
+            color: #14152E;
         }
-        .service_box h3{
+
+        .service_box h3 {
             position: relative;
-            top:40px;
-            margin:0;
-            color:#14152E;
-            font-size:23px;
-            text-transform:uppercase;
+            top: 40px;
+            margin: 0;
+            color: #14152E;
+            font-size: 23px;
+            text-transform: uppercase;
             transform: translateY(0%);
             transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
         }
-        .service_box:hover h3{
-            top:-40px;
+
+        .service_box:hover h3 {
+            top: -40px;
             color: #14152E
         }
-        .service_box  p{
-            color:#14152E!important;
-            margin:0;
-            opacity:0;
+
+        .service_box p {
+            color: #14152E !important;
+            margin: 0;
+            opacity: 0;
             transition: all 0.30s linear 0s;
         }
+
         @media (max-width: 600px) {
-            .service_box  p{
-                opacity:1;
+            .service_box p {
+                opacity: 1;
             }
 
-            .service_box h3{
-                top:-40px;
+            .service_box h3 {
+                top: -40px;
                 color: #14152E
             }
 
-            .service_box .service_icon{
+            .service_box .service_icon {
                 transform: translateY(-100%);
             }
         }
-        .service_box:hover p{
-            opacity:1;
+
+        .service_box:hover p {
+            opacity: 1;
             color: #14152E;
-            transition: 2s ;
+            transition: 2s;
         }
     </style>
 @endpush
@@ -206,6 +213,36 @@
             </v-flex>
 
             <v-flex xs12 my-5>
+                <project-section
+                        :locations="{{ $residentialProjectLocations }}"
+                        title="Residential Projects"
+                        :count="{{ 4 }}"
+                ></project-section>
+                @if(!empty($residentialProjectLocations))
+                    <v-layout column align-center>
+                        <v-flex py-4>
+                            <v-btn color="primary" href="/projects/residential">View All</v-btn>
+                        </v-flex>
+                    </v-layout>
+                @endif
+            </v-flex>
+
+            <v-flex xs12 my-5>
+                <project-section
+                        :locations="{{ $commercialProjectLocations }}"
+                        title="Commercial Projects"
+                        :count="{{ 4 }}"
+                ></project-section>
+                @if(!empty($commercialProjectLocations))
+                    <v-layout column align-center>
+                        <v-flex py-4>
+                            <v-btn color="primary" href="/projects/commercial">View All</v-btn>
+                        </v-flex>
+                    </v-layout>
+                @endif
+            </v-flex>
+
+            <v-flex xs12 my-5>
                 <developer-carousel :developers="{{ $developers }}"></developer-carousel>
             </v-flex>
 
@@ -220,7 +257,8 @@
                     </v-flex>
                     <v-flex shrink class="pt-4">
                         <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">CITIZENSHIP & RESIDENCY</h2></v-flex>
+                            <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">CITIZENSHIP &
+                                    RESIDENCY</h2></v-flex>
                             <v-flex shrink
                                     class="red darken-2"
                                     style="height: 3px; width: 50px">
@@ -230,8 +268,10 @@
 
                     <v-flex shrink class="text-xs-center font-weight-light pa-4">
                         <p class="subheading">
-                            We make getting a second citizenship achievable by providing you with the very best citizenship by investment opportunities from around the world,<br>
-                            Our citizenship programmes start at $100,000 for a single applicant and $125,000 for a family of five or more.
+                            We make getting a second citizenship achievable by providing you with the very best
+                            citizenship by investment opportunities from around the world,<br>
+                            Our citizenship programmes start at $100,000 for a single applicant and $125,000 for a
+                            family of five or more.
                         </p>
                     </v-flex>
                     <v-flex grow>
@@ -254,7 +294,8 @@
 
                     <v-flex shrink class="pt-4">
                         <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1">WHY SHOULD YOU INVEST IN A SECOND CITIZENSHIP ?</h2></v-flex>
+                            <v-flex shrink class="py-3"><h2 class="display-1">WHY SHOULD YOU INVEST IN A SECOND
+                                    CITIZENSHIP ?</h2></v-flex>
                             <v-flex shrink
                                     class="red darken-2"
                                     style="height: 3px; width: 50px">
@@ -264,7 +305,8 @@
 
                     <v-flex shrink class="text-xs-center font-weight-light pa-4">
                         <p class="subheading">
-                            Whether you are a corporate executive, public figure, investor, or private citizen,the benefits of investing
+                            Whether you are a corporate executive, public figure, investor, or private citizen,the
+                            benefits of investing
                             <br>
                             in our programs will impact all aspects of life in the short and long term.
                         </p>
@@ -381,7 +423,8 @@
                                                 <i class="fa fa-search"></i>
                                             </div>
                                             <h3>Transparency</h3>
-                                            <p class="subheading">Integrity, honesty, transparency and authenticity are very important to us and we work closely with our clients
+                                            <p class="subheading">Integrity, honesty, transparency and authenticity are
+                                                very important to us and we work closely with our clients
                                                 to ensure that they have every level of support.</p>
                                         </div>
                                     </v-flex>
@@ -391,7 +434,8 @@
                                                 <i class="fa fa-briefcase"></i>
                                             </div>
                                             <h3>Experience</h3>
-                                            <p class="subheading">Novavera® is based on over 27 years of extensive experience in different international
+                                            <p class="subheading">Novavera® is based on over 27 years of extensive
+                                                experience in different international
                                                 businesses, a long career of success,
                                                 rebranded in an innovative, creative and up-to-date mind set.</p>
                                         </div>
@@ -402,7 +446,8 @@
                                                 <i class="fa fa-handshake"></i>
                                             </div>
                                             <h3>Credibility</h3>
-                                            <p class="subheading">Through our work with clients over the last 27 years, we have learned how to use a common language with everyone.</p>
+                                            <p class="subheading">Through our work with clients over the last 27 years,
+                                                we have learned how to use a common language with everyone.</p>
                                         </div>
                                     </v-flex>
                                 </v-layout>
@@ -586,16 +631,17 @@
                                                     <v-flex class="subheading py-2">
                                                         <address>
                                                             <v-tooltip left>
-                                                            <template v-slot:activator="{ on }">
+                                                                <template v-slot:activator="{ on }">
 
-                                                                <a href="https://goo.gl/maps/4y74kX6UDg5We5Ud7" target="_blank" role="link" v-on="on"
-                                                                   style="text-decoration: none; color:inherit">
-                                                                    Cairo, Capital Business Park, Sheikh Zayed
-                                                                    Building 6 , Office 314
-                                                                </a>
-                                                            </template>
-                                                            <span>Address</span>
-                                                        </v-tooltip>
+                                                                    <a href="https://goo.gl/maps/4y74kX6UDg5We5Ud7"
+                                                                       target="_blank" role="link" v-on="on"
+                                                                       style="text-decoration: none; color:inherit">
+                                                                        Cairo, Capital Business Park, Sheikh Zayed
+                                                                        Building 6 , Office 314
+                                                                    </a>
+                                                                </template>
+                                                                <span>Address</span>
+                                                            </v-tooltip>
                                                         </address>
                                                     </v-flex>
                                                     <v-flex class="subheading py-2">
@@ -613,7 +659,8 @@
                                                     <v-flex class="subheading py-2">
                                                         <v-tooltip left>
                                                             <template v-slot:activator="{ on }">
-                                                                <a href="mailto:realestate@novavera.com" role="email" v-on="on"
+                                                                <a href="mailto:realestate@novavera.com" role="email"
+                                                                   v-on="on"
                                                                    style="text-decoration: none; color:inherit">
                                                                     realestate@novavera.com
                                                                 </a>
