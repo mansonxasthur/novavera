@@ -9,7 +9,7 @@
                     style="height: 3px; width: 50px">
             </v-flex>
         </v-layout>
-        <infinite-slide-bar duration="14s" class="mt-3">
+        <infinite-slide-bar duration="14s" class="mt-3" :direction="direction">
             <v-layout row wrap>
                 <v-flex v-for="developer in developers" :key="developer.id">
                     <img :src="developer.logo_url" :alt="developer.name" height="100px">
@@ -29,6 +29,11 @@
             developers: {
                 required: true,
                 type: Array
+            }
+        },
+        computed: {
+            direction() {
+                return this.$vuetify.lang.current === 'ar' ? 'reverse' : 'normal';
             }
         }
     }
