@@ -24757,13 +24757,12 @@ var render = function() {
         "infinite-slide-bar",
         {
           staticClass: "mt-3",
-          staticStyle: { direction: "ltr" },
           attrs: { duration: "14s", direction: _vm.direction }
         },
         [
           _c(
             "v-layout",
-            { attrs: { row: "", wrap: "" } },
+            { staticStyle: { direction: "ltr" }, attrs: { row: "", wrap: "" } },
             _vm._l(_vm.developers, function(developer) {
               return _c("v-flex", { key: developer.id }, [
                 _c("img", {
