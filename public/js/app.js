@@ -24757,6 +24757,7 @@ var render = function() {
         "infinite-slide-bar",
         {
           staticClass: "mt-3",
+          staticStyle: { direction: "ltr" },
           attrs: { duration: "14s", direction: _vm.direction }
         },
         [
