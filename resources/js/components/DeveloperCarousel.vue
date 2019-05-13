@@ -10,7 +10,7 @@
             </v-flex>
         </v-layout>
         <infinite-slide-bar duration="14s" class="mt-3" :direction="direction">
-            <v-layout row wrap style="direction: ltr">
+            <v-layout row wrap>
                 <v-flex v-for="developer in developers" :key="developer.id">
                     <img :src="developer.logo_url" :alt="developer.name" height="100px">
                 </v-flex>

@@ -257,7 +257,7 @@ with high standards of expertise',
                 @endif
             </v-flex>
 
-            <v-flex xs12 my-5>
+            <v-flex xs12 my-5 style="direction: ltr">
                 <developer-carousel :developers="{{ $developers }}"></developer-carousel>
             </v-flex>
 

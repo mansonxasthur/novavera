@@ -24762,7 +24762,7 @@ var render = function() {
         [
           _c(
             "v-layout",
-            { staticStyle: { direction: "ltr" }, attrs: { row: "", wrap: "" } },
+            { attrs: { row: "", wrap: "" } },
             _vm._l(_vm.developers, function(developer) {
               return _c("v-flex", { key: developer.id }, [
                 _c("img", {
