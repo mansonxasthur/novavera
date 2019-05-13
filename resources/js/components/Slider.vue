@@ -14,14 +14,14 @@
             <v-container fill-height>
                 <v-layout>
                     <v-flex xs12 sm8 md6>
-                        <section class="slide-info" v-if="image.title">
-                            <h1 class="display-1 mb-5 animated flipInX delay-1s" v-html="image.title"></h1>
-                            <h3 class="title mb-5 animated lightSpeedIn delay-1s" v-if="image.subtitle" v-html="image.subtitle"></h3>
+                        <section class="slide-info animated fadeIn delay-1s" v-if="image.title">
+                            <h1 class="display-1 animated flipInX delay-1s" v-html="__t(image, 'title')"></h1>
+                            <h3 class="title my-5 animated lightSpeedIn delay-1s" v-if="image.subtitle" v-html="__t(image, 'subtitle')"></h3>
                             <v-btn
                                     class="nova-btn-primary animated fadeInUp delay-2s"
                                     dark
                                     v-if="image.btn_label&& image.btn_link"
-                                    v-text="image.btn_label"
+                                    v-text="__t(image, 'btn_label')"
                                     :href="image.btn_link"
                             ></v-btn>
                         </section>
@@ -33,8 +33,11 @@
 </template>
 
 <script>
+    import localization from '../mixins/localization';
+
     export default {
         name: "Slider",
+        mixins: [localization],
         props: {
             sliderImages: {
                 required: true,

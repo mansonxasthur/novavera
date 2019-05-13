@@ -20,8 +20,11 @@
 </template>
 
 <script>
+    import InfiniteSlideBar from 'vue-infinite-slide-bar';
+
     export default {
         name: "DeveloperCarousel",
+        components: {InfiniteSlideBar},
         props: {
             developers: {
                 required: true,

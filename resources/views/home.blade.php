@@ -1,8 +1,23 @@
 @extends('layouts.app')
 
+@push('meta')
+    @component('partials.meta', [
+        'name' => 'description',
+        'content' => 'We provide real estate and investment services
+with high standards of expertise',
+    ])
+    @endcomponent
+@endpush
+
+@push('title')
+    @component('partials.title')
+
+    @endcomponent
+@endpush
+
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/flaticon/flaticon.css') }}"
-          xmlns:v-slot="http://www.w3.org/1999/XSL/Transform" xmlns:v-slot="">
+          xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <style>
         [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
             font-family: Flaticon, serif;

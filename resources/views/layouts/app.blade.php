@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @stack('meta')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @stack('title')
 
 
     <!-- Fonts -->
@@ -24,7 +25,7 @@
     @stack('styles')
 </head>
 <body>
-<v-app id="app" v-cloak>
+<v-app id="novavera" v-cloak>
     <v-navigation-drawer
             fixed
             disable-resize-watcher
@@ -53,13 +54,13 @@
     </v-navigation-drawer>
     <v-toolbar app scroll-off-screen clipped-left color="white">
         <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
-        <a href="/#app" style="width: 170px">
+        <a href="/" style="width: 170px">
             <img src="{{ asset('assets/logo.svg') }}" alt="">
         </a>
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn class="text-capitalize font-weight-bold subheading" href="/#app" flat>Home</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" href="/" flat>Home</v-btn>
             <v-menu :nudge-width="100"
                     offset-y
                     transition="slide-x-transition"
@@ -88,7 +89,6 @@
                         </v-list-tile>
                     </a>
 
-
                 </v-list>
             </v-menu>
 
@@ -100,6 +100,7 @@
             @endif
             <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">Contact</v-btn>
             <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
+            <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-content>

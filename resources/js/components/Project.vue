@@ -98,7 +98,7 @@
                 </v-layout>
             </v-flex>
         </v-layout>
-        <v-dialog v-model="dialog" max-width="40%">
+        <v-dialog v-model="dialog" width="600px" max-width="100%" >
             <v-card>
                 <v-card-title>
                     <h4 class="headline">Ask Now</h4>
@@ -111,7 +111,7 @@
                                 <v-text-field
                                     type="text"
                                     label="Name"
-                                    prepend-icon="person"
+                                    prepend-inner-icon="person"
                                     v-model="name"
                                     required
                                     autocomplete="name"
@@ -123,7 +123,7 @@
                                 <v-text-field
                                         type="email"
                                         label="Email"
-                                        prepend-icon="email"
+                                        prepend-inner-icon="email"
                                         v-model="email"
                                         required
                                         autocomplete="email"
@@ -134,7 +134,7 @@
                             <v-flex xs12>
                                 <v-textarea
                                         label="Message"
-                                        prepend-icon="message"
+                                        prepend-inner-icon="message"
                                         v-model="message"
                                         required
                                         color="primary"
@@ -156,7 +156,7 @@
 </template>
 
 <script>
-    import gmapsInit from '../utilities/gmaps';
+    import gmapsInit from '../util/gmaps';
 
     export default {
         name: "Project",

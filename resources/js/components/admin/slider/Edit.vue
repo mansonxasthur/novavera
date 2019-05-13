@@ -188,7 +188,7 @@
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
     import Form from '../../../mixins/Form';
-    import Sortable from '../../../utilities/sortable.min';
+    import Sortable from '../../../util/sortable.min';
 
     export default {
         name: 'EditSlider',
