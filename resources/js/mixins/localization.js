@@ -32,7 +32,9 @@ export default {
         },
         __t(model, property) {
             if (this.$vuetify.lang.current === 'ar') {
-                return model.translation[property];
+                if (model.translation && model.translation[property]) {
+                    return model.translation[property];
+                }
             }
 
             return model[property];
