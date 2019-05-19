@@ -13,7 +13,8 @@ class CitizenshipController extends Controller
 
         return view('citizenship.show')->with([
             'citizenship' => $citizenship,
-            'citizenships' => Citizenship::where('type', $type)->where('id', '<>', $citizenship->id)->get()
+            //'citizenships' => Citizenship::where('type', $type)->where('id', '<>', $citizenship->id)->get(),
+            'citizenships' => Citizenship::where('type', $type)->get(),
         ]);
     }
 }

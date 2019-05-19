@@ -174,7 +174,7 @@ with high standards of expertise',
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
-                                <v-btn class="nova-btn-primary" dark>
+                                <v-btn class="nova-btn-primary" dark href="#residential-projects" role="link">
                                     Discover More
                                 </v-btn>
                             </v-flex>
@@ -207,18 +207,62 @@ with high standards of expertise',
                             </v-flex>
                             <v-flex grow>
                                 <v-layout row wrap class="text-xs-center">
-                                    <v-flex xs12 md6 class="pa-5 text-xs-center">
-                                        <h2 class="headline">Citizenship</h2>
-                                        <v-layout></v-layout>
+                                    <v-flex xs12 md6 class="text-xs-center">
+
+                                        @if (count($citizenshipList))
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">Citizenship</h3>
+                                            <v-container grid-list>
+                                                <v-layout row wrap>
+                                                    @foreach($citizenshipList as $citizenship)
+                                                            <v-flex xs4>
+                                                                <a href="{{ $citizenship->path() }}" class="sub-menu">
+                                                                <v-layout column align-center justify-space-between>
+                                                                    <v-flex style="min-width: 100px;">
+                                                                        <v-avatar size="80" tile>
+                                                                            <img src="{{ $citizenship->flag_url }}" alt="{{ $citizenship->country_name }}">
+                                                                        </v-avatar>
+                                                                    </v-flex>
+                                                                    <v-flex>{{ $citizenship->country_name }}</v-flex>
+                                                                </v-layout>
+                                                                </a>
+                                                            </v-flex>
+
+                                                    @endforeach
+                                                </v-layout>
+                                            </v-container>
+
+                                        @endif
                                     </v-flex>
-                                    <v-flex xs12 md6 class="pa-5">
-                                        <h2 class="headline">Residency</h2>
-                                        <v-layout></v-layout>
+                                    <v-flex xs12 md6 class="text-xs-center">
+
+                                        @if (count($residencyList))
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">Residency</h3>
+                                            <v-container grid-list>
+                                                <v-layout row wrap>
+                                                    @foreach($residencyList as $residency)
+                                                        <v-flex xs4>
+                                                            <a href="{{ $residency->path() }}" class="sub-menu">
+                                                                <v-layout column align-center justify-space-between>
+                                                                    <v-flex style="min-width: 100px;">
+                                                                        <v-avatar size="80" tile>
+                                                                            <img src="{{ $residency->flag_url }}" alt="{{ $residency->country_name }}">
+                                                                        </v-avatar>
+                                                                    </v-flex>
+                                                                    <v-flex>{{ $residency->country_name }}</v-flex>
+                                                                </v-layout>
+                                                            </a>
+                                                        </v-flex>
+
+                                                    @endforeach
+                                                </v-layout>
+                                            </v-container>
+
+                                        @endif
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
-                                <v-btn color="grey lighten-5">
+                                <v-btn color="grey lighten-5" href="#citizenship-residency" role="link">
                                     Discover More
                                 </v-btn>
                             </v-flex>
@@ -227,7 +271,7 @@ with high standards of expertise',
                 </v-layout>
             </v-flex>
 
-            <v-flex xs12 my-5>
+            <v-flex xs12 my-5 id="residential-projects">
                 <project-section
                         :locations="{{ $residentialProjectLocations }}"
                         title="Residential Projects"
@@ -261,50 +305,11 @@ with high standards of expertise',
                 <developer-carousel :developers="{{ $developers }}"></developer-carousel>
             </v-flex>
 
-            <v-flex xs12 my-5 pb-5 class="bg-color-dark" dark>
+            <v-flex xs12 my-5 pb-5 class="bg-color-dark" dark id="citizenship-residency">
                 <v-layout column align-space-between>
-                    <v-flex>
-                        <v-layout justify-center>
-                            <v-flex shrink class="mt-0 white py-3 px-4">
-                                <h3 class="black--text lighten-2 text-xs-center">Worldwide</h3>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                    <v-flex shrink class="pt-4">
-                        <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">CITIZENSHIP &
-                                    RESIDENCY</h2></v-flex>
-                            <v-flex shrink
-                                    class="red darken-2"
-                                    style="height: 3px; width: 50px">
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-
-                    <v-flex shrink class="text-xs-center font-weight-light pa-4">
-                        <p class="subheading">
-                            We make getting a second citizenship achievable by providing you with the very best
-                            citizenship by investment opportunities from around the world,<br>
-                            Our citizenship programmes start at $100,000 for a single applicant and $125,000 for a
-                            family of five or more.
-                        </p>
-                    </v-flex>
                     <v-flex grow>
-                        <v-layout row wrap class="text-xs-center">
-                            <v-flex xs12 md6 class="pa-5">
-                                <h2 class="headline">Citizenship</h2>
-                                <v-layout></v-layout>
-                            </v-flex>
-                            <v-flex xs12 md6 class="pa-5">
-                                <h2 class="headline">Residency</h2>
-                                <v-layout></v-layout>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                    <v-flex shrink class="text-xs-center my-3">
-                        <v-btn color="grey lighten-5">
-                            Discover More
-                        </v-btn>
+                        <citizenship-section
+                                :citizenship-collection="{{ $citizenshipCollection }}"></citizenship-section>
                     </v-flex>
 
                     <v-flex shrink class="pt-4">

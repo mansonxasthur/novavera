@@ -32,6 +32,11 @@ html,body
     background-color: $nova-primary !important;
     border-color: $nova-primary !important;
   }
+
+  .primary--text {
+    color: $nova-primary !important;
+    caret-color: $nova-primary !important;
+  }
 }
 
 .application.theme--light {

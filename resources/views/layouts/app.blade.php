@@ -113,14 +113,14 @@
                 </template>
 
                 <v-layout row wrap>
-                    <v-flex d-flex xs12 md6 >
-                        @if (count($citizenshipList))
-                            <v-list>
-                                <v-list-tile>
-                                    <v-list-tile-content>
-                                        <h3 class="headline grey--text text--darken-1">Citizenship</h3>
-                                    </v-list-tile-content>
-                                </v-list-tile>
+                    <v-flex d-flex xs12 md6>
+                        <v-list>
+                            <v-list-tile>
+                                <v-list-tile-content>
+                                    <h3 class="headline grey--text text--darken-1">Citizenship</h3>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            @if (count($citizenshipList))
                                 @foreach($citizenshipList as $citizenship)
                                     <a href="{{ $citizenship->path() }}" class="sub-menu">
                                         <v-list-tile>
@@ -131,31 +131,28 @@
                                         </v-list-tile>
                                     </a>
                                 @endforeach
-                            </v-list>
-                        @endif
+                            @endif
+                        </v-list>
                     </v-flex>
-                    <v-flex d-flex xs12 md6 >
+                    <v-flex d-flex xs12 md6>
                         <v-list>
                             <v-list-tile>
                                 <v-list-tile-content>
                                     <h3 class="headline grey--text text--darken-1">Residency</h3>
                                 </v-list-tile-content>
                             </v-list-tile>
-                            <a href="{{ route('projects.index', ['projectType' => 'residential']) }}" class="sub-menu">
-                                <v-list-tile>
-                                    <v-list-tile-title>Residential Projects</v-list-tile-title>
-                                </v-list-tile>
-                            </a>
-                            <a href="{{ route('projects.index', ['projectType' => 'commercial']) }}" class="sub-menu">
-                                <v-list-tile>
-                                    <v-list-tile-title>Commercial Projects</v-list-tile-title>
-                                </v-list-tile>
-                            </a>
-                            <a href="{{ route('developers.index') }}" class="sub-menu">
-                                <v-list-tile>
-                                    <v-list-tile-title>Developers</v-list-tile-title>
-                                </v-list-tile>
-                            </a>
+                            @if (count($residencyList))
+                                @foreach($residencyList as $residency)
+                                    <a href="{{ $residency->path() }}" class="sub-menu">
+                                        <v-list-tile>
+                                            <v-list-tile-avatar>
+                                                <v-img src="{{ $residency->flag_url }}"></v-img>
+                                            </v-list-tile-avatar>
+                                            <v-list-tile-title>{{ $residency->country_name }}</v-list-tile-title>
+                                        </v-list-tile>
+                                    </a>
+                                @endforeach
+                            @endif
                         </v-list>
                     </v-flex>
                 </v-layout>

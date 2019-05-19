@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Citizenship;
 use App\Developer;
 use App\Location;
 use App\Project;
@@ -35,6 +36,8 @@ class HomeController extends Controller
             }])
             ->get();
 
-        return view('home', compact(['projects', 'slider', 'developers', 'residentialProjectLocations', 'commercialProjectLocations']));
+        $citizenshipCollection = Citizenship::all();
+
+        return view('home', compact(['projects', 'slider', 'developers', 'residentialProjectLocations', 'commercialProjectLocations', 'citizenshipCollection']));
     }
 }

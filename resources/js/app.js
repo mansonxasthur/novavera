@@ -85,7 +85,7 @@ Vue.component('project', require('./components/Project').default); // project pa
 Vue.component('project-section', require('./components/ProjectSection').default); // project section home page
 
 Vue.component('citizenship', require('./components/Citizenship').default); // citizenship page
-//Vue.component('project-section', require('./components/ProjectSection').default); // project section home page
+Vue.component('citizenship-section', require('./components/CitizenshipSection').default); // citizenship section home page
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
