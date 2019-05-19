@@ -47,6 +47,7 @@
                                         <v-icon
                                                 small
                                                 @click="deleteItem(props.item, 'projects')"
+                                                :disabled="disabled"
                                         >
                                             delete
                                         </v-icon>
@@ -56,7 +57,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn color="primary" outline class="mb-2" href="/dashboard/projects/create">
+                        <v-btn color="primary" outline class="mb-2" href="/dashboard/projects/create" :disabled="disabled">
                             New Project
                         </v-btn>
                     </v-card-actions>
@@ -77,10 +78,12 @@
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
     import Form from '../../../mixins/Form';
+    import auth from "../../../mixins/auth";
+
 
     export default {
         name: "Projects",
-        mixins: [SnackbarComponent, Form],
+        mixins: [SnackbarComponent, Form, auth],
         props: ['projectCollection'],
         data() {
             return {

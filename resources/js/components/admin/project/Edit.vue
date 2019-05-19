@@ -22,6 +22,7 @@
                                                     :rules="nameRules"
                                                     label="Name"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -31,30 +32,35 @@
                                                     :rules="nameRules"
                                                     label="الأسم"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
                                                     v-model="project.price"
                                                     label="Price"
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
                                                     v-model="project.down_payment"
                                                     label="Down Payment"
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
                                                     v-model="project.installment_years"
                                                     label="Installment Years"
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 sm6 md3 class="my-3">
                                             <v-text-field
                                                     v-model="project.delivery_date"
                                                     label="Delivery Date"
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -65,6 +71,7 @@
                                                     item-value="id"
                                                     label="Developer"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-select>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -75,6 +82,7 @@
                                                     item-value="value"
                                                     label="Project Type"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-select>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -86,6 +94,7 @@
                                                     label="Location"
                                                     prepend-icon="map"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-select>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -95,6 +104,7 @@
                                                             v-model="project.lat"
                                                             label="Latitude"
                                                             required
+                                                            :disabled="disabled"
                                                     ></v-text-field>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
@@ -102,6 +112,7 @@
                                                             v-model="project.lng"
                                                             label="Longitude"
                                                             required
+                                                            :disabled="disabled"
                                                     ></v-text-field>
                                                 </v-flex>
                                             </v-layout>
@@ -115,6 +126,7 @@
                                                     label="Property Types"
                                                     multiple
                                                     required
+                                                    :disabled="disabled"
                                             >
                                                 <template v-slot:prepend-item>
                                                     <v-list-tile
@@ -165,12 +177,14 @@
                                                     <v-textarea
                                                             v-model="project.meta"
                                                             label="Meta Description"
+                                                            :disabled="user && user.isViewer()"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
                                                             v-model="project.keywords"
                                                             label="Keywords"
+                                                            :disabled="user && user.isViewer()"
                                                     ></v-textarea>
                                                 </v-flex>
                                             </v-layout>
@@ -185,6 +199,7 @@
                                             color="deep-orange accent-3"
                                             outline
                                             @click="triggerUpload"
+                                            :disabled="disabled"
                                     >
                                         Upload Images
                                         <v-icon right>cloud_upload</v-icon>
@@ -203,7 +218,7 @@
                                                         <v-img :src="src.image_url" max-height="200px">
                                                             <v-btn fab dark small color="primary"
                                                                    style="position: absolute;top: 0;right: 0;"
-                                                                   @click="deleteImage(src)">
+                                                                   @click="deleteImage(src)" :disabled="disabled">
                                                                 <v-icon dark>remove</v-icon>
                                                             </v-btn>
                                                         </v-img>
@@ -213,7 +228,7 @@
                                                         <v-img :src="src" max-height="200px">
                                                             <v-btn fab dark small color="primary"
                                                                    style="position: absolute;top: 0;right: 0;"
-                                                                   @click="removeImage(index)">
+                                                                   @click="removeImage(index)" :disabled="disabled">
                                                                 <v-icon dark>remove</v-icon>
                                                             </v-btn>
                                                         </v-img>
@@ -240,6 +255,7 @@
                                                     color="deep-orange accent-3"
                                                     outline
                                                     @click="triggerLogoUpload"
+                                                    :disabled="disabled"
                                             >
                                                 Change Logo
                                                 <v-icon right>cloud_upload</v-icon>
@@ -251,7 +267,7 @@
                                             <v-img :src="previewLogo" width="auto" v-if="previewLogo !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
-                                                       @click="removeLogo">
+                                                       @click="removeLogo" :disabled="disabled">
                                                     <v-icon dark>remove</v-icon>
                                                 </v-btn>
                                             </v-img>
@@ -264,7 +280,7 @@
                 </v-card-text>
                 <v-card-actions class="py-4 mt-5">
                     <v-spacer></v-spacer>
-                    <v-btn outline color="primary" @click="post" :loading="loading">
+                    <v-btn outline color="primary" @click="post" :loading="loading" :disabled="user && user.isViewer()">
                         Update Project
                     </v-btn>
                     <v-btn outline color="primary" href="/dashboard/projects">
@@ -280,11 +296,29 @@
 
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
+    import auth from '../../../mixins/auth';
 
     export default {
         name: "EditProject",
-        props: ['developerCollection', 'propertyCollection', 'locationCollection', 'projectCollection'],
-        mixins: [SnackbarComponent],
+        props: {
+            developerCollection: {
+                required: true,
+                type: Array,
+            },
+            propertyCollection: {
+                required: true,
+                type: Array,
+            },
+            locationCollection: {
+                required: true,
+                type: Array,
+            },
+            projectCollection: {
+                required: true,
+                type: Object,
+            }
+        },
+        mixins: [SnackbarComponent, auth],
         data() {
             return {
                 loading: false,
@@ -350,6 +384,7 @@
                 });
                 $('#englishEditor').summernote('code', vm.projectCollection.description);
                 $('#arabicEditor').summernote('code', vm.projectCollection.translation.description);
+
             });
             this.init();
         },
@@ -444,7 +479,7 @@
                     let project = new FormData();
 
                     Object.keys(item).forEach(key => {
-                        if (key === 'logo_url') return;
+                        if (key === 'logo_url' || key === 'developer' || key === 'location') return;
 
                         if (!!item[key]) {
                             if (key === 'logo') {

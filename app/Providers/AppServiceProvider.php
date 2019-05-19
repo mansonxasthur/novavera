@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Citizenship;
 use App\Page;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('pages', Page::published()->get());
+        View::composer('*', function($view) {
+            $view->with(['pageList' => Page::published()->get()]);
+        });
+
+        View::composer('*', function($view) {
+            $view->with(['citizenshipList' => Citizenship::where('type', 'citizenship')->get()]);
+        });
+
+        View::composer('*', function($view) {
+            $view->with(['residencyList' => Citizenship::where('type', 'residency')->get()]);
+        });
     }
 }

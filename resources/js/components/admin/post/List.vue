@@ -29,7 +29,7 @@
                                 <td>{{ props.item.title }}</td>
                                 <td class="text-xs-right">{{ props.item.translation ? props.item.translation.title : '' }}</td>
                                 <td>
-                                    <v-switch v-model="!!props.item.published" color="success" @change="togglePublish(props.item)"></v-switch>
+                                    <v-switch v-model="!!props.item.published" color="success" @change="togglePublish(props.item)" :disabled="disabled"></v-switch>
                                 </td>
                                 <td class="text-xs-center">
                                     <a :href="'/dashboard/posts/' + props.item.slug + '/edit'">
@@ -41,10 +41,9 @@
                                             </v-icon>
                                         </v-btn>
                                     </a>
-                                    <v-btn flat small fab>
+                                    <v-btn flat small fab @click="deleteItem(props.item, 'posts')" :disabled="disabled">
                                         <v-icon
                                                 small
-                                                @click="deleteItem(props.item, 'posts')"
                                         >
                                             delete
                                         </v-icon>
@@ -54,7 +53,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn color="primary" outline class="mb-2" href="/dashboard/posts/create">
+                        <v-btn color="primary" outline class="mb-2" href="/dashboard/posts/create" :disabled="disabled">
                             New Post
                         </v-btn>
                     </v-card-actions>
@@ -75,10 +74,11 @@
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
     import Form from '../../../mixins/Form';
+    import auth from "../../../mixins/auth";
 
     export default {
         name: "Posts",
-        mixins: [SnackbarComponent, Form],
+        mixins: [SnackbarComponent, Form, auth],
         props: ['postCollection'],
         data() {
             return {

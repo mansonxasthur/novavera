@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @stack('meta')
+@stack('meta')
 
-    <!-- CSRF Token -->
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @stack('title')
+@stack('title')
 
 
-    <!-- Fonts -->
+<!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
@@ -19,8 +19,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         a.sub-menu {
-            text-decoration: none; color: inherit;
+            text-decoration: none;
+            color: inherit;
         }
+
+        .citizenship-list {
+            left: 0 !important;
+            min-width: 100% !important;
+        }
+
     </style>
     @stack('styles')
 </head>
@@ -68,7 +75,7 @@
                 <template v-slot:activator="{ on }">
                     <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
                         <span>Real State Brokerage</span>
-                        <v-icon>arrow_drop_down</v-icon>
+                        <v-icon right>arrow_drop_down</v-icon>
                     </v-btn>
                 </template>
 
@@ -92,15 +99,77 @@
                 </v-list>
             </v-menu>
 
-            <v-btn class="text-capitalize font-weight-bold subheading" flat>Citizenship & Residency</v-btn>
-            @if($pages->count())
-                @foreach($pages as $page)
-                    <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ $page->path() }}">{{ $page->title }}</v-btn>
+            <v-menu
+                    full-width
+                    offset-y
+                    transition="slide-x-transition"
+                    content-class="citizenship-list"
+            >
+                <template v-slot:activator="{ on }">
+                    <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
+                        <span>Citizenship & Residency</span>
+                        <v-icon right>arrow_drop_down</v-icon>
+                    </v-btn>
+                </template>
+
+                <v-layout row wrap>
+                    <v-flex d-flex xs12 md6 >
+                        @if (count($citizenshipList))
+                            <v-list>
+                                <v-list-tile>
+                                    <v-list-tile-content>
+                                        <h3 class="headline grey--text text--darken-1">Citizenship</h3>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                                @foreach($citizenshipList as $citizenship)
+                                    <a href="{{ $citizenship->path() }}" class="sub-menu">
+                                        <v-list-tile>
+                                            <v-list-tile-avatar>
+                                                <v-img src="{{ $citizenship->flag_url }}"></v-img>
+                                            </v-list-tile-avatar>
+                                            <v-list-tile-title>{{ $citizenship->country_name }}</v-list-tile-title>
+                                        </v-list-tile>
+                                    </a>
+                                @endforeach
+                            </v-list>
+                        @endif
+                    </v-flex>
+                    <v-flex d-flex xs12 md6 >
+                        <v-list>
+                            <v-list-tile>
+                                <v-list-tile-content>
+                                    <h3 class="headline grey--text text--darken-1">Residency</h3>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            <a href="{{ route('projects.index', ['projectType' => 'residential']) }}" class="sub-menu">
+                                <v-list-tile>
+                                    <v-list-tile-title>Residential Projects</v-list-tile-title>
+                                </v-list-tile>
+                            </a>
+                            <a href="{{ route('projects.index', ['projectType' => 'commercial']) }}" class="sub-menu">
+                                <v-list-tile>
+                                    <v-list-tile-title>Commercial Projects</v-list-tile-title>
+                                </v-list-tile>
+                            </a>
+                            <a href="{{ route('developers.index') }}" class="sub-menu">
+                                <v-list-tile>
+                                    <v-list-tile-title>Developers</v-list-tile-title>
+                                </v-list-tile>
+                            </a>
+                        </v-list>
+                    </v-flex>
+                </v-layout>
+            </v-menu>
+            @if($pageList->count())
+                @foreach($pageList as $page)
+                    <v-btn class="text-capitalize font-weight-bold subheading" flat
+                           href="{{ $page->path() }}">{{ $page->title }}</v-btn>
                 @endforeach
             @endif
             <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">Contact</v-btn>
             <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
-            <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}</v-btn>
+            <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}
+            </v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <v-content>

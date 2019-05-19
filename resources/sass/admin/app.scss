@@ -1,5 +1,4 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
 @import "../../../node_modules/material-design-icons-iconfont/src/material-design-icons";
 @import "../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 // Vuetify
@@ -15,11 +14,11 @@ $nova-black: #0D0D0D;
   display: none;
 }
 
-.application, .display-1, .display-2, .display-3, .display-4, .title, .headline {
-  font-family: "Nunito", sans-serif;
-}
-
 .application {
+
+  textarea {
+    white-space: pre-wrap;
+  }
 
   .v-card {
     -webkit-border-radius: 8px;

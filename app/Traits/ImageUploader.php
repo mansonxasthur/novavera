@@ -28,6 +28,9 @@ trait ImageUploader
      */
     public function uploadImage(UploadedFile $file, string $format = null): string
     {
+        if ($file->getClientOriginalExtension() === 'svg') {
+            return $file->store($this->imagePath);
+        }
         return $this->optimizeImage($file, $format);
     }
 

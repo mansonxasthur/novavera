@@ -1754,6 +1754,1660 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Form */ "./resources/js/mixins/Form.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Admins",
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  props: {
+    roles: {
+      required: true,
+      type: Array
+    },
+    adminCollection: {
+      required: true,
+      type: Array
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      loading: false,
+      paginationSync: {
+        rowsPerPage: 10
+      },
+      headers: [{
+        text: 'Name',
+        align: 'left',
+        sort: true,
+        value: 'name'
+      }, {
+        text: 'Email',
+        align: 'left',
+        value: 'email',
+        sortable: false
+      }, {
+        text: 'Role',
+        align: 'left',
+        value: 'role.name',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        value: 'name',
+        sortable: false
+      }],
+      admins: [],
+      editedIndex: -1,
+      editedItem: {
+        name: null,
+        email: null,
+        role_id: null
+      },
+      defaultItem: {
+        name: null,
+        email: null,
+        role_id: null
+      },
+      search: '',
+      nameRules: [function (v) {
+        return !!v || 'Name is required';
+      }, function (v) {
+        return v && v.length <= 30 || 'Name must be less than 30 characters';
+      }],
+      descriptionRules: [function (v) {
+        return v && v.length <= 150 || 'Name must be less than 150 characters';
+      }],
+      postRoute: '/dashboard/admins',
+      updateRoute: '/dashboard/admins/',
+      deleteRoute: '/dashboard/admins/'
+    };
+  },
+  computed: {
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'New Admin' : 'Edit Admin';
+    }
+  },
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {
+    this.admins = this.adminCollection;
+  },
+  methods: {
+    save: function save() {
+      var vm = this;
+      var admin = new FormData();
+      var item = this.editedItem;
+      vm.loading = true;
+      Object.keys(item).forEach(function (key) {
+        if (key === 'role') return;
+
+        if (!!item[key]) {
+          admin.set(key, item[key]);
+        }
+      });
+
+      if (this.editedIndex > -1) {
+        this.update(item, item.id, 'adminForm', 'admins');
+      } else {
+        this.post(admin, 'adminForm', 'admins');
+      }
+    },
+    closeDialog: function closeDialog() {
+      this.close();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreateCitizenship",
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      loading: false,
+      citizenshipTypes: [{
+        value: 'citizenship',
+        text: 'Citizenship'
+      }, {
+        value: 'residency',
+        text: 'Residency'
+      }, {
+        value: 'both',
+        text: 'Both'
+      }],
+      nameRules: [function (v) {
+        return !!v || 'Name is required';
+      }, function (v) {
+        return v && v.length <= 30 || 'Name must be less than 30 characters';
+      }],
+      titleRules: [function (v) {
+        return !!v || 'Title is required';
+      }, function (v) {
+        return v && v.length <= 50 || 'Name must be less than 50 characters';
+      }],
+      snippetRules: [function (v) {
+        return !!v || 'Snippet is required';
+      }, function (v) {
+        return v && v.length <= 150 || 'Name must be less than 150 characters';
+      }],
+      benefitRules: [function (v) {
+        return !!v || 'Benefit is required';
+      }, function (v) {
+        return v && v.length <= 80 || 'Name must be less than 80 characters';
+      }],
+      supplyRules: [function (v) {
+        return !!v || 'Supply is required';
+      }, function (v) {
+        return v && v.length <= 80 || 'Name must be less than 80 characters';
+      }],
+      citizenship: {
+        country_name: null,
+        title: null,
+        description: null,
+        snippet: null,
+        meta: null,
+        keywords: null,
+        type: null,
+        flag: null,
+        header: null,
+        translation: {
+          country_name: null,
+          title: null,
+          description: null,
+          snippet: null
+        }
+      },
+      benefits: [],
+      benefit: {
+        en: null,
+        ar: null
+      },
+      supplies: [],
+      supply: {
+        en: null,
+        ar: null
+      },
+      previewFlag: '',
+      previewHeader: ''
+    };
+  },
+  created: function created() {
+    var vm = this;
+    $(document).ready(function () {
+      $('#englishEditor').summernote({
+        height: 300,
+        codemirror: {
+          mode: 'text/html',
+          htmlMode: true,
+          lineNumbers: true,
+          theme: 'monokai'
+        },
+        callbacks: {
+          onChange: function onChange(contents) {
+            vm.citizenship.description = contents;
+          }
+        }
+      });
+      $('#arabicEditor').summernote({
+        height: 300,
+        codemirror: {
+          mode: 'text/html',
+          htmlMode: true,
+          lineNumbers: true,
+          theme: 'monokai'
+        },
+        callbacks: {
+          onChange: function onChange(contents) {
+            vm.citizenship.translation.description = contents;
+          }
+        }
+      });
+    });
+  },
+  methods: {
+    triggerFlagUpload: function triggerFlagUpload() {
+      document.querySelector('#flagUploader').click();
+    },
+    uploadFlag: function uploadFlag(e) {
+      var vm = this;
+      var flag = e.target.files[0]; //sames as here
+
+      vm.citizenship.flag = flag;
+      var reader = new FileReader();
+
+      reader.onloadend = function () {
+        vm.previewFlag = reader.result;
+      };
+
+      if (flag) {
+        reader.readAsDataURL(flag); //reads the data as a URL
+      } else {
+        vm.previewFlag = '';
+      }
+
+      e.target.value = '';
+    },
+    removeFlag: function removeFlag() {
+      this.previewFlag = '';
+      this.citizenship.flag = null;
+    },
+    triggerHeaderUpload: function triggerHeaderUpload() {
+      document.querySelector('#headerUploader').click();
+    },
+    uploadHeader: function uploadHeader(e) {
+      var vm = this;
+      var header = e.target.files[0]; //sames as here
+
+      vm.citizenship.header = header;
+      var reader = new FileReader();
+
+      reader.onloadend = function () {
+        vm.previewHeader = reader.result;
+      };
+
+      if (header) {
+        reader.readAsDataURL(header); //reads the data as a URL
+      } else {
+        vm.previewHeader = '';
+      }
+
+      e.target.value = '';
+    },
+    removeHeader: function removeHeader() {
+      this.previewHeader = '';
+      this.citizenship.header = null;
+    },
+    // Benefits methods
+    addBenefit: function addBenefit() {
+      var form = this.$refs.benefitForm;
+
+      if (form.validate()) {
+        var benefit = {};
+        benefit.en = this.benefit.en;
+        benefit.ar = this.benefit.ar;
+
+        try {
+          if (this.benefits.push(benefit)) {
+            form.reset();
+            form.resetValidation();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
+    removeBenefit: function removeBenefit(benefit) {
+      var i = this.benefits.indexOf(benefit);
+      this.benefits.splice(i, 1);
+    },
+    // Supplies methods
+    addSupply: function addSupply() {
+      var form = this.$refs.supplyForm;
+
+      if (form.validate()) {
+        var supply = {};
+        supply.en = this.supply.en;
+        supply.ar = this.supply.ar;
+
+        try {
+          if (this.supplies.push(supply)) {
+            form.reset();
+            form.resetValidation();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
+    removeSupply: function removeSupply(supply) {
+      var i = this.supplies.indexOf(supply);
+      this.supplies.splice(i, 1);
+    },
+    // Creating a citizenship
+    post: function post() {
+      if (this.$refs.form.validate()) {
+        var vm = this;
+        var item = vm.citizenship;
+        vm.loading = true;
+        var citizenship = new FormData();
+        Object.keys(item).forEach(function (key) {
+          if (!!item[key]) {
+            if (key === 'flag' || key === 'header') {
+              citizenship.append(key, item[key]);
+              return;
+            }
+
+            if (key === 'translation') {
+              Object.keys(item[key]).forEach(function (translationKey) {
+                if (!!item[key][translationKey]) citizenship.set("translation[".concat(translationKey, "]"), item[key][translationKey]);
+              });
+              return;
+            }
+
+            citizenship.set(key, item[key]);
+          }
+        });
+        vm.benefits.length ? citizenship.append('benefits', JSON.stringify(vm.benefits)) : null;
+        vm.supplies.length ? citizenship.append('supplies', JSON.stringify(vm.supplies)) : null;
+        axios.post('/dashboard/citizenship', citizenship).then(function (res) {
+          vm.reset(res);
+        })["catch"](function (error) {
+          vm.loading = false;
+          vm.activateSnackbar('error', error.response.data.message);
+        });
+      }
+    },
+    reset: function reset(res) {
+      this.$refs.form.reset();
+      this.$refs.form.resetValidation();
+      this.activateSnackbar('success', res.data.message);
+      $('#englishEditor').summernote('code', '');
+      $('#arabicEditor').summernote('code', '');
+      this.previewFlag = '';
+      this.previewHeader = '';
+      this.citizenship.flag = null;
+      this.citizenship.header = null;
+      this.loading = false;
+      this.benefits = [];
+      this.supplies = [];
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreateCitizenship",
+  props: {
+    citizenshipCollection: {
+      required: true,
+      type: Object
+    }
+  },
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  data: function data() {
+    return {
+      loading: false,
+      citizenshipTypes: [{
+        value: 'citizenship',
+        text: 'Citizenship'
+      }, {
+        value: 'residency',
+        text: 'Residency'
+      }, {
+        value: 'both',
+        text: 'Both'
+      }],
+      nameRules: [function (v) {
+        return !!v || 'Name is required';
+      }, function (v) {
+        return v && v.length <= 30 || 'Name must be less than 30 characters';
+      }],
+      titleRules: [function (v) {
+        return !!v || 'Title is required';
+      }, function (v) {
+        return v && v.length <= 50 || 'Name must be less than 50 characters';
+      }],
+      snippetRules: [function (v) {
+        return !!v || 'Snippet is required';
+      }, function (v) {
+        return v && v.length <= 150 || 'Name must be less than 150 characters';
+      }],
+      benefitRules: [function (v) {
+        return !!v || 'Benefit is required';
+      }, function (v) {
+        return v && v.length <= 80 || 'Name must be less than 80 characters';
+      }],
+      supplyRules: [function (v) {
+        return !!v || 'Supply is required';
+      }, function (v) {
+        return v && v.length <= 80 || 'Name must be less than 80 characters';
+      }],
+      citizenship: {},
+      benefits: [],
+      deletedBenefits: [],
+      benefit: {
+        en: null,
+        ar: null
+      },
+      supplies: [],
+      deletedSupplies: [],
+      supply: {
+        en: null,
+        ar: null
+      },
+      previewFlag: '',
+      previewHeader: ''
+    };
+  },
+  created: function created() {
+    var vm = this;
+    $(document).ready(function () {
+      $('#englishEditor').summernote({
+        height: 300,
+        codemirror: {
+          mode: 'text/html',
+          htmlMode: true,
+          lineNumbers: true,
+          theme: 'monokai'
+        },
+        callbacks: {
+          onChange: function onChange(contents) {
+            vm.citizenship.description = contents;
+          }
+        }
+      });
+      $('#arabicEditor').summernote({
+        height: 300,
+        codemirror: {
+          mode: 'text/html',
+          htmlMode: true,
+          lineNumbers: true,
+          theme: 'monokai'
+        },
+        callbacks: {
+          onChange: function onChange(contents) {
+            vm.citizenship.translation.description = contents;
+          }
+        }
+      });
+      $('#englishEditor').summernote('code', vm.citizenshipCollection.description);
+      $('#arabicEditor').summernote('code', vm.citizenshipCollection.translation.description);
+    });
+    vm.citizenship = vm.citizenshipCollection;
+  },
+  methods: {
+    triggerFlagUpload: function triggerFlagUpload() {
+      document.querySelector('#flagUploader').click();
+    },
+    uploadFlag: function uploadFlag(e) {
+      var vm = this;
+      var flag = e.target.files[0]; //sames as here
+
+      vm.citizenship.flag = flag;
+      var reader = new FileReader();
+
+      reader.onloadend = function () {
+        vm.previewFlag = reader.result;
+      };
+
+      if (flag) {
+        vm.citizenship.flag_url = '';
+        reader.readAsDataURL(flag); //reads the data as a URL
+      } else {
+        vm.previewFlag = '';
+      }
+
+      e.target.value = '';
+    },
+    removeFlag: function removeFlag() {
+      this.previewFlag = '';
+      this.citizenship.flag = null;
+    },
+    triggerHeaderUpload: function triggerHeaderUpload() {
+      document.querySelector('#headerUploader').click();
+    },
+    uploadHeader: function uploadHeader(e) {
+      var vm = this;
+      var header = e.target.files[0]; //sames as here
+
+      vm.citizenship.header = header;
+      var reader = new FileReader();
+
+      reader.onloadend = function () {
+        vm.previewHeader = reader.result;
+      };
+
+      if (header) {
+        vm.citizenship.header_url = '';
+        reader.readAsDataURL(header); //reads the data as a URL
+      } else {
+        vm.previewHeader = '';
+      }
+
+      e.target.value = '';
+    },
+    removeHeader: function removeHeader() {
+      this.previewHeader = '';
+      this.citizenship.header = null;
+    },
+    // Benefits methods
+    addBenefit: function addBenefit() {
+      var form = this.$refs.benefitForm;
+
+      if (form.validate()) {
+        var benefit = {};
+        benefit.en = this.benefit.en;
+        benefit.ar = this.benefit.ar;
+
+        try {
+          if (this.benefits.push(benefit)) {
+            form.reset();
+            form.resetValidation();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
+    removeBenefit: function removeBenefit(benefit) {
+      var i = this.benefits.indexOf(benefit);
+      this.benefits.splice(i, 1);
+    },
+    deleteBenefit: function deleteBenefit(benefit) {
+      var i = this.citizenship.benefits.indexOf(benefit);
+      this.citizenship.benefits.splice(i, 1);
+      this.deletedBenefits.push(benefit.id);
+    },
+    // Supplies methods
+    addSupply: function addSupply() {
+      var form = this.$refs.supplyForm;
+
+      if (form.validate()) {
+        var supply = {};
+        supply.en = this.supply.en;
+        supply.ar = this.supply.ar;
+
+        try {
+          if (this.supplies.push(supply)) {
+            form.reset();
+            form.resetValidation();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
+    removeSupply: function removeSupply(supply) {
+      var i = this.supplies.indexOf(supply);
+      this.supplies.splice(i, 1);
+    },
+    deleteSupply: function deleteSupply(supply) {
+      var i = this.citizenship.supplies.indexOf(supply);
+      this.citizenship.supplies.splice(i, 1);
+      this.deletedSupplies.push(supply.id);
+    },
+    // Creating a citizenship
+    post: function post() {
+      if (this.$refs.form.validate()) {
+        var vm = this;
+        var item = vm.citizenship;
+        vm.loading = true;
+        var citizenship = new FormData();
+        Object.keys(item).forEach(function (key) {
+          if (key === 'flag_url' || key === 'header_url' || key === 'benefits' || key === 'supplies') return;
+
+          if (!!item[key]) {
+            if (key === 'flag' || key === 'header') {
+              citizenship.append(key, item[key]);
+              return;
+            }
+
+            if (key === 'translation') {
+              Object.keys(item[key]).forEach(function (translationKey) {
+                if (!!item[key][translationKey]) citizenship.set("translation[".concat(translationKey, "]"), item[key][translationKey]);
+              });
+              return;
+            }
+
+            citizenship.set(key, item[key]);
+          }
+        });
+        vm.benefits.length ? citizenship.append('benefits', JSON.stringify(vm.benefits)) : null;
+        vm.benefits.length ? citizenship.append('deletedBenefits', JSON.stringify(vm.deletedBenefits)) : null;
+        vm.supplies.length ? citizenship.append('supplies', JSON.stringify(vm.supplies)) : null;
+        vm.supplies.length ? citizenship.append('deletedSupplies', JSON.stringify(vm.deletedSupplies)) : null;
+        axios.post('/dashboard/citizenship/' + vm.citizenship.slug, citizenship).then(function (res) {
+          if ('slug' in res.data && res.data.slug !== vm.project.slug) {
+            window.location = '/dashboard/citizenship/' + res.data.slug + '/edit';
+          }
+
+          vm.reset(res);
+        })["catch"](function (error) {
+          vm.loading = false;
+          vm.activateSnackbar('error', error.response.data.message);
+        });
+      }
+    },
+    reset: function reset(res) {
+      this.activateSnackbar('success', res.data.message);
+      this.loading = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Form */ "./resources/js/mixins/Form.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Citizenships",
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  props: ['citizenshipCollection'],
+  data: function data() {
+    return {
+      citizenships: [],
+      paginationSync: {
+        rowsPerPage: 10
+      },
+      dialog: false,
+      headers: [{
+        text: '#',
+        align: 'left',
+        value: 'flag_url',
+        sortable: false
+      }, {
+        text: 'Country Name',
+        align: 'left',
+        sort: true,
+        value: 'country_name'
+      }, {
+        text: 'Type',
+        align: 'left',
+        sort: true,
+        value: 'type'
+      }, {
+        text: 'Actions',
+        align: 'center',
+        value: 'country_name',
+        sortable: false
+      }],
+      search: '',
+      deleteRoute: '/dashboard/citizenship/'
+    };
+  },
+  created: function created() {
+    this.citizenships = this.citizenshipCollection;
+  },
+  filters: {
+    capitalize: function capitalize(value) {
+      if (!value) return '';
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/department/List.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/department/List.vue?vue&type=script&lang=js& ***!
@@ -2757,6 +4411,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2889,9 +4550,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditPage",
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['pageCollection'],
   data: function data() {
     return {
@@ -3028,6 +4690,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
 /* harmony import */ var _mixins_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Form */ "./resources/js/mixins/Form.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
 //
 //
 //
@@ -3102,11 +4765,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Pages",
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: ['pageCollection'],
   data: function data() {
     return {
@@ -3498,6 +5162,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3658,9 +5330,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditPost",
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['tagCollection', 'postCollection'],
   data: function data() {
     return {
@@ -3828,6 +5501,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
 /* harmony import */ var _mixins_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Form */ "./resources/js/mixins/Form.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
 //
 //
 //
@@ -3901,12 +5575,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: ['postCollection'],
   data: function data() {
     return {
@@ -4388,7 +6062,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     removeLogo: function removeLogo() {
       this.previewLogo = '';
-      this.uploadedLogo = {};
+      this.project.logo = null;
     },
     post: function post() {
       if (this.$refs.form.validate()) {
@@ -4397,8 +6071,6 @@ __webpack_require__.r(__webpack_exports__);
         vm.loading = true;
         var project = new FormData();
         Object.keys(item).forEach(function (key) {
-          if (key === 'logo_url') return;
-
           if (!!item[key]) {
             if (key === 'logo') {
               project.append(key, item[key]);
@@ -4441,7 +6113,7 @@ __webpack_require__.r(__webpack_exports__);
       $('#englishEditor').summernote('code', '');
       $('#arabicEditor').summernote('code', '');
       this.previewLogo = '';
-      this.page.logo = null;
+      this.project.logo = null;
       this.uploadedImages = [];
       this.previewImages = [];
       this.loading = false;
@@ -4474,6 +6146,23 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4755,10 +6444,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditProject",
-  props: ['developerCollection', 'propertyCollection', 'locationCollection', 'projectCollection'],
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    developerCollection: {
+      required: true,
+      type: Array
+    },
+    propertyCollection: {
+      required: true,
+      type: Array
+    },
+    locationCollection: {
+      required: true,
+      type: Array
+    },
+    projectCollection: {
+      required: true,
+      type: Object
+    }
+  },
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       loading: false,
@@ -4916,7 +6623,7 @@ __webpack_require__.r(__webpack_exports__);
         vm.loading = true;
         var project = new FormData();
         Object.keys(item).forEach(function (key) {
-          if (key === 'logo_url') return;
+          if (key === 'logo_url' || key === 'developer' || key === 'location') return;
 
           if (!!item[key]) {
             if (key === 'logo') {
@@ -4992,6 +6699,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/SnackbarComponent */ "./resources/js/mixins/SnackbarComponent.js");
 /* harmony import */ var _mixins_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../mixins/Form */ "./resources/js/mixins/Form.js");
+/* harmony import */ var _mixins_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../mixins/auth */ "./resources/js/mixins/auth.js");
 //
 //
 //
@@ -5068,11 +6776,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Projects",
-  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [_mixins_SnackbarComponent__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_Form__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_auth__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: ['projectCollection'],
   data: function data() {
     return {
@@ -6295,6 +8005,63 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.v-list__tile[data-v-20b9b272] {\n    text-decoration: none !important;\n}\n.note-toolbar[data-v-20b9b272] {\n    z-index: 1;\n}\n.container[data-v-20b9b272] {\n    width: auto;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.v-list__tile[data-v-e7c03000] {\n    text-decoration: none !important;\n}\n.note-toolbar[data-v-e7c03000] {\n    z-index: 1;\n}\n.container[data-v-e7c03000] {\n    width: auto;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\na[data-v-7cd7c094] {\n    text-decoration: none;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -26748,6 +28515,96 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/page/Create.vue?vue&type=style&index=0&id=019025be&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/page/Create.vue?vue&type=style&index=0&id=019025be&scoped=true&lang=css& ***!
@@ -27662,6 +29519,4037 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "", "justify-center": "" } },
+        [
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", sm10: "", md8: "" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "mt-5" },
+                [
+                  _c(
+                    "v-card-title",
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "title" },
+                        [
+                          _c(
+                            "v-icon",
+                            {
+                              staticClass: "mx-1",
+                              attrs: { color: "deep-orange accent-2" }
+                            },
+                            [_vm._v("people")]
+                          ),
+                          _vm._v("\n                        Admins")
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "append-icon": "search",
+                          label: "Search",
+                          "single-line": "",
+                          "hide-details": ""
+                        },
+                        model: {
+                          value: _vm.search,
+                          callback: function($$v) {
+                            _vm.search = $$v
+                          },
+                          expression: "search"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c("v-data-table", {
+                        staticClass: "elevation-0",
+                        attrs: {
+                          headers: _vm.headers,
+                          items: _vm.admins,
+                          search: _vm.search,
+                          pagination: _vm.paginationSync
+                        },
+                        on: {
+                          "update:pagination": function($event) {
+                            _vm.paginationSync = $event
+                          }
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _c("td", [_vm._v(_vm._s(props.item.name))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(props.item.email))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(props.item.role.name))
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { staticClass: "text-xs-center" },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: { flat: "", fab: "", small: "" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.editItem(
+                                                  props.item,
+                                                  "admins"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        edit\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: { flat: "", fab: "", small: "" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteItem(
+                                                  props.item,
+                                                  "admins"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        delete\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c(
+                        "v-dialog",
+                        {
+                          attrs: { "max-width": "500px", width: "100%" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "activator",
+                              fn: function(ref) {
+                                var on = ref.on
+                                return [
+                                  _c(
+                                    "v-btn",
+                                    _vm._g(
+                                      {
+                                        staticClass: "mb-2",
+                                        attrs: { color: "primary", outline: "" }
+                                      },
+                                      on
+                                    ),
+                                    [
+                                      _vm._v(
+                                        "\n                                New Admin\n                            "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ]),
+                          model: {
+                            value: _vm.dialog,
+                            callback: function($$v) {
+                              _vm.dialog = $$v
+                            },
+                            expression: "dialog"
+                          }
+                        },
+                        [
+                          _vm._v(" "),
+                          _c(
+                            "v-card",
+                            [
+                              _c("v-card-title", [
+                                _c("span", { staticClass: "headline" }, [
+                                  _vm._v(_vm._s(_vm.formTitle))
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                [
+                                  _c(
+                                    "v-form",
+                                    { ref: "adminForm" },
+                                    [
+                                      _c(
+                                        "v-container",
+                                        { attrs: { "grid-list-md": "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      counter: 30,
+                                                      rules: _vm.nameRules,
+                                                      label: "Name",
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.editedItem.name,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.editedItem,
+                                                          "name",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "editedItem.name"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("v-text-field", {
+                                                    attrs: {
+                                                      label: "Email",
+                                                      required: ""
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.editedItem.email,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.editedItem,
+                                                          "email",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "editedItem.email"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  attrs: { xs12: "", md6: "" }
+                                                },
+                                                [
+                                                  _c("v-select", {
+                                                    attrs: {
+                                                      items: _vm.roles,
+                                                      "item-text": "name",
+                                                      "item-value": "id",
+                                                      label: "Role"
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.editedItem.role_id,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.editedItem,
+                                                          "role_id",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "editedItem.role_id"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-actions",
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        color: "blue darken-1",
+                                        flat: ""
+                                      },
+                                      on: { click: _vm.closeDialog }
+                                    },
+                                    [_vm._v("Cancel")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        color: "blue darken-1",
+                                        loading: _vm.loading,
+                                        flat: ""
+                                      },
+                                      on: { click: _vm.save }
+                                    },
+                                    [_vm._v("Save")]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("delete-dialog", {
+        attrs: { loading: _vm.loading, "delete-dialog": _vm.deleteDialog },
+        on: {
+          confirm: function($event) {
+            return _vm.confirmDelete("admins")
+          },
+          closeDialog: _vm.closeDeleteDialog
+        }
+      }),
+      _vm._v(" "),
+      _c("snackbar", {
+        attrs: {
+          active: _vm.snackbar.active,
+          color: _vm.snackbar.color,
+          message: _vm.snackbar.message
+        },
+        on: { deactivate: _vm.deactivateSnackbar }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-layout",
+        { staticClass: "py-5 mt-3 mb-5" },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                [
+                  _c("v-flex", { staticClass: "text-xs-center mb-5" }, [
+                    _c("div", { staticClass: "display-1" }, [
+                      _vm._v(
+                        "\n                        New Citizenship\n                    "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    { ref: "form" },
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { row: "", wrap: "", height: "300px" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 30,
+                                              rules: _vm.nameRules,
+                                              label: "Country Name",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.country_name,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "country_name",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.country_name"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 30,
+                                              rules: _vm.nameRules,
+                                              label: "أسم الدولة",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .country_name,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "country_name",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.country_name"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 50,
+                                              rules: _vm.titleRules,
+                                              label: "Title",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.title"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 50,
+                                              rules: _vm.titleRules,
+                                              label: "العنوان",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.title"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              counter: 150,
+                                              rules: _vm.snippetRules,
+                                              label: "Snippet",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.snippet,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "snippet",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.snippet"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              counter: 150,
+                                              rules: _vm.snippetRules,
+                                              label: "قصاصة",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .snippet,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "snippet",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.snippet"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c("v-select", {
+                                            attrs: {
+                                              items: _vm.citizenshipTypes,
+                                              "item-text": "text",
+                                              "item-value": "value",
+                                              label: "Citizenship Type",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.type,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "type",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.type"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "v-form",
+                                            { ref: "benefitForm" },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: {
+                                                    row: "",
+                                                    wrap: "",
+                                                    "justify-space-between": ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.benefitRules,
+                                                          label: "Benefit",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.benefit.en,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.benefit,
+                                                              "en",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "benefit.en"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.benefitRules,
+                                                          label: "ميزة",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.benefit.ar,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.benefit,
+                                                              "ar",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "benefit.ar"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          staticClass:
+                                                            "left mt-3",
+                                                          attrs: {
+                                                            dark: "",
+                                                            small: "",
+                                                            color:
+                                                              "blue darken-4"
+                                                          },
+                                                          on: {
+                                                            click:
+                                                              _vm.addBenefit
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                left: "",
+                                                                small: ""
+                                                              }
+                                                            },
+                                                            [_vm._v("add")]
+                                                          ),
+                                                          _vm._v(
+                                                            " Add Benefit\n                                                    "
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _vm.benefits.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(_vm.benefits, function(
+                                                  benefit,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "v-flex",
+                                                    {
+                                                      key: i,
+                                                      attrs: {
+                                                        xs12: "",
+                                                        "mb-2": ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card",
+                                                        { attrs: { dark: "" } },
+                                                        [
+                                                          _c(
+                                                            "v-layout",
+                                                            {
+                                                              attrs: {
+                                                                row: "",
+                                                                wrap: "",
+                                                                "justify-space-between":
+                                                                  ""
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            benefit.en
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  staticStyle: {
+                                                                    direction:
+                                                                      "rtl"
+                                                                  },
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            benefit.ar
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                [
+                                                                  _c(
+                                                                    "v-btn",
+                                                                    {
+                                                                      staticClass:
+                                                                        "right",
+                                                                      attrs: {
+                                                                        fab: "",
+                                                                        dark:
+                                                                          "",
+                                                                        small:
+                                                                          "",
+                                                                        color:
+                                                                          "red darken-4"
+                                                                      },
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.removeBenefit(
+                                                                            benefit
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          attrs: {
+                                                                            small:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "remove"
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "v-form",
+                                            { ref: "supplyForm" },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: {
+                                                    row: "",
+                                                    wrap: "",
+                                                    "justify-space-between": ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.supplyRules,
+                                                          label: "Provide",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.supply.en,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.supply,
+                                                              "en",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "supply.en"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.supplyRules,
+                                                          label: "يوفر",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.supply.ar,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.supply,
+                                                              "ar",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "supply.ar"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          staticClass:
+                                                            "left mt-3",
+                                                          attrs: {
+                                                            dark: "",
+                                                            small: "",
+                                                            color:
+                                                              "blue darken-4"
+                                                          },
+                                                          on: {
+                                                            click: _vm.addSupply
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                left: "",
+                                                                small: ""
+                                                              }
+                                                            },
+                                                            [_vm._v("add")]
+                                                          ),
+                                                          _vm._v(
+                                                            " Add Supply\n                                                    "
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _vm.supplies.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(_vm.supplies, function(
+                                                  supply,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "v-flex",
+                                                    {
+                                                      key: i,
+                                                      attrs: {
+                                                        xs12: "",
+                                                        "mb-2": ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card",
+                                                        { attrs: { dark: "" } },
+                                                        [
+                                                          _c(
+                                                            "v-layout",
+                                                            {
+                                                              attrs: {
+                                                                row: "",
+                                                                wrap: "",
+                                                                "justify-space-between":
+                                                                  ""
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            supply.en
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  staticStyle: {
+                                                                    direction:
+                                                                      "rtl"
+                                                                  },
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            supply.ar
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                [
+                                                                  _c(
+                                                                    "v-btn",
+                                                                    {
+                                                                      staticClass:
+                                                                        "right",
+                                                                      attrs: {
+                                                                        fab: "",
+                                                                        dark:
+                                                                          "",
+                                                                        small:
+                                                                          "",
+                                                                        color:
+                                                                          "red darken-4"
+                                                                      },
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.removeSupply(
+                                                                            supply
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          attrs: {
+                                                                            small:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "remove"
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { staticClass: "mt-5", attrs: { xs12: "" } },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  staticClass: "text-xs-center",
+                                                  attrs: { xs12: "" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "display-1 grey--text"
+                                                    },
+                                                    [_vm._v("Description")]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("div", {
+                                                    attrs: {
+                                                      id: "englishEditor"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  staticClass: "text-xs-center",
+                                                  attrs: { xs12: "" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "display-1 grey--text"
+                                                    },
+                                                    [_vm._v("الوصف")]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("div", {
+                                                    attrs: {
+                                                      id: "arabicEditor"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  attrs: { xs12: "", md6: "" }
+                                                },
+                                                [
+                                                  _c("v-textarea", {
+                                                    attrs: {
+                                                      label: "Meta Description"
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.citizenship.meta,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.citizenship,
+                                                          "meta",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "citizenship.meta"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  attrs: { xs12: "", md6: "" }
+                                                },
+                                                [
+                                                  _c("v-textarea", {
+                                                    attrs: {
+                                                      label: "Keywords"
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.citizenship
+                                                          .keywords,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.citizenship,
+                                                          "keywords",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "citizenship.keywords"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                {
+                                  staticClass: "mt-3",
+                                  attrs: { xs12: "", md6: "" }
+                                },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c("input", {
+                                            staticStyle: {
+                                              visibility: "hidden"
+                                            },
+                                            attrs: {
+                                              type: "file",
+                                              id: "headerUploader",
+                                              accept:
+                                                "image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
+                                            },
+                                            on: { change: _vm.uploadHeader }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                color: "deep-orange accent-3",
+                                                outline: ""
+                                              },
+                                              on: {
+                                                click: _vm.triggerHeaderUpload
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Upload Header\n                                            "
+                                              ),
+                                              _c(
+                                                "v-icon",
+                                                { attrs: { right: "" } },
+                                                [_vm._v("cloud_upload")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _vm.previewHeader !== ""
+                                            ? _c(
+                                                "v-img",
+                                                {
+                                                  attrs: {
+                                                    src: _vm.previewHeader,
+                                                    width: "auto"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticStyle: {
+                                                        position: "absolute",
+                                                        top: "0",
+                                                        right: "0"
+                                                      },
+                                                      attrs: {
+                                                        fab: "",
+                                                        dark: "",
+                                                        small: "",
+                                                        color: "primary"
+                                                      },
+                                                      on: {
+                                                        click: _vm.removeHeader
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        { attrs: { dark: "" } },
+                                                        [_vm._v("remove")]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                {
+                                  staticClass: "mt-3",
+                                  attrs: { xs12: "", md6: "" }
+                                },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c("input", {
+                                            staticStyle: {
+                                              visibility: "hidden"
+                                            },
+                                            attrs: {
+                                              type: "file",
+                                              id: "flagUploader",
+                                              accept:
+                                                "image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
+                                            },
+                                            on: { change: _vm.uploadFlag }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                color: "deep-orange accent-3",
+                                                outline: ""
+                                              },
+                                              on: {
+                                                click: _vm.triggerFlagUpload
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Upload Flag\n                                            "
+                                              ),
+                                              _c(
+                                                "v-icon",
+                                                { attrs: { right: "" } },
+                                                [_vm._v("cloud_upload")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _vm.previewFlag !== ""
+                                            ? _c(
+                                                "v-img",
+                                                {
+                                                  attrs: {
+                                                    src: _vm.previewFlag,
+                                                    width: "auto"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticStyle: {
+                                                        position: "absolute",
+                                                        top: "0",
+                                                        right: "0"
+                                                      },
+                                                      attrs: {
+                                                        fab: "",
+                                                        dark: "",
+                                                        small: "",
+                                                        color: "primary"
+                                                      },
+                                                      on: {
+                                                        click: _vm.removeFlag
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        { attrs: { dark: "" } },
+                                                        [_vm._v("remove")]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { staticClass: "py-4 mt-5" },
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        outline: "",
+                        color: "primary",
+                        loading: _vm.loading
+                      },
+                      on: { click: _vm.post }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Create Citizenship\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("snackbar", {
+        attrs: {
+          active: _vm.snackbar.active,
+          color: _vm.snackbar.color,
+          message: _vm.snackbar.message
+        },
+        on: { deactivate: _vm.deactivateSnackbar }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-layout",
+        { staticClass: "py-5 mt-3 mb-5" },
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                [
+                  _c("v-flex", { staticClass: "text-xs-center mb-5" }, [
+                    _c("div", { staticClass: "display-1" }, [
+                      _vm._v(
+                        "\n                        Edit Citizenship\n                    "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    { ref: "form" },
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { row: "", wrap: "", height: "300px" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 30,
+                                              rules: _vm.nameRules,
+                                              label: "Country Name",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.country_name,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "country_name",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.country_name"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 30,
+                                              rules: _vm.nameRules,
+                                              label: "أسم الدولة",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .country_name,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "country_name",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.country_name"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 50,
+                                              rules: _vm.titleRules,
+                                              label: "Title",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.title"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 50,
+                                              rules: _vm.titleRules,
+                                              label: "العنوان",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.title"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              counter: 150,
+                                              rules: _vm.snippetRules,
+                                              label: "Snippet",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.snippet,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "snippet",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.snippet"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "", md6: "" }
+                                        },
+                                        [
+                                          _c("v-textarea", {
+                                            attrs: {
+                                              counter: 150,
+                                              rules: _vm.snippetRules,
+                                              label: "قصاصة",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.citizenship.translation
+                                                  .snippet,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship.translation,
+                                                  "snippet",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "citizenship.translation.snippet"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c("v-select", {
+                                            attrs: {
+                                              items: _vm.citizenshipTypes,
+                                              "item-text": "text",
+                                              "item-value": "value",
+                                              label: "Citizenship Type",
+                                              required: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            model: {
+                                              value: _vm.citizenship.type,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.citizenship,
+                                                  "type",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "citizenship.type"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "v-form",
+                                            { ref: "benefitForm" },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: {
+                                                    row: "",
+                                                    wrap: "",
+                                                    "justify-space-between": ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.benefitRules,
+                                                          label: "Benefit",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.benefit.en,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.benefit,
+                                                              "en",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "benefit.en"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.benefitRules,
+                                                          label: "ميزة",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.benefit.ar,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.benefit,
+                                                              "ar",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "benefit.ar"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          staticClass:
+                                                            "left mt-3",
+                                                          attrs: {
+                                                            dark: "",
+                                                            small: "",
+                                                            color:
+                                                              "blue darken-4",
+                                                            disabled:
+                                                              _vm.disabled
+                                                          },
+                                                          on: {
+                                                            click:
+                                                              _vm.addBenefit
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                left: "",
+                                                                small: ""
+                                                              }
+                                                            },
+                                                            [_vm._v("add")]
+                                                          ),
+                                                          _vm._v(
+                                                            "\n                                                        Add Benefit\n                                                    "
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _vm.citizenship.benefits.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(
+                                                  _vm.citizenship.benefits,
+                                                  function(benefit, i) {
+                                                    return _c(
+                                                      "v-flex",
+                                                      {
+                                                        key: i,
+                                                        attrs: {
+                                                          xs12: "",
+                                                          "mb-2": ""
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "v-card",
+                                                          {
+                                                            attrs: { dark: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-layout",
+                                                              {
+                                                                attrs: {
+                                                                  row: "",
+                                                                  wrap: "",
+                                                                  "justify-space-between":
+                                                                    ""
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "v-flex",
+                                                                  {
+                                                                    attrs: {
+                                                                      xs12: "",
+                                                                      md5: "",
+                                                                      "pa-4": ""
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "title"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            staticClass:
+                                                                              "pa-1",
+                                                                            attrs: {
+                                                                              small:
+                                                                                "",
+                                                                              dark:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "star"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "\n                                                                " +
+                                                                            _vm._s(
+                                                                              benefit.detail
+                                                                            ) +
+                                                                            "\n                                                            "
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "v-flex",
+                                                                  {
+                                                                    staticStyle: {
+                                                                      direction:
+                                                                        "rtl"
+                                                                    },
+                                                                    attrs: {
+                                                                      xs12: "",
+                                                                      md5: "",
+                                                                      "pa-4": ""
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "title"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            staticClass:
+                                                                              "pa-1",
+                                                                            attrs: {
+                                                                              small:
+                                                                                "",
+                                                                              dark:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "star"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "\n                                                                " +
+                                                                            _vm._s(
+                                                                              benefit
+                                                                                .translation
+                                                                                .detail
+                                                                            ) +
+                                                                            "\n                                                            "
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "v-flex",
+                                                                  [
+                                                                    _c(
+                                                                      "v-btn",
+                                                                      {
+                                                                        staticClass:
+                                                                          "right",
+                                                                        attrs: {
+                                                                          fab:
+                                                                            "",
+                                                                          dark:
+                                                                            "",
+                                                                          small:
+                                                                            "",
+                                                                          color:
+                                                                            "red darken-4",
+                                                                          disabled:
+                                                                            _vm.disabled
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.deleteBenefit(
+                                                                              benefit
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            attrs: {
+                                                                              small:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "remove"
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  }
+                                                ),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.benefits.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(_vm.benefits, function(
+                                                  benefit,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "v-flex",
+                                                    {
+                                                      key: i,
+                                                      attrs: {
+                                                        xs12: "",
+                                                        "mb-2": ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card",
+                                                        { attrs: { dark: "" } },
+                                                        [
+                                                          _c(
+                                                            "v-layout",
+                                                            {
+                                                              attrs: {
+                                                                row: "",
+                                                                wrap: "",
+                                                                "justify-space-between":
+                                                                  ""
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            benefit.en
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  staticStyle: {
+                                                                    direction:
+                                                                      "rtl"
+                                                                  },
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            benefit.ar
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                [
+                                                                  _c(
+                                                                    "v-btn",
+                                                                    {
+                                                                      staticClass:
+                                                                        "right",
+                                                                      attrs: {
+                                                                        fab: "",
+                                                                        dark:
+                                                                          "",
+                                                                        small:
+                                                                          "",
+                                                                        color:
+                                                                          "red darken-4"
+                                                                      },
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.removeBenefit(
+                                                                            benefit
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          attrs: {
+                                                                            small:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "remove"
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        {
+                                          staticClass: "my-3",
+                                          attrs: { xs12: "" }
+                                        },
+                                        [
+                                          _c(
+                                            "v-form",
+                                            { ref: "supplyForm" },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: {
+                                                    row: "",
+                                                    wrap: "",
+                                                    "justify-space-between": ""
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.supplyRules,
+                                                          label: "Provide",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.supply.en,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.supply,
+                                                              "en",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "supply.en"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    {
+                                                      attrs: {
+                                                        xs12: "",
+                                                        md5: ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          counter: 80,
+                                                          rules:
+                                                            _vm.supplyRules,
+                                                          label: "يوفر",
+                                                          required: ""
+                                                        },
+                                                        model: {
+                                                          value: _vm.supply.ar,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.supply,
+                                                              "ar",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "supply.ar"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          staticClass:
+                                                            "left mt-3",
+                                                          attrs: {
+                                                            dark: "",
+                                                            small: "",
+                                                            color:
+                                                              "blue darken-4",
+                                                            disabled:
+                                                              _vm.disabled
+                                                          },
+                                                          on: {
+                                                            click: _vm.addSupply
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                left: "",
+                                                                small: ""
+                                                              }
+                                                            },
+                                                            [_vm._v("add")]
+                                                          ),
+                                                          _vm._v(
+                                                            "\n                                                        Add Supply\n                                                    "
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _vm.citizenship.supplies.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(
+                                                  _vm.citizenship.supplies,
+                                                  function(supply, i) {
+                                                    return _c(
+                                                      "v-flex",
+                                                      {
+                                                        key: i,
+                                                        attrs: {
+                                                          xs12: "",
+                                                          "mb-2": ""
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "v-card",
+                                                          {
+                                                            attrs: { dark: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-layout",
+                                                              {
+                                                                attrs: {
+                                                                  row: "",
+                                                                  wrap: "",
+                                                                  "justify-space-between":
+                                                                    ""
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "v-flex",
+                                                                  {
+                                                                    attrs: {
+                                                                      xs12: "",
+                                                                      md5: "",
+                                                                      "pa-4": ""
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "title"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            staticClass:
+                                                                              "pa-1",
+                                                                            attrs: {
+                                                                              small:
+                                                                                "",
+                                                                              dark:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "star"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "\n                                                                " +
+                                                                            _vm._s(
+                                                                              supply.detail
+                                                                            ) +
+                                                                            "\n                                                            "
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "v-flex",
+                                                                  {
+                                                                    staticStyle: {
+                                                                      direction:
+                                                                        "rtl"
+                                                                    },
+                                                                    attrs: {
+                                                                      xs12: "",
+                                                                      md5: "",
+                                                                      "pa-4": ""
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "title"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            staticClass:
+                                                                              "pa-1",
+                                                                            attrs: {
+                                                                              small:
+                                                                                "",
+                                                                              dark:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "star"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "\n                                                                " +
+                                                                            _vm._s(
+                                                                              supply
+                                                                                .translation
+                                                                                .detail
+                                                                            ) +
+                                                                            "\n                                                            "
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "v-flex",
+                                                                  [
+                                                                    _c(
+                                                                      "v-btn",
+                                                                      {
+                                                                        staticClass:
+                                                                          "right",
+                                                                        attrs: {
+                                                                          fab:
+                                                                            "",
+                                                                          dark:
+                                                                            "",
+                                                                          small:
+                                                                            "",
+                                                                          color:
+                                                                            "red darken-4",
+                                                                          disabled:
+                                                                            _vm.disabled
+                                                                        },
+                                                                        on: {
+                                                                          click: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.deleteSupply(
+                                                                              supply
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "v-icon",
+                                                                          {
+                                                                            attrs: {
+                                                                              small:
+                                                                                ""
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "remove"
+                                                                            )
+                                                                          ]
+                                                                        )
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  }
+                                                ),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.supplies.length
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                {
+                                                  attrs: { row: "", wrap: "" }
+                                                },
+                                                _vm._l(_vm.supplies, function(
+                                                  supply,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "v-flex",
+                                                    {
+                                                      key: i,
+                                                      attrs: {
+                                                        xs12: "",
+                                                        "mb-2": ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card",
+                                                        { attrs: { dark: "" } },
+                                                        [
+                                                          _c(
+                                                            "v-layout",
+                                                            {
+                                                              attrs: {
+                                                                row: "",
+                                                                wrap: "",
+                                                                "justify-space-between":
+                                                                  ""
+                                                              }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            supply.en
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                {
+                                                                  staticStyle: {
+                                                                    direction:
+                                                                      "rtl"
+                                                                  },
+                                                                  attrs: {
+                                                                    xs12: "",
+                                                                    md5: "",
+                                                                    "pa-4": ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "title"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          staticClass:
+                                                                            "pa-1",
+                                                                          attrs: {
+                                                                            small:
+                                                                              "",
+                                                                            dark:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "star"
+                                                                          )
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                                                                " +
+                                                                          _vm._s(
+                                                                            supply.ar
+                                                                          ) +
+                                                                          "\n                                                            "
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "v-flex",
+                                                                [
+                                                                  _c(
+                                                                    "v-btn",
+                                                                    {
+                                                                      staticClass:
+                                                                        "right",
+                                                                      attrs: {
+                                                                        fab: "",
+                                                                        dark:
+                                                                          "",
+                                                                        small:
+                                                                          "",
+                                                                        color:
+                                                                          "red darken-4"
+                                                                      },
+                                                                      on: {
+                                                                        click: function(
+                                                                          $event
+                                                                        ) {
+                                                                          return _vm.removeSupply(
+                                                                            supply
+                                                                          )
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        {
+                                                                          attrs: {
+                                                                            small:
+                                                                              ""
+                                                                          }
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "remove"
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ],
+                                                                1
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { staticClass: "mt-5", attrs: { xs12: "" } },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  staticClass: "text-xs-center",
+                                                  attrs: { xs12: "" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "display-1 grey--text"
+                                                    },
+                                                    [_vm._v("Description")]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("div", {
+                                                    attrs: {
+                                                      id: "englishEditor"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  staticClass: "text-xs-center",
+                                                  attrs: { xs12: "" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "display-1 grey--text"
+                                                    },
+                                                    [_vm._v("الوصف")]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs12: "" } },
+                                                [
+                                                  _c("div", {
+                                                    attrs: {
+                                                      id: "arabicEditor"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            { attrs: { row: "", wrap: "" } },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  attrs: { xs12: "", md6: "" }
+                                                },
+                                                [
+                                                  _c("v-textarea", {
+                                                    attrs: {
+                                                      label: "Meta Description",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.citizenship.meta,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.citizenship,
+                                                          "meta",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "citizenship.meta"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                {
+                                                  attrs: { xs12: "", md6: "" }
+                                                },
+                                                [
+                                                  _c("v-textarea", {
+                                                    attrs: {
+                                                      label: "Keywords",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.citizenship
+                                                          .keywords,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.citizenship,
+                                                          "keywords",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "citizenship.keywords"
+                                                    }
+                                                  })
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                {
+                                  staticClass: "mt-3",
+                                  attrs: { xs12: "", md6: "" }
+                                },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c("input", {
+                                            staticStyle: {
+                                              visibility: "hidden"
+                                            },
+                                            attrs: {
+                                              type: "file",
+                                              id: "headerUploader",
+                                              accept:
+                                                "image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
+                                            },
+                                            on: { change: _vm.uploadHeader }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                color: "deep-orange accent-3",
+                                                outline: "",
+                                                disabled: _vm.disabled
+                                              },
+                                              on: {
+                                                click: _vm.triggerHeaderUpload
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Change Header\n                                            "
+                                              ),
+                                              _c(
+                                                "v-icon",
+                                                { attrs: { right: "" } },
+                                                [_vm._v("cloud_upload")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _vm.citizenship.header_url !== ""
+                                            ? _c("v-img", {
+                                                attrs: {
+                                                  src:
+                                                    _vm.citizenship.header_url,
+                                                  width: "auto"
+                                                }
+                                              })
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.previewHeader !== ""
+                                            ? _c(
+                                                "v-img",
+                                                {
+                                                  attrs: {
+                                                    src: _vm.previewHeader,
+                                                    width: "auto"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticStyle: {
+                                                        position: "absolute",
+                                                        top: "0",
+                                                        right: "0"
+                                                      },
+                                                      attrs: {
+                                                        fab: "",
+                                                        dark: "",
+                                                        small: "",
+                                                        color: "primary",
+                                                        disabled: _vm.disabled
+                                                      },
+                                                      on: {
+                                                        click: _vm.removeHeader
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        { attrs: { dark: "" } },
+                                                        [_vm._v("remove")]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                {
+                                  staticClass: "mt-3",
+                                  attrs: { xs12: "", md6: "" }
+                                },
+                                [
+                                  _c(
+                                    "v-layout",
+                                    { attrs: { row: "", wrap: "" } },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _c("input", {
+                                            staticStyle: {
+                                              visibility: "hidden"
+                                            },
+                                            attrs: {
+                                              type: "file",
+                                              id: "flagUploader",
+                                              accept:
+                                                "image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
+                                            },
+                                            on: { change: _vm.uploadFlag }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                color: "deep-orange accent-3",
+                                                outline: "",
+                                                disabled: _vm.disabled
+                                              },
+                                              on: {
+                                                click: _vm.triggerFlagUpload
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Change Flag\n                                            "
+                                              ),
+                                              _c(
+                                                "v-icon",
+                                                { attrs: { right: "" } },
+                                                [_vm._v("cloud_upload")]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        { attrs: { xs12: "", md6: "" } },
+                                        [
+                                          _vm.citizenship.flag_url !== ""
+                                            ? _c("v-img", {
+                                                attrs: {
+                                                  src: _vm.citizenship.flag_url,
+                                                  width: "auto"
+                                                }
+                                              })
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _vm.previewFlag !== ""
+                                            ? _c(
+                                                "v-img",
+                                                {
+                                                  attrs: {
+                                                    src: _vm.previewFlag,
+                                                    width: "auto"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-btn",
+                                                    {
+                                                      staticStyle: {
+                                                        position: "absolute",
+                                                        top: "0",
+                                                        right: "0"
+                                                      },
+                                                      attrs: {
+                                                        fab: "",
+                                                        dark: "",
+                                                        small: "",
+                                                        color: "primary",
+                                                        disabled: _vm.disabled
+                                                      },
+                                                      on: {
+                                                        click: _vm.removeFlag
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        { attrs: { dark: "" } },
+                                                        [_vm._v("remove")]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            : _vm._e()
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { staticClass: "py-4 mt-5" },
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        outline: "",
+                        color: "primary",
+                        loading: _vm.loading,
+                        disabled: _vm.user && _vm.user.isViewer()
+                      },
+                      on: { click: _vm.post }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Update Citizenship\n                "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        outline: "",
+                        color: "primary",
+                        href: "/dashboard/citizenship"
+                      }
+                    },
+                    [_vm._v("\n                    Cancel\n                ")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("snackbar", {
+        attrs: {
+          active: _vm.snackbar.active,
+          color: _vm.snackbar.color,
+          message: _vm.snackbar.message
+        },
+        on: { deactivate: _vm.deactivateSnackbar }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-layout",
+        { attrs: { row: "", wrap: "", "justify-center": "" } },
+        [
+          _c(
+            "v-flex",
+            { attrs: { xs12: "", sm10: "" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "mt-5" },
+                [
+                  _c(
+                    "v-card-title",
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "title" },
+                        [
+                          _c(
+                            "v-icon",
+                            {
+                              staticClass: "mx-1",
+                              attrs: { color: "deep-orange accent-2" }
+                            },
+                            [_vm._v("flag")]
+                          ),
+                          _vm._v("\n                        Citizenship")
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: {
+                          "append-icon": "search",
+                          label: "Search",
+                          "single-line": "",
+                          "hide-details": ""
+                        },
+                        model: {
+                          value: _vm.search,
+                          callback: function($$v) {
+                            _vm.search = $$v
+                          },
+                          expression: "search"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c("v-data-table", {
+                        staticClass: "elevation-0",
+                        attrs: {
+                          headers: _vm.headers,
+                          items: _vm.citizenships,
+                          search: _vm.search,
+                          pagination: _vm.paginationSync
+                        },
+                        on: {
+                          "update:pagination": function($event) {
+                            _vm.paginationSync = $event
+                          }
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _c(
+                                  "td",
+                                  [
+                                    _c("v-img", {
+                                      staticClass: "my-2",
+                                      attrs: {
+                                        width: "auto",
+                                        src: props.item.flag_url
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(props.item.country_name))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", { staticClass: "text-capitalize" }, [
+                                  _vm._v(_vm._s(props.item.type))
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { staticClass: "text-xs-center" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          href:
+                                            "/dashboard/citizenship/" +
+                                            props.item.slug +
+                                            "/edit"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            attrs: {
+                                              flat: "",
+                                              small: "",
+                                              fab: ""
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              { attrs: { small: "" } },
+                                              [
+                                                _vm._v(
+                                                  "\n                                            edit\n                                        "
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: { flat: "", small: "", fab: "" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              small: "",
+                                              disabled: _vm.disabled
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.deleteItem(
+                                                  props.item,
+                                                  "citizenships"
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        delete\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mb-2",
+                          attrs: {
+                            color: "primary",
+                            outline: "",
+                            href: "/dashboard/citizenship/create",
+                            disabled: _vm.disabled
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        New Citizenship\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("delete-dialog", {
+        attrs: { loading: _vm.loading, "delete-dialog": _vm.deleteDialog },
+        on: {
+          confirm: function($event) {
+            return _vm.confirmDelete("citizenships", "", "slug")
+          },
+          closeDialog: _vm.closeDeleteDialog
+        }
+      }),
+      _vm._v(" "),
+      _c("snackbar", {
+        attrs: {
+          active: _vm.snackbar.active,
+          color: _vm.snackbar.color,
+          message: _vm.snackbar.message
+        },
+        on: { deactivate: _vm.deactivateSnackbar }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/department/List.vue?vue&type=template&id=31f84fe0&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/department/List.vue?vue&type=template&id=31f84fe0&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
@@ -28041,7 +33929,7 @@ var render = function() {
         [
           _c(
             "v-flex",
-            { attrs: { xs12: "", sm10: "", md8: "" } },
+            { attrs: { xs12: "", sm10: "" } },
             [
               _c(
                 "v-card",
@@ -29529,7 +35417,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "Title",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.page.title,
@@ -29555,7 +35444,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "العنوان",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.page.translation.title,
@@ -29692,7 +35582,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Meta Description"
+                                                      label: "Meta Description",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value: _vm.page.meta,
@@ -29718,7 +35611,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Keywords"
+                                                      label: "Keywords",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value: _vm.page.keywords,
@@ -29743,7 +35639,8 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Custom Style"
+                                                      label: "Custom Style",
+                                                      disabled: _vm.disabled
                                                     },
                                                     model: {
                                                       value: _vm.page.style,
@@ -29806,7 +35703,8 @@ var render = function() {
                                             {
                                               attrs: {
                                                 color: "deep-orange accent-3",
-                                                outline: ""
+                                                outline: "",
+                                                disabled: _vm.disabled
                                               },
                                               on: {
                                                 click: _vm.triggerImageUpload
@@ -29863,7 +35761,8 @@ var render = function() {
                                                         fab: "",
                                                         dark: "",
                                                         small: "",
-                                                        color: "primary"
+                                                        color: "primary",
+                                                        disabled: _vm.disabled
                                                       },
                                                       on: {
                                                         click: _vm.removeHeader
@@ -29916,7 +35815,8 @@ var render = function() {
                       attrs: {
                         outline: "",
                         color: "primary",
-                        loading: _vm.loading
+                        loading: _vm.loading,
+                        disabled: _vm.disabled
                       },
                       on: { click: _vm.submit }
                     },
@@ -30075,7 +35975,10 @@ var render = function() {
                                   "td",
                                   [
                                     _c("v-switch", {
-                                      attrs: { color: "success" },
+                                      attrs: {
+                                        color: "success",
+                                        disabled: _vm.disabled
+                                      },
                                       on: {
                                         change: function($event) {
                                           return _vm.togglePublish(props.item)
@@ -30141,7 +36044,12 @@ var render = function() {
                                     _c(
                                       "v-btn",
                                       {
-                                        attrs: { flat: "", small: "", fab: "" }
+                                        attrs: {
+                                          flat: "",
+                                          small: "",
+                                          fab: "",
+                                          disabled: _vm.disabled
+                                        }
                                       },
                                       [
                                         _c(
@@ -30188,7 +36096,8 @@ var render = function() {
                           attrs: {
                             color: "primary",
                             outline: "",
-                            href: "/dashboard/pages/create"
+                            href: "/dashboard/pages/create",
+                            disabled: _vm.disabled
                           }
                         },
                         [
@@ -30908,7 +36817,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "Title",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.post.title,
@@ -30934,7 +36844,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "العنوان",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.post.translation.title,
@@ -30967,7 +36878,8 @@ var render = function() {
                                               "item-value": "id",
                                               label: "Tags",
                                               multiple: "",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             scopedSlots: _vm._u([
                                               {
@@ -31169,7 +37081,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Meta Description"
+                                                      label: "Meta Description",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value: _vm.post.meta,
@@ -31195,7 +37110,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Keywords"
+                                                      label: "Keywords",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value: _vm.post.keywords,
@@ -31220,7 +37138,8 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Custom Style"
+                                                      label: "Custom Style",
+                                                      disabled: _vm.disabled
                                                     },
                                                     model: {
                                                       value: _vm.post.style,
@@ -31285,7 +37204,8 @@ var render = function() {
                                             {
                                               attrs: {
                                                 color: "deep-orange accent-3",
-                                                outline: ""
+                                                outline: "",
+                                                disabled: _vm.disabled
                                               },
                                               on: {
                                                 click: _vm.triggerImageUpload
@@ -31344,7 +37264,8 @@ var render = function() {
                                                         fab: "",
                                                         dark: "",
                                                         small: "",
-                                                        color: "primary"
+                                                        color: "primary",
+                                                        disabled: _vm.disabled
                                                       },
                                                       on: {
                                                         click:
@@ -31398,7 +37319,8 @@ var render = function() {
                       attrs: {
                         outline: "",
                         color: "primary",
-                        loading: _vm.loading
+                        loading: _vm.loading,
+                        disabled: _vm.disabled
                       },
                       on: { click: _vm.submit }
                     },
@@ -31557,7 +37479,10 @@ var render = function() {
                                   "td",
                                   [
                                     _c("v-switch", {
-                                      attrs: { color: "success" },
+                                      attrs: {
+                                        color: "success",
+                                        disabled: _vm.disabled
+                                      },
                                       on: {
                                         change: function($event) {
                                           return _vm.togglePublish(props.item)
@@ -31623,28 +37548,27 @@ var render = function() {
                                     _c(
                                       "v-btn",
                                       {
-                                        attrs: { flat: "", small: "", fab: "" }
+                                        attrs: {
+                                          flat: "",
+                                          small: "",
+                                          fab: "",
+                                          disabled: _vm.disabled
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteItem(
+                                              props.item,
+                                              "posts"
+                                            )
+                                          }
+                                        }
                                       },
                                       [
-                                        _c(
-                                          "v-icon",
-                                          {
-                                            attrs: { small: "" },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.deleteItem(
-                                                  props.item,
-                                                  "posts"
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                        delete\n                                    "
-                                            )
-                                          ]
-                                        )
+                                        _c("v-icon", { attrs: { small: "" } }, [
+                                          _vm._v(
+                                            "\n                                        delete\n                                    "
+                                          )
+                                        ])
                                       ],
                                       1
                                     )
@@ -31670,7 +37594,8 @@ var render = function() {
                           attrs: {
                             color: "primary",
                             outline: "",
-                            href: "/dashboard/posts/create"
+                            href: "/dashboard/posts/create",
+                            disabled: _vm.disabled
                           }
                         },
                         [
@@ -32824,7 +38749,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "Name",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.project.name,
@@ -32854,7 +38780,8 @@ var render = function() {
                                               counter: 30,
                                               rules: _vm.nameRules,
                                               label: "الأسم",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value:
@@ -32882,7 +38809,10 @@ var render = function() {
                                         },
                                         [
                                           _c("v-text-field", {
-                                            attrs: { label: "Price" },
+                                            attrs: {
+                                              label: "Price",
+                                              disabled: _vm.disabled
+                                            },
                                             model: {
                                               value: _vm.project.price,
                                               callback: function($$v) {
@@ -32907,7 +38837,10 @@ var render = function() {
                                         },
                                         [
                                           _c("v-text-field", {
-                                            attrs: { label: "Down Payment" },
+                                            attrs: {
+                                              label: "Down Payment",
+                                              disabled: _vm.disabled
+                                            },
                                             model: {
                                               value: _vm.project.down_payment,
                                               callback: function($$v) {
@@ -32933,7 +38866,8 @@ var render = function() {
                                         [
                                           _c("v-text-field", {
                                             attrs: {
-                                              label: "Installment Years"
+                                              label: "Installment Years",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value:
@@ -32961,7 +38895,10 @@ var render = function() {
                                         },
                                         [
                                           _c("v-text-field", {
-                                            attrs: { label: "Delivery Date" },
+                                            attrs: {
+                                              label: "Delivery Date",
+                                              disabled: _vm.disabled
+                                            },
                                             model: {
                                               value: _vm.project.delivery_date,
                                               callback: function($$v) {
@@ -32992,7 +38929,8 @@ var render = function() {
                                               "item-text": "name",
                                               "item-value": "id",
                                               label: "Developer",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.selectedDeveloper,
@@ -33019,7 +38957,8 @@ var render = function() {
                                               "item-text": "text",
                                               "item-value": "value",
                                               label: "Project Type",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.selectedProjectType,
@@ -33047,7 +38986,8 @@ var render = function() {
                                               "item-value": "id",
                                               label: "Location",
                                               "prepend-icon": "map",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             model: {
                                               value: _vm.selectedLocation,
@@ -33081,7 +39021,8 @@ var render = function() {
                                                   _c("v-text-field", {
                                                     attrs: {
                                                       label: "Latitude",
-                                                      required: ""
+                                                      required: "",
+                                                      disabled: _vm.disabled
                                                     },
                                                     model: {
                                                       value: _vm.project.lat,
@@ -33108,7 +39049,8 @@ var render = function() {
                                                   _c("v-text-field", {
                                                     attrs: {
                                                       label: "Longitude",
-                                                      required: ""
+                                                      required: "",
+                                                      disabled: _vm.disabled
                                                     },
                                                     model: {
                                                       value: _vm.project.lng,
@@ -33146,7 +39088,8 @@ var render = function() {
                                               "item-value": "id",
                                               label: "Property Types",
                                               multiple: "",
-                                              required: ""
+                                              required: "",
+                                              disabled: _vm.disabled
                                             },
                                             scopedSlots: _vm._u([
                                               {
@@ -33349,7 +39292,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Meta Description"
+                                                      label: "Meta Description",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value: _vm.project.meta,
@@ -33375,7 +39321,10 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Keywords"
+                                                      label: "Keywords",
+                                                      disabled:
+                                                        _vm.user &&
+                                                        _vm.user.isViewer()
                                                     },
                                                     model: {
                                                       value:
@@ -33431,7 +39380,8 @@ var render = function() {
                                     {
                                       attrs: {
                                         color: "deep-orange accent-3",
-                                        outline: ""
+                                        outline: "",
+                                        disabled: _vm.disabled
                                       },
                                       on: { click: _vm.triggerUpload }
                                     },
@@ -33533,7 +39483,9 @@ var render = function() {
                                                                     dark: "",
                                                                     small: "",
                                                                     color:
-                                                                      "primary"
+                                                                      "primary",
+                                                                    disabled:
+                                                                      _vm.disabled
                                                                   },
                                                                   on: {
                                                                     click: function(
@@ -33607,7 +39559,9 @@ var render = function() {
                                                                     dark: "",
                                                                     small: "",
                                                                     color:
-                                                                      "primary"
+                                                                      "primary",
+                                                                    disabled:
+                                                                      _vm.disabled
                                                                   },
                                                                   on: {
                                                                     click: function(
@@ -33718,7 +39672,8 @@ var render = function() {
                                             {
                                               attrs: {
                                                 color: "deep-orange accent-3",
-                                                outline: ""
+                                                outline: "",
+                                                disabled: _vm.disabled
                                               },
                                               on: {
                                                 click: _vm.triggerLogoUpload
@@ -33775,7 +39730,8 @@ var render = function() {
                                                         fab: "",
                                                         dark: "",
                                                         small: "",
-                                                        color: "primary"
+                                                        color: "primary",
+                                                        disabled: _vm.disabled
                                                       },
                                                       on: {
                                                         click: _vm.removeLogo
@@ -33828,7 +39784,8 @@ var render = function() {
                       attrs: {
                         outline: "",
                         color: "primary",
-                        loading: _vm.loading
+                        loading: _vm.loading,
+                        disabled: _vm.user && _vm.user.isViewer()
                       },
                       on: { click: _vm.post }
                     },
@@ -34058,7 +40015,10 @@ var render = function() {
                                         _c(
                                           "v-icon",
                                           {
-                                            attrs: { small: "" },
+                                            attrs: {
+                                              small: "",
+                                              disabled: _vm.disabled
+                                            },
                                             on: {
                                               click: function($event) {
                                                 return _vm.deleteItem(
@@ -34099,7 +40059,8 @@ var render = function() {
                           attrs: {
                             color: "primary",
                             outline: "",
-                            href: "/dashboard/projects/create"
+                            href: "/dashboard/projects/create",
+                            disabled: _vm.disabled
                           }
                         },
                         [
@@ -74231,6 +80192,1037 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 
 /***/ }),
 
+/***/ "./node_modules/vuex/dist/vuex.esm.js":
+/*!********************************************!*\
+  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
+  \********************************************/
+/*! exports provided: default, Store, install, mapState, mapMutations, mapGetters, mapActions, createNamespacedHelpers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+/**
+ * vuex v3.1.1
+ * (c) 2019 Evan You
+ * @license MIT
+ */
+function applyMixin (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+}
+
+var target = typeof window !== 'undefined'
+  ? window
+  : typeof global !== 'undefined'
+    ? global
+    : {};
+var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+function partial (fn, arg) {
+  return function () {
+    return fn(arg)
+  }
+}
+
+// Base data struct for store's module, package with some attribute and method
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  // Store some children item
+  this._children = Object.create(null);
+  // Store the origin module object which passed by programmer
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+
+  // Store the origin module's state
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors = { namespaced: { configurable: true } };
+
+prototypeAccessors.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (true) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (true) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (true) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (true) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  var state = this._modules.root.state;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  var useDevtools = options.devtools !== undefined ? options.devtools : Vue.config.devtools;
+  if (useDevtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors$1 = { state: { configurable: true } };
+
+prototypeAccessors$1.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors$1.state.set = function (v) {
+  if (true) {
+    assert(false, "use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+     true &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  try {
+    this._actionSubscribers
+      .filter(function (sub) { return sub.before; })
+      .forEach(function (sub) { return sub.before(action, this$1.state); });
+  } catch (e) {
+    if (true) {
+      console.warn("[vuex] error in before action subscribers: ");
+      console.error(e);
+    }
+  }
+
+  var result = entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload);
+
+  return result.then(function (res) {
+    try {
+      this$1._actionSubscribers
+        .filter(function (sub) { return sub.after; })
+        .forEach(function (sub) { return sub.after(action, this$1.state); });
+    } catch (e) {
+      if (true) {
+        console.warn("[vuex] error in after action subscribers: ");
+        console.error(e);
+      }
+    }
+    return res
+  })
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  return genericSubscribe(fn, this._subscribers)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn) {
+  var subs = typeof fn === 'function' ? { before: fn } : fn;
+  return genericSubscribe(subs, this._actionSubscribers)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (true) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors$1 );
+
+function genericSubscribe (fn, subs) {
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    // direct inline function use will lead to closure preserving oldVm.
+    // using partial to return function with only arguments preserved in closure enviroment.
+    computed[key] = partial(fn, store);
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (true) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (true) {
+      assert(store._committing, "do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (true) {
+    assert(typeof type === 'string', ("expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (true) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+/**
+ * Reduce the code which written in Vue.js for getting the state.
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} states # Object's item can be a function which accept state and getters for param, you can do something for state and getters in it.
+ * @param {Object}
+ */
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for committing the mutation
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // Get the commit method from store
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for getting the getters
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} getters
+ * @return {Object}
+ */
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    // The namespace has been mutated by normalizeNamespace
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if ( true && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for dispatch the action
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} actions # Object's item can be a function which accept `dispatch` function as the first param, it can accept anthor params. You can dispatch action and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // get dispatch function from store
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Rebinding namespace param for mapXXX function in special scoped, and return them by simple object
+ * @param {String} namespace
+ * @return {Object}
+ */
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+/**
+ * Normalize the map
+ * normalizeMap([1, 2, 3]) => [ { key: 1, val: 1 }, { key: 2, val: 2 }, { key: 3, val: 3 } ]
+ * normalizeMap({a: 1, b: 2, c: 3}) => [ { key: 'a', val: 1 }, { key: 'b', val: 2 }, { key: 'c', val: 3 } ]
+ * @param {Array|Object} map
+ * @return {Object}
+ */
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+/**
+ * Return a function expect two param contains namespace and map. it will normalize the namespace and then the param's function will handle the new namespace and the map.
+ * @param {Function} fn
+ * @return {Function}
+ */
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+/**
+ * Search a special module from store by namespace. if module not exist, print error message.
+ * @param {Object} store
+ * @param {String} helper
+ * @param {String} namespace
+ * @return {Object}
+ */
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if ( true && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '3.1.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (index_esm);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -74299,8 +81291,16 @@ module.exports = function(module) {
 /*!***********************************!*\
   !*** ./resources/js/admin/app.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util_authorization__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/authorization */ "./resources/js/util/authorization.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -74311,7 +81311,9 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Vuetify = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
+window.Vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 Vue.use(Vuetify);
+Vue.use(Vuex);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -74319,7 +81321,10 @@ Vue.use(Vuetify);
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-// Locations
+// Admins
+//Vue.component('edit-admin', require('../components/admin/admin/Edit').default);
+
+Vue.component('admins', __webpack_require__(/*! ../components/admin/admin/List */ "./resources/js/components/admin/admin/List.vue")["default"]); // Locations
 
 Vue.component('locations', __webpack_require__(/*! ../components/admin/location/List */ "./resources/js/components/admin/location/List.vue")["default"]); // Property Types
 
@@ -74331,7 +81336,11 @@ Vue.component('departments', __webpack_require__(/*! ../components/admin/departm
 
 Vue.component('create-project', __webpack_require__(/*! ../components/admin/project/Create */ "./resources/js/components/admin/project/Create.vue")["default"]);
 Vue.component('edit-project', __webpack_require__(/*! ../components/admin/project/Edit */ "./resources/js/components/admin/project/Edit.vue")["default"]);
-Vue.component('projects', __webpack_require__(/*! ../components/admin/project/List */ "./resources/js/components/admin/project/List.vue")["default"]); // Tags
+Vue.component('projects', __webpack_require__(/*! ../components/admin/project/List */ "./resources/js/components/admin/project/List.vue")["default"]); // Projects
+
+Vue.component('create-citizenship', __webpack_require__(/*! ../components/admin/citizenship/Create */ "./resources/js/components/admin/citizenship/Create.vue")["default"]);
+Vue.component('edit-citizenship', __webpack_require__(/*! ../components/admin/citizenship/Edit */ "./resources/js/components/admin/citizenship/Edit.vue")["default"]);
+Vue.component('citizenship-list', __webpack_require__(/*! ../components/admin/citizenship/List */ "./resources/js/components/admin/citizenship/List.vue")["default"]); // Tags
 
 Vue.component('tags', __webpack_require__(/*! ../components/admin/tag/List */ "./resources/js/components/admin/tag/List.vue")["default"]); // Posts
 
@@ -74345,14 +81354,37 @@ Vue.component('pages', __webpack_require__(/*! ../components/admin/page/List */ 
 
 Vue.component('edit-slider', __webpack_require__(/*! ../components/admin/slider/Edit */ "./resources/js/components/admin/slider/Edit.vue")["default"]);
 Vue.component('sliders', __webpack_require__(/*! ../components/admin/slider/List */ "./resources/js/components/admin/slider/List.vue")["default"]);
+var store = new Vuex.Store({
+  state: {
+    user: null
+  },
+  mutations: {
+    user: function user(state, _user) {
+      state.user = _user;
+    }
+  },
+  getters: {
+    getUser: function getUser(state) {
+      return state.user;
+    }
+  },
+  actions: {
+    setUser: function setUser(context, user) {
+      context.commit('user', user);
+    }
+  }
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
 var app = new Vue({
   el: '#app',
+  store: store,
   data: function data() {
     return {
       dark: false,
@@ -74378,8 +81410,15 @@ var app = new Vue({
       theme = theme === 'true';
       if (this.dark !== theme) this.dark = theme;
     }
+
+    var vm = this;
+    axios.get('/dashboard/user').then(function (res) {
+      vm.setUser(new _util_authorization__WEBPACK_IMPORTED_MODULE_0__["default"](res.data));
+    })["catch"](function (err) {
+      vm.setUser = new _util_authorization__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    });
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['setUser']), {
     getCookie: function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
@@ -74407,7 +81446,10 @@ var app = new Vue({
         window.location = res.data;
       });
     }
-  }
+  }),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    user: 'getUser'
+  }))
 });
 
 /***/ }),
@@ -74464,6 +81506,336 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/admin/List.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/admin/admin/List.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony import */ var _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "20c63189",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/admin/List.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/admin/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/admin/List.vue?vue&type=template&id=20c63189&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_20c63189_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Create.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Create.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& */ "./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "20b9b272",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/citizenship/Create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=style&index=0&id=20b9b272&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_style_index_0_id_20b9b272_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Create.vue?vue&type=template&id=20b9b272&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_20b9b272_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Edit.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Edit.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& */ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "e7c03000",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/citizenship/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=style&index=0&id=e7c03000&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_style_index_0_id_e7c03000_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/Edit.vue?vue&type=template&id=e7c03000&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_e7c03000_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/List.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/List.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony import */ var _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./List.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& */ "./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "7cd7c094",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/citizenship/List.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=style&index=0&id=7cd7c094&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_style_index_0_id_7cd7c094_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/citizenship/List.vue?vue&type=template&id=7cd7c094&scoped=true&xmlns%3Av-slot=http%3A%2F%2Fwww.w3.org%2F1999%2FXSL%2FTransform&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_List_vue_vue_type_template_id_7cd7c094_scoped_true_xmlns_3Av_slot_http_3A_2F_2Fwww_w3_org_2F1999_2FXSL_2FTransform___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -76108,6 +83480,110 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/mixins/auth.js":
+/*!*************************************!*\
+  !*** ./resources/js/mixins/auth.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      disabled: false
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    user: 'getUser'
+  })),
+  watch: {
+    user: function user(val) {
+      if (val !== null) {
+        if (this.user.isSeo() || this.user.isViewer()) {
+          this.disabled = true;
+          var editor = document.querySelector('#englishEditor');
+
+          if (editor && !this.user.isSeo()) {
+            $('#englishEditor').summernote('disable');
+            $('#arabicEditor').summernote('disable');
+          }
+        }
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/util/authorization.js":
+/*!********************************************!*\
+  !*** ./resources/js/util/authorization.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var User =
+/*#__PURE__*/
+function () {
+  function User() {
+    var user = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    _classCallCheck(this, User);
+
+    if (user) {
+      this.id = user.id;
+      this.name = user.name;
+      this.role = user.role.name;
+    } else {
+      this.id = this.name = this.role = null;
+    }
+  }
+
+  _createClass(User, [{
+    key: "isSuper",
+    value: function isSuper() {
+      return this.role === 'super';
+    }
+  }, {
+    key: "isAdmin",
+    value: function isAdmin() {
+      return this.role === 'admin';
+    }
+  }, {
+    key: "isSeo",
+    value: function isSeo() {
+      return this.role === 'seo';
+    }
+  }, {
+    key: "isViewer",
+    value: function isViewer() {
+      return this.role === 'viewer';
+    }
+  }]);
+
+  return User;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (User);
 
 /***/ }),
 

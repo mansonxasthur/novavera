@@ -29,7 +29,7 @@
                                 <td>{{ props.item.title }}</td>
                                 <td class="text-xs-right">{{ props.item.translation ? props.item.translation.title : '' }}</td>
                                 <td>
-                                    <v-switch v-model="!!props.item.published" color="success" @change="togglePublish(props.item)"></v-switch>
+                                    <v-switch v-model="!!props.item.published" color="success" @change="togglePublish(props.item)" :disabled="disabled"></v-switch>
                                 </td>
                                 <td class="text-xs-center">
                                     <a :href="'/dashboard/pages/' + props.item.slug + '/edit'">
@@ -41,7 +41,7 @@
                                             </v-icon>
                                         </v-btn>
                                     </a>
-                                    <v-btn flat small fab>
+                                    <v-btn flat small fab :disabled="disabled">
                                         <v-icon
                                                 small
                                                 @click="deleteItem(props.item, 'pages')"
@@ -54,7 +54,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn color="primary" outline class="mb-2" href="/dashboard/pages/create">
+                        <v-btn color="primary" outline class="mb-2" href="/dashboard/pages/create" :disabled="disabled">
                             New Page
                         </v-btn>
                     </v-card-actions>
@@ -75,10 +75,11 @@
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
     import Form from '../../../mixins/Form';
+    import auth from "../../../mixins/auth";
 
     export default {
         name: "Pages",
-        mixins: [SnackbarComponent, Form],
+        mixins: [SnackbarComponent, Form, auth],
         props: ['pageCollection'],
         data() {
             return {

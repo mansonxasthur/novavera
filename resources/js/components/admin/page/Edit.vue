@@ -22,6 +22,7 @@
                                                     :rules="nameRules"
                                                     label="Title"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                         <v-flex xs12 md6 class="my-3">
@@ -31,6 +32,7 @@
                                                     :rules="nameRules"
                                                     label="العنوان"
                                                     required
+                                                    :disabled="disabled"
                                             ></v-text-field>
                                         </v-flex>
                                     </v-layout>
@@ -63,18 +65,21 @@
                                                     <v-textarea
                                                             v-model="page.meta"
                                                             label="Meta Description"
+                                                            :disabled="user && user.isViewer()"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
                                                             v-model="page.keywords"
                                                             label="Keywords"
+                                                            :disabled="user && user.isViewer()"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12>
                                                     <v-textarea
                                                             v-model="page.style"
                                                             label="Custom Style"
+                                                            :disabled="disabled"
                                                     ></v-textarea>
                                                 </v-flex>
                                             </v-layout>
@@ -91,6 +96,7 @@
                                                     color="deep-orange accent-3"
                                                     outline
                                                     @click="triggerImageUpload"
+                                                    :disabled="disabled"
                                             >
                                                 Change Header
                                                 <v-icon right>cloud_upload</v-icon>
@@ -102,7 +108,7 @@
                                             <v-img :src="previewHeader" width="auto" v-if="previewHeader !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
-                                                       @click="removeHeader">
+                                                       @click="removeHeader" :disabled="disabled">
                                                     <v-icon dark>remove</v-icon>
                                                 </v-btn>
                                             </v-img>
@@ -115,7 +121,7 @@
                 </v-card-text>
                 <v-card-actions class="py-4 mt-5">
                     <v-spacer></v-spacer>
-                    <v-btn outline color="primary" @click="submit" :loading="loading">
+                    <v-btn outline color="primary" @click="submit" :loading="loading" :disabled="disabled">
                         Update Page
                     </v-btn>
                     <v-btn outline color="primary" href="/dashboard/pages">
@@ -131,10 +137,11 @@
 
 <script>
     import SnackbarComponent from '../../../mixins/SnackbarComponent';
+    import auth from "../../../mixins/auth";
 
     export default {
         name: "EditPage",
-        mixins: [SnackbarComponent],
+        mixins: [SnackbarComponent, auth],
         props: ['pageCollection'],
         data() {
             return {

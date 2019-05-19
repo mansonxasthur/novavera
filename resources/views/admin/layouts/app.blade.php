@@ -23,6 +23,8 @@
 <body>
 <v-app id="app" :dark="dark" v-cloak>
     <v-navigation-drawer
+            disable-resize-watcher
+            disable-route-watcher
             clipped
             fixed
             v-model="drawer"
@@ -36,47 +38,49 @@
                 <v-list-tile-title>Home</v-list-tile-title>
             </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.departments.index') }}">
-                <v-list-tile-action>
-                    <v-icon>assignment_ind</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Departments</v-list-tile-title>
-            </v-list-tile>
+            <div v-if="user && !user.isSeo() && !user.isViewer()">
+                <v-list-tile href="{{ route('admin.departments.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>assignment_ind</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Departments</v-list-tile-title>
+                </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.locations.index') }}">
-                <v-list-tile-action>
-                    <v-icon>location_on</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Locations</v-list-tile-title>
-            </v-list-tile>
+                <v-list-tile href="{{ route('admin.locations.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>location_on</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Locations</v-list-tile-title>
+                </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.propertyTypes.index') }}">
-                <v-list-tile-action>
-                    <v-icon>account_balance</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Property Types</v-list-tile-title>
-            </v-list-tile>
+                <v-list-tile href="{{ route('admin.propertyTypes.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>account_balance</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Property Types</v-list-tile-title>
+                </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.developers.index') }}">
-                <v-list-tile-action>
-                    <v-icon>business</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Developers</v-list-tile-title>
-            </v-list-tile>
+                <v-list-tile href="{{ route('admin.developers.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>business</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Developers</v-list-tile-title>
+                </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.tags.index') }}">
-                <v-list-tile-action>
-                    <v-icon>local_offer</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Tags</v-list-tile-title>
-            </v-list-tile>
+                <v-list-tile href="{{ route('admin.tags.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>local_offer</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Tags</v-list-tile-title>
+                </v-list-tile>
 
-            <v-list-tile href="{{ route('admin.sliders.index') }}">
-                <v-list-tile-action>
-                    <v-icon>photo_library</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-title>Sliders</v-list-tile-title>
-            </v-list-tile>
+                <v-list-tile href="{{ route('admin.sliders.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>photo_library</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Sliders</v-list-tile-title>
+                </v-list-tile>
+            </div>
 
             <v-list-group
                     prepend-icon="apps"
@@ -89,7 +93,7 @@
                     </v-list-tile>
                 </template>
 
-                <v-list-tile href="{{ route('admin.projects.create') }}">
+                <v-list-tile href="{{ route('admin.projects.create') }}" v-if="user && !user.isSeo() && !user.isViewer()">
                     <v-list-tile-action>
                         <v-icon>add</v-icon>
                     </v-list-tile-action>
@@ -104,6 +108,31 @@
             </v-list-group>
 
             <v-list-group
+                    prepend-icon="flag"
+            >
+                <template v-slot:activator>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Citizenship</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </template>
+
+                <v-list-tile href="{{ route('admin.citizenship.create') }}" v-if="user && !user.isSeo() && !user.isViewer()">
+                    <v-list-tile-action>
+                        <v-icon>add</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>New Citizenship</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile href="{{ route('admin.citizenship.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>list</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>All Countries</v-list-tile-title>
+                </v-list-tile>
+            </v-list-group>
+
+            <v-list-group
                     prepend-icon="create"
             >
                 <template v-slot:activator>
@@ -114,7 +143,7 @@
                     </v-list-tile>
                 </template>
 
-                <v-list-tile href="{{ route('admin.posts.create') }}">
+                <v-list-tile href="{{ route('admin.posts.create') }}" v-if="user && !user.isSeo() && !user.isViewer()">
                     <v-list-tile-action>
                         <v-icon>add</v-icon>
                     </v-list-tile-action>
@@ -139,7 +168,7 @@
                     </v-list-tile>
                 </template>
 
-                <v-list-tile href="{{ route('admin.pages.create') }}">
+                <v-list-tile href="{{ route('admin.pages.create') }}" v-if="user && !user.isSeo() && !user.isViewer()">
                     <v-list-tile-action>
                         <v-icon>add</v-icon>
                     </v-list-tile-action>
@@ -152,6 +181,16 @@
                     <v-list-tile-title>All Pages</v-list-tile-title>
                 </v-list-tile>
             </v-list-group>
+
+            <v-divider></v-divider>
+
+            <v-list-tile href="{{ route('admin.admins.index') }}" v-if="user && user.isSuper()">
+                <v-list-tile-action>
+                    <v-icon>people</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Admins</v-list-tile-title>
+            </v-list-tile>
+
         </v-list>
         <v-divider class="hidden-md-and-up"></v-divider>
         <v-list subheader class="hidden-md-and-up">
@@ -163,7 +202,7 @@
                     <v-icon>brightness_2</v-icon>
                 </v-list-tile-action>
             </v-list-tile>
-            <v-list-tile@click="logout">
+            <v-list-tile @click="logout">
                 <v-list-tile-content>
                     <v-list-tile-title>Logout</v-list-tile-title>
                 </v-list-tile-content>
@@ -214,6 +253,7 @@
         @yield('content')
     </v-content>
 </v-app>
+
 @stack('scripts')
 </body>
 </html>

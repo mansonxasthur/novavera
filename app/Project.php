@@ -42,40 +42,6 @@ class Project extends Model
         return $this->getImageUrl($this->logo);
     }
 
-    /**
-     * @param string $value
-     */
-    public function setSlugAttribute(string $value)
-    {
-        if (static::whereSlug($slug = Str::slug($value))->exists()) {
-            $slug = $this->incrementSlug($slug);
-        }
-
-        $this->attributes['slug'] = $slug;
-    }
-
-    /**
-     * @param string $slug
-     * @return string
-     */
-    private function incrementSlug(string $slug): string
-    {
-        $max = static::whereName($this->name)->latest('id')->first();
-
-        if ($max->id !== $this->id) {
-            $max = $max->slug;
-            if (is_numeric($max[-1])) {
-                return preg_replace_callback('/(\d+)$/', function ($matches) {
-                    return $matches[1] + 1;
-                }, $max);
-            }
-
-            return "{$slug}-2";
-        }
-
-        return $slug;
-    }
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -152,6 +118,40 @@ class Project extends Model
         }
 
         return $this->save();
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setSlugAttribute(string $value)
+    {
+        if (static::whereSlug($slug = Str::slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return string
+     */
+    private function incrementSlug(string $slug): string
+    {
+        $max = static::whereName($this->name)->latest('id')->first();
+
+        if ($max->id !== $this->id) {
+            $max = $max->slug;
+            if (is_numeric($max[-1])) {
+                return preg_replace_callback('/(\d+)$/', function ($matches) {
+                    return $matches[1] + 1;
+                }, $max);
+            }
+
+            return "{$slug}-2";
+        }
+
+        return $slug;
     }
 
 }

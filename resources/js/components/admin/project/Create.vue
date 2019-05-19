@@ -420,7 +420,7 @@
             },
             removeLogo() {
                 this.previewLogo = '';
-                this.uploadedLogo = {};
+                this.project.logo = null;
             },
             post() {
                 if (this.$refs.form.validate()) {
@@ -430,7 +430,6 @@
                     let project = new FormData();
 
                     Object.keys(item).forEach(key => {
-                        if (key === 'logo_url') return;
 
                         if (!!item[key]) {
                             if (key === 'logo') {
@@ -478,7 +477,7 @@
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
                 this.previewLogo = '';
-                this.page.logo = null;
+                this.project.logo = null;
                 this.uploadedImages = [];
                 this.previewImages = [];
                 this.loading = false;

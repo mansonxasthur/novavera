@@ -80,8 +80,12 @@ Vue.component('developers', require('./components/Developers').default); // deve
 Vue.component('developer', require('./components/Developer').default); // developer page
 
 Vue.component('page', require('./components/Page').default); // custom page
+
 Vue.component('project', require('./components/Project').default); // project page
 Vue.component('project-section', require('./components/ProjectSection').default); // project section home page
+
+Vue.component('citizenship', require('./components/Citizenship').default); // citizenship page
+//Vue.component('project-section', require('./components/ProjectSection').default); // project section home page
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
