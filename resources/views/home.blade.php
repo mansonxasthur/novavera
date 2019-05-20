@@ -277,7 +277,7 @@ with high standards of expertise',
                         title="Residential Projects"
                         :count="{{ 4 }}"
                 ></project-section>
-                @if(!empty($residentialProjectLocations))
+                @if(count($residentialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
                             <v-btn color="primary" href="/projects/residential">View All</v-btn>
@@ -292,7 +292,7 @@ with high standards of expertise',
                         title="Commercial Projects"
                         :count="{{ 4 }}"
                 ></project-section>
-                @if(!empty($commercialProjectLocations))
+                @if(count($commercialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
                             <v-btn color="primary" href="/projects/commercial">View All</v-btn>
@@ -405,9 +405,9 @@ with high standards of expertise',
                             </v-layout>
                         </v-container>
                     </v-flex>
-                    <v-flex text-xs-center>
+                    {{--<v-flex text-xs-center>
                         <v-btn href="" role="link">Learn More</v-btn>
-                    </v-flex>
+                    </v-flex>--}}
                 </v-layout>
             </v-flex>
 

@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php" line="14" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="bug fixes and improvements" />
+    <list default="true" id="b3830ee7-370a-4fe8-ab85-9c8408f68fa2" name="Default Changelist" comment="bug fixes and improvements">
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +67,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="754" column="19" lean-forward="true" selection-start-line="754" selection-start-column="19" selection-end-line="754" selection-end-column="19" />
+            <state relative-caret-position="577">
+              <caret line="291" column="51" lean-forward="true" selection-start-line="291" selection-start-column="51" selection-end-line="291" selection-end-column="51" />
               <folding>
                 <element signature="e#9113#9156#0#HTML" expanded="true" />
                 <element signature="e#11085#11110#0#HTML" expanded="true" />
                 <element signature="e#13081#13614#0#HTML" />
                 <element signature="e#13636#14105#0#HTML" />
-                <element signature="e#14126#18516#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -176,7 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dd</find>
       <find>translation</find>
       <find>collection</find>
       <find>residen</find>
@@ -206,6 +206,7 @@
       <find>form</find>
       <find>contact</find>
       <find>more count</find>
+      <find>projec</find>
     </findStrings>
     <replaceStrings>
       <replace>citizenship</replace>
@@ -517,7 +518,7 @@
       <workItem from="1557944344387" duration="16940000" />
       <workItem from="1558083700694" duration="18787000" />
       <workItem from="1558172454150" duration="7729000" />
-      <workItem from="1558279713952" duration="15468000" />
+      <workItem from="1558279713952" duration="16336000" />
     </task>
     <servers />
   </component>
@@ -554,7 +555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463042000" />
+    <option name="totallyTimeSpent" value="463910000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,11 +568,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.26730564" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32985386" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32985386" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5005325" side_tool="true" weight="0.6691023" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32985386" />
@@ -1071,14 +1073,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="754" column="19" lean-forward="true" selection-start-line="754" selection-start-column="19" selection-end-line="754" selection-end-column="19" />
+        <state relative-caret-position="577">
+          <caret line="291" column="51" lean-forward="true" selection-start-line="291" selection-start-column="51" selection-end-line="291" selection-end-column="51" />
           <folding>
             <element signature="e#9113#9156#0#HTML" expanded="true" />
             <element signature="e#11085#11110#0#HTML" expanded="true" />
             <element signature="e#13081#13614#0#HTML" />
             <element signature="e#13636#14105#0#HTML" />
-            <element signature="e#14126#18516#0#HTML" />
           </folding>
         </state>
       </provider>
