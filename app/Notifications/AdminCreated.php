@@ -19,7 +19,8 @@ class AdminCreated extends Notification
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param Admin $user
+     * @param string $password
      */
     public function __construct(Admin $user, string $password)
     {
@@ -42,12 +43,13 @@ class AdminCreated extends Notification
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
             ->subject('Welcome ' . $this->user->name)
+            ->from('no-reply@novaverarealestate.com')
             ->markdown('mail.admin.create', ['user' => $this->user, 'password' => $this->password]);
     }
 

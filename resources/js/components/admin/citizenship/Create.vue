@@ -90,27 +90,28 @@
                                             <v-form ref="benefitForm">
                                                 <v-layout row wrap justify-space-between>
                                                     <v-flex xs12 md5>
-                                                        <v-text-field
+                                                        <v-textarea
                                                                 v-model="benefit.en"
-                                                                :counter="80"
+                                                                :counter="115"
                                                                 :rules="benefitRules"
                                                                 label="Benefit"
                                                                 required
-                                                        ></v-text-field>
+                                                        ></v-textarea>
                                                     </v-flex>
                                                     <v-flex xs12 md5>
-                                                        <v-text-field
+                                                        <v-textarea
                                                                 v-model="benefit.ar"
-                                                                :counter="80"
+                                                                :counter="115"
                                                                 :rules="benefitRules"
                                                                 label="ميزة"
                                                                 required
-                                                        ></v-text-field>
+                                                        ></v-textarea>
                                                     </v-flex>
                                                     <v-flex>
                                                         <v-btn dark small color="blue darken-4" @click="addBenefit"
                                                                class="left mt-3">
-                                                            <v-icon left small>add</v-icon> Add Benefit
+                                                            <v-icon left small>add</v-icon>
+                                                            Add Benefit
                                                         </v-btn>
                                                     </v-flex>
                                                 </v-layout>
@@ -119,9 +120,9 @@
 
                                         <v-flex xs12 v-if="benefits.length">
 
-                                                <v-layout row wrap>
-                                                    <v-flex xs12 v-for="(benefit, i) in benefits" :key="i" mb-2>
-                                                        <v-card dark>
+                                            <v-layout row wrap>
+                                                <v-flex xs12 v-for="(benefit, i) in benefits" :key="i" mb-2>
+                                                    <v-card dark>
                                                         <v-layout row wrap justify-space-between>
                                                             <v-flex xs12 md5 pa-4>
                                                                 <div class="title">
@@ -142,9 +143,9 @@
                                                                 </v-btn>
                                                             </v-flex>
                                                         </v-layout>
-                                                        </v-card>
-                                                    </v-flex>
-                                                </v-layout>
+                                                    </v-card>
+                                                </v-flex>
+                                            </v-layout>
 
                                         </v-flex>
 
@@ -153,27 +154,28 @@
                                             <v-form ref="supplyForm">
                                                 <v-layout row wrap justify-space-between>
                                                     <v-flex xs12 md5>
-                                                        <v-text-field
+                                                        <v-textarea
                                                                 v-model="supply.en"
-                                                                :counter="80"
+                                                                :counter="115"
                                                                 :rules="supplyRules"
                                                                 label="Provide"
                                                                 required
-                                                        ></v-text-field>
+                                                        ></v-textarea>
                                                     </v-flex>
                                                     <v-flex xs12 md5>
-                                                        <v-text-field
+                                                        <v-textarea
                                                                 v-model="supply.ar"
-                                                                :counter="80"
+                                                                :counter="115"
                                                                 :rules="supplyRules"
                                                                 label="يوفر"
                                                                 required
-                                                        ></v-text-field>
+                                                        ></v-textarea>
                                                     </v-flex>
                                                     <v-flex>
                                                         <v-btn dark small color="blue darken-4" @click="addSupply"
                                                                class="left mt-3">
-                                                            <v-icon left small>add</v-icon> Add Supply
+                                                            <v-icon left small>add</v-icon>
+                                                            Add Supply
                                                         </v-btn>
                                                     </v-flex>
                                                 </v-layout>
@@ -253,9 +255,9 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
-                                <v-flex xs12 md6 class="mt-3">
-                                    <v-layout row wrap>
-                                        <v-flex xs12 md6>
+                                <v-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-center justify-center>
+                                        <v-flex>
                                             <input type="file" id="headerUploader" style="visibility: hidden"
                                                    accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
                                                    @change="uploadHeader">
@@ -268,8 +270,8 @@
                                                 <v-icon right>cloud_upload</v-icon>
                                             </v-btn>
                                         </v-flex>
-                                        <v-flex xs12 md6>
-                                            <v-img :src="previewHeader" width="auto" v-if="previewHeader !== ''">
+                                        <v-flex>
+                                            <v-img :src="previewHeader" min-height="100px" width="auto" v-if="previewHeader !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
                                                        @click="removeHeader">
@@ -279,26 +281,53 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
-                                <v-flex xs12 md6 class="mt-3">
-                                    <v-layout row wrap>
-                                        <v-flex xs12 md6>
-                                            <input type="file" id="flagUploader" style="visibility: hidden"
+                                <v-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-center justify-center>
+                                        <v-flex>
+                                            <input type="file" id="dropdownFlagUploader" style="visibility: hidden"
                                                    accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
-                                                   @change="uploadFlag">
+                                                   @change="uploadDropdownFlag">
                                             <v-btn
                                                     color="deep-orange accent-3"
                                                     outline
-                                                    @click="triggerFlagUpload"
+                                                    @click="triggerDropdownFlagUpload"
                                             >
-                                                Upload Flag
+                                                Upload Dropdown Flag
                                                 <v-icon right>cloud_upload</v-icon>
                                             </v-btn>
                                         </v-flex>
-                                        <v-flex xs12 md6>
-                                            <v-img :src="previewFlag" width="auto" v-if="previewFlag !== ''">
+                                        <v-flex>
+                                            <v-img :src="previewDropdownFlag" min-height="100px" width="auto"
+                                                   v-if="previewDropdownFlag !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
-                                                       @click="removeFlag">
+                                                       @click="removeDropdownFlag">
+                                                    <v-icon dark>remove</v-icon>
+                                                </v-btn>
+                                            </v-img>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
+                                <v-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-center justify-center>
+                                        <v-flex>
+                                            <input type="file" id="bodyFlagUploader" style="visibility: hidden"
+                                                   accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
+                                                   @change="uploadBodyFlag">
+                                            <v-btn
+                                                    color="deep-orange accent-3"
+                                                    outline
+                                                    @click="triggerBodyFlagUpload"
+                                            >
+                                                Upload Body Flag
+                                                <v-icon right>cloud_upload</v-icon>
+                                            </v-btn>
+                                        </v-flex>
+                                        <v-flex>
+                                            <v-img :src="previewBodyFlag" min-height="100px" width="auto" v-if="previewBodyFlag !== ''">
+                                                <v-btn fab dark small color="primary"
+                                                       style="position: absolute;top: 0;right: 0;"
+                                                       @click="removeBodyFlag">
                                                     <v-icon dark>remove</v-icon>
                                                 </v-btn>
                                             </v-img>
@@ -359,11 +388,11 @@
                 ],
                 benefitRules: [
                     v => !!v || 'Benefit is required',
-                    v => (v && v.length <= 80) || 'Name must be less than 80 characters'
+                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
                 ],
                 supplyRules: [
                     v => !!v || 'Supply is required',
-                    v => (v && v.length <= 80) || 'Name must be less than 80 characters'
+                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
                 ],
                 citizenship: {
                     country_name: null,
@@ -373,7 +402,8 @@
                     meta: null,
                     keywords: null,
                     type: null,
-                    flag: null,
+                    dropdown_flag: null,
+                    body_flag: null,
                     header: null,
                     translation: {
                         country_name: null,
@@ -392,7 +422,8 @@
                     en: null,
                     ar: null,
                 },
-                previewFlag: '',
+                previewDropdownFlag: '',
+                previewBodyFlag: '',
                 previewHeader: '',
             }
         },
@@ -430,32 +461,59 @@
             });
         },
         methods: {
-            triggerFlagUpload() {
-                document.querySelector('#flagUploader').click();
+            triggerDropdownFlagUpload() {
+                document.querySelector('#dropdownFlagUploader').click();
             },
-            uploadFlag(e) {
+            uploadDropdownFlag(e) {
                 let vm = this;
-                let flag = e.target.files[0]; //sames as here
+                let dropdown_flag = e.target.files[0]; //sames as here
 
 
-                vm.citizenship.flag = flag;
+                vm.citizenship.dropdown_flag = dropdown_flag;
 
                 let reader = new FileReader();
                 reader.onloadend = function () {
-                    vm.previewFlag = reader.result;
+                    vm.previewDropdownFlag = reader.result;
                 };
 
-                if (flag) {
-                    reader.readAsDataURL(flag); //reads the data as a URL
+                if (dropdown_flag) {
+                    reader.readAsDataURL(dropdown_flag); //reads the data as a URL
                 } else {
-                    vm.previewFlag = '';
+                    vm.previewDropdownFlag = '';
                 }
 
                 e.target.value = '';
             },
-            removeFlag() {
-                this.previewFlag = '';
-                this.citizenship.flag = null;
+            removeDropdownFlag() {
+                this.previewDropdownFlag = '';
+                this.citizenship.dropdown_flag = null;
+            },
+            triggerBodyFlagUpload() {
+                document.querySelector('#bodyFlagUploader').click();
+            },
+            uploadBodyFlag(e) {
+                let vm = this;
+                let body_flag = e.target.files[0]; //sames as here
+
+
+                vm.citizenship.body_flag = body_flag;
+
+                let reader = new FileReader();
+                reader.onloadend = function () {
+                    vm.previewBodyFlag = reader.result;
+                };
+
+                if (body_flag) {
+                    reader.readAsDataURL(body_flag); //reads the data as a URL
+                } else {
+                    vm.previewBodyFlag = '';
+                }
+
+                e.target.value = '';
+            },
+            removeBodyFlag() {
+                this.previewBodyFlag = '';
+                this.citizenship.body_flag = null;
             },
             triggerHeaderUpload() {
                 document.querySelector('#headerUploader').click();
@@ -539,7 +597,7 @@
                     Object.keys(item).forEach(key => {
 
                         if (!!item[key]) {
-                            if (key === 'flag' || key === 'header') {
+                            if (key === 'dropdown_flag' || key === 'body_flag' || key === 'header') {
                                 citizenship.append(key, item[key]);
                                 return;
                             }
@@ -574,9 +632,9 @@
                 this.activateSnackbar('success', res.data.message);
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
-                this.previewFlag = '';
+                this.previewDropdownFlag = '';
                 this.previewHeader = '';
-                this.citizenship.flag = null;
+                this.citizenship.dropdown_flag = null;
                 this.citizenship.header = null;
                 this.loading = false;
 

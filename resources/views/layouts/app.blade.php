@@ -124,8 +124,8 @@
                                 @foreach($citizenshipList as $citizenship)
                                     <a href="{{ $citizenship->path() }}" class="sub-menu">
                                         <v-list-tile>
-                                            <v-list-tile-avatar>
-                                                <v-img src="{{ $citizenship->flag_url }}"></v-img>
+                                            <v-list-tile-avatar tile>
+                                                <img src="{{ $citizenship->dropdown_flag_url }}" width="100%" alt="{{ $citizenship->country_name}}" />
                                             </v-list-tile-avatar>
                                             <v-list-tile-title>{{ $citizenship->country_name }}</v-list-tile-title>
                                         </v-list-tile>
@@ -145,8 +145,8 @@
                                 @foreach($residencyList as $residency)
                                     <a href="{{ $residency->path() }}" class="sub-menu">
                                         <v-list-tile>
-                                            <v-list-tile-avatar>
-                                                <v-img src="{{ $residency->flag_url }}"></v-img>
+                                            <v-list-tile-avatar tile>
+                                                <img src="{{ $residency->dropdown_flag_url }}" width="100%" alt="{{ $residency->country_name}}" />
                                             </v-list-tile-avatar>
                                             <v-list-tile-title>{{ $residency->country_name }}</v-list-tile-title>
                                         </v-list-tile>
@@ -164,6 +164,7 @@
                 @endforeach
             @endif
             <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">Contact</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="/careers">Careers</v-btn>
             <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
             <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}
             </v-btn>

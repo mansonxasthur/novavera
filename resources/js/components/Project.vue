@@ -98,49 +98,50 @@
                 </v-layout>
             </v-flex>
         </v-layout>
-        <v-dialog v-model="dialog" width="600px" max-width="100%" >
+        <v-dialog v-model="dialog" width="600px" max-width="100%" persistent>
             <v-card>
                 <v-card-title>
                     <h4 class="headline">Ask Now</h4>
                 </v-card-title>
                 <v-divider></v-divider>
                 <v-card-text>
-                    <v-form>
+                    <v-form ref="form">
                         <v-layout row wrap>
                             <v-flex xs12>
                                 <v-text-field
                                     type="text"
                                     label="Name"
                                     prepend-inner-icon="person"
-                                    v-model="name"
-                                    required
+                                    v-model="inquiry.name"
                                     autocomplete="name"
                                     color="primary"
-                                >
-                                </v-text-field>
+                                    required
+                                    :rules="nameRules"
+                                    :counter="30"
+                                ></v-text-field>
                             </v-flex>
                             <v-flex xs12>
                                 <v-text-field
                                         type="email"
                                         label="Email"
                                         prepend-inner-icon="email"
-                                        v-model="email"
-                                        required
+                                        v-model="inquiry.email"
                                         autocomplete="email"
                                         color="primary"
-                                >
-                                </v-text-field>
+                                        required
+                                        :rules="emailRules"
+                                ></v-text-field>
                             </v-flex>
                             <v-flex xs12>
                                 <v-textarea
                                         label="Message"
                                         prepend-inner-icon="message"
-                                        v-model="message"
-                                        required
+                                        v-model="inquiry.message"
                                         color="primary"
-                                >
-
-                                </v-textarea>
+                                        required
+                                        :rules="messageRules"
+                                        :counter="150"
+                                ></v-textarea>
                             </v-flex>
                         </v-layout>
                     </v-form>
@@ -148,18 +149,22 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn color="primary" @click="dialog = !dialog">close</v-btn>
-                    <v-btn color="primary" @click="send">Send</v-btn>
+                    <v-btn color="primary" @click="send" :loading="loading">Send</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        <snackbar :active="snackbar.active" :color="snackbar.color" :message="snackbar.message"
+                  @deactivate="deactivateSnackbar"></snackbar>
     </v-container>
 </template>
 
 <script>
     import gmapsInit from '../util/gmaps';
-
+    import SnackbarComponent from '../mixins/SnackbarComponent';
     export default {
         name: "Project",
+        mixins: [SnackbarComponent],
         props: {
             project: {
                 required: true,
@@ -169,9 +174,27 @@
         data() {
             return {
                 dialog: false,
-                name: '',
-                email: '',
-                message: '',
+                loading: false,
+                inquiry: {
+                    name: '',
+                    email: '',
+                    message: '',
+                    project: '',
+                    location: '',
+                },
+                nameRules: [
+                    v => !!v || 'Name is required',
+                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                ],
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                ],
+                messageRules: [
+                    v => !!v || 'Message is required',
+                    v => (v && v.length <= 150) || 'Message must be less than 150 characters',
+                    v => (v && v.length >= 10) || 'Message must be more than 10 characters'
+                ],
             }
         },
         async mounted() {
@@ -184,15 +207,41 @@
                 });
 
             } catch (error) {
-                console.error(error);
+                //console.error(error);
             }
+
+            this.inquiry.project = this.project.name;
+            this.inquiry.location = this.project.location.name;
         },
         methods: {
             ask() {
                 this.dialog = true;
             },
-            send() {
-
+            send () {
+                if (this.$refs.form.validate()) {
+                    let vm = this;
+                    vm.loading = true;
+                    axios.post('/contact/project', vm.inquiry)
+                        .then(res => {
+                            vm.reset();
+                            vm.resetValidation();
+                            vm.activateSnackbar('success', res.data.message);
+                        })
+                        .catch(err => {
+                            vm.loading = false;
+                            if ('response' in err) {
+                                vm.activateSnackbar('error', err.response.data.message);
+                            }
+                        })
+                }
+            },
+            reset () {
+                this.$refs.form.reset();
+                this.dialog = false;
+                this.loading = false;
+            },
+            resetValidation () {
+                this.$refs.form.resetValidation()
             }
         },
     }

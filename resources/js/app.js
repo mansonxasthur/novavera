@@ -74,6 +74,7 @@ Vue.use(Vuetify, {
  */
 
 Vue.component('slider', require('./components/Slider').default); // slider
+Vue.component('contact-form-section', require('./components/ContactFormSection').default); // slider
 
 Vue.component('developer-carousel', require('./components/DeveloperCarousel').default); //developer carousel
 Vue.component('developers', require('./components/Developers').default); // developers page
@@ -86,6 +87,8 @@ Vue.component('project-section', require('./components/ProjectSection').default)
 
 Vue.component('citizenship', require('./components/Citizenship').default); // citizenship page
 Vue.component('citizenship-section', require('./components/CitizenshipSection').default); // citizenship section home page
+
+Vue.component('careers', require('./components/Careers').default); // careers page
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

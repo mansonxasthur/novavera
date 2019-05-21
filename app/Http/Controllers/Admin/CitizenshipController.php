@@ -46,13 +46,14 @@ class CitizenshipController extends Controller
             'country_name'             => 'required | string',
             'title'                    => 'required | string',
             'description'              => 'required | string',
-            'snippet'              => 'required | string',
+            'snippet'                  => 'required | string',
             'type'                     => 'required | string',
             'translation.country_name' => 'required | string',
             'translation.title'        => 'required | string',
             'translation.description'  => 'required | string',
             'header'                   => 'required | image | mimes:jpg,jpeg,png,webp,svg',
-            'flag'                     => 'required | image | mimes:jpg,jpeg,png,webp,svg',
+            'dropdown_flag'            => 'required | image | mimes:jpg,jpeg,png,webp,svg',
+            'body_flag'                => 'required | image | mimes:jpg,jpeg,png,webp,svg',
         ]);
 
         try {
@@ -63,14 +64,15 @@ class CitizenshipController extends Controller
             $citizenship->snippet = $request->snippet;
             $citizenship->type = $request->type;
             $citizenship->header = $citizenship->uploadImage($request->header, 'webp');
-            $citizenship->flag = $citizenship->uploadImage($request->flag, 'webp');
+            $citizenship->dropdown_flag = $citizenship->uploadImage($request->dropdown_flag, 'webp');
+            $citizenship->body_flag = $citizenship->uploadImage($request->body_flag, 'webp');
             $citizenship->save();
 
             $citizenship->addTranslation([
                 'country_name' => $request->translation['country_name'],
                 'title'        => $request->translation['title'],
                 'description'  => $request->translation['description'],
-                'snippet'  => $request->translation['snippet'],
+                'snippet'      => $request->translation['snippet'],
             ]);
 
             if ($request->has('benefits') && !empty($benefits = json_decode($request->benefits))) {
@@ -126,7 +128,7 @@ class CitizenshipController extends Controller
             'country_name'             => 'required | string',
             'title'                    => 'required | string',
             'description'              => 'required | string',
-            'snippet'              => 'required | string',
+            'snippet'                  => 'required | string',
             'type'                     => 'required | string',
             'translation.country_name' => 'required | string',
             'translation.title'        => 'required | string',
@@ -141,15 +143,17 @@ class CitizenshipController extends Controller
             $citizenship->type = $request->type;
             if ($request->hasFile('header'))
                 $citizenship->header = $citizenship->updateImage($request->header, $citizenship->header);
-            if ($request->hasFile('flag'))
-                $citizenship->flag = $citizenship->updateImage($request->flag, $citizenship->flag);
+            if ($request->hasFile('dropdown_flag'))
+                $citizenship->dropdown_flag = $citizenship->updateImage($request->dropdown_flag, $citizenship->dropdown_flag);
+            if ($request->hasFile('body_flag'))
+                $citizenship->body_flag = $citizenship->updateImage($request->body_flag, $citizenship->body_flag);
             $citizenship->save();
 
             $citizenship->updateTranslation([
                 'country_name' => $request->translation['country_name'],
                 'title'        => $request->translation['title'],
                 'description'  => $request->translation['description'],
-                'snippet'  => $request->translation['snippet'],
+                'snippet'      => $request->translation['snippet'],
             ]);
 
             if ($request->has('benefits') && !empty($benefits = json_decode($request->benefits))) {

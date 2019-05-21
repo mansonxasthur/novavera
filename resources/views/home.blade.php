@@ -219,7 +219,7 @@ with high standards of expertise',
                                                                 <v-layout column align-center justify-space-between>
                                                                     <v-flex style="min-width: 100px;">
                                                                         <v-avatar size="80" tile>
-                                                                            <img src="{{ $citizenship->flag_url }}" alt="{{ $citizenship->country_name }}">
+                                                                            <img src="{{ $citizenship->body_flag_url }}" alt="{{ $citizenship->country_name }}">
                                                                         </v-avatar>
                                                                     </v-flex>
                                                                     <v-flex>{{ $citizenship->country_name }}</v-flex>
@@ -245,7 +245,7 @@ with high standards of expertise',
                                                                 <v-layout column align-center justify-space-between>
                                                                     <v-flex style="min-width: 100px;">
                                                                         <v-avatar size="80" tile>
-                                                                            <img src="{{ $residency->flag_url }}" alt="{{ $residency->country_name }}">
+                                                                            <img src="{{ $residency->body_flag_url }}" alt="{{ $residency->country_name }}">
                                                                         </v-avatar>
                                                                     </v-flex>
                                                                     <v-flex>{{ $residency->country_name }}</v-flex>
@@ -554,149 +554,7 @@ with high standards of expertise',
             </v-flex>
 
             <v-flex xs12 my-5>
-                <section id="contact-us">
-                    <v-layout column align-center>
-                        <v-flex shrink class="py-3">
-                            <h1 class="display-1">Contact Us</h1>
-                        </v-flex>
-                        <v-flex shrink
-                                class="red darken-2 mb-4"
-                                style="height: 3px; width: 50px">
-                        </v-flex>
-                    </v-layout>
-                    <v-flex>
-                        <v-container fluid>
-                            <v-layout row wrap>
-                                <v-flex xs12 lg8 pa-2>
-                                    <v-card flat>
-                                        <v-form>
-                                            <v-card-text>
-                                                <v-layout row wrap>
-                                                    <v-flex xs12>
-                                                        <v-layout row wrap>
-                                                            <v-flex xs12 md6 pa-1>
-                                                                <v-text-field
-                                                                        outline
-                                                                        label="Enter Name"
-                                                                        type="text"
-                                                                        color="blue darken-4"
-                                                                        autocomplete="name"
-                                                                        prepend-inner-icon="person"
-                                                                ></v-text-field>
-                                                            </v-flex>
-                                                            <v-flex xs12 md6 pa-1>
-                                                                <v-text-field
-                                                                        outline
-                                                                        label="Enter Email"
-                                                                        type="email"
-                                                                        color="blue darken-4"
-                                                                        color="primary"
-                                                                        autocomplete="email"
-                                                                        prepend-inner-icon="email"
-                                                                ></v-text-field>
-                                                            </v-flex>
-                                                            <v-flex xs12 md6 pa-1>
-                                                                <v-text-field
-                                                                        outline
-                                                                        label="Enter Phone"
-                                                                        type="tel"
-                                                                        color="blue darken-4"
-                                                                        color="primary"
-                                                                        autocomplete="tel"
-                                                                        prepend-inner-icon="phone"
-                                                                ></v-text-field>
-                                                            </v-flex>
-                                                            <v-flex xs12 md6 pa-1>
-                                                                <v-select
-                                                                        outline
-                                                                        :items="{{ json_encode([
-                                                            'Real Estate Egypt',
-                                                            'Citizenship & Residency'
-                                                            ]) }}"
-                                                                        label="Select Category"
-                                                                        color="blue darken-4"
-                                                                        prepend-inner-icon="category"
-                                                                ></v-select>
-                                                            </v-flex>
-                                                        </v-layout>
-                                                    </v-flex>
-                                                    <v-flex xs12 pa-1>
-                                                        <v-textarea
-                                                                outline
-                                                                height="100%"
-                                                                label="Message"
-                                                                color="blue darken-4"
-                                                                prepend-inner-icon="message"
-                                                        ></v-textarea>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </v-card-text>
-                                            <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-btn type="submit" color="primary" class="mx-2">Send message</v-btn>
-                                            </v-card-actions>
-                                        </v-form>
-                                    </v-card>
-                                </v-flex>
-                                <v-flex xs12 lg4 pa-2>
-                                    <v-card flat>
-                                        <v-card-text>
-                                            <v-flex pa-2>
-                                                <h2 class="headline mb-3">
-                                                    <v-icon large>location_on</v-icon>
-                                                    Our office
-                                                </h2>
-
-                                                <v-layout column>
-                                                    <v-flex class="subheading py-2">
-                                                        <address>
-                                                            <v-tooltip left>
-                                                                <template v-slot:activator="{ on }">
-
-                                                                    <a href="https://goo.gl/maps/4y74kX6UDg5We5Ud7"
-                                                                       target="_blank" role="link" v-on="on"
-                                                                       style="text-decoration: none; color:inherit">
-                                                                        Cairo, Capital Business Park, Sheikh Zayed
-                                                                        Building 6 , Office 314
-                                                                    </a>
-                                                                </template>
-                                                                <span>Address</span>
-                                                            </v-tooltip>
-                                                        </address>
-                                                    </v-flex>
-                                                    <v-flex class="subheading py-2">
-                                                        <v-tooltip left>
-                                                            <template v-slot:activator="{ on }">
-                                                                <a href="tel:+201019699911" role="tel" v-on="on"
-                                                                   style="text-decoration: none; color:inherit">
-                                                                    (+20) 1019699911
-                                                                </a>
-                                                            </template>
-                                                            <span>Phone</span>
-                                                        </v-tooltip>
-
-                                                    </v-flex>
-                                                    <v-flex class="subheading py-2">
-                                                        <v-tooltip left>
-                                                            <template v-slot:activator="{ on }">
-                                                                <a href="mailto:realestate@novavera.com" role="email"
-                                                                   v-on="on"
-                                                                   style="text-decoration: none; color:inherit">
-                                                                    realestate@novavera.com
-                                                                </a>
-                                                            </template>
-                                                            <span>Email</span>
-                                                        </v-tooltip>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </v-flex>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-flex>
-                </section>
+                <contact-form-section></contact-form-section>
             </v-flex>
 
             <v-flex xs12 mt-5>

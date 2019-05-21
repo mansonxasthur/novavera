@@ -1,7 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <v-container>
+    <v-container fluid>
         <v-layout row wrap justify-center>
-            <v-flex xs12 sm10 md8 lg6>
+            <v-flex xs12 sm10>
                 <v-card class="mt-5">
                     <v-card-title>
                         <span class="title">
@@ -48,7 +48,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-dialog v-model="dialog" max-width="500px">
+                        <v-dialog v-model="dialog" max-width="90%" persistent>
                             <template v-slot:activator="{ on }">
                                 <v-btn color="primary" outline class="mb-2" v-on="on">
                                     New Property Type
@@ -60,7 +60,7 @@
                                 </v-card-title>
 
                                 <v-card-text>
-                                    <v-form ref="propertyTypeForm">
+                                    <v-form ref="propertyTypeForm" lazy-validation>
                                         <v-container grid-list-md>
                                             <v-layout wrap>
                                                 <v-flex xs12>

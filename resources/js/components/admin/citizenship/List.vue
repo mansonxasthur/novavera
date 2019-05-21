@@ -27,7 +27,7 @@
                         >
                             <template v-slot:items="props">
                                 <td>
-                                    <v-img width="auto" class="my-2" :src="props.item.flag_url"></v-img>
+                                    <v-img width="auto" class="my-2" :src="props.item.body_flag_url"></v-img>
                                 </td>
                                 <td>{{ props.item.country_name }}</td>
                                 <td class="text-capitalize">{{ props.item.type }}</td>
@@ -92,7 +92,7 @@
                     {
                         text: '#',
                         align: 'left',
-                        value: 'flag_url',
+                        value: 'body_flag_url',
                         sortable: false,
                     },
                     {

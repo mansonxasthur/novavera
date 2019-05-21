@@ -18,7 +18,8 @@ class CreateCitizenshipsTable extends Migration
             $table->string('country_name');
             $table->string('slug');
             $table->enum('type', ['citizenship', 'residency', 'both']);
-            $table->string('flag');
+            $table->string('dropdown_flag');
+            $table->string('body_flag');
             $table->string('header');
             $table->string('title');
             $table->longText('description');

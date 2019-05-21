@@ -13,7 +13,11 @@ class Citizenship extends Model
 
     protected $translationAttributes = ['country_name', 'title', 'description', 'snippet'];
     protected $with = ['translation', 'benefits', 'supplies'];
-    public $appends = ['header_url', 'flag_url'];
+    public $appends = [
+        'header_url',
+        'dropdown_flag_url',
+        'body_flag_url',
+    ];
 
     public function benefits()
     {
@@ -25,9 +29,14 @@ class Citizenship extends Model
         return $this->hasMany(CitizenshipSupply::class);
     }
 
-    public function getFlagUrlAttribute()
+    public function getDropdownFlagUrlAttribute()
     {
-        return $this->getImageUrl($this->flag);
+        return $this->getImageUrl($this->dropdown_flag);
+    }
+
+    public function getBodyFlagUrlAttribute()
+    {
+        return $this->getImageUrl($this->body_flag);
     }
 
     public function getHeaderUrlAttribute()
@@ -78,6 +87,7 @@ class Citizenship extends Model
 
     /**
      * @param string $slug
+     *
      * @return string
      */
     private function incrementSlug(string $slug): string

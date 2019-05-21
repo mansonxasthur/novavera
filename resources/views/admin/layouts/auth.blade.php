@@ -21,7 +21,7 @@
     @stack('styles')
 </head>
 <body>
-<v-app id="app" :dark="dark">
+<v-app id="app" :dark="dark" v-cloak>
     <v-content>
         @yield('content')
     </v-content>

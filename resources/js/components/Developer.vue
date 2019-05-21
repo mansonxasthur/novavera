@@ -50,9 +50,9 @@
                     </v-flex>
                     <v-flex mt-4>
                         <v-layout row wrap>
-                            <v-flex xs12 sm6 md4 lg3 v-for="project in projects" :key="project.id" class="animated zoomIn faster">
+                            <v-flex xs12 sm6 md4 lg3 v-for="project in projects" :key="project.id" class="animated zoomIn faster" d-flex>
                                 <a :href="projectPath(project)" style="text-decoration: none; color: inherit;">
-                                    <v-img :src="projectImage(project)" :alt="project.name" max-height="150">
+                                    <v-img :src="projectImage(project)" :alt="project.name" height="100%" width="100%">
                                         <v-layout fill-height column align-center justify-center class="project-image">
                                             <v-flex shrink>
                                                 <h4 class="headline white--text">{{ project.name }}</h4>

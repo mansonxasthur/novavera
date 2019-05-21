@@ -128,3 +128,11 @@ Route::get('/p/{page}', 'PageController@show')->name('pages.show');
 
 // Citizenship & Residency
 Route::get('/countries/{type}/{citizenship}', 'CitizenshipController@show');
+
+// Forms
+Route::post('/contact/home', 'FormController@home');
+Route::post('/contact/project', 'FormController@project');
+
+// Careers
+Route::get('/careers', 'CareerController@index');
+Route::post('/careers', 'CareerController@send');

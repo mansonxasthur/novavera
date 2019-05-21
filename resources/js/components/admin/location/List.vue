@@ -50,7 +50,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-dialog v-model="dialog" max-width="500px">
+                        <v-dialog v-model="dialog" max-width="500px" persistent>
                             <template v-slot:activator="{ on }">
                                 <v-btn color="primary" outline class="mb-2" v-on="on">
                                     New Location
@@ -62,7 +62,7 @@
                                 </v-card-title>
 
                                 <v-card-text>
-                                    <v-form ref="locationForm">
+                                    <v-form ref="locationForm" lazy-validation>
                                         <v-container grid-list-md>
                                             <v-layout wrap>
                                                 <v-flex xs12 md6>
@@ -72,6 +72,7 @@
                                                             :rules="nameRules"
                                                             label="Name"
                                                             required
+                                                            @keyup.enter="save()"
                                                     ></v-text-field>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
@@ -81,6 +82,7 @@
                                                             :rules="nameRules"
                                                             label="الأسم"
                                                             required
+                                                            @keyup.enter="save()"
                                                     ></v-text-field>
                                                 </v-flex>
                                             </v-layout>
