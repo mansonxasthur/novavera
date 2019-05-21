@@ -89,6 +89,8 @@ Vue.component('citizenship', require('./components/Citizenship').default); // ci
 Vue.component('citizenship-section', require('./components/CitizenshipSection').default); // citizenship section home page
 
 Vue.component('careers', require('./components/Careers').default); // careers page
+Vue.component('property-request', require('./components/PropertyRequest').default); // property requests page
+Vue.component('partners', require('./components/Partners').default); // partners page
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

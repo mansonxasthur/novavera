@@ -51,7 +51,7 @@
                         </v-data-table>
                     </v-card-text>
                     <v-card-actions>
-                        <v-dialog v-model="dialog" max-width="500px" width="100%">
+                        <v-dialog v-model="dialog" max-width="500px" width="100%" persistent>
                             <template v-slot:activator="{ on }">
                                 <v-btn color="primary" outline class="mb-2" v-on="on">
                                     New Admin
@@ -82,7 +82,7 @@
                                                             required
                                                     ></v-text-field>
                                                 </v-flex>
-                                                <v-flex xs12 md6>
+                                                <v-flex xs12>
                                                     <v-select
                                                         v-model="editedItem.role_id"
                                                         :items="roles"

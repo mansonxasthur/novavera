@@ -25,7 +25,7 @@
             </v-flex>
             <v-flex class="text-xs-center primary py-5 my-4">
                 <h2 class="headline text-uppercase white--text mb-4">Would you like a free consultation?</h2>
-                <v-btn href="#">Free Consultation</v-btn>
+                <v-btn href="#free-consultation">Free Consultation</v-btn>
             </v-flex>
             <v-flex>
                 <v-container pa-5>
@@ -61,9 +61,9 @@
                                 </v-list-tile>
                             </v-list>
                         </v-flex>
-                        <v-flex xs12 md4>
+                        <v-flex xs12 md4 id="free-consultation">
                             <h2 class="display-1 my-3 text-uppercase">Get a free consultation</h2>
-                            <v-form ref="form" v-model="valid" lazy-validation>
+                            <v-form ref="form">
                                 <v-text-field
                                     v-model="name"
                                     prepend-icon="person"
@@ -93,7 +93,7 @@
                                     autocomplete="tel"
                                     color="primary"
                                 ></v-text-field>
-                                <v-btn color="primary">Send</v-btn>
+                                <v-btn color="primary" @click="send" :loading="loading">Request</v-btn>
                             </v-form>
                         </v-flex>
                     </v-layout>
@@ -103,10 +103,15 @@
                 <citizenship-section :citizenship-collection="citizenshipCollection"></citizenship-section>
             </v-flex>
         </v-layout>
+
+        <snackbar :active="snackbar.active" :color="snackbar.color" :message="snackbar.message"
+                  @deactivate="deactivateSnackbar"></snackbar>
     </v-container>
 </template>
 
 <script>
+    import SnackbarComponent from '../mixins/SnackbarComponent';
+
     export default {
         name: "Citizenship",
         props: {
@@ -119,10 +124,11 @@
                 type: Array,
             }
         },
+        mixins: [SnackbarComponent],
         data() {
             return {
                 height: 500,
-                valid: true,
+                loading: false,
                 name: '',
                 nameRules: [
                     v => !!v || 'Name is required',
@@ -144,20 +150,38 @@
             this.height = document.documentElement.clientHeight;
         },
         methods: {
-            validate () {
+            send() {
                 if (this.$refs.form.validate()) {
-                    this.snackbar = true
+                    let vm = this;
+                    vm.loading = true;
+
+                    axios.post('/countries', {
+                        name: vm.name,
+                        email: vm.email,
+                        phone: vm.phone,
+                    })
+                        .then(res => {
+                            vm.reset();
+                            vm.resetValidation();
+                            vm.activateSnackbar('success', res.data.message);
+                        })
+                        .catch(err => {
+                            vm.loading = false;
+                            if ('response' in err) {
+                                vm.activateSnackbar('error', err.response.data.message);
+                            }
+                        })
                 }
             },
             reset () {
-                this.$refs.form.reset()
+                this.$refs.form.reset();
+                this.loading = false;
             },
             resetValidation () {
                 this.$refs.form.resetValidation()
             }
         }
     }
-    /* @todo Citizenship page */
 </script>
 
 <style scoped>

@@ -20,11 +20,11 @@
                 </div>
             </v-flex>
 
-            <v-flex>
+            <v-flex my-4>
                 <v-container>
-                    <v-layout>
-                        <v-flex>
-                            <v-card>
+                    <v-layout row justify-center>
+                        <v-flex xs12 sm10 md8 pa-4>
+                            <v-card hover>
                                 <v-card-title>
                                     <h3 class="title primary--text mx-auto font-weight-black">APPLY WITH YOUR CV</h3>
                                 </v-card-title>
@@ -78,10 +78,10 @@
                                                         <v-text-field
                                                                 v-model="applicant.linkedIn"
                                                                 outline
-                                                                label="Enter LinkedIn profile"
+                                                                label="LinkedIn Profile Link"
                                                                 type="link"
                                                                 color="primary"
-                                                                prepend-inner-icon="link"
+                                                                prepend-inner-icon="fab fa-linkedin"
                                                         ></v-text-field>
                                                     </v-flex>
                                                     <v-flex xs12 pa-1>
@@ -91,14 +91,15 @@
                                                                 :items="departments"
                                                                 item-value="id"
                                                                 item-text="name"
-                                                                label="Select Inquiry Type"
+                                                                label="Select Department"
                                                                 color="primary"
-                                                                prepend-inner-icon="category"
+                                                                prepend-inner-icon="assignment_ind"
                                                                 required
                                                                 :rules="departmentRules"
                                                         ></v-select>
                                                     </v-flex>
                                                     <v-flex xs12>
+                                                        <span class="right caption red--text">* PDF only</span>
                                                         <input type="file" id="cvUploader" style="display: none"
                                                                accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                                                                @change="uploadCv">

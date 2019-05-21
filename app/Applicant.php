@@ -10,7 +10,11 @@ class Applicant extends Model
     use FileUploader;
 
     protected $with = ['department'];
-    protected $fillable = ['name', 'email', 'phone', 'linkedin_link'];
+    protected $fillable = ['name', 'email', 'phone', 'linkedin_link', 'shortlist', 'rejected'];
+    protected $casts = [
+        'shortlist' => 'boolean',
+        'rejected' => 'boolean',
+    ];
 
     public function department()
     {

@@ -66,6 +66,15 @@ class CitizenshipController extends Controller
             $citizenship->header = $citizenship->uploadImage($request->header, 'webp');
             $citizenship->dropdown_flag = $citizenship->uploadImage($request->dropdown_flag, 'webp');
             $citizenship->body_flag = $citizenship->uploadImage($request->body_flag, 'webp');
+
+            if ($request->has('meta')) {
+                $citizenship->meta = $request->meta;
+            }
+
+            if ($request->has('keywords')) {
+                $citizenship->keywords = $request->keywords;
+            }
+
             $citizenship->save();
 
             $citizenship->addTranslation([
@@ -141,12 +150,22 @@ class CitizenshipController extends Controller
             $citizenship->description = $request->description;
             $citizenship->snippet = $request->snippet;
             $citizenship->type = $request->type;
+
             if ($request->hasFile('header'))
                 $citizenship->header = $citizenship->updateImage($request->header, $citizenship->header);
+
             if ($request->hasFile('dropdown_flag'))
                 $citizenship->dropdown_flag = $citizenship->updateImage($request->dropdown_flag, $citizenship->dropdown_flag);
+
             if ($request->hasFile('body_flag'))
                 $citizenship->body_flag = $citizenship->updateImage($request->body_flag, $citizenship->body_flag);
+
+            if ($request->has('meta'))
+                $citizenship->meta = $request->meta;
+
+            if ($request->has('keywords'))
+                $citizenship->keywords = $request->keywords;
+
             $citizenship->save();
 
             $citizenship->updateTranslation([

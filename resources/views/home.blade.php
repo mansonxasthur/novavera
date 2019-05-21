@@ -1,18 +1,14 @@
 @extends('layouts.app')
 
 @push('meta')
-    @component('partials.meta', [
-        'name' => 'description',
-        'content' => 'We provide real estate and investment services
-with high standards of expertise',
-    ])
+    @component('partials.meta', ['name' => 'description'])
+        We provide real estate and investment services
+        with high standards of expertise
     @endcomponent
 @endpush
 
 @push('title')
-    @component('partials.title')
-
-    @endcomponent
+    <title>Novavera Real Estate | Building the Future Today</title>
 @endpush
 
 @push('styles')

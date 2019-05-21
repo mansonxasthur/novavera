@@ -31,14 +31,26 @@
             app
     >
         <v-list class="mt-2">
-            <v-list-tile>
+            <v-list-tile href="{{ route('dashboard') }}">
                 <v-list-tile-action>
-                    <v-icon>home</v-icon>
+                    <v-icon color="primary" large>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-title>Home</v-list-tile-title>
             </v-list-tile>
-
             <div v-if="user && !user.isSeo() && !user.isViewer()">
+                <v-list-tile href="{{ route('admin.property-requests.index') }}">
+                    <v-list-tile-action>
+                        <v-icon color="red accent-2">fas fa-user-clock</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Property Requests</v-list-tile-title>
+                </v-list-tile>
+
+                <v-list-tile href="{{ route('admin.applicants.index') }}">
+                    <v-list-tile-action>
+                        <v-icon color="red accent-2">fas fa-id-card</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Job Applicants</v-list-tile-title>
+                </v-list-tile>
                 <v-list-tile href="{{ route('admin.departments.index') }}">
                     <v-list-tile-action>
                         <v-icon>assignment_ind</v-icon>

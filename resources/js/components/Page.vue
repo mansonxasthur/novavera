@@ -18,9 +18,9 @@
                     </v-layout>
                 </v-parallax>
             </v-flex>
-            <v-flex text-xs-center>
+            <v-flex text-xs-center py-4>
                 <v-container>
-                    <v-layout row justify-center>
+                    <v-layout row wrap justify-center>
                         <v-flex xs12 sm10 v-html="page.body"></v-flex>
                     </v-layout>
                 </v-container>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Applicant;
 use App\Http\Controllers\Controller;
+use App\PropertyRequest;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -24,6 +26,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.home')->with([
+            'propertyRequests' => PropertyRequest::whereDate('created_at', date('Y-m-d', time()))->count(),
+            'applicants' => Applicant::whereDate('created_at', date('Y-m-d', time()))->count(),
+        ]);
     }
 }

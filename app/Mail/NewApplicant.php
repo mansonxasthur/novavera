@@ -35,6 +35,7 @@ class NewApplicant extends Mailable
     public function build()
     {
         return $this->subject('New applicant (' . $this->applicant->name . ')')
+            ->attach(storage_path('app/public/' . $this->applicant->cv))
             ->from('no-reply@novaverarealestate.com')
             ->markdown('emails.applicant.form');
     }

@@ -26,6 +26,11 @@ Vue.use(Vuex);
 //Vue.component('edit-admin', require('../components/admin/admin/Edit').default);
 Vue.component('admins', require('../components/admin/admin/List').default);
 
+// Applicants
+Vue.component('applicants', require('../components/admin/applicant/List').default);
+Vue.component('applicant', require('../components/admin/applicant/Show').default);
+// Property Requests
+Vue.component('property-requests', require('../components/admin/propertyRequest/List').default);
 // Locations
 Vue.component('locations', require('../components/admin/location/List').default);
 // Property Types

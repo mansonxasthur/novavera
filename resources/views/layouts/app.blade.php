@@ -38,31 +38,155 @@
             disable-resize-watcher
             v-model="drawer"
             app
-            class="hidden-sm-and-up"
+            class="hidden-md-and-up"
     >
-        <v-list dense>
-            <v-list-tile @click="">
+        <img src="{{ asset('assets/logo.svg') }}" alt="Novavera Real Estate" width="100%" class="my-3">
+        <v-list class="mt-2">
+
+            <v-list-tile href="{{ route('home') }}">
                 <v-list-tile-action>
-                    <v-icon>dashboard</v-icon>
+                    <v-icon>home</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title>Dashboard</v-list-tile-title>
-                </v-list-tile-content>
+                <v-list-tile-title>Home</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile @click="">
+
+            <v-list-group
+                    prepend-icon="business"
+            >
+                <template v-slot:activator>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Real State Brokerage</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </template>
+
+                <v-list-tile href="{{ route('projects.index', ['projectType' => 'residential']) }}">
+                    <v-list-tile-action>
+                        <v-icon>apps</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Residential Projects</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile href="{{ route('projects.index', ['projectType' => 'commercial']) }}">
+                    <v-list-tile-action>
+                        <v-icon>apps</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Commercial Projects</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile href="{{ route('developers.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>business</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Developers</v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile href="{{ route('propertyRequests.index') }}">
+                    <v-list-tile-action>
+                        <v-icon>fas fa-user-clock</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Property Requests</v-list-tile-title>
+                </v-list-tile>
+            </v-list-group>
+
+            <v-list-group
+                    prepend-icon="flag"
+            >
+                <template v-slot:activator>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Citizenship</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </template>
+
+                @if (count($citizenshipList))
+                    @foreach($citizenshipList as $citizenship)
+
+                        <v-list-tile href="{{ $citizenship->path() }}">
+                            <v-list-tile-avatar tile>
+                                <img src="{{ $citizenship->dropdown_flag_url }}" width="100%"
+                                     alt="{{ $citizenship->country_name}}"/>
+                            </v-list-tile-avatar>
+                            <v-list-tile-title>{{ $citizenship->country_name }}</v-list-tile-title>
+                        </v-list-tile>
+
+                    @endforeach
+                @endif
+            </v-list-group>
+
+            <v-list-group
+                    prepend-icon="flag"
+            >
+                <template v-slot:activator>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Residency</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </template>
+
+                @if (count($residencyList))
+                    @foreach($residencyList as $residency)
+
+                        <v-list-tile href="{{ $residency->path() }}">
+                            <v-list-tile-avatar tile>
+                                <img src="{{ $residency->dropdown_flag_url }}" width="100%"
+                                     alt="{{ $residency->country_name}}"/>
+                            </v-list-tile-avatar>
+                            <v-list-tile-title>{{ $residency->country_name }}</v-list-tile-title>
+                        </v-list-tile>
+
+                    @endforeach
+                @endif
+            </v-list-group>
+
+            @if($pageList->count())
+                @foreach($pageList as $page)
+                    <v-list-tile href="{{ $page->path() }}">
+                        <v-list-tile-action>
+                            <v-icon>pages</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-title>{{ $page->title }}</v-list-tile-title>
+                    </v-list-tile>
+                @endforeach
+            @endif
+
+            <v-list-tile href="/#contact-us">
                 <v-list-tile-action>
-                    <v-icon>settings</v-icon>
+                    <v-icon>send</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title>Settings</v-list-tile-title>
-                </v-list-tile-content>
+                <v-list-tile-title>Contact</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile href="{{ route('careers.index') }}">
+                <v-list-tile-action>
+                    <v-icon>fas fa-id-card</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Careers</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile href="{{ route('partners.index') }}">
+                <v-list-tile-action>
+                    <v-icon>fas fa-handshake</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Become a Partner</v-list-tile-title>
+            </v-list-tile>
+
+        </v-list>
+        <v-divider></v-divider>
+        <v-list>
+            <v-list-tile>
+                <v-list-tile-title class="grey--text font-weight-black">
+                    Copyright © 2019 Novavera<sup>®</sup>
+                </v-list-tile-title>
             </v-list-tile>
         </v-list>
+
     </v-navigation-drawer>
+
     <v-toolbar app scroll-off-screen clipped-left color="white">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
+        <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
         <a href="/" style="width: 170px">
-            <img src="{{ asset('assets/logo.svg') }}" alt="">
+            <img src="{{ asset('assets/logo.svg') }}" alt="Novavera Real Estate">
         </a>
         <v-spacer></v-spacer>
 
@@ -96,6 +220,12 @@
                         </v-list-tile>
                     </a>
 
+                    <a href="{{ route('propertyRequests.index') }}" class="sub-menu">
+                        <v-list-tile>
+                            <v-list-tile-title>Property Requests</v-list-tile-title>
+                        </v-list-tile>
+                    </a>
+
                 </v-list>
             </v-menu>
 
@@ -125,7 +255,8 @@
                                     <a href="{{ $citizenship->path() }}" class="sub-menu">
                                         <v-list-tile>
                                             <v-list-tile-avatar tile>
-                                                <img src="{{ $citizenship->dropdown_flag_url }}" width="100%" alt="{{ $citizenship->country_name}}" />
+                                                <img src="{{ $citizenship->dropdown_flag_url }}" width="100%"
+                                                     alt="{{ $citizenship->country_name}}"/>
                                             </v-list-tile-avatar>
                                             <v-list-tile-title>{{ $citizenship->country_name }}</v-list-tile-title>
                                         </v-list-tile>
@@ -146,7 +277,8 @@
                                     <a href="{{ $residency->path() }}" class="sub-menu">
                                         <v-list-tile>
                                             <v-list-tile-avatar tile>
-                                                <img src="{{ $residency->dropdown_flag_url }}" width="100%" alt="{{ $residency->country_name}}" />
+                                                <img src="{{ $residency->dropdown_flag_url }}" width="100%"
+                                                     alt="{{ $residency->country_name}}"/>
                                             </v-list-tile-avatar>
                                             <v-list-tile-title>{{ $residency->country_name }}</v-list-tile-title>
                                         </v-list-tile>
@@ -164,8 +296,8 @@
                 @endforeach
             @endif
             <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">Contact</v-btn>
-            <v-btn class="text-capitalize font-weight-bold subheading" flat href="/careers">Careers</v-btn>
-            <v-btn class="text-capitalize font-weight-bold subheading" flat>Become a Partner</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ route('careers.index') }}">Careers</v-btn>
+            <v-btn class="subheading" flat href="{{ route('partners.index') }}">Become a Partner</v-btn>
             <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}
             </v-btn>
         </v-toolbar-items>
@@ -176,7 +308,7 @@
 
     <v-footer
             height="auto"
-            class="nova-primary-bg"
+            class="nova-primary-bg hidden-md-and-down"
     >
         <v-layout
                 justify-center

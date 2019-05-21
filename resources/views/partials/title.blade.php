@@ -1,1 +1,1 @@
-<title>{{ config('app.name', 'Novavera Real Estate') }} {{ $slot }}</title>
+<title>{{ $slot }} | Novavera Real Estate</title>

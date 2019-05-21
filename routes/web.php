@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-
-
 Auth::routes();
+
 Route::get('/register', function () {
     abort(404);
 });
@@ -36,6 +34,17 @@ Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(functi
         Route::put('admins/{admin}', 'AdminController@update')->name('admin.admins.update');
         Route::delete('admins/{admin}', 'AdminController@destroy')->name('admin.admins.destroy');
     });
+
+    // Property Requests
+    Route::get('property-requests', 'PropertyRequestController@index')->name('admin.property-requests.index')->middleware('can:view,App\PropertyRequest');
+    Route::delete('property-requests/{propertyRequest}', 'PropertyRequestController@destroy')->name('admin.property-requests.destroy')->middleware('can:view,App\PropertyRequest');
+
+    // Applicants
+    Route::get('applicants', 'ApplicantController@index')->name('admin.applicants.index')->middleware('can:view,App\Applicant');
+    Route::get('applicants/{applicant}', 'ApplicantController@show')->name('admin.applicants.show')->middleware('can:view,App\Applicant');
+    Route::put('applicants/{applicant}/shortlist', 'ApplicantController@shortlist')->name('admin.applicants.shortlist')->middleware('can:view,App\Applicant');
+    Route::put('applicants/{applicant}/reject', 'ApplicantController@reject')->name('admin.applicants.reject')->middleware('can:view,App\Applicant');
+    Route::delete('applicants/{applicant}', 'ApplicantController@destroy')->name('admin.applicants.destroy')->middleware('can:view,App\Applicant');
 
     // Locations
     Route::get('locations', 'LocationController@index')->name('admin.locations.index')->middleware('can:create,App\Location');
@@ -115,6 +124,9 @@ Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(functi
 
 /******************** Public Area ************************/
 
+// Home
+Route::get('/', 'HomeController@index')->name('home');
+
 // Projects
 Route::get('/projects/{projectType}/{project}', 'ProjectController@show');
 Route::get('/projects/{projectType}', 'ProjectController@index')->name('projects.index');
@@ -128,11 +140,20 @@ Route::get('/p/{page}', 'PageController@show')->name('pages.show');
 
 // Citizenship & Residency
 Route::get('/countries/{type}/{citizenship}', 'CitizenshipController@show');
+Route::post('/countries', 'CitizenshipController@send');
 
 // Forms
 Route::post('/contact/home', 'FormController@home');
 Route::post('/contact/project', 'FormController@project');
 
 // Careers
-Route::get('/careers', 'CareerController@index');
+Route::get('/careers', 'CareerController@index')->name('careers.index');
 Route::post('/careers', 'CareerController@send');
+
+// Property Requests
+Route::get('/property-requests', 'PropertyRequestController@index')->name('propertyRequests.index');
+Route::post('/property-requests', 'PropertyRequestController@send');
+
+// Partners
+Route::get('/partners', 'PartnerController@index')->name('partners.index');
+Route::post('/partners', 'PartnerController@send');

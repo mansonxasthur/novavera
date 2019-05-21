@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Citizenship;
+use App\ConsultationRequest;
+use App\Facades\Logger;
+use App\Mail\FreeConsultation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CitizenshipController extends Controller
 {
@@ -13,8 +17,32 @@ class CitizenshipController extends Controller
 
         return view('citizenship.show')->with([
             'citizenship' => $citizenship,
-            //'citizenships' => Citizenship::where('type', $type)->where('id', '<>', $citizenship->id)->get(),
-            'citizenships' => Citizenship::where('type', $type)->get(),
+            'citizenships' => Citizenship::where('type', $type)->where('id', '<>', $citizenship->id)->get(),
         ]);
+    }
+
+    public function send(Request $request)
+    {
+        $request->validate([
+            'name' => 'required | string',
+            'email' => 'required | email',
+            'phone' => 'required',
+        ]);
+
+        $consultation = new ConsultationRequest(
+            $request->name,
+            $request->email,
+            $request->phone
+        );
+
+
+        try {
+            Mail::to('info@novavera.com')->send(new FreeConsultation($consultation));
+
+            return response()->json(['message' => 'Request has been received we will contact you shortly'], 200);
+        } catch (\Exception $e) {
+            Logger::error($e);
+            return response()->json(['message' => 'Failed to submit your application please try again later'], 500);
+        }
     }
 }
