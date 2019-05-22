@@ -16,8 +16,13 @@ class Page extends Model
     protected $fillable = ['title', 'body', 'published'];
     protected $translationAttributes = ['title', 'body'];
     protected $with = ['translation'];
-    protected $appends = ['header_url'];
+    protected $appends = ['header_url', 'path'];
     protected $casts = ['published' => 'boolean'];
+
+    public function getPathAttribute()
+    {
+        return $this->path();
+    }
 
     /**
      * @param string $value

@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Cairo:400,700,900&display=swap&subset=arabic');
 @import "~material-design-icons-iconfont/src/material-design-icons";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -18,13 +19,32 @@ $nova-black: #0D0D0D;
   display: none;
 }
 
-html,body
-{
+html, body {
   overflow-x: hidden;
 }
 
-.application, .display-1, .display-2, .display-3, .display-4, .title, .headline {
+.application {
   font-family: "Nunito", sans-serif !important;
+  .display-1,
+  .display-2,
+  .display-3,
+  .display-4,
+  .title,
+  .headline {
+    font-family: "Nunito", sans-serif !important;
+  }
+}
+
+.application.application--is-rtl {
+    font-family: "Cairo", sans-serif !important;
+  .display-1,
+  .display-2,
+  .display-3,
+  .display-4,
+  .title,
+  .headline {
+    font-family: "Cairo", sans-serif !important;
+  }
 }
 
 .application {
@@ -73,10 +93,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.application, .display-1, .display-2, .display-3, .display-4, .title, .headline {
-  font-family: "Nunito", sans-serif;
-}
-
 .v-card {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -90,7 +106,7 @@ html {
 }
 
 button.v-btn.v-btn--flat.theme--light {
-  font-family: "Nunito", sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 @keyframes Gradient {

@@ -572,7 +572,7 @@
                                 <p class="subheading">
                                     Want to work at Novavera Real Estate
                                 </p>
-                                <v-btn href="#" class="nova-btn-primary ml-0" dark role="link">
+                                <v-btn href="{{ route('careers.index') }}" class="nova-btn-primary ml-0" dark role="link">
                                     Job Openings
                                     <v-icon>keyboard_arrow_right</v-icon>
                                 </v-btn>
@@ -596,7 +596,7 @@
                                 <p class="subheading">
                                     Ready to partner with us?
                                 </p>
-                                <v-btn href="#" class="nova-btn-primary ml-0" dark role="link">
+                                <v-btn href="{{ route('partners.index') }}" class="nova-btn-primary ml-0" dark role="link">
                                     Join Us
                                     <v-icon>keyboard_arrow_right</v-icon>
                                 </v-btn>

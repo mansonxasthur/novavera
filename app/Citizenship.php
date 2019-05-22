@@ -17,6 +17,7 @@ class Citizenship extends Model
         'header_url',
         'dropdown_flag_url',
         'body_flag_url',
+        'path'
     ];
 
     public function benefits()
@@ -42,6 +43,11 @@ class Citizenship extends Model
     public function getHeaderUrlAttribute()
     {
         return $this->getImageUrl($this->header);
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->path();
     }
 
     public function addBenefits(array $benefits)
