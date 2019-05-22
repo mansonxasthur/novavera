@@ -1,6 +1,6 @@
 export default {
     home: 'الرئيسية',
-    developers: 'مطورون',
+    developers: 'تطوير عقاري',
     citizenship: 'الجنسية',
     residency: 'الإقامة',
     contact: 'اتصل بنا',
