@@ -255,8 +255,8 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
-                                <v-flex xs12 md4 class="mt-3">
-                                    <v-layout column align-center justify-center>
+                                <v-flex d-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-space-between justify-center>
                                         <v-flex>
                                             <input type="file" id="headerUploader" style="visibility: hidden"
                                                    accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
@@ -271,7 +271,7 @@
                                             </v-btn>
                                         </v-flex>
                                         <v-flex>
-                                            <v-img :src="previewHeader" min-height="100px" width="auto" v-if="previewHeader !== ''">
+                                            <v-img :src="previewHeader" width="100%" v-if="previewHeader !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
                                                        @click="removeHeader">
@@ -281,8 +281,8 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
-                                <v-flex xs12 md4 class="mt-3">
-                                    <v-layout column align-center justify-center>
+                                <v-flex d-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-space-between justify-center>
                                         <v-flex>
                                             <input type="file" id="dropdownFlagUploader" style="visibility: hidden"
                                                    accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
@@ -297,7 +297,7 @@
                                             </v-btn>
                                         </v-flex>
                                         <v-flex>
-                                            <v-img :src="previewDropdownFlag" min-height="100px" width="auto"
+                                            <v-img :src="previewDropdownFlag" width="100%"
                                                    v-if="previewDropdownFlag !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
@@ -308,8 +308,8 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
-                                <v-flex xs12 md4 class="mt-3">
-                                    <v-layout column align-center justify-center>
+                                <v-flex d-flex xs12 md4 class="mt-3">
+                                    <v-layout column align-space-between justify-center>
                                         <v-flex>
                                             <input type="file" id="bodyFlagUploader" style="visibility: hidden"
                                                    accept="image/png, image/jpeg, image/webp, image/jpg, image/svg+xml"
@@ -324,7 +324,7 @@
                                             </v-btn>
                                         </v-flex>
                                         <v-flex>
-                                            <v-img :src="previewBodyFlag" min-height="100px" width="auto" v-if="previewBodyFlag !== ''">
+                                            <v-img :src="previewBodyFlag" width="100%" v-if="previewBodyFlag !== ''">
                                                 <v-btn fab dark small color="primary"
                                                        style="position: absolute;top: 0;right: 0;"
                                                        @click="removeBodyFlag">
