@@ -2,7 +2,7 @@
     <section id="developers">
         <v-layout column align-center>
             <v-flex shrink class="py-3">
-                <h1 class="display-1">Developers</h1>
+                <h1 class="display-1">{{ __words('developers') }}</h1>
             </v-flex>
             <v-flex shrink
                     class="red darken-2 mb-4"

@@ -14,9 +14,9 @@
                 <v-flex shrink>
                     <v-toolbar dense flat color="white">
                         <v-toolbar-items>
-                            <v-btn class="text-capitalize font-weight-bold" flat @click="all()">All</v-btn>
+                            <v-btn class="text-capitalize font-weight-bold" flat @click="all()">{{ __words('all') }}</v-btn>
                             <v-btn class="text-capitalize font-weight-bold" flat v-for="location in locations" :key="location.id"
-                                   @click="projectsOf(location)">{{ location.name }}
+                                   @click="projectsOf(location)">{{ __t(location, 'name')}}
                             </v-btn>
                         </v-toolbar-items>
                     </v-toolbar>
@@ -26,7 +26,7 @@
         <v-flex v-else>
             <v-layout column align-center justify-center>
                 <v-flex>
-                    <div class="display-1 grey--text text--darken-1">There is no <span class="text-lowercase">{{ title }}</span> yet</div>
+                    <div class="display-1 grey--text text--darken-1">{{ __sentences('thereIsNo')}} <span class="text-lowercase">{{ title }}</span> {{ __words('yet') }}</div>
                 </v-flex>
             </v-layout>
         </v-flex>
@@ -34,10 +34,10 @@
             <v-layout row wrap>
                 <v-flex xs12 sm6 md4 lg3 v-for="(p, i) in length" :key="i" class="animated zoomIn faster">
                     <a :href="projectPath(projects[i])" style="text-decoration: none; color: inherit;">
-                        <v-img :src="projectImage(projects[i])" :alt="projects[i].name" max-height="200">
+                        <v-img :src="projectImage(projects[i])" :alt="__t(projects[i], 'name')" max-height="200">
                             <v-layout fill-height column align-center justify-center class="img-mask">
                                 <v-flex shrink>
-                                    <h4 class="headline white--text">{{ projects[i].name }}</h4>
+                                    <h4 class="headline white--text">{{ __t(projects[i], 'name')}}</h4>
                                 </v-flex>
                             </v-layout>
                         </v-img>

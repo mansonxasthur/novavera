@@ -3,14 +3,13 @@
         <v-flex>
             <v-layout justify-center>
                 <v-flex shrink class="mt-0 white py-3 px-4">
-                    <h3 class="black--text lighten-2 text-xs-center">Worldwide</h3>
+                    <h3 class="black--text lighten-2 text-xs-center">{{ __words('worldwide') }}</h3>
                 </v-flex>
             </v-layout>
         </v-flex>
         <v-flex shrink class="pt-4">
             <v-layout column align-center>
-                <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">CITIZENSHIP &
-                    RESIDENCY</h2></v-flex>
+                <v-flex shrink class="py-3"><h2 class="display-1 text-xs-center">{{ __sentences('CAR') }}</h2></v-flex>
                 <v-flex shrink
                         class="red darken-2"
                         style="height: 3px; width: 50px">
@@ -19,12 +18,7 @@
         </v-flex>
 
         <v-flex shrink class="text-xs-center font-weight-light pa-4">
-            <p class="subheading">
-                We make getting a second citizenship achievable by providing you with the very best
-                citizenship by investment opportunities from around the world,<br>
-                Our citizenship programmes start at $100,000 for a single applicant and $125,000 for a
-                family of five or more.
-            </p>
+            <div style="width: 100%; max-width: 800px" class="mx-auto">{{ __sentences('carSubheading') }}</div>
         </v-flex>
         <v-flex>
             <v-container grid-list-lg>
@@ -34,17 +28,17 @@
                             <div class="above">
                                 <v-img
                                         :src="citizenship.header_url"
-                                        :alt="citizenship.country_name"
+                                        :alt="__t(citizenship, 'country_name')"
                                         width="100%"
                                         height="100%"
                                 >
-                                    <div class="country_name text-xs-center pa-2 primary--text" v-text="citizenship.country_name"></div>
+                                    <div class="country_name text-xs-center pa-2 primary--text" v-text="__t(citizenship, 'country_name')"></div>
                                     <div class="beneath text-xs-center">
-                                        <div class="country_name text-xs-center pa-2 primary--text">Learn more</div>
+                                        <div class="country_name text-xs-center pa-2 primary--text">{{ __sentences('learnMore') }}</div>
                                         <v-container>
                                             <v-layout fill-height column align-center justify-center>
                                                 <v-flex style="margin-top: 20%">
-                                                    <p class="subheading font-weight-bold white--text">{{ citizenship.snippet }}</p>
+                                                    <p class="subheading font-weight-bold white--text">{{ __t(citizenship, 'snippet') }}</p>
                                                 </v-flex>
                                             </v-layout>
                                         </v-container>
@@ -58,7 +52,7 @@
         </v-flex>
         <v-flex shrink class="text-xs-center my-3" v-if="citizenshipCollection.length > length">
             <v-btn color="grey lighten-5" @click="discoverMore">
-                More Countries
+                {{ __sentences('moreCountries') }}
             </v-btn>
         </v-flex>
     </v-layout>
@@ -149,6 +143,16 @@
         left: 0;
         top: 10%;
         border-top-right-radius: 10px;
+        background-color: #fbe4d5;
+    }
+
+    .application.application--is-rtl .country_name {
+        position: absolute;
+        left: auto;
+        right: 0;
+        top: 10%;
+        border-top-right-radius: 0;
+        border-top-left-radius: 10px;
         background-color: #fbe4d5;
     }
 </style>

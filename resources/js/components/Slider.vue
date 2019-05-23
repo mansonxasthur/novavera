@@ -33,11 +33,9 @@
 </template>
 
 <script>
-    //import localization from '../mixins/localization';
 
     export default {
         name: "Slider",
-        //mixins: [localization],
         props: {
             sliderImages: {
                 required: true,

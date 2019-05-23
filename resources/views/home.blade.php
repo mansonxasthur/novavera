@@ -121,13 +121,13 @@
                             <v-flex>
                                 <v-layout justify-center>
                                     <v-flex shrink class="mt-0 nova-btn-primary py-3 px-4">
-                                        <h3 style="color: white">Egypt</h3>
+                                        <h3 style="color: white">@{{ __words('egypt') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="pt-4">
                                 <v-layout column align-center>
-                                    <v-flex shrink class="pb-3"><h2>REAL ESTATE CONSULTANCY</h2></v-flex>
+                                    <v-flex shrink class="pb-3"><h2>@{{ __sentences('REC') }}</h2></v-flex>
                                     <v-flex shrink
                                             class="red darken-2"
                                             style="height: 3px; width: 50px">
@@ -136,42 +136,43 @@
                             </v-flex>
 
                             <v-flex shrink class="text-xs-center font-weight-light pa-4">
-                                <p class="title">
-                                    We provide real estate and investment services<br>
-                                    with high standards of expertise
-                                </p>
+                                <div style="max-width:450px; width: 100%" class="mx-auto">
+                                    <p class="title">
+                                        @{{ __sentences('recTitle') }}
+                                    </p>
+                                </div>
                             </v-flex>
                             <v-flex grow>
                                 <v-layout row wrap class="text-xs-center">
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-consultation mx-auto"></div>
-                                        <h3 class="">Consultancy</h3>
+                                        <h3 class="">@{{ __words('consultancy') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-sale mx-auto"></div>
-                                        <h3 class="">Sell & Buy Properties</h3>
+                                        <h3 class="">@{{ __sentences('sellAndBuy') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-coin mx-auto"></div>
-                                        <h3 class="">Investment</h3>
+                                        <h3 class="">@{{ __words('investment') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-home mx-auto"></div>
-                                        <h3 class="">Residential</h3>
+                                        <h3 class="">@{{ __words('residential') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-shop mx-auto"></div>
-                                        <h3 class="">Commercial</h3>
+                                        <h3 class="">@{{ __words('commercial') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-apartments mx-auto"></div>
-                                        <h3 class="">Administrative</h3>
+                                        <h3 class="">@{{ __words('administrative') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
                                 <v-btn class="nova-btn-primary" dark href="#residential-projects" role="link">
-                                    Discover More
+                                    @{{ __sentences('discoverMore') }}
                                 </v-btn>
                             </v-flex>
                         </v-layout>
@@ -181,13 +182,13 @@
                             <v-flex>
                                 <v-layout justify-center>
                                     <v-flex shrink class="mt-0 grey lighten-5 py-3 px-4">
-                                        <h3 class="black--text lighten-2 text-xs-center">Worldwide</h3>
+                                        <h3 class="black--text lighten-2 text-xs-center">@{{ __words('worldwide') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="pt-4">
                                 <v-layout column align-center>
-                                    <v-flex shrink class="pb-3 text-xs-center"><h2>CITIZENSHIP & RESIDENCY</h2></v-flex>
+                                    <v-flex shrink class="pb-3 text-xs-center"><h2>@{{ __sentences('CAR') }}</h2></v-flex>
                                     <v-flex shrink
                                             class="red darken-2"
                                             style="height: 3px; width: 50px">
@@ -196,70 +197,35 @@
                             </v-flex>
 
                             <v-flex shrink class="text-xs-center font-weight-light pa-4">
-                                <p class="title">
-                                    We offer second Citizenship & Residency opportunities <br>
-                                    through investment abroad
-                                </p>
+                                <div style="max-width:450px; width: 100%" class="mx-auto">
+                                    <p class="title">
+                                        @{{ __sentences('carTitle') }}
+                                    </p>
+                                </div>
                             </v-flex>
                             <v-flex grow>
                                 <v-layout row wrap class="text-xs-center">
                                     <v-flex xs12 md6 class="text-xs-center">
-
                                         @if (count($citizenshipList))
-                                            <h3 class="headline font-weight-bold text-uppercase white--text">Citizenship</h3>
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">@{{ __words('citizenship') }}</h3>
                                             <v-container grid-list>
-                                                <v-layout row wrap>
-                                                    @foreach($citizenshipList as $citizenship)
-                                                            <v-flex xs4>
-                                                                <a href="{{ $citizenship->path() }}" class="sub-menu">
-                                                                <v-layout column align-center justify-space-between>
-                                                                    <v-flex style="min-width: 100px;">
-                                                                        <v-avatar size="80" tile>
-                                                                            <img src="{{ $citizenship->body_flag_url }}" alt="{{ $citizenship->country_name }}">
-                                                                        </v-avatar>
-                                                                    </v-flex>
-                                                                    <v-flex>{{ $citizenship->country_name }}</v-flex>
-                                                                </v-layout>
-                                                                </a>
-                                                            </v-flex>
-
-                                                    @endforeach
-                                                </v-layout>
+                                                <citizenship-div-list :citizenships="{{ $citizenshipList }}"></citizenship-div-list>
                                             </v-container>
-
                                         @endif
                                     </v-flex>
                                     <v-flex xs12 md6 class="text-xs-center">
-
                                         @if (count($residencyList))
-                                            <h3 class="headline font-weight-bold text-uppercase white--text">Residency</h3>
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">@{{ __words('residency') }}</h3>
                                             <v-container grid-list>
-                                                <v-layout row wrap>
-                                                    @foreach($residencyList as $residency)
-                                                        <v-flex xs4>
-                                                            <a href="{{ $residency->path() }}" class="sub-menu">
-                                                                <v-layout column align-center justify-space-between>
-                                                                    <v-flex style="min-width: 100px;">
-                                                                        <v-avatar size="80" tile>
-                                                                            <img src="{{ $residency->body_flag_url }}" alt="{{ $residency->country_name }}">
-                                                                        </v-avatar>
-                                                                    </v-flex>
-                                                                    <v-flex>{{ $residency->country_name }}</v-flex>
-                                                                </v-layout>
-                                                            </a>
-                                                        </v-flex>
-
-                                                    @endforeach
-                                                </v-layout>
+                                                <citizenship-div-list :citizenships="{{ $residencyList }}"></citizenship-div-list>
                                             </v-container>
-
                                         @endif
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
                                 <v-btn color="grey lighten-5" href="#citizenship-residency" role="link">
-                                    Discover More
+                                    @{{ __sentences('discoverMore') }}
                                 </v-btn>
                             </v-flex>
                         </v-layout>
@@ -270,13 +236,13 @@
             <v-flex xs12 my-5 id="residential-projects">
                 <project-section
                         :locations="{{ $residentialProjectLocations }}"
-                        title="Residential Projects"
+                        :title=" __sentences('residentialProjects')"
                         :count="{{ 4 }}"
                 ></project-section>
                 @if(count($residentialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
-                            <v-btn color="primary" href="/projects/residential">View All</v-btn>
+                            <v-btn color="primary" href="/projects/residential">@{{ __sentences('viewAll') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 @endif
@@ -285,13 +251,13 @@
             <v-flex xs12 my-5>
                 <project-section
                         :locations="{{ $commercialProjectLocations }}"
-                        title="Commercial Projects"
+                        :title="__sentences('commercialProjects')"
                         :count="{{ 4 }}"
                 ></project-section>
                 @if(count($commercialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
-                            <v-btn color="primary" href="/projects/commercial">View All</v-btn>
+                            <v-btn color="primary" href="/projects/commercial">@{{ __sentences('viewAll') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 @endif
@@ -310,8 +276,7 @@
 
                     <v-flex shrink class="pt-4">
                         <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1">WHY SHOULD YOU INVEST IN A SECOND
-                                    CITIZENSHIP ?</h2></v-flex>
+                            <v-flex shrink class="py-3"><h2 class="display-1">@{{ __sentences('whyShouldYou') }}</h2></v-flex>
                             <v-flex shrink
                                     class="red darken-2"
                                     style="height: 3px; width: 50px">
@@ -319,13 +284,12 @@
                         </v-layout>
                     </v-flex>
 
-                    <v-flex shrink class="text-xs-center font-weight-light pa-4">
-                        <p class="subheading">
-                            Whether you are a corporate executive, public figure, investor, or private citizen,the
-                            benefits of investing
-                            <br>
-                            in our programs will impact all aspects of life in the short and long term.
-                        </p>
+                    <v-flex shrink class="text-xs-center pa-4">
+                        <div class="mx-auto" style="max-width: 600px; width: 100%">
+                            <p class="subheading">
+                                @{{ __sentences('whyShouldYouSubheading') }}
+                            </p>
+                        </div>
                     </v-flex>
                     <v-flex>
                         <v-container id="citizenship-features" px-4 py-2>
@@ -336,10 +300,8 @@
                                             <i class="flaticon-airplane"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Ease of Travel</h3>
-                                            <p class="subheading">
-                                                Convenient visa-free travelling
-                                            </p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('easeOfTravel') }}</h3>
+                                            <p class="subheading">@{{ __sentences('easeOfTravelSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -349,8 +311,8 @@
                                             <i class="flaticon-price-tag"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Asset Protection</h3>
-                                            <p class="subheading">Diversify and secure your wealth</p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('assetProtection') }}</h3>
+                                            <p class="subheading">@{{ __sentences('assetProtectionSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -360,8 +322,8 @@
                                             <i class="flaticon-cap"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Education</h3>
-                                            <p class="subheading">Broader education opportunities for your family</p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __words('education') }}</h3>
+                                            <p class="subheading">@{{ __sentences('educationSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -371,8 +333,8 @@
                                             <i class="flaticon-swimming-pool"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Overseas Retirement</h3>
-                                            <p class="subheading">Retire in a safe destination away from distress</p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('overseasRetirement') }}</h3>
+                                            <p class="subheading">@{{ __sentences('overseasRetirementSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -382,8 +344,8 @@
                                             <i class="flaticon-worldwide"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Freedom</h3>
-                                            <p class="subheading">Freedom to live, work or study internationally</p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __words('freedom') }}</h3>
+                                            <p class="subheading">@{{ __sentences('freedomSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -393,8 +355,8 @@
                                             <i class="flaticon-family"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title">Security</h3>
-                                            <p class="subheading">Protect what you value the most</p>
+                                            <h3 class="title font-weight-bold mb-3">@{{ __words('security') }}</h3>
+                                            <p class="subheading">@{{ __sentences('securitySubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -411,10 +373,10 @@
                 <section id="free-consultation">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center" dark>
-                            <h1 class="display-1">Free Consultation?</h1>
+                            <h1 class="display-1">@{{ __sentences('freeConsultation') }}</h1>
                         </v-flex>
                         <v-flex shrink>
-                            <v-btn color="primary" href="#contact-us" role="link">Contact Us</v-btn>
+                            <v-btn color="primary" href="#contact-us" role="link">@{{ __sentences('contactUs') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 </section>

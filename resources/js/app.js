@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 window.Vuetify = require('vuetify');
 window.Vuex = require('vuex');
+import translation from './util/translation';
 
 
 Vue.use(Vuex);
@@ -61,9 +62,6 @@ Vue.mixin({
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-
-
 
 const store = new Vuex.Store({
     state: {
@@ -118,6 +116,7 @@ Vue.use(Vuetify, {
 Vue.component('slider', require('./components/Slider').default); // slider
 Vue.component('contact-form-section', require('./components/ContactFormSection').default); // slider
 Vue.component('citizenship-list', require('./components/CitizenshipList').default); // slider
+Vue.component('citizenship-div-list', require('./components/CitizenshipDivList').default); // slider
 Vue.component('page-list', require('./components/PageList').default); // slider
 Vue.component('page-nav-btn', require('./components/PageNavBtn').default); // slider
 
@@ -143,11 +142,9 @@ Vue.component('partners', require('./components/Partners').default); // partners
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import {mapGetters} from "vuex";
-import localization from './mixins/localization';
 
 const novavera = new Vue({
     el: '#novavera',
-    mixins: [localization],
     store,
     data() {
         return {
