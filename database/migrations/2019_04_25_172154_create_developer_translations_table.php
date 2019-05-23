@@ -17,7 +17,7 @@ class CreateDeveloperTranslationsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('developer_id');
             $table->string('locale');
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable();
 
             $table->foreign('developer_id')->references('id')->on('developers')->onDelete('cascade');
         });
