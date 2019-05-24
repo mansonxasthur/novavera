@@ -17,4 +17,11 @@ export default {
     education: 'Education',
     freedom: 'Freedom',
     security: 'Security',
+    transparency: 'Transparency',
+    experience: 'Experience',
+    credibility: 'Credibility',
+    vienna: 'Vienna',
+    linz: 'Linz',
+    hungary: 'Hungary',
+    cairo: 'Cairo',
 }

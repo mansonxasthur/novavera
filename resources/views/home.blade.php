@@ -386,7 +386,7 @@
                 <section id="why-us" class="py-5">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3" dark>
-                            <h1 class="display-1">Why Choose Us?</h1>
+                            <h1 class="display-1">@{{ __sentences('whyChooseUs') }}</h1>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -400,10 +400,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-search"></i>
                                             </div>
-                                            <h3>Transparency</h3>
-                                            <p class="subheading">Integrity, honesty, transparency and authenticity are
-                                                very important to us and we work closely with our clients
-                                                to ensure that they have every level of support.</p>
+                                            <h3>@{{ __words('transparency') }}</h3>
+                                            <p class="subheading">@{{ __sentences('transparencySubheading') }}</p>
                                         </div>
                                     </v-flex>
                                     <v-flex xs12 md4 pa-4>
@@ -411,11 +409,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-briefcase"></i>
                                             </div>
-                                            <h3>Experience</h3>
-                                            <p class="subheading">Novavera® is based on over 27 years of extensive
-                                                experience in different international
-                                                businesses, a long career of success,
-                                                rebranded in an innovative, creative and up-to-date mind set.</p>
+                                            <h3>@{{ __words('experience') }}</h3>
+                                            <p class="subheading">@{{ __sentences('experienceSubheading') }}</p>
                                         </div>
                                     </v-flex>
                                     <v-flex xs12 md4 pa-4>
@@ -423,9 +418,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-handshake"></i>
                                             </div>
-                                            <h3>Credibility</h3>
-                                            <p class="subheading">Through our work with clients over the last 27 years,
-                                                we have learned how to use a common language with everyone.</p>
+                                            <h3>@{{ __words('credibility') }}</h3>
+                                            <p class="subheading">@{{ __sentences('credibilitySubheading') }}</p>
                                         </div>
                                     </v-flex>
                                 </v-layout>
@@ -439,7 +433,7 @@
                 <section id="our-offices">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center">
-                            <h1 class="display-1">Worldwide Offices</h1>
+                            <h1 class="display-1">@{{ __sentences('worldwideOffices') }}</h1>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -454,7 +448,7 @@
                                            alt="Vienna Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">Vienna</h3>
+                                    <h3 class="headline">@{{ __words('vienna') }}</h3>
                                     <h4 class="title mt-3">
                                         Opernring 1/R/201,<br>
                                         A- 1010 Wien
@@ -469,7 +463,7 @@
                                            width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">Linz</h3>
+                                    <h3 class="headline">@{{ __words('linz') }}</h3>
                                     <h4 class="title mt-3">
                                         Rudolfstrasse 6/1.OG,<br>
                                         A- 4040 Linz
@@ -484,7 +478,7 @@
                                            alt="Hungary Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">Hungary</h3>
+                                    <h3 class="headline">@{{ __words('hungary') }}</h3>
                                     <h4 class="title mt-3">
                                         Mosonmagyaróvár Fo út 49. 1/7,<br>
                                         9200 Ungarn
@@ -499,7 +493,7 @@
                                            alt="Cairo Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">Cairo</h3>
+                                    <h3 class="headline">@{{ __words('cairo') }}</h3>
                                     <h4 class="title mt-3">
                                         Sheikh Zayed, Capital Business Park,<br>
                                         B 6, Off 314

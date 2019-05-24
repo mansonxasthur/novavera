@@ -29,4 +29,9 @@ export default {
     securitySubheading: 'Protect what you value the most',
     freeConsultation: 'Free Consultation?',
     contactUs: 'Contact Us',
+    whyChooseUs: 'Why Choose Us?',
+    transparencySubheading: 'Integrity, honesty, transparency and authenticity are very important to us and we work closely with our clients to ensure that they have every level of support.',
+    experienceSubheading: 'Novavera® is based on over 27 years of extensive experience in different international businesses, a long career of success, re-branded in an innovative, creative and up-to-date mind set.',
+    credibilitySubheading: 'Through our work with clients over the last 27 years, we have learned how to use a common language with everyone.',
+    worldwideOffices: 'Worldwide Offices',
 }

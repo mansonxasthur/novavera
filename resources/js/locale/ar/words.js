@@ -17,4 +17,11 @@ export default {
     education: 'التعليم',
     freedom: 'الحرية',
     security: 'الأمان',
+    transparency: 'الشفافيه',
+    experience: 'الخبرة',
+    credibility: 'المصداقيه',
+    vienna: 'فيينا',
+    linz: 'لينز',
+    hungary: 'المجر',
+    cairo: 'القاهرة',
 }

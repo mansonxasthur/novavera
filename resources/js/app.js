@@ -178,6 +178,7 @@ const novavera = new Vue({
     watch: {
         locale(val) {
             let isArabic = val === 'ar';
+            console.log(isArabic);
             let content = document.querySelector('.v-content');
             let html = document.querySelector('html');
             if (isArabic) {
@@ -187,6 +188,8 @@ const novavera = new Vue({
                 content.setAttribute('style', 'text-align:inherit;');
                 html.setAttribute('lang', 'en');
             }
+
+            console.log(html.getAttribute('lang'));
 
             this.$vuetify.rtl = isArabic;
             this.drawer = false;

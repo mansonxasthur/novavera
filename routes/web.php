@@ -21,14 +21,14 @@ Route::post('/register', function () {
 });
 
 /******************** Admin Area ************************/
-Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(function() {
+Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(function () {
     Route::get('', 'DashboardController@index')->name('dashboard');
     Route::get('user', function () {
         return auth()->user();
     });
 
     // Admins
-    Route::middleware('can:create,App\Admin')->group(function (){
+    Route::middleware('can:create,App\Admin')->group(function () {
         Route::get('admins', 'AdminController@index')->name('admin.admins.index');
         Route::post('admins', 'AdminController@store')->name('admin.admins.store');
         Route::put('admins/{admin}', 'AdminController@update')->name('admin.admins.update');
