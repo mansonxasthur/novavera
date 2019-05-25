@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Citizenship;
 use App\Page;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function($view) {
             $view->with(['residencyList' => Citizenship::where('type', 'residency')->get()]);
+        });
+
+        View::composer('*', function($view) {
+            $view->with(['locale' => App::getLocale()]);
         });
     }
 }

@@ -121,13 +121,13 @@
                             <v-flex>
                                 <v-layout justify-center>
                                     <v-flex shrink class="mt-0 nova-btn-primary py-3 px-4">
-                                        <h3 style="color: white">@{{ __words('egypt') }}</h3>
+                                        <h3 style="color: white">{{ __('words.egypt') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="pt-4">
                                 <v-layout column align-center>
-                                    <v-flex shrink class="pb-3"><h2>@{{ __sentences('REC') }}</h2></v-flex>
+                                    <v-flex shrink class="pb-3"><h2>{{ __('sentences.REC') }}</h2></v-flex>
                                     <v-flex shrink
                                             class="red darken-2"
                                             style="height: 3px; width: 50px">
@@ -138,7 +138,7 @@
                             <v-flex shrink class="text-xs-center font-weight-light pa-4">
                                 <div style="max-width:450px; width: 100%" class="mx-auto">
                                     <p class="title">
-                                        @{{ __sentences('recTitle') }}
+                                        {{ __('sentences.recTitle') }}
                                     </p>
                                 </div>
                             </v-flex>
@@ -146,33 +146,33 @@
                                 <v-layout row wrap class="text-xs-center">
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-consultation mx-auto"></div>
-                                        <h3 class="">@{{ __words('consultancy') }}</h3>
+                                        <h3 class="">{{ __('words.consultancy') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-sale mx-auto"></div>
-                                        <h3 class="">@{{ __sentences('sellAndBuy') }}</h3>
+                                        <h3 class="">{{ __('sentences.sellAndBuy') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-coin mx-auto"></div>
-                                        <h3 class="">@{{ __words('investment') }}</h3>
+                                        <h3 class="">{{ __('words.investment') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-home mx-auto"></div>
-                                        <h3 class="">@{{ __words('residential') }}</h3>
+                                        <h3 class="">{{ __('words.residential') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-shop mx-auto"></div>
-                                        <h3 class="">@{{ __words('commercial') }}</h3>
+                                        <h3 class="">{{ __('words.commercial') }}</h3>
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 class="pa-5">
                                         <div class="flaticon-apartments mx-auto"></div>
-                                        <h3 class="">@{{ __words('administrative') }}</h3>
+                                        <h3 class="">{{ __('words.administrative') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
                                 <v-btn class="nova-btn-primary" dark href="#residential-projects" role="link">
-                                    @{{ __sentences('discoverMore') }}
+                                    {{ __('sentences.discoverMore') }}
                                 </v-btn>
                             </v-flex>
                         </v-layout>
@@ -182,13 +182,13 @@
                             <v-flex>
                                 <v-layout justify-center>
                                     <v-flex shrink class="mt-0 grey lighten-5 py-3 px-4">
-                                        <h3 class="black--text lighten-2 text-xs-center">@{{ __words('worldwide') }}</h3>
+                                        <h3 class="black--text lighten-2 text-xs-center">{{ __('words.worldwide') }}</h3>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
                             <v-flex shrink class="pt-4">
                                 <v-layout column align-center>
-                                    <v-flex shrink class="pb-3 text-xs-center"><h2>@{{ __sentences('CAR') }}</h2></v-flex>
+                                    <v-flex shrink class="pb-3 text-xs-center"><h2>{{ __('sentences.CAR') }}</h2></v-flex>
                                     <v-flex shrink
                                             class="red darken-2"
                                             style="height: 3px; width: 50px">
@@ -199,7 +199,7 @@
                             <v-flex shrink class="text-xs-center font-weight-light pa-4">
                                 <div style="max-width:450px; width: 100%" class="mx-auto">
                                     <p class="title">
-                                        @{{ __sentences('carTitle') }}
+                                        {{ __('sentences.carTitle') }}
                                     </p>
                                 </div>
                             </v-flex>
@@ -207,7 +207,7 @@
                                 <v-layout row wrap class="text-xs-center">
                                     <v-flex xs12 md6 class="text-xs-center">
                                         @if (count($citizenshipList))
-                                            <h3 class="headline font-weight-bold text-uppercase white--text">@{{ __words('citizenship') }}</h3>
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">{{ __('words.citizenship') }}</h3>
                                             <v-container grid-list>
                                                 <citizenship-div-list :citizenships="{{ $citizenshipList }}"></citizenship-div-list>
                                             </v-container>
@@ -215,7 +215,7 @@
                                     </v-flex>
                                     <v-flex xs12 md6 class="text-xs-center">
                                         @if (count($residencyList))
-                                            <h3 class="headline font-weight-bold text-uppercase white--text">@{{ __words('residency') }}</h3>
+                                            <h3 class="headline font-weight-bold text-uppercase white--text">{{ __('words.residency') }}</h3>
                                             <v-container grid-list>
                                                 <citizenship-div-list :citizenships="{{ $residencyList }}"></citizenship-div-list>
                                             </v-container>
@@ -225,7 +225,7 @@
                             </v-flex>
                             <v-flex shrink class="text-xs-center my-3">
                                 <v-btn color="grey lighten-5" href="#citizenship-residency" role="link">
-                                    @{{ __sentences('discoverMore') }}
+                                    {{ __('sentences.discoverMore') }}
                                 </v-btn>
                             </v-flex>
                         </v-layout>
@@ -242,7 +242,7 @@
                 @if(count($residentialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
-                            <v-btn color="primary" href="/projects/residential">@{{ __sentences('viewAll') }}</v-btn>
+                            <v-btn color="primary" href="/projects/residential">{{ __('sentences.viewAll') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 @endif
@@ -257,7 +257,7 @@
                 @if(count($commercialProjectLocations))
                     <v-layout column align-center>
                         <v-flex py-4>
-                            <v-btn color="primary" href="/projects/commercial">@{{ __sentences('viewAll') }}</v-btn>
+                            <v-btn color="primary" href="/projects/commercial">{{ __('sentences.viewAll') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 @endif
@@ -276,7 +276,7 @@
 
                     <v-flex shrink class="pt-4">
                         <v-layout column align-center>
-                            <v-flex shrink class="py-3"><h2 class="display-1">@{{ __sentences('whyShouldYou') }}</h2></v-flex>
+                            <v-flex shrink class="py-3"><h2 class="display-1">{{ __('sentences.whyShouldYou') }}</h2></v-flex>
                             <v-flex shrink
                                     class="red darken-2"
                                     style="height: 3px; width: 50px">
@@ -287,7 +287,7 @@
                     <v-flex shrink class="text-xs-center pa-4">
                         <div class="mx-auto" style="max-width: 600px; width: 100%">
                             <p class="subheading">
-                                @{{ __sentences('whyShouldYouSubheading') }}
+                                {{ __('sentences.whyShouldYouSubheading') }}
                             </p>
                         </div>
                     </v-flex>
@@ -300,8 +300,8 @@
                                             <i class="flaticon-airplane"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('easeOfTravel') }}</h3>
-                                            <p class="subheading">@{{ __sentences('easeOfTravelSubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('sentences.easeOfTravel') }}</h3>
+                                            <p class="subheading">{{ __('sentences.easeOfTravelSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -311,8 +311,8 @@
                                             <i class="flaticon-price-tag"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('assetProtection') }}</h3>
-                                            <p class="subheading">@{{ __sentences('assetProtectionSubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('sentences.assetProtection') }}</h3>
+                                            <p class="subheading">{{ __('sentences.assetProtectionSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -322,8 +322,8 @@
                                             <i class="flaticon-cap"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __words('education') }}</h3>
-                                            <p class="subheading">@{{ __sentences('educationSubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('words.education') }}</h3>
+                                            <p class="subheading">{{ __('sentences.educationSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -333,8 +333,8 @@
                                             <i class="flaticon-swimming-pool"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __sentences('overseasRetirement') }}</h3>
-                                            <p class="subheading">@{{ __sentences('overseasRetirementSubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('sentences.overseasRetirement') }}</h3>
+                                            <p class="subheading">{{ __('sentences.overseasRetirementSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -344,8 +344,8 @@
                                             <i class="flaticon-worldwide"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __words('freedom') }}</h3>
-                                            <p class="subheading">@{{ __sentences('freedomSubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('words.freedom') }}</h3>
+                                            <p class="subheading">{{ __('sentences.freedomSubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -355,8 +355,8 @@
                                             <i class="flaticon-family"></i>
                                         </v-flex>
                                         <v-flex xs12 pa-3>
-                                            <h3 class="title font-weight-bold mb-3">@{{ __words('security') }}</h3>
-                                            <p class="subheading">@{{ __sentences('securitySubheading') }}</p>
+                                            <h3 class="title font-weight-bold mb-3">{{ __('words.security') }}</h3>
+                                            <p class="subheading">{{ __('sentences.securitySubheading') }}</p>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
@@ -373,10 +373,10 @@
                 <section id="free-consultation">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center" dark>
-                            <h1 class="display-1">@{{ __sentences('freeConsultation') }}</h1>
+                            <h1 class="display-1">{{ __('sentences.freeConsultation') }}</h1>
                         </v-flex>
                         <v-flex shrink>
-                            <v-btn color="primary" href="#contact-us" role="link">@{{ __sentences('contactUs') }}</v-btn>
+                            <v-btn color="primary" href="#contact-us" role="link">{{ __('sentences.contactUs') }}</v-btn>
                         </v-flex>
                     </v-layout>
                 </section>
@@ -386,7 +386,7 @@
                 <section id="why-us" class="py-5">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3" dark>
-                            <h1 class="display-1">@{{ __sentences('whyChooseUs') }}</h1>
+                            <h1 class="display-1">{{ __('sentences.whyChooseUs') }}</h1>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -400,8 +400,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-search"></i>
                                             </div>
-                                            <h3>@{{ __words('transparency') }}</h3>
-                                            <p class="subheading">@{{ __sentences('transparencySubheading') }}</p>
+                                            <h3>{{ __('words.transparency') }}</h3>
+                                            <p class="subheading">{{ __('sentences.transparencySubheading') }}</p>
                                         </div>
                                     </v-flex>
                                     <v-flex xs12 md4 pa-4>
@@ -409,8 +409,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-briefcase"></i>
                                             </div>
-                                            <h3>@{{ __words('experience') }}</h3>
-                                            <p class="subheading">@{{ __sentences('experienceSubheading') }}</p>
+                                            <h3>{{ __('words.experience') }}</h3>
+                                            <p class="subheading">{{ __('sentences.experienceSubheading') }}</p>
                                         </div>
                                     </v-flex>
                                     <v-flex xs12 md4 pa-4>
@@ -418,8 +418,8 @@
                                             <div class="service_icon">
                                                 <i class="fa fa-handshake"></i>
                                             </div>
-                                            <h3>@{{ __words('credibility') }}</h3>
-                                            <p class="subheading">@{{ __sentences('credibilitySubheading') }}</p>
+                                            <h3>{{ __('words.credibility') }}</h3>
+                                            <p class="subheading">{{ __('sentences.credibilitySubheading') }}</p>
                                         </div>
                                     </v-flex>
                                 </v-layout>
@@ -433,7 +433,7 @@
                 <section id="our-offices">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center">
-                            <h1 class="display-1">@{{ __sentences('worldwideOffices') }}</h1>
+                            <h1 class="display-1">{{ __('sentences.worldwideOffices') }}</h1>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -448,7 +448,7 @@
                                            alt="Vienna Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">@{{ __words('vienna') }}</h3>
+                                    <h3 class="headline">{{ __('words.vienna') }}</h3>
                                     <h4 class="title mt-3">
                                         Opernring 1/R/201,<br>
                                         A- 1010 Wien
@@ -463,7 +463,7 @@
                                            width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">@{{ __words('linz') }}</h3>
+                                    <h3 class="headline">{{ __('words.linz') }}</h3>
                                     <h4 class="title mt-3">
                                         Rudolfstrasse 6/1.OG,<br>
                                         A- 4040 Linz
@@ -478,7 +478,7 @@
                                            alt="Hungary Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">@{{ __words('hungary') }}</h3>
+                                    <h3 class="headline">{{ __('words.hungary') }}</h3>
                                     <h4 class="title mt-3">
                                         Mosonmagyaróvár Fo út 49. 1/7,<br>
                                         9200 Ungarn
@@ -493,7 +493,7 @@
                                            alt="Cairo Office" width="100%" height="190px"></v-img>
                                 </v-flex>
                                 <v-flex pl-3 pt-4>
-                                    <h3 class="headline">@{{ __words('cairo') }}</h3>
+                                    <h3 class="headline">{{ __('words.cairo') }}</h3>
                                     <h4 class="title mt-3">
                                         Sheikh Zayed, Capital Business Park,<br>
                                         B 6, Off 314

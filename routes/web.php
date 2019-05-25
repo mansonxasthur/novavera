@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
+
 Auth::routes();
 
 Route::get('/register', function () {
@@ -124,36 +128,57 @@ Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(functi
 
 /******************** Public Area ************************/
 
-// Home
-Route::get('/', 'HomeController@index')->name('home');
+$locales = config('app.locales');
 
-// Projects
-Route::get('/projects/{projectType}/{project}', 'ProjectController@show');
-Route::get('/projects/{projectType}', 'ProjectController@index')->name('projects.index');
+Route::get('/', function (Request $request) {
 
-// Developers
-Route::get('/developers', 'DeveloperController@index')->name('developers.index');
-Route::get('/developers/{developer}', 'DeveloperController@show')->name('developers.show');
+    $locale = substr($request->headers->get('accept_language'), 0, 2) ?? config('app.fallback_locale');
+    if (in_array($locale, config('app.locales'))) {
+        App::setLocale($locale);
 
-// Pages
-Route::get('/p/{page}', 'PageController@show')->name('pages.show');
+        return redirect("/{$locale}");
 
-// Citizenship & Residency
-Route::get('/countries/{type}/{citizenship}', 'CitizenshipController@show');
-Route::post('/countries', 'CitizenshipController@send');
+    } else {
 
-// Forms
-Route::post('/contact/home', 'FormController@home');
-Route::post('/contact/project', 'FormController@project');
+        return redirect('/' . config('app.fallback_locale'));
+    }
+});
 
-// Careers
-Route::get('/careers', 'CareerController@index')->name('careers.index');
-Route::post('/careers', 'CareerController@send');
 
-// Property Requests
-Route::get('/property-requests', 'PropertyRequestController@index')->name('propertyRequests.index');
-Route::post('/property-requests', 'PropertyRequestController@send');
+foreach ($locales as $locale) {
+    Route::prefix($locale)->middleware('lang')->group(function () {
+        // Home
+        Route::get('/', 'HomeController@index')->name('home');
 
-// Partners
-Route::get('/partners', 'PartnerController@index')->name('partners.index');
-Route::post('/partners', 'PartnerController@send');
+        // Projects
+        Route::get('/projects/{projectType}/{project}', 'ProjectController@show');
+        Route::get('/projects/{projectType}', 'ProjectController@index')->name('projects.index');
+
+        // Developers
+        Route::get('/developers', 'DeveloperController@index')->name('developers.index');
+        Route::get('/developers/{developer}', 'DeveloperController@show')->name('developers.show');
+
+        // Pages
+        Route::get('/p/{page}', 'PageController@show')->name('pages.show');
+
+        // Citizenship & Residency
+        Route::get('/countries/{type}/{citizenship}', 'CitizenshipController@show');
+        Route::post('/countries', 'CitizenshipController@send');
+
+        // Forms
+        Route::post('/contact/home', 'FormController@home');
+        Route::post('/contact/project', 'FormController@project');
+
+        // Careers
+        Route::get('/careers', 'CareerController@index')->name('careers.index');
+        Route::post('/careers', 'CareerController@send');
+
+        // Property Requests
+        Route::get('/property-requests', 'PropertyRequestController@index')->name('propertyRequests.index');
+        Route::post('/property-requests', 'PropertyRequestController@send');
+
+        // Partners
+        Route::get('/partners', 'PartnerController@index')->name('partners.index');
+        Route::post('/partners', 'PartnerController@send');
+    });
+}

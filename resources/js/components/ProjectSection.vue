@@ -33,7 +33,7 @@
         <v-flex mt-4>
             <v-layout row wrap>
                 <v-flex xs12 sm6 md4 lg3 v-for="(p, i) in length" :key="i" class="animated zoomIn faster">
-                    <a :href="projectPath(projects[i])" style="text-decoration: none; color: inherit;">
+                    <a :href="projects[i].path" style="text-decoration: none; color: inherit;">
                         <v-img :src="projectImage(projects[i])" :alt="__t(projects[i], 'name')" max-height="200">
                             <v-layout fill-height column align-center justify-center class="img-mask">
                                 <v-flex shrink>
@@ -97,9 +97,6 @@
                 } catch (error) {
                     console.log(error);
                 }
-            },
-            projectPath(project) {
-                return `/projects/${project.project_type}/${project.slug}`;
             }
         },
         computed: {

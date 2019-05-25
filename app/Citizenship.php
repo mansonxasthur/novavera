@@ -5,6 +5,7 @@ namespace App;
 use App\Traits\ImageUploader;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
 class Citizenship extends Model
@@ -116,6 +117,7 @@ class Citizenship extends Model
 
     public function path()
     {
-        return '/countries/' . $this->type . '/' . $this->slug;
+        $locale = App::getLocale();
+        return '/' . $locale . '/countries/' . $this->type . '/' . $this->slug;
     }
 }

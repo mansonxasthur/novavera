@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 @stack('meta')
 
-<!-- CSRF Token -->
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @stack('title')
 
+    <!-- Alternate Links -->
+    <link rel="alternate" href="{{ url('ar') }}" hreflang="ar" />
+    <link rel="alternate" href="{{ url('en') }}" hreflang="en" />
 
-<!-- Fonts -->
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
@@ -44,7 +47,7 @@
         <img src="{{ asset('assets/logo.svg') }}" alt="Novavera Real Estate" width="100%" class="my-3">
         <v-list class="mt-2">
 
-            <v-list-tile href="{{ route('home') }}">
+            <v-list-tile href="{{ "/{$locale}" }}">
                 <v-list-tile-action>
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
@@ -62,25 +65,25 @@
                     </v-list-tile>
                 </template>
 
-                <v-list-tile href="{{ route('projects.index', ['projectType' => 'residential']) }}">
+                <v-list-tile href="{{ "/{$locale}/residential" }}">
                     <v-list-tile-action>
                         <v-icon>apps</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>@{{ __sentences('residentialProjects') }}</v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile href="{{ route('projects.index', ['projectType' => 'commercial']) }}">
+                <v-list-tile href="{{ "/{$locale}/commercial" }}">
                     <v-list-tile-action>
                         <v-icon>apps</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>@{{ __sentences('commercialProjects') }}</v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile href="{{ route('developers.index') }}">
+                <v-list-tile href="{{ "/{$locale}/developers" }}">
                     <v-list-tile-action>
                         <v-icon>business</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-title>@{{ __words('developers') }}</v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile href="{{ route('propertyRequests.index') }}">
+                <v-list-tile href="{{ "/{$locale}/property-requests" }}">
                     <v-list-tile-action>
                         <v-icon>fas fa-user-clock</v-icon>
                     </v-list-tile-action>
@@ -125,14 +128,14 @@
                 <v-list-tile-title>@{{ __words('contact') }}</v-list-tile-title>
             </v-list-tile>
 
-            <v-list-tile href="{{ route('careers.index') }}">
+            <v-list-tile href="{{ "/{$locale}/careers" }}">
                 <v-list-tile-action>
                     <v-icon>fas fa-id-card</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-title>@{{ __words('careers') }}</v-list-tile-title>
             </v-list-tile>
 
-            <v-list-tile href="{{ route('partners.index') }}">
+            <v-list-tile href="{{ "/{$locale}" }}/partners">
                 <v-list-tile-action>
                     <v-icon>fas fa-handshake</v-icon>
                 </v-list-tile-action>
@@ -144,7 +147,7 @@
                     <v-icon color="red accent-2">language</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-title>
-                    <span class="red--text text--accent-2 font-weight-bold">@{{ otherLocale }}</span>
+                    <span class="red--text text--accent-2 font-weight-bold">@{{ otherLocale.value }}</span>
                 </v-list-tile-title>
             </v-list-tile>
 
@@ -160,13 +163,13 @@
 
     <v-toolbar app scroll-off-screen clipped-left color="white">
         <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
-        <a href="/" style="width: 170px">
+        <a href="{{ "/{$locale}" }}" style="width: 170px">
             <img src="{{ asset('assets/logo.svg') }}" alt="Novavera Real Estate">
         </a>
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn class="text-capitalize font-weight-bold subheading" href="/" flat>@{{ __words('home') }}</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" href="{{ "/{$locale}" }}" flat>@{{ __words('home') }}</v-btn>
             <v-menu
                     offset-y
                     transition="slide-x-transition"
@@ -174,28 +177,30 @@
                 <template v-slot:activator="{ on }">
                     <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
                         <span>@{{ __sentences('REB') }}</span>
-                        <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">arrow_drop_down</v-icon>
+                        <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">
+                            arrow_drop_down
+                        </v-icon>
                     </v-btn>
                 </template>
 
                 <v-list>
-                    <a href="{{ route('projects.index', ['projectType' => 'residential']) }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/projects/residential" }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>@{{ __sentences('residentialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
-                    <a href="{{ route('projects.index', ['projectType' => 'commercial']) }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/projects/commercial" }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>@{{ __sentences('commercialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
-                    <a href="{{ route('developers.index') }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/developers" }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>@{{ __words('developers') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
 
-                    <a href="{{ route('propertyRequests.index') }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/property-requests" }}" class="sub-menu">
                         <v-list-tile>
                             <v-list-tile-title>@{{ __sentences('propertyRequests') }}</v-list-tile-title>
                         </v-list-tile>
@@ -213,7 +218,9 @@
                 <template v-slot:activator="{ on }">
                     <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
                         <span>@{{ __sentences('CAR') }}</span>
-                        <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">arrow_drop_down</v-icon>
+                        <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">
+                            arrow_drop_down
+                        </v-icon>
                     </v-btn>
                 </template>
 
@@ -249,15 +256,16 @@
                     <page-nav-btn :page="{{ $page }}"></page-nav-btn>
                 @endforeach
             @endif
-            <v-btn class="text-capitalize font-weight-bold subheading" flat href="/#contact-us">@{{ __words('contact')
-                }}
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ "/{$locale}/#contact-us" }}">@{{
+                __words('contact') }}
             </v-btn>
-            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ route('careers.index') }}">
-                @{{ __words('careers') }}
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ "/{$locale}/careers" }}">@{{
+                __words('careers') }}
             </v-btn>
-            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ route('partners.index') }}">@{{ __sentences('becomePartner') }}
+            <v-btn class="text-capitalize font-weight-bold subheading" flat href="{{ "/{$locale}/partners" }}">@{{
+                __sentences('becomePartner') }}
             </v-btn>
-            <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale }}
+            <v-btn class="red--text text--accent-2 font-weight-bold" flat @click="changeLocale">@{{ otherLocale.value }}
             </v-btn>
         </v-toolbar-items>
     </v-toolbar>

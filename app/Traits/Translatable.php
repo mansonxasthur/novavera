@@ -9,6 +9,8 @@
 namespace App\Traits;
 
 
+use Illuminate\Support\Facades\App;
+
 trait Translatable
 {
     protected $defaultLocale = 'ar';
@@ -26,6 +28,7 @@ trait Translatable
     /**
      * @param array $translations
      * @param string $locale
+     *
      * @return void
      */
     public function addTranslation(array $translations, string $locale = null): void
@@ -40,6 +43,7 @@ trait Translatable
 
     /**
      * @param array $translations
+     *
      * @return void
      */
     public function updateTranslation(array $translations): void

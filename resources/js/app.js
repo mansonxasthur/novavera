@@ -10,6 +10,15 @@ window.Vue = require('vue');
 window.Vuetify = require('vuetify');
 window.Vuex = require('vuex');
 import translation from './util/translation';
+// Translation provided by Vuetify (javascript)
+import en from 'vuetify/es5/locale/en'
+import ar from 'vuetify/es5/locale/ar'
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+import {mapGetters} from "vuex";
 
 
 Vue.use(Vuex);
@@ -77,7 +86,7 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        changeLocale(state, lang) {
+        setLocale(state, lang) {
             state.locale = lang;
         },
         changePageTitle(state, title) {
@@ -91,11 +100,6 @@ const store = new Vuex.Store({
     }
 });
 
-
-
-// Translation provided by Vuetify (javascript)
-import en from 'vuetify/es5/locale/en'
-import ar from 'vuetify/es5/locale/ar'
 
 Vue.use(Vuetify, {
     lang: {
@@ -136,13 +140,6 @@ Vue.component('careers', require('./components/Careers').default); // careers pa
 Vue.component('property-request', require('./components/PropertyRequest').default); // property requests page
 Vue.component('partners', require('./components/Partners').default); // partners page
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-import {mapGetters} from "vuex";
-
 const novavera = new Vue({
     el: '#novavera',
     store,
@@ -158,22 +155,34 @@ const novavera = new Vue({
         }),
         otherLocale() {
             let lang = this.$vuetify.lang.current;
-            return lang === 'ar' ? 'English' : 'العربية';
+            let locale = lang === 'ar' ? 'en' : 'ar';
+
+            let text = lang === 'ar' ? 'English' : 'العربية';
+            return {
+                key: locale,
+                value: text
+            };
         }
     },
     created() {
-        if (this.getCookie('locale') !== '') {
-            this.$store.commit('changeLocale', this.getCookie('locale'));
-        }
+        let html = document.querySelector('html');
+        let locale = html.getAttribute('lang');
 
-        this.$vuetify.lang.current = this.locale;
+        this.setLocale(locale);
     },
     methods: {
-        changeLocale() {
-            let currentLocale = this.$vuetify.lang.current = this.$vuetify.lang.current === 'ar' ? 'en' : 'ar';
-            this.$store.commit('changeLocale', currentLocale);
-            this.setCookie('locale', currentLocale);
+        setLocale(locale) {
+            let currentLocale = this.$vuetify.lang.current = locale;
+            if (this.locale !== currentLocale) {
+                this.$store.commit('setLocale', currentLocale);
+            }
+
         },
+        changeLocale() {
+            let location = window.location;
+            let path = location.pathname.replace(this.locale, this.otherLocale.key);
+            window.location = location.href.replace(location.pathname, path);
+        }
     },
     watch: {
         locale(val) {

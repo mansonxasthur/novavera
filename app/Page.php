@@ -7,6 +7,7 @@ use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
 class Page extends Model
@@ -60,7 +61,8 @@ class Page extends Model
 
     public function path()
     {
-        return '/p/' . $this->slug;
+        $locale = App::getLocale();
+        return "/{$locale}/p/{$this->slug}";
     }
 
     public function getRouteKeyName()

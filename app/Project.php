@@ -6,6 +6,7 @@ use App\Traits\ImageUploader;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
 class Project extends Model
@@ -15,7 +16,7 @@ class Project extends Model
     protected $fillable = ['name', 'price', 'down_payment', 'installment_years', 'delivery_date', 'description', 'lat', 'lng', 'slug'];
     protected $translationAttributes = ['name', 'description'];
     protected $with = ['propertyTypes', 'images', 'translation'];
-    protected $appends = ['logo_url'];
+    protected $appends = ['logo_url', 'path'];
 
     public function developer()
     {
@@ -40,6 +41,19 @@ class Project extends Model
     public function getLogoUrlAttribute()
     {
         return $this->getImageUrl($this->logo);
+    }
+
+    public function getNameAttribute()
+    {
+        if (App::getLocale() === 'ar')
+            return $this->translation->name;
+
+        return $this->attributes['name'];
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->path();
     }
 
     public function getRouteKeyName()
@@ -152,6 +166,12 @@ class Project extends Model
         }
 
         return $slug;
+    }
+
+    public function path()
+    {
+        $locale = App::getLocale();
+        return "/{$locale}/projects/{$this->project_type}/{$this->slug}";
     }
 
 }
