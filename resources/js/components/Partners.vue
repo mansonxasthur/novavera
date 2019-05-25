@@ -8,7 +8,7 @@
                     <v-container fill-height fluid>
                         <v-layout fill-height column align-center>
                             <v-flex shrink class="pb-3">
-                                <h2 class="display-2 font-weight-black text-uppercase white--text">Partners</h2>
+                                <h2 class="display-2 font-weight-black text-uppercase white--text">{{ __sentences('becomePartner') }}</h2>
                             </v-flex>
                             <v-flex shrink
                                     class="red darken-2"
@@ -27,20 +27,18 @@
                             <v-container grid-list-lg>
                                 <v-layout column align-center>
                                     <v-flex>
-                                        <h3 class="display-1 text-uppercase font-weight-black primary--text my-4">Partners</h3>
+                                        <h3 class="display-1 text-uppercase font-weight-black primary--text my-4">{{ __words('partners') }}</h3>
                                     </v-flex>
                                     <v-flex>
                                         <v-layout row wrap justify-space-around>
                                             <v-flex xs12 md4>
-                                                <p class="title">
-                                                    Novavera believes in maintaining long-lasting and supportive relationships with esteemed partners.
-                                                    We work with global corporations recognized worldwide to provide second citizenship and residency services.
+                                                <p class="title" style="line-height: 1.5em!important;">
+                                                    {{ __sentences('partnersTitle1') }}
                                                 </p>
                                             </v-flex>
                                             <v-flex xs12 md4>
-                                                <p class="title">
-                                                    We offer a wide range of services that will bring your clients global ambitions to life through transparency,
-                                                    bespoke services and positive results.Novavera believes in business reciprocity, providing introductions back to you.
+                                                <p class="title" style="line-height: 1.5em!important;">
+                                                    {{ __sentences('partnersTitle1') }}
                                                 </p>
                                             </v-flex>
                                         </v-layout>
@@ -52,7 +50,7 @@
                             <v-container grid-list-lg>
                                 <v-layout column align-center>
                                     <v-flex>
-                                        <h2 class="display-1 font-weight-black text-uppercase primary--text my-4">Partner Benefits</h2>
+                                        <h2 class="display-1 font-weight-black text-uppercase primary--text my-4">{{ __sentences('partnerBenefits') }}</h2>
                                     </v-flex>
                                     <v-flex id="benefits-list">
                                         <v-container grid-list-lg>
@@ -63,8 +61,8 @@
                                                             <v-icon large>fas fa-home</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Exclusivity on the best Government approved real estate developments worldwide
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit1') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -75,8 +73,8 @@
                                                             <v-icon large>fas fa-globe-europe</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Multilingual Citizenship Consultants and legal experts to assist your clients
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit2') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -87,8 +85,8 @@
                                                             <v-icon large>fas fa-unlock-alt</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Discretion and confidentiality for your clients with full involvement throughout the entire process
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit3') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -99,8 +97,8 @@
                                                             <v-icon large>far fa-handshake</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Business exchanges providing reciprocal introductions
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit4') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -111,8 +109,8 @@
                                                             <v-icon large>fas fa-hand-holding-usd</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Guaranteed attractive commissions paid within 7 days
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit5') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -123,8 +121,8 @@
                                                             <v-icon large>fas fa-medal</v-icon>
                                                         </v-flex>
                                                         <v-flex text-xs-center>
-                                                            <p class="title">
-                                                                Work with the trusted industry leading brand
+                                                            <p class="title" style="line-height: 1.5em!important;">
+                                                                {{ __sentences('partnerBenefit6') }}
                                                             </p>
                                                         </v-flex>
                                                     </v-layout>
@@ -141,7 +139,7 @@
                                     <v-container grid-list-lg>
                                         <v-layout column align-center>
                                             <v-flex>
-                                                <h2 class="display-1 font-weight-black text-uppercase primary--text my-3">Contact Details</h2>
+                                                <h2 class="display-1 font-weight-black text-uppercase primary--text my-3">{{ __sentences('contactDetails') }}</h2>
                                             </v-flex>
                                             <v-flex>
                                                 <v-layout row wrap justify-space-around>
@@ -150,8 +148,8 @@
                                                             <v-flex>
                                                                 <v-icon large color="primary">phone</v-icon>
                                                             </v-flex>
-                                                            <v-flex text-xs-center>
-                                                                <p class="subheading">(+20) 1019699911</p>
+                                                            <v-flex text-xs-center style="direction: ltr">
+                                                                <p class="subheading">(+20) 101 969 9911</p>
                                                             </v-flex>
                                                         </v-layout>
                                                     </v-flex>
@@ -171,7 +169,7 @@
                                                                 <v-icon large color="primary">location_on</v-icon>
                                                             </v-flex>
                                                             <v-flex text-xs-center>
-                                                                <p class="subheading">Cairo, Capital Business Park, Sheikh Zayed Building 6 , Office 314</p>
+                                                                <p class="subheading">{{ __sentences('address') }}</p>
                                                             </v-flex>
                                                         </v-layout>
                                                     </v-flex>
@@ -183,7 +181,7 @@
                                 <v-flex xs12 md6>
                                     <v-card flat hover>
                                         <v-card-title>
-                                            <h2 class="display-1 font-weight-black text-uppercase primary--text my-4 mx-auto">Partner Benefits</h2>
+                                            <h2 class="display-1 font-weight-black text-uppercase primary--text my-4 mx-auto">{{ __sentences('becomePartner') }}</h2>
                                         </v-card-title>
                                         <v-card-text>
                                             <v-form ref="form">
@@ -194,7 +192,7 @@
                                                                 <v-text-field
                                                                         v-model="partner.name"
                                                                         outline
-                                                                        label="Enter Name"
+                                                                        :label="__words('name')"
                                                                         type="text"
                                                                         color="primary"
                                                                         autocomplete="name"
@@ -208,7 +206,7 @@
                                                                 <v-text-field
                                                                         v-model="partner.phone"
                                                                         outline
-                                                                        label="Enter Phone"
+                                                                        :label="__words('phone')"
                                                                         type="tel"
                                                                         color="primary"
                                                                         autocomplete="tel"
@@ -222,7 +220,7 @@
                                                                 <v-text-field
                                                                         v-model="partner.companyName"
                                                                         outline
-                                                                        label="Enter Company Name"
+                                                                        :label="__sentences('companyName')"
                                                                         type="text"
                                                                         color="primary"
                                                                         autocomplete="organization"
@@ -236,7 +234,7 @@
                                                                 <v-text-field
                                                                         v-model="partner.jobTitle"
                                                                         outline
-                                                                        label="Enter Job Title"
+                                                                        :label="__sentences('jobTitle')"
                                                                         type="text"
                                                                         color="primary"
                                                                         autocomplete="title"
@@ -250,7 +248,7 @@
                                                                 <v-text-field
                                                                         v-model="partner.email"
                                                                         outline
-                                                                        label="Enter Email"
+                                                                        :label="__words('email')"
                                                                         type="email"
                                                                         color="primary"
                                                                         autocomplete="email"
@@ -264,7 +262,7 @@
                                                                         v-model="partner.message"
                                                                         outline
                                                                         height="100%"
-                                                                        label="Message"
+                                                                        :label="__words('message')"
                                                                         color="primary"
                                                                         prepend-inner-icon="message"
                                                                         required
@@ -284,7 +282,7 @@
                                                     class="mx-2"
                                                     :loading="loading"
                                                     @click.stop="send()"
-                                            >Send
+                                            >{{ __words('send') }}
                                             </v-btn>
                                         </v-card-actions>
                                     </v-card>
@@ -321,28 +319,30 @@
                     message: null
                 },
                 nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
-                ],
-                companyRules: [
-                    v => !!v || 'Company Name is required',
-                    v => (v && v.length <= 50) || 'Name must be less than 50 characters'
-                ],
-                jobRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 50) || 'Name must be less than 50 characters'
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
                 ],
                 emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
                 ],
                 phoneRules: [
-                    v => !!v || 'Phone is required',
-                    v => (v && v.length <= 15) || 'Phone must be less than 15 characters'
+                    v => !!v || this.__sentences('phoneRules', 'required'),
+                    v => /\d+/.test(v) || this.__sentences('phoneRules', 'valid'),
+                    v => (v && v.length <= 15) || this.__sentences('phoneRules', 'length', '15')
+                ],
+                companyRules: [
+                    v => !!v || this.__sentences('companyRules', 'required'),
+                    v => (v && v.length <= 50) || this.__sentences('companyRules', 'length', '50')
+                ],
+                jobRules: [
+                    v => !!v || this.__sentences('jobRules', 'required'),
+                    v => (v && v.length <= 50) || this.__sentences('jobRules', 'length', '50')
                 ],
                 messageRules: [
-                    v => !!v || 'Message is required',
-                    v => (v && v.length <= 150) || 'Message must be less than 150 characters',
+                    v => !!v || this.__sentences('messageRules', 'required'),
+                    v => (v && v.length <= 150) || this.__sentences('messageRules', 'lengthMax', '150'),
+                    v => (v && v.length >= 10) || this.__sentences('messageRules', 'lengthMin', '10')
                 ],
             }
         },
@@ -355,7 +355,7 @@
                     let vm = this;
                     vm.loading = true;
 
-                    axios.post('/partners', vm.partner)
+                    axios.post(`/${this.$vuetify.lang.current}/partners`, vm.partner)
                         .then(res => {
                             vm.reset();
                             vm.resetValidation();

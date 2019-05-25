@@ -24,21 +24,21 @@
             <v-container grid-list-lg>
                 <v-layout row wrap>
                     <v-flex xs12 sm6 md4 lg3 v-for="(citizenship, i) in citizenshipCollection" :key="citizenship.id" v-if="i < length" class="citizenship" d-flex>
-                        <a :href="`/countries/${citizenship.type}/${citizenship.slug}`" role="link">
+                        <a :href="citizenship.path" role="link">
                             <div class="above">
                                 <v-img
                                         :src="citizenship.header_url"
-                                        :alt="__t(citizenship, 'country_name')"
+                                        :alt="citizenship.country_name"
                                         width="100%"
                                         height="100%"
                                 >
-                                    <div class="country_name text-xs-center pa-2 primary--text" v-text="__t(citizenship, 'country_name')"></div>
+                                    <div class="country_name text-xs-center pa-2 primary--text" v-text="citizenship.country_name"></div>
                                     <div class="beneath text-xs-center">
                                         <div class="country_name text-xs-center pa-2 primary--text">{{ __sentences('learnMore') }}</div>
                                         <v-container>
                                             <v-layout fill-height column align-center justify-center>
                                                 <v-flex style="margin-top: 20%">
-                                                    <p class="subheading font-weight-bold white--text">{{ __t(citizenship, 'snippet') }}</p>
+                                                    <p class="subheading font-weight-bold white--text">{{ citizenship.snippet }}</p>
                                                 </v-flex>
                                             </v-layout>
                                         </v-container>

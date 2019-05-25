@@ -41,10 +41,10 @@ class PropertyRequestController extends Controller
 
             Mail::to('sales@novavera.com')->send(new NewRequest($propertyRequest));
 
-            return response()->json(['message' => 'Request has been received we will contact you shortly'], 200);
+            return response()->json(['message' => __('sentences.requestFormMessage')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
-            return response()->json(['message' => 'Failed to submit your request please try again later'], 500);
+            return response()->json(['message' => __('sentences.requestFormError')], 500);
         }
     }
 }

@@ -24,14 +24,14 @@
                 </v-container>
             </v-flex>
             <v-flex class="text-xs-center primary py-5 my-4">
-                <h2 class="headline text-uppercase white--text mb-4">Would you like a free consultation?</h2>
-                <v-btn href="#free-consultation">Free Consultation</v-btn>
+                <h2 class="headline text-uppercase white--text mb-4">{{ __sentences('wouldFreeConsultation') }}</h2>
+                <v-btn href="#free-consultation">{{ __sentences('freeConsultation') }}</v-btn>
             </v-flex>
             <v-flex>
                 <v-container pa-5>
                     <v-layout row wrap>
                         <v-flex xs12 md6>
-                            <h2 class="display-1 my-3 text-uppercase">Program Benefits</h2>
+                            <h2 class="display-1 my-3 text-uppercase">{{ __sentences('programBenefits') }}</h2>
                             <v-list>
                                 <v-list-tile v-for="benefit in citizenship.benefits" :key="benefit.id">
                                     <v-list-tile-avatar>
@@ -51,7 +51,7 @@
                 <v-container pa-5>
                     <v-layout row wrap>
                         <v-flex xs12 md8>
-                            <h2 class="display-1 my-3 text-uppercase">What do we provide?</h2>
+                            <h2 class="display-1 my-3 text-uppercase">{{ __sentences('whatDoWeProvide') }}</h2>
                             <v-list>
                                 <v-list-tile v-for="supply in citizenship.supplies" :key="supply.id">
                                     <v-list-tile-avatar>
@@ -62,12 +62,12 @@
                             </v-list>
                         </v-flex>
                         <v-flex xs12 md4 id="free-consultation">
-                            <h2 class="display-1 my-3 text-uppercase">Get a free consultation</h2>
+                            <h2 class="display-1 my-3 text-uppercase">{{ __sentences('getFreeConsultation') }}</h2>
                             <v-form ref="form">
                                 <v-text-field
                                     v-model="name"
                                     prepend-icon="person"
-                                    label="Name"
+                                    :label="__words('name')"
                                     required
                                     :counter="30"
                                     :rules="nameRules"
@@ -77,7 +77,7 @@
                                 <v-text-field
                                     v-model="email"
                                     prepend-icon="email"
-                                    label="Email"
+                                    :label="__words('email')"
                                     required
                                     :rules="emailRules"
                                     autocomplete="email"
@@ -86,14 +86,14 @@
                                 <v-text-field
                                     v-model="phone"
                                     prepend-icon="phone"
-                                    label="Phone"
+                                    :label="__words('phone')"
                                     required
                                     :counter="15"
                                     :rules="phoneRules"
                                     autocomplete="tel"
                                     color="primary"
                                 ></v-text-field>
-                                <v-btn color="primary" @click="send" :loading="loading">Request</v-btn>
+                                <v-btn color="primary" @click="send" :loading="loading">{{ __words('request') }}</v-btn>
                             </v-form>
                         </v-flex>
                     </v-layout>
@@ -130,19 +130,20 @@
                 height: 500,
                 loading: false,
                 name: '',
-                nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
-                ],
                 email: '',
-                emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
-                ],
                 phone: '',
+                nameRules: [
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
+                ],
+                emailRules: [
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
+                ],
                 phoneRules: [
-                    v => !!v || 'Phone is required',
-                    v => (v && v.length <= 15) || 'Phone must be less than 15 characters'
+                    v => !!v || this.__sentences('phoneRules', 'required'),
+                    v => /\d+/.test(v) || this.__sentences('phoneRules', 'valid'),
+                    v => (v && v.length <= 15) || this.__sentences('phoneRules', 'length', '15')
                 ],
             }
         },
@@ -155,7 +156,7 @@
                     let vm = this;
                     vm.loading = true;
 
-                    axios.post('/countries', {
+                    axios.post(`/${this.$vuetify.lang.current}/countries`, {
                         name: vm.name,
                         email: vm.email,
                         phone: vm.phone,

@@ -18,8 +18,8 @@
                                 </v-layout>
                             </v-flex>
                             <v-flex text-xs-center py-3>
-                                <h3 class="title mb-2">Starting Price</h3>
-                                <h2 class="display-1">{{ project.price }} <small>EG</small></h2>
+                                <h3 class="title mb-2">{{ __sentences('startingPrice' )}}</h3>
+                                <h2 class="display-1">{{ project.price }} <small>{{ __sentences('egyptianPound') }}</small></h2>
                             </v-flex>
                             <v-flex py-5>
                                 <v-layout row wrap>
@@ -33,20 +33,20 @@
                                     <v-flex xs12 md6>
                                         <v-layout column align-center justify-center text-xs-center>
                                             <v-flex py-2 v-if="project.down_payment">
-                                                <h5 class="subheading">Down Payment</h5>
+                                                <h5 class="subheading">{{ __sentences('downPayment') }}</h5>
                                                 <h3 class="display-1">{{ project.down_payment }}</h3>
                                             </v-flex>
                                             <v-flex py-2 v-if="project.installment_years">
-                                                <h5 class="subheading">Installment Years</h5>
+                                                <h5 class="subheading">{{ __sentences('installmentYears') }}</h5>
                                                 <h3 class="display-1">{{ project.installment_years}}</h3>
                                             </v-flex>
                                             <v-flex py-2 v-if="project.delivery_date">
-                                                <h5 class="subheading">Delivery Date</h5>
+                                                <h5 class="subheading">{{ __sentences('deliveryDate') }}</h5>
                                                 <h3 class="display-1">{{ project.delivery_date }}</h3>
                                             </v-flex>
                                         </v-layout>
                                     </v-flex>
-                                    <v-flex xs12>
+                                    <v-flex xs12 style="direction: ltr">
                                         <v-btn
                                                 href="tel:+201020166669"
                                                 large
@@ -54,7 +54,7 @@
                                                 color="primary"
                                         >
                                             <v-icon left>phone</v-icon>
-                                            +201020166669</v-btn>
+                                            (+20) 101 969 9911</v-btn>
                                     </v-flex>
                                     <v-flex xs12>
                                         <v-btn
@@ -63,8 +63,8 @@
                                                 color="primary"
                                                 @click="ask"
                                         >
-                                            <v-icon left>message</v-icon>
-                                            Ask Now</v-btn>
+                                            <v-icon :left="$vuetify.lang.current === 'en'" :right="$vuetify.lang.current === 'ar'">message</v-icon>
+                                            {{ __sentences('askNow') }}</v-btn>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
@@ -78,9 +78,9 @@
                     <v-flex xs12 sm3>
                         <v-layout column>
                             <v-flex text-xs-center my-5 class="developer">
-                                <h5 class="title mb-3">Developed by</h5>
+                                <h5 class="title mb-3">{{ __sentences('developedBy') }}</h5>
                                 <v-avatar size="150" tile>
-                                    <img :src="project.developer.logo_url" :alt="project.developer.name">
+                                    <img :src="project.developer.logo_url" :alt="project.developer.name" :title="project.developer.name">
                                 </v-avatar>
                             </v-flex>
                         </v-layout>
@@ -101,7 +101,7 @@
         <v-dialog v-model="dialog" width="600px" max-width="100%" persistent>
             <v-card>
                 <v-card-title>
-                    <h4 class="headline">Ask Now</h4>
+                    <h4 class="headline">{{ __sentences('askNow') }}</h4>
                 </v-card-title>
                 <v-divider></v-divider>
                 <v-card-text>
@@ -110,7 +110,7 @@
                             <v-flex xs12>
                                 <v-text-field
                                     type="text"
-                                    label="Name"
+                                    :label="__words('name')"
                                     prepend-inner-icon="person"
                                     v-model="inquiry.name"
                                     autocomplete="name"
@@ -123,7 +123,7 @@
                             <v-flex xs12>
                                 <v-text-field
                                         type="email"
-                                        label="Email"
+                                        :label="__words('email')"
                                         prepend-inner-icon="email"
                                         v-model="inquiry.email"
                                         autocomplete="email"
@@ -134,7 +134,7 @@
                             </v-flex>
                             <v-flex xs12>
                                 <v-textarea
-                                        label="Message"
+                                        :label="__words('message')"
                                         prepend-inner-icon="message"
                                         v-model="inquiry.message"
                                         color="primary"
@@ -148,8 +148,8 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" @click="dialog = !dialog">close</v-btn>
-                    <v-btn color="primary" @click="send" :loading="loading">Send</v-btn>
+                    <v-btn color="primary" @click="dialog = !dialog" class="mx-1">{{ __words('close') }}</v-btn>
+                    <v-btn color="primary" @click="send" :loading="loading">{{ __words('send') }}</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -183,17 +183,17 @@
                     location: '',
                 },
                 nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
                 ],
                 emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
                 ],
                 messageRules: [
-                    v => !!v || 'Message is required',
-                    v => (v && v.length <= 150) || 'Message must be less than 150 characters',
-                    v => (v && v.length >= 10) || 'Message must be more than 10 characters'
+                    v => !!v || this.__sentences('messageRules', 'required'),
+                    v => (v && v.length <= 150) || this.__sentences('messageRules', 'lengthMax', '150'),
+                    v => (v && v.length >= 10) || this.__sentences('messageRules', 'lengthMin', '10')
                 ],
             }
         },
@@ -221,7 +221,7 @@
                 if (this.$refs.form.validate()) {
                     let vm = this;
                     vm.loading = true;
-                    axios.post('/contact/project', vm.inquiry)
+                    axios.post(`/${this.$vuetify.lang.current}/contact/project`, vm.inquiry)
                         .then(res => {
                             vm.reset();
                             vm.resetValidation();

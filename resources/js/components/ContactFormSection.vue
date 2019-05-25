@@ -2,7 +2,7 @@
     <section id="contact-us">
         <v-layout column align-center>
             <v-flex shrink class="py-3">
-                <h1 class="display-1">Contact Us</h1>
+                <h1 class="display-1">{{ __sentences('contactUs') }}</h1>
             </v-flex>
             <v-flex shrink
                     class="red darken-2 mb-4"
@@ -23,7 +23,7 @@
                                                     <v-text-field
                                                             v-model="contact.name"
                                                             outline
-                                                            label="Enter Name"
+                                                            :label="__words('name')"
                                                             type="text"
                                                             color="primary"
                                                             autocomplete="name"
@@ -37,7 +37,7 @@
                                                     <v-text-field
                                                             v-model="contact.email"
                                                             outline
-                                                            label="Enter Email"
+                                                            :label="__words('email')"
                                                             type="email"
                                                             color="primary"
                                                             autocomplete="email"
@@ -50,7 +50,7 @@
                                                     <v-text-field
                                                             v-model="contact.phone"
                                                             outline
-                                                            label="Enter Phone"
+                                                            :label="__words('phone')"
                                                             type="tel"
                                                             color="primary"
                                                             autocomplete="tel"
@@ -65,7 +65,7 @@
                                                             v-model="contact.inquiry_type"
                                                             outline
                                                             :items="inquiries"
-                                                            label="Select Inquiry Type"
+                                                            :label="__sentences('selectCategory')"
                                                             color="primary"
                                                             prepend-inner-icon="category"
                                                             required
@@ -79,7 +79,7 @@
                                                     v-model="contact.message"
                                                     outline
                                                     height="100%"
-                                                    label="Message"
+                                                    :label="__words('message')"
                                                     color="primary"
                                                     prepend-inner-icon="message"
                                                     required
@@ -91,7 +91,7 @@
                                 </v-card-text>
                                 <v-card-actions>
                                     <v-spacer></v-spacer>
-                                    <v-btn color="primary" class="mx-2" :loading="loading" @click.stop="send()">Send message</v-btn>
+                                    <v-btn color="primary" class="mx-2" :loading="loading" @click.stop="send()">{{ __words('send') }}</v-btn>
                                 </v-card-actions>
                             </v-form>
                         </v-card>
@@ -102,7 +102,7 @@
                                 <v-flex pa-2>
                                     <h2 class="headline mb-3">
                                         <v-icon large>location_on</v-icon>
-                                        Our office
+                                        {{ __sentences('ourOffice') }}
                                     </h2>
 
                                     <v-layout column>
@@ -114,23 +114,22 @@
                                                         <a href="https://goo.gl/maps/4y74kX6UDg5We5Ud7"
                                                            target="_blank" role="link" v-on="on"
                                                            style="text-decoration: none; color:inherit">
-                                                            Cairo, Capital Business Park, Sheikh Zayed
-                                                            Building 6 , Office 314
+                                                            {{ __sentences('address') }}
                                                         </a>
                                                     </template>
-                                                    <span>Address</span>
+                                                    <span>{{ __words('address') }}</span>
                                                 </v-tooltip>
                                             </address>
                                         </v-flex>
-                                        <v-flex class="subheading py-2">
+                                        <v-flex class="subheading py-2" style="direction: ltr">
                                             <v-tooltip left>
                                                 <template v-slot:activator="{ on }">
                                                     <a href="tel:+201019699911" role="tel" v-on="on"
-                                                       style="text-decoration: none; color:inherit">
-                                                        (+20) 1019699911
+                                                       style="text-decoration: none; color:inherit;">
+                                                        (+20) 101 969 9911
                                                     </a>
                                                 </template>
-                                                <span>Phone</span>
+                                                <span>{{ __words('phone') }}</span>
                                             </v-tooltip>
 
                                         </v-flex>
@@ -143,7 +142,7 @@
                                                         realestate@novavera.com
                                                     </a>
                                                 </template>
-                                                <span>Email</span>
+                                                <span>{{ __words('email') }}</span>
                                             </v-tooltip>
                                         </v-flex>
                                     </v-layout>
@@ -168,8 +167,8 @@
             return {
                 loading: false,
                 inquiries: [
-                    'Real Estate Egypt',
-                    'Citizenship & Residency'
+                    this.__sentences('REE'),
+                    this.__sentences('CAR')
                 ],
                 contact: {
                     name: '',
@@ -179,25 +178,25 @@
                     message: '',
                 },
                 nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
                 ],
                 emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
                 ],
                 phoneRules: [
-                    v => !!v || 'Phone is required',
-                    v => /\d+/.test(v) || 'Phone must be valid',
-                    v => (v && v.length <= 15) || 'Name must be less than 15 characters'
+                    v => !!v || this.__sentences('phoneRules', 'required'),
+                    v => /\d+/.test(v) || this.__sentences('phoneRules', 'valid'),
+                    v => (v && v.length <= 15) || this.__sentences('phoneRules', 'length', '15')
                 ],
                 inquiryRules: [
-                    v => !!v || 'Inquiry is required',
+                    v => !!v || this.__sentences('inquiryRules', 'required'),
                 ],
                 messageRules: [
-                    v => !!v || 'Message is required',
-                    v => (v && v.length <= 150) || 'Message must be less than 150 characters',
-                    v => (v && v.length >= 10) || 'Message must be more than 10 characters'
+                    v => !!v || this.__sentences('messageRules', 'required'),
+                    v => (v && v.length <= 150) || this.__sentences('messageRules', 'lengthMax', '150'),
+                    v => (v && v.length >= 10) || this.__sentences('messageRules', 'lengthMin', '10')
                 ],
             }
         },
@@ -206,7 +205,7 @@
                 if (this.$refs.form.validate()) {
                     let vm = this;
                     vm.loading = true;
-                    axios.post('/contact/home', vm.contact)
+                    axios.post(`/${this.$vuetify.lang.current}/contact/home`, vm.contact)
                         .then(res => {
                             vm.reset();
                             vm.resetValidation();

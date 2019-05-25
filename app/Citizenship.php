@@ -31,6 +31,26 @@ class Citizenship extends Model
         return $this->hasMany(CitizenshipSupply::class);
     }
 
+    public function getCountryNameAttribute()
+    {
+        return $this->getTranslation('country_name');
+    }
+
+    public function getTitleAttribute()
+    {
+        return $this->getTranslation('title');
+    }
+
+    public function getDescriptionAttribute()
+    {
+        return $this->getTranslation('description');
+    }
+
+    public function getSnippetAttribute()
+    {
+        return $this->getTranslation('snippet');
+    }
+
     public function getDropdownFlagUrlAttribute()
     {
         return $this->getImageUrl($this->dropdown_flag);

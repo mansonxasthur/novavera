@@ -36,4 +36,16 @@ return [
     'experienceSubheading' => 'Novavera® is based on over 27 years of extensive experience in different international businesses, a long career of success, re-branded in an innovative, creative and up-to-date mind set.',
     'credibilitySubheading' => 'Through our work with clients over the last 27 years, we have learned how to use a common language with everyone.',
     'worldwideOffices' => 'Worldwide Offices',
+    'workAtNova' => 'Want to work at Novavera Real Estate?',
+    'jobOpenings' => 'Job Openings',
+    'readyToPartner' => 'Ready to partner with us?',
+    'joinUs' => 'Join Us',
+    'requestFormMessage' => 'Request has been received we will contact you shortly',
+    'requestFormError' => 'Failed to submit your request please try again later',
+    'homeContactFormMessage' => 'Message sent successfully',
+    'homeContactFormError' => 'Failed to send message please try again later',
+    'inquiryFormMessage' => 'Inquiry sent successfully',
+    'inquiryFormError' => 'Failed to send your inquiry please try again later',
+    'careersFormMessage' => 'Application submitted successfully',
+    'careersFormError' => 'Failed to submit your application please try again later'
 ];

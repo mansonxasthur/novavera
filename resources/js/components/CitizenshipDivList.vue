@@ -8,7 +8,7 @@
                             <img :src="citizenship.dropdown_flag_url" :alt="citizenship.country_name">
                         </v-avatar>
                     </v-flex>
-                    <v-flex>{{ __t(citizenship, 'country_name') }}</v-flex>
+                    <v-flex>{{ citizenship.country_name }}</v-flex>
                 </v-layout>
             </a>
         </v-flex>

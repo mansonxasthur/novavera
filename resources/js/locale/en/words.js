@@ -24,4 +24,13 @@ export default {
     linz: 'Linz',
     hungary: 'Hungary',
     cairo: 'Cairo',
+    name: 'Name',
+    email: 'Email',
+    phone: 'Phone',
+    message: 'Message',
+    send: 'Send',
+    close: 'Close',
+    address: 'Address',
+    request: 'Request',
+    partners: 'Partners',
 }

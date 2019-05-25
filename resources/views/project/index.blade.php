@@ -20,6 +20,6 @@
 
 @section('content')
     <v-container fluid>
-        <project-section :locations="{{ $locations }}" title="{{ $title }}"></project-section>
+        <project-section :locations="{{ $locations }}" title="{{ __("sentences.{$title}") }}"></project-section>
     </v-container>
 @endsection

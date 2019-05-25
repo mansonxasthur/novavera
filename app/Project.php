@@ -45,10 +45,12 @@ class Project extends Model
 
     public function getNameAttribute()
     {
-        if (App::getLocale() === 'ar')
-            return $this->translation->name;
+        return $this->getTranslation('name');
+    }
 
-        return $this->attributes['name'];
+    public function getDescriptionAttribute()
+    {
+        return $this->getTranslation('description');
     }
 
     public function getPathAttribute()

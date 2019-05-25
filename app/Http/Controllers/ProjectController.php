@@ -20,7 +20,7 @@ class ProjectController extends Controller
             }])
             ->get();
 
-        $title = ucfirst($projectType) . ' Projects';
+        $title = $projectType . 'Projects';
         return view('project.index', compact(['locations', 'title']));
     }
 

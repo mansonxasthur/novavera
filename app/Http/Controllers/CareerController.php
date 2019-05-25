@@ -42,10 +42,10 @@ class CareerController extends Controller
 
             Mail::to('careers@novavera.com')->send(new NewApplicant($applicant));
 
-            return response()->json(['message' => 'Application submitted successfully'], 200);
+            return response()->json(['message' => __('sentences.careersFormMessage')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
-            return response()->json(['message' => 'Failed to submit your application please try again later'], 500);
+            return response()->json(['message' => __('sentences.careersFormError')], 500);
         }
     }
 }

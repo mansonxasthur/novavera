@@ -2,7 +2,7 @@
     <v-container>
         <v-layout>
             <v-flex>
-                <h2 class="display-1 novadev-title px-3">NOVAVERA DEVELOPERS</h2>
+                <h2 class="display-1 novadev-title px-3">{{ __sentences('novaveraDevelopers')}}</h2>
                 <v-container grid-list-md>
                     <v-layout row wrap py-5>
                         <v-flex xs6 sm4 md3 lg2
@@ -11,7 +11,7 @@
                             <a :href="path(developer)" class="developer-path">
                                 <v-card flat hover>
                                     <v-card-text>
-                                        <img :src="developer.logo_url" :alt="developer.name" class="developer-img">
+                                        <img :src="developer.logo_url" :alt="developer.name" :title="developer.name" class="developer-img">
                                         <h5 class="title mt-3" v-text="developer.name"></h5>
                                     </v-card-text>
                                 </v-card>
@@ -41,9 +41,16 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .novadev-title {
         border-left: 3px #cc0000 solid;
+    }
+
+    .application.application--is-rtl {
+        .novadev-title {
+            border-right: 3px #cc0000 solid;
+            border-left: none;
+        }
     }
 
     a.developer-path {text-decoration: none}

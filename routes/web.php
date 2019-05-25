@@ -182,3 +182,10 @@ foreach ($locales as $locale) {
         Route::post('/partners', 'PartnerController@send');
     });
 }
+
+/** Form Requests */
+
+/*
+
+// Partners
+Route::post('/partners', 'PartnerController@send');*/

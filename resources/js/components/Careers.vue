@@ -8,7 +8,7 @@
                     <v-container fill-height fluid>
                         <v-layout fill-height column align-center>
                             <v-flex shrink class="pb-3">
-                                <h2 class="display-2 font-weight-black text-uppercase white--text">Careers</h2>
+                                <h2 class="display-2 font-weight-black text-uppercase white--text">{{ __words('careers') }}</h2>
                             </v-flex>
                             <v-flex shrink
                                     class="red darken-2"
@@ -26,7 +26,7 @@
                         <v-flex xs12 sm10 md8 pa-4>
                             <v-card hover>
                                 <v-card-title>
-                                    <h3 class="title primary--text mx-auto font-weight-black">APPLY WITH YOUR CV</h3>
+                                    <h3 class="title primary--text mx-auto font-weight-black">{{ __sentences('applyCv') }}</h3>
                                 </v-card-title>
                                 <v-card-text>
                                     <v-form ref="form">
@@ -37,7 +37,7 @@
                                                         <v-text-field
                                                                 v-model="applicant.name"
                                                                 outline
-                                                                label="Enter Name"
+                                                                :label="__words('name')"
                                                                 type="text"
                                                                 color="primary"
                                                                 autocomplete="name"
@@ -51,7 +51,7 @@
                                                         <v-text-field
                                                                 v-model="applicant.email"
                                                                 outline
-                                                                label="Enter Email"
+                                                                :label="__words('email')"
                                                                 type="email"
                                                                 color="primary"
                                                                 autocomplete="email"
@@ -64,7 +64,7 @@
                                                         <v-text-field
                                                                 v-model="applicant.phone"
                                                                 outline
-                                                                label="Enter Phone"
+                                                                :label="__words('phone')"
                                                                 type="tel"
                                                                 color="primary"
                                                                 autocomplete="tel"
@@ -78,7 +78,7 @@
                                                         <v-text-field
                                                                 v-model="applicant.linkedIn"
                                                                 outline
-                                                                label="LinkedIn Profile Link"
+                                                                :label="__sentences('linkedinLink')"
                                                                 type="link"
                                                                 color="primary"
                                                                 prepend-inner-icon="fab fa-linkedin"
@@ -91,7 +91,7 @@
                                                                 :items="departments"
                                                                 item-value="id"
                                                                 item-text="name"
-                                                                label="Select Department"
+                                                                :label="__sentences('selectDepartment')"
                                                                 color="primary"
                                                                 prepend-inner-icon="assignment_ind"
                                                                 required
@@ -99,7 +99,7 @@
                                                         ></v-select>
                                                     </v-flex>
                                                     <v-flex xs12>
-                                                        <span class="right caption red--text">* PDF only</span>
+                                                        <span class="right caption red--text">{{ __sentences('pdfOnly') }}</span>
                                                         <input type="file" id="cvUploader" style="display: none"
                                                                accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                                                                @change="uploadCv">
@@ -109,8 +109,8 @@
                                                                 outline
                                                                 :color="applicant.cv ? 'green accent-2' : ''"
                                                         >
-                                                            <v-icon left>cloud_upload</v-icon>
-                                                            Upload C.V.
+                                                            <v-icon :right="$vuetify.lang.current === 'ar'" :left="$vuetify.lang.current === 'en'">cloud_upload</v-icon>
+                                                            {{ __sentences('uploadCv') }}
                                                         </v-btn>
                                                     </v-flex>
                                                 </v-layout>
@@ -125,7 +125,7 @@
                                             class="mx-2"
                                             :loading="loading"
                                             @click.stop="send()"
-                                    >Send</v-btn>
+                                    >{{ __words('send') }}</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-flex>
@@ -163,21 +163,21 @@
                     department: null,
                     cv: null
                 },
-
                 nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
                 ],
                 emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
                 ],
                 phoneRules: [
-                    v => !!v || 'Phone is required',
-                    v => (v && v.length <= 15) || 'Phone must be less than 15 characters'
+                    v => !!v || this.__sentences('phoneRules', 'required'),
+                    v => /\d+/.test(v) || this.__sentences('phoneRules', 'valid'),
+                    v => (v && v.length <= 15) || this.__sentences('phoneRules', 'length', '15')
                 ],
                 departmentRules: [
-                    v => !!v || 'Department is required',
+                    v => !!v || this.__sentences('departmentRules', 'required'),
                 ],
             }
         },
@@ -189,9 +189,7 @@
                 document.querySelector('#cvUploader').click();
             },
             uploadCv(e) {
-                let vm = this;
-                 //sames as here
-                vm.applicant.cv = e.target.files[0];
+                this.applicant.cv = e.target.files[0];
             },
             send () {
                 if (this.$refs.form.validate()) {
@@ -212,7 +210,7 @@
                         }
                     });
 
-                    axios.post('/careers', applicant)
+                    axios.post(`/${this.$vuetify.lang.current}/careers`, applicant)
                         .then(res => {
                             vm.reset();
                             vm.resetValidation();
@@ -229,6 +227,7 @@
             reset() {
                 this.$refs.form.reset();
                 this.loading = false;
+                document.querySelector('#cvUploader').value = '';
                 this.applicant.cv = null;
             },
             resetValidation() {

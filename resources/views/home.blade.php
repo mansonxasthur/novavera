@@ -515,7 +515,7 @@
                         <v-layout column align-start class="pa-5">
                             <v-flex mb-5>
                                 <h1 class="display-1" style="width: auto">
-                                    Careers
+                                    {{ __('words.careers') }}
                                     <v-progress-linear
                                             color="primary"
                                             height="5"
@@ -526,11 +526,11 @@
                             </v-flex>
                             <v-flex py-3>
                                 <p class="subheading">
-                                    Want to work at Novavera Real Estate
+                                    {{ __('sentences.workAtNova') }}
                                 </p>
-                                <v-btn href="{{ route('careers.index') }}" class="nova-btn-primary ml-0" dark role="link">
-                                    Job Openings
-                                    <v-icon>keyboard_arrow_right</v-icon>
+                                <v-btn href="{{ "/{$locale}/careers" }}" class="nova-btn-primary ml-0" dark role="link">
+                                    {{ __('sentences.jobOpenings') }}
+                                    <v-icon>{{ app()->getLocale() === 'ar' ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</v-icon>
                                 </v-btn>
                             </v-flex>
                         </v-layout>
@@ -539,7 +539,7 @@
                         <v-layout column align-start class="pa-5">
                             <v-flex mb-5>
                                 <h1 class="display-1" style="width: auto">
-                                    BECOME A PARTNER
+                                    {{ __('sentences.becomePartner') }}
                                     <v-progress-linear
                                             color="primary"
                                             height="5"
@@ -550,11 +550,11 @@
                             </v-flex>
                             <v-flex py-3>
                                 <p class="subheading">
-                                    Ready to partner with us?
+                                    {{ __('sentences.readyToPartner') }}
                                 </p>
-                                <v-btn href="{{ route('partners.index') }}" class="nova-btn-primary ml-0" dark role="link">
-                                    Join Us
-                                    <v-icon>keyboard_arrow_right</v-icon>
+                                <v-btn href="{{ "/{$locale}/partners" }}" class="nova-btn-primary ml-0" dark role="link">
+                                    {{ __('sentences.joinUs') }}
+                                    <v-icon>{{ app()->getLocale() === 'ar' ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</v-icon>
                                 </v-btn>
                             </v-flex>
                         </v-layout>

@@ -13,4 +13,9 @@ class CitizenshipSupply extends Model
     protected $fillable = ['detail'];
     protected $translationAttributes = ['detail'];
     protected $with = ['translation'];
+
+    public function getDetailAttribute()
+    {
+        return $this->getTranslation('detail');
+    }
 }

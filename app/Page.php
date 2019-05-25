@@ -20,6 +20,17 @@ class Page extends Model
     protected $appends = ['header_url', 'path'];
     protected $casts = ['published' => 'boolean'];
 
+
+    public function getTitleAttribute()
+    {
+        return $this->getTranslation('title');
+    }
+
+    public function getBodyAttribute()
+    {
+        return $this->getTranslation('body');
+    }
+
     public function getPathAttribute()
     {
         return $this->path();

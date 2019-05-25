@@ -24,4 +24,13 @@ export default {
     linz: 'لينز',
     hungary: 'المجر',
     cairo: 'القاهرة',
+    name: 'الإسم',
+    email: 'البريد الألكتروني',
+    phone: 'رقم الهاتف',
+    message: 'الرسالة',
+    send: 'أرسل',
+    close: 'أغلق',
+    address: 'العنوان',
+    request: 'طلب',
+    partners: 'شركاء',
 }

@@ -12,7 +12,7 @@
                 :multi-line="multiline"
                 @click="snackbar = false"
         >
-            Close
+            {{ __words('close') }}
         </v-btn>
     </v-snackbar>
 </template>

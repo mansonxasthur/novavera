@@ -11,8 +11,8 @@ window.Vuetify = require('vuetify');
 window.Vuex = require('vuex');
 import translation from './util/translation';
 // Translation provided by Vuetify (javascript)
-import en from 'vuetify/es5/locale/en'
-import ar from 'vuetify/es5/locale/ar'
+import en from 'vuetify/es5/locale/en';
+import ar from 'vuetify/es5/locale/ar';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -25,14 +25,19 @@ Vue.use(Vuex);
 
 Vue.mixin({
     methods: {
-        __words(property, nested = '') {
-            return this.__getTranslation('words', property, nested);
+        __words(property, nested = '', needle = '') {
+            return this.__getTranslation('words', property, nested, needle);
         },
-        __sentences(property, nested = '') {
-            return this.__getTranslation('sentences', property, nested);
+        __sentences(property, nested = '', needle = '') {
+            return this.__getTranslation('sentences', property, nested, needle);
         },
-        __getTranslation(key, property, nested) {
-            return translation(this.$vuetify.lang.current, key, property, nested);
+        __getTranslation(key, property, nested, needle) {
+            let translationStr = translation(this.$vuetify.lang.current, key, property, nested);
+            if (needle !== '') {
+                translationStr = translationStr.replace(/:\w+:/, needle);
+            }
+
+            return translationStr;
         },
         getCookie(cname) {
             let name = cname + "=";
@@ -103,7 +108,7 @@ const store = new Vuex.Store({
 
 Vue.use(Vuetify, {
     lang: {
-        locales: {en, ar},
+        locales: { ar, en},
         current: 'en'
     },
     rtl: store.getters.getLocale === 'ar'
@@ -187,9 +192,9 @@ const novavera = new Vue({
     watch: {
         locale(val) {
             let isArabic = val === 'ar';
-            console.log(isArabic);
             let content = document.querySelector('.v-content');
             let html = document.querySelector('html');
+
             if (isArabic) {
                 content.setAttribute('style', 'text-align:right;');
                 html.setAttribute('lang', 'ar');
@@ -197,8 +202,6 @@ const novavera = new Vue({
                 content.setAttribute('style', 'text-align:inherit;');
                 html.setAttribute('lang', 'en');
             }
-
-            console.log(html.getAttribute('lang'));
 
             this.$vuetify.rtl = isArabic;
             this.drawer = false;

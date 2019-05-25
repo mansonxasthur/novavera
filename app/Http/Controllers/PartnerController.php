@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\Logger;
 use App\Mail\NewPartner;
 use App\Partner;
 use Illuminate\Http\Request;
@@ -38,10 +39,10 @@ class PartnerController extends Controller
         try {
             Mail::to('pr@novavera.com')->send(new NewPartner($partner));
 
-            return response()->json(['message' => 'Request has been received we will contact you shortly'], 200);
+            return response()->json(['message' => __('sentences.requestFormMessage')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
-            return response()->json(['message' => 'Failed to submit your application please try again later'], 500);
+            return response()->json(['message' => __('sentences.requestFormError')], 500);
         }
     }
 }

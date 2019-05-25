@@ -33,10 +33,10 @@ class FormController extends Controller
         try {
             Mail::to('info@novavera.com')->send(new ContactMessaged($contact));
 
-            return response()->json(['message' => 'Message sent successfully'], 200);
+            return response()->json(['message' => __('sentences.homeContactFormMessage')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
-            return response()->json(['message' => 'Failed to send message please try again later'], 500);
+            return response()->json(['message' => __('sentences.homeContactFormError')], 500);
         }
     }
 
@@ -61,10 +61,10 @@ class FormController extends Controller
         try {
             Mail::to('info@novavera.com')->send(new ProjectInquiry($inquiry));
 
-            return response()->json(['message' => 'Inquiry sent successfully'], 200);
+            return response()->json(['message' => __('sentences.inquiryFormMessage')], 200);
         } catch (\Exception $e) {
             Logger::error($e);
-            return response()->json(['message' => 'Failed to send message please try again later'], 500);
+            return response()->json(['message' => __('sentences.inquiryFormError')], 500);
         }
     }
 }

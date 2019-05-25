@@ -2,14 +2,20 @@ import translation from '../util/translation'
 
 export default {
     methods: {
-        __words(property, nested = '') {
-            return this.__getTranslation('words', property, nested);
+        __words(property, nested = '', needle = '') {
+            return this.__getTranslation('words', property, nested, needle);
         },
-        __sentences(property, nested = '') {
-            return this.__getTranslation('sentences', property, nested);
+        __sentences(property, nested = '', needle = '') {
+            return this.__getTranslation('sentences', property, nested, needle);
         },
-        __getTranslation(key, property, nested) {
-            return translation(this.$vuetify.lang.current, key, property, nested);
+        __getTranslation(key, property, nested, needle) {
+            let translation = translation(this.$vuetify.lang.current, key, property, nested);
+            console.log(needle);
+            if (needle !== '') {
+                translation = translation.replace(/:\w+:/, needle);
+            }
+
+            return translation;
         },
         getCookie(cname) {
             let name = cname + "=";

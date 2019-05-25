@@ -8,7 +8,7 @@
                     <v-container fill-height fluid>
                         <v-layout fill-height column align-center>
                             <v-flex shrink class="pb-3">
-                                <h2 class="display-2 font-weight-black text-uppercase white--text">Property Request</h2>
+                                <h2 class="display-2 font-weight-black text-uppercase white--text">{{ __sentences('propertyRequests') }}</h2>
                             </v-flex>
                             <v-flex shrink
                                     class="red darken-2"
@@ -26,7 +26,7 @@
                         <v-flex xs12 sm10 md8 pa-4>
                             <v-card hover>
                                 <v-card-title>
-                                    <h3 class="title primary--text mx-auto font-weight-black">APPLY YOUR REQUEST</h3>
+                                    <h3 class="title primary--text mx-auto font-weight-black">{{ __sentences('applyRequest') }}</h3>
                                 </v-card-title>
                                 <v-card-text>
                                     <v-form ref="form">
@@ -37,7 +37,7 @@
                                                         <v-text-field
                                                                 v-model="request.name"
                                                                 outline
-                                                                label="Enter Name"
+                                                                :label="__words('name')"
                                                                 type="text"
                                                                 color="primary"
                                                                 autocomplete="name"
@@ -51,7 +51,7 @@
                                                         <v-text-field
                                                                 v-model="request.email"
                                                                 outline
-                                                                label="Enter Email"
+                                                                :label="__words('email')"
                                                                 type="email"
                                                                 color="primary"
                                                                 autocomplete="email"
@@ -64,7 +64,7 @@
                                                         <v-text-field
                                                                 v-model="request.phone"
                                                                 outline
-                                                                label="Enter Phone"
+                                                                :label="__words('phone')"
                                                                 type="tel"
                                                                 color="primary"
                                                                 autocomplete="tel"
@@ -81,7 +81,7 @@
                                                                 :items="locations"
                                                                 item-value="id"
                                                                 item-text="name"
-                                                                label="Select Location"
+                                                                :label="__sentences('selectLocation')"
                                                                 color="primary"
                                                                 prepend-inner-icon="location_on"
                                                                 required
@@ -95,7 +95,7 @@
                                                                 :items="projects"
                                                                 item-value="id"
                                                                 item-text="name"
-                                                                label="Select Project"
+                                                                :label="__sentences('selectProject')"
                                                                 color="primary"
                                                                 prepend-inner-icon="business"
                                                                 required
@@ -110,7 +110,7 @@
                                                                 :items="propertyTypes"
                                                                 item-value="id"
                                                                 item-text="name"
-                                                                label="Select Property Type"
+                                                                :label="__sentences('selectedPropertyType')"
                                                                 color="primary"
                                                                 prepend-inner-icon="account_balance"
                                                                 required
@@ -123,7 +123,7 @@
                                                                 v-model="request.message"
                                                                 outline
                                                                 height="100%"
-                                                                label="Message"
+                                                                :label="__words('message')"
                                                                 color="primary"
                                                                 prepend-inner-icon="message"
                                                                 required
@@ -143,7 +143,7 @@
                                             class="mx-2"
                                             :loading="loading"
                                             @click.stop="send()"
-                                    >Send
+                                    > {{ __words('send') }}
                                     </v-btn>
                                 </v-card-actions>
                             </v-card>
@@ -187,16 +187,20 @@
                 projects: [],
                 propertyTypes: [],
                 nameRules: [
-                    v => !!v || 'Name is required',
-                    v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                    v => !!v || this.__sentences('nameRules', 'required'),
+                    v => (v && v.length <= 30) || this.__sentences('nameRules', 'length', '30')
                 ],
                 emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                    v => !!v || this.__sentences('emailRules', 'required'),
+                    v => /.+@.+/.test(v) || this.__sentences('emailRules', 'valid'),
                 ],
                 phoneRules: [
-                    v => !!v || 'Phone is required',
-                    v => (v && v.length <= 15) || 'Phone must be less than 15 characters'
+                    v => !!v || this.__sentences('phoneRules', 'required'),
+                    v => /\d+/.test(v) || this.__sentences('phoneRules', 'valid'),
+                    v => (v && v.length <= 15) || this.__sentences('phoneRules', 'length', '15')
+                ],
+                inquiryRules: [
+                    v => !!v || this.__sentences('inquiryRules', 'required'),
                 ],
                 locationRules: [
                     v => !!v || 'Location is required',
@@ -208,8 +212,9 @@
                     v => !!v || 'Property Type is required',
                 ],
                 messageRules: [
-                    v => !!v || 'Message is required',
-                    v => (v && v.length <= 150) || 'Message must be less than 150 characters',
+                    v => !!v || this.__sentences('messageRules', 'required'),
+                    v => (v && v.length <= 150) || this.__sentences('messageRules', 'lengthMax', '150'),
+                    v => (v && v.length >= 10) || this.__sentences('messageRules', 'lengthMin', '10')
                 ],
             }
         },
@@ -231,7 +236,7 @@
                         }
                     });
 
-                    axios.post('/property-requests', request)
+                    axios.post(`/${this.$vuetify.lang.current}/property-requests`, request)
                         .then(res => {
                             vm.reset();
                             vm.resetValidation();
