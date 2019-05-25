@@ -373,7 +373,7 @@
                 <section id="free-consultation">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center" dark>
-                            <h1 class="display-1">{{ __('sentences.freeConsultation') }}</h1>
+                            <h2 class="display-1">{{ __('sentences.freeConsultation') }}</h2>
                         </v-flex>
                         <v-flex shrink>
                             <v-btn color="primary" href="#contact-us" role="link">{{ __('sentences.contactUs') }}</v-btn>
@@ -386,7 +386,7 @@
                 <section id="why-us" class="py-5">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3" dark>
-                            <h1 class="display-1">{{ __('sentences.whyChooseUs') }}</h1>
+                            <h2 class="display-1">{{ __('sentences.whyChooseUs') }}</h2>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -433,7 +433,7 @@
                 <section id="our-offices">
                     <v-layout column align-center>
                         <v-flex shrink class="py-3 text-xs-center">
-                            <h1 class="display-1">{{ __('sentences.worldwideOffices') }}</h1>
+                            <h2 class="display-1">{{ __('sentences.worldwideOffices') }}</h2>
                         </v-flex>
                         <v-flex shrink
                                 class="red darken-2 mb-4"
@@ -514,14 +514,14 @@
                     <v-flex xs12 md6 grey lighten-2>
                         <v-layout column align-start class="pa-5">
                             <v-flex mb-5>
-                                <h1 class="display-1" style="width: auto">
+                                <h2 class="display-1" style="width: auto">
                                     {{ __('words.careers') }}
                                     <v-progress-linear
                                             color="primary"
                                             height="5"
                                             value="30"
                                     ></v-progress-linear>
-                                </h1>
+                                </h2>
 
                             </v-flex>
                             <v-flex py-3>
@@ -538,14 +538,14 @@
                     <v-flex xs12 md6 grey lighten-4>
                         <v-layout column align-start class="pa-5">
                             <v-flex mb-5>
-                                <h1 class="display-1" style="width: auto">
+                                <h2 class="display-1" style="width: auto">
                                     {{ __('sentences.becomePartner') }}
                                     <v-progress-linear
                                             color="primary"
                                             height="5"
                                             value="30"
                                     ></v-progress-linear>
-                                </h1>
+                                </h2>
 
                             </v-flex>
                             <v-flex py-3>

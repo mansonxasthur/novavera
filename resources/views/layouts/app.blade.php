@@ -172,7 +172,7 @@
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn class="text-capitalize font-weight-bold subheading" href="{{ "/{$locale}" }}" flat>{{ __('words.home') }}</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" href="{{ "/{$locale}" }}" flat title="{{ __('words.home') }}">{{ __('words.home') }}</v-btn>
             <v-menu
                     offset-y
                     transition="slide-x-transition"
@@ -187,23 +187,23 @@
                 </template>
 
                 <v-list>
-                    <a href="{{ "/{$locale}/projects/residential" }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/projects/residential" }}" class="sub-menu" title="{{ __('sentences.residentialProjects') }}">
                         <v-list-tile>
                             <v-list-tile-title>{{ __('sentences.residentialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
-                    <a href="{{ "/{$locale}/projects/commercial" }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/projects/commercial" }}" class="sub-menu" title="{{ __('sentences.commercialProjects') }}">
                         <v-list-tile>
                             <v-list-tile-title>{{ __('sentences.commercialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
-                    <a href="{{ "/{$locale}/developers" }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/developers" }}" class="sub-menu" title="{{ __('words.developers') }}">
                         <v-list-tile>
                             <v-list-tile-title>{{ __('words.developers') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
 
-                    <a href="{{ "/{$locale}/property-requests" }}" class="sub-menu">
+                    <a href="{{ "/{$locale}/property-requests" }}" class="sub-menu" title="{{ __('sentences.propertyRequests') }}">
                         <v-list-tile>
                             <v-list-tile-title>{{ __('sentences.propertyRequests') }}</v-list-tile-title>
                         </v-list-tile>
