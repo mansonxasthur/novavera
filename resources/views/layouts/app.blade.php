@@ -51,7 +51,7 @@
                 <v-list-tile-action>
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>@{{ __words('home') }}</v-list-tile-title>
+                <v-list-tile-title>{{ __('words.home') }}</v-list-tile-title>
             </v-list-tile>
 
             <v-list-group
@@ -60,34 +60,34 @@
                 <template v-slot:activator>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>@{{ __sentences('REB') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('sentences.REB') }}</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
 
-                <v-list-tile href="{{ "/{$locale}/residential" }}">
+                <v-list-tile href="{{ "/{$locale}/projects/residential" }}">
                     <v-list-tile-action>
                         <v-icon>apps</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-title>@{{ __sentences('residentialProjects') }}</v-list-tile-title>
+                    <v-list-tile-title>{{ __('sentences.residentialProjects') }}</v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile href="{{ "/{$locale}/commercial" }}">
+                <v-list-tile href="{{ "/{$locale}/projects/commercial" }}">
                     <v-list-tile-action>
                         <v-icon>apps</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-title>@{{ __sentences('commercialProjects') }}</v-list-tile-title>
+                    <v-list-tile-title>{{ __('sentences.commercialProjects') }}</v-list-tile-title>
                 </v-list-tile>
                 <v-list-tile href="{{ "/{$locale}/developers" }}">
                     <v-list-tile-action>
                         <v-icon>business</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-title>@{{ __words('developers') }}</v-list-tile-title>
+                    <v-list-tile-title>{{ __('words.developers') }}</v-list-tile-title>
                 </v-list-tile>
                 <v-list-tile href="{{ "/{$locale}/property-requests" }}">
                     <v-list-tile-action>
                         <v-icon>fas fa-user-clock</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-title>@{{ __sentences('propertyRequests') }}</v-list-tile-title>
+                    <v-list-tile-title>{{ __('sentences.propertyRequests') }}</v-list-tile-title>
                 </v-list-tile>
             </v-list-group>
 
@@ -97,7 +97,7 @@
                 <template v-slot:activator>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>@{{ __words('citizenship') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('words.citizenship') }}</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
@@ -111,7 +111,7 @@
                 <template v-slot:activator>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>@{{ __words('residency') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('words.residency') }}</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
@@ -121,25 +121,25 @@
 
             <page-list :pages="{{ $pageList }}"></page-list>
 
-            <v-list-tile href="/#contact-us">
+            <v-list-tile href="{{ "/{$locale}/#contact-us" }}">
                 <v-list-tile-action>
                     <v-icon>send</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>@{{ __words('contact') }}</v-list-tile-title>
+                <v-list-tile-title>{{ __('words.contact') }}</v-list-tile-title>
             </v-list-tile>
 
             <v-list-tile href="{{ "/{$locale}/careers" }}">
                 <v-list-tile-action>
                     <v-icon>fas fa-id-card</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>@{{ __words('careers') }}</v-list-tile-title>
+                <v-list-tile-title>{{ __('words.careers') }}</v-list-tile-title>
             </v-list-tile>
 
             <v-list-tile href="{{ "/{$locale}" }}/partners">
                 <v-list-tile-action>
                     <v-icon>fas fa-handshake</v-icon>
                 </v-list-tile-action>
-                <v-list-tile-title>@{{ __sentences('becomePartner') }}</v-list-tile-title>
+                <v-list-tile-title>{{ __('sentences.becomePartner') }}</v-list-tile-title>
             </v-list-tile>
 
             <v-list-tile @click="changeLocale">
@@ -155,7 +155,7 @@
         <v-divider></v-divider>
 
         <h5 class="px-3 mt-2 grey--text font-weight-black text-xs-center">
-            @{{ __sentences('copyright') }}
+            {{ __('sentences.copyright') }}
         </h5>
 
 
@@ -172,14 +172,14 @@
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn class="text-capitalize font-weight-bold subheading" href="{{ "/{$locale}" }}" flat>@{{ __words('home') }}</v-btn>
+            <v-btn class="text-capitalize font-weight-bold subheading" href="{{ "/{$locale}" }}" flat>{{ __('words.home') }}</v-btn>
             <v-menu
                     offset-y
                     transition="slide-x-transition"
             >
                 <template v-slot:activator="{ on }">
                     <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
-                        <span>@{{ __sentences('REB') }}</span>
+                        <span>{{ __('sentences.REB') }}</span>
                         <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">
                             arrow_drop_down
                         </v-icon>
@@ -189,23 +189,23 @@
                 <v-list>
                     <a href="{{ "/{$locale}/projects/residential" }}" class="sub-menu">
                         <v-list-tile>
-                            <v-list-tile-title>@{{ __sentences('residentialProjects') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('sentences.residentialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
                     <a href="{{ "/{$locale}/projects/commercial" }}" class="sub-menu">
                         <v-list-tile>
-                            <v-list-tile-title>@{{ __sentences('commercialProjects') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('sentences.commercialProjects') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
                     <a href="{{ "/{$locale}/developers" }}" class="sub-menu">
                         <v-list-tile>
-                            <v-list-tile-title>@{{ __words('developers') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('words.developers') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
 
                     <a href="{{ "/{$locale}/property-requests" }}" class="sub-menu">
                         <v-list-tile>
-                            <v-list-tile-title>@{{ __sentences('propertyRequests') }}</v-list-tile-title>
+                            <v-list-tile-title>{{ __('sentences.propertyRequests') }}</v-list-tile-title>
                         </v-list-tile>
                     </a>
 
@@ -220,7 +220,7 @@
             >
                 <template v-slot:activator="{ on }">
                     <v-btn class="text-capitalize font-weight-bold subheading" flat v-on="on">
-                        <span>@{{ __sentences('CAR') }}</span>
+                        <span>{{ __('sentences.CAR') }}</span>
                         <v-icon :right="$vuetify.lang.current === 'en'" :left="$vuetify.lang.current === 'ar'">
                             arrow_drop_down
                         </v-icon>
@@ -232,7 +232,7 @@
                         <v-list>
                             <v-list-tile>
                                 <v-list-tile-content>
-                                    <h3 class="headline grey--text text--darken-1">@{{ __words('citizenship') }}</h3>
+                                    <h3 class="headline grey--text text--darken-1">{{ __('words.citizenship') }}</h3>
                                 </v-list-tile-content>
                             </v-list-tile>
 
@@ -244,7 +244,7 @@
                         <v-list>
                             <v-list-tile>
                                 <v-list-tile-content>
-                                    <h3 class="headline grey--text text--darken-1">@{{ __words('residency') }}</h3>
+                                    <h3 class="headline grey--text text--darken-1">{{ __('words.residency') }}</h3>
                                 </v-list-tile-content>
                             </v-list-tile>
 
@@ -292,7 +292,7 @@
                     white--text
                     xs12
             >
-                @{{ __sentences('copyright') }}
+                {{ __('sentences.copyright') }}
             </v-flex>
         </v-layout>
     </v-footer>
