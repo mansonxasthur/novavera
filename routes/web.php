@@ -131,7 +131,6 @@ Route::prefix('dashboard')->namespace('Admin')->middleware('auth')->group(functi
 $locales = config('app.locales');
 
 Route::get('/', function (Request $request) {
-
     $locale = substr($request->headers->get('accept_language'), 0, 2) ?? config('app.fallback_locale');
     if (in_array($locale, config('app.locales'))) {
         App::setLocale($locale);
@@ -143,6 +142,7 @@ Route::get('/', function (Request $request) {
         return redirect('/' . config('app.fallback_locale'));
     }
 });
+
 
 
 foreach ($locales as $locale) {
@@ -183,9 +183,6 @@ foreach ($locales as $locale) {
     });
 }
 
-/** Form Requests */
-
-/*
-
-// Partners
-Route::post('/partners', 'PartnerController@send');*/
+Route::middleware('lang')->get('/{any}', function () {
+    abort(404);
+})->where('any', '.*');

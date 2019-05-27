@@ -23,8 +23,8 @@ class Language
             return $next($request);
         } else {
             $segments = $request->segments();
-            $segments[0] = config('app.fallback_locale');
 
+            array_unshift($segments, App::getLocale());
             return redirect(implode('/', $segments));
         }
     }

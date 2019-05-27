@@ -166,7 +166,7 @@
             scroll-off-screen
             clipped-left color="white">
         <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
-        <a href="{{ "/{$locale}" }}" style="width: 170px">
+        <a href="{{ "/{$locale}" }}" style="width: 170px" title="{{ __('words.home') }}">
             <img src="{{ asset('assets/logo.svg') }}" alt="Novavera Real Estate">
         </a>
         <v-spacer></v-spacer>
