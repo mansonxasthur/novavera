@@ -128,7 +128,7 @@ class ProjectController extends Controller
                         $images = [];
                         foreach ($uploadedImages as $image) {
                             if ($image->isValid()) {
-                                $images[] = ['path' => $project->uploadImage($image)];
+                                $images[] = ['path' => $project->uploadImage($image, 'webp')];
                             }
                         }
 
