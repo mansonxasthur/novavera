@@ -28,9 +28,9 @@
                             <template v-slot:items="props">
                                 <td>{{ props.item.name }}</td>
                                 <td>
-                                    <v-avatar size="50" class="my-1">
-                                        <img :src="props.item.logo_url" :alt="props.item.name">
-                                    </v-avatar>
+
+                                    <img :src="props.item.logo_url" :alt="props.item.name">
+                                    
                                 </td>
                                 <td>{{ props.item.description }}</td>
                                 <td class="text-xs-right">{{ props.item.translation !== null ?
@@ -154,7 +154,7 @@
         data: () => ({
             dialog: false,
             loading: false,
-            paginationSync : {rowsPerPage: 10},
+            paginationSync: {rowsPerPage: 10},
             headers: [
                 {
                     text: 'Name',
