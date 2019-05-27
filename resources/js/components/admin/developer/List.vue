@@ -29,8 +29,8 @@
                                 <td>{{ props.item.name }}</td>
                                 <td>
 
-                                    <img :src="props.item.logo_url" :alt="props.item.name">
-                                    
+                                    <img :src="props.item.logo_url" :alt="props.item.name" style="max-width: 100%;">
+
                                 </td>
                                 <td>{{ props.item.description }}</td>
                                 <td class="text-xs-right">{{ props.item.translation !== null ?
