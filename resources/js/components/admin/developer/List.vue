@@ -27,10 +27,8 @@
                         >
                             <template v-slot:items="props">
                                 <td>{{ props.item.name }}</td>
-                                <td>
-
+                                <td class="pa-0">
                                     <img :src="props.item.logo_url" :alt="props.item.name" style="max-width: 100%;">
-
                                 </td>
                                 <td>{{ props.item.description }}</td>
                                 <td class="text-xs-right">{{ props.item.translation !== null ?

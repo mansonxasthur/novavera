@@ -27,8 +27,8 @@
                         >
                             <template v-slot:items="props">
                                 <td>{{ props.item.name }}</td>
-                                <td>
-                                    <v-img width="auto" class="my-2" :src="props.item.logo ? props.item.logo_url : props.item.developer.logo_url "></v-img>
+                                <td class="pa-0">
+                                    <img style="max-width: 100%" class="my-2" :src="props.item.logo ? props.item.logo_url : props.item.developer.logo_url " :alt="props.item.name" />
                                 </td>
                                 <td>{{ props.item.developer.name }}</td>
                                 <td>{{ props.item.location.name }}</td>
