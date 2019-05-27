@@ -38,7 +38,7 @@
                                             </v-flex>
                                             <v-flex xs12 md4>
                                                 <p class="title" style="line-height: 1.5em!important;">
-                                                    {{ __sentences('partnersTitle1') }}
+                                                    {{ __sentences('partnersTitle2') }}
                                                 </p>
                                             </v-flex>
                                         </v-layout>
