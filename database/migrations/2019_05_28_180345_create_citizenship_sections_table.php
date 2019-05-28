@@ -19,6 +19,8 @@ class CreateCitizenshipSectionsTable extends Migration
             $table->string('section_id');
             $table->longText('content');
             $table->string('after');
+
+            $table->foreign('citizenship_id')->references('id')->on('citizenships')->onDelete('cascade');
         });
     }
 

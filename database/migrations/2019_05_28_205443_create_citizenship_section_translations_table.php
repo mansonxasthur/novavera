@@ -17,6 +17,8 @@ class CreateCitizenshipSectionTranslationsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('citizenship_section_id');
             $table->longText('content');
+
+            $table->foreign('citizenship_section_id')->references('id')->on('citizenship_sections')->onDelete('cascade');
         });
     }
 
