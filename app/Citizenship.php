@@ -13,7 +13,7 @@ class Citizenship extends Model
     use Translatable, ImageUploader;
 
     protected $translationAttributes = ['country_name', 'title', 'description', 'snippet'];
-    protected $with = ['translation', 'benefits', 'supplies'];
+    protected $with = ['translation', 'benefits', 'supplies', 'sections'];
     public $appends = [
         'header_url',
         'dropdown_flag_url',
@@ -29,6 +29,11 @@ class Citizenship extends Model
     public function supplies()
     {
         return $this->hasMany(CitizenshipSupply::class);
+    }
+
+    public function sections()
+    {
+        return $this->hasMany(CitizenshipSection::class);
     }
 
     public function getCountryNameAttribute()
@@ -92,6 +97,31 @@ class Citizenship extends Model
             $supplyModel->addTranslation([
                 'detail' => $supply->ar,
             ]);
+        }
+    }
+
+    /**
+     * @param array $sections
+     *
+     * @throws \Exception
+     */
+    public function addSections(array $sections)
+    {
+        foreach ($sections as $section) {
+            $section = (array) $section;
+            if (!in_array($section['after'] ,[
+                'intro',
+                'description',
+                'propose-consultation',
+                'benefits',
+                'provides',
+                'citizenship',
+            ])) throw new \Exception('Unknown DIV: ' . $section['after']);
+
+            $translation = (array) $section['translation'];
+            unset($section['translation']);
+            if ($section = $this->sections()->create($section))
+                $section->addTranslation($translation);
         }
     }
 

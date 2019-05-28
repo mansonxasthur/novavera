@@ -184,5 +184,5 @@ foreach ($locales as $locale) {
 }
 
 Route::middleware('lang')->get('/{any}', function () {
-    //abort(404);
+    abort(404);
 })->where('any', '.*');

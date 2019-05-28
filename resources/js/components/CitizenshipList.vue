@@ -25,5 +25,8 @@
 </script>
 
 <style scoped>
-
+    a.sub-menu {
+        text-decoration: none;
+        color: inherit;
+    }
 </style>

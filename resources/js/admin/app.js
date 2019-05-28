@@ -93,7 +93,7 @@ Vue.component('create-project', require('../components/admin/project/Create').de
 Vue.component('edit-project', require('../components/admin/project/Edit').default);
 Vue.component('projects', require('../components/admin/project/List').default);
 
-// Projects
+// Citizenship
 Vue.component('create-citizenship', require('../components/admin/citizenship/Create').default);
 Vue.component('edit-citizenship', require('../components/admin/citizenship/Edit').default);
 Vue.component('citizenship-list', require('../components/admin/citizenship/List').default);

@@ -62,9 +62,8 @@ trait Translatable
     protected function getTranslation(string $attribute): string
     {
         if (App::getLocale() === 'ar')
-
             return $this->translation->{$attribute} ?: '';
 
-        return $this->attributes[$attribute];
+        return $this->attributes[$attribute] ?? '';
     }
 }

@@ -99,7 +99,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="benefit.en"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="benefitRules"
                                                                 label="Benefit"
                                                                 required
@@ -108,7 +108,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="benefit.ar"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="benefitRules"
                                                                 label="ميزة"
                                                                 required
@@ -193,7 +193,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="supply.en"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="supplyRules"
                                                                 label="Provide"
                                                                 required
@@ -202,7 +202,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="supply.ar"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="supplyRules"
                                                                 label="يوفر"
                                                                 required
@@ -320,6 +320,99 @@
                                                             label="Keywords"
                                                             :disabled="user && user.isViewer()"
                                                     ></v-textarea>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
+                                <v-flex xs12 class="mt-5" id="custom-sections">
+                                    <v-layout column align-space-between>
+                                        <v-flex py-4>
+                                            <v-btn @click="newSection" color="primary"><v-icon left>add</v-icon>Create Section</v-btn>
+                                        </v-flex>
+                                        <v-flex v-for="section in customSections" :key="section.section_id" my-3>
+                                            <v-layout row wrap>
+                                                <v-flex>
+                                                    <v-card>
+                                                        <v-card-title class="primary--text font-weight-black" v-text="section.section_id"></v-card-title>
+                                                        <v-card-text>
+                                                            <v-layout row wrap>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">Content</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">المحتوى</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor-arabic`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                            </v-layout>
+                                                        </v-card-text>
+                                                        <v-card-actions>
+                                                            <v-select
+                                                                    label="After"
+                                                                    :items="mainSections"
+                                                                    v-model="section.after"
+                                                            ></v-select>
+                                                            <small class="grey--text"><sup class="red--text">*</sup>select DIV to come after</small>
+                                                            <v-spacer></v-spacer>
+                                                            <v-btn color="primary" @click="removeSection">Cancel</v-btn>
+                                                        </v-card-actions>
+                                                    </v-card>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-flex>
+                                        <v-flex v-for="section in citizenship.sections" :key="section.section_id" my-3>
+                                            <v-layout row wrap>
+                                                <v-flex>
+                                                    <v-card>
+                                                        <v-card-title class="primary--text font-weight-black" v-text="section.section_id"></v-card-title>
+                                                        <v-card-text>
+                                                            <v-layout row wrap>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">Content</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">المحتوى</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor-arabic`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                            </v-layout>
+                                                        </v-card-text>
+                                                        <v-card-actions>
+                                                            <v-select
+                                                                    label="After"
+                                                                    :items="mainSections"
+                                                                    v-model="section.after"
+                                                            ></v-select>
+                                                            <small class="grey--text"><sup class="red--text">*</sup>select DIV to come after</small>
+                                                            <v-spacer></v-spacer>
+                                                            <v-btn color="error" @click="deleteSection(section)">Delete</v-btn>
+                                                        </v-card-actions>
+                                                    </v-card>
                                                 </v-flex>
                                             </v-layout>
                                         </v-flex>
@@ -478,11 +571,11 @@
                 ],
                 benefitRules: [
                     v => !!v || 'Benefit is required',
-                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
+                    v => (v && v.length <= 255) || 'Name must be less than 255 characters'
                 ],
                 supplyRules: [
                     v => !!v || 'Supply is required',
-                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
+                    v => (v && v.length <= 255) || 'Name must be less than 255 characters'
                 ],
                 citizenship: {},
                 benefits: [],
@@ -500,6 +593,16 @@
                 previewDropdownFlag: '',
                 previewBodyFlag: '',
                 previewHeader: '',
+                customSections: [],
+                mainSections: [
+                    'intro',
+                    'description',
+                    'propose-consultation',
+                    'benefits',
+                    'provides',
+                    'citizenship',
+                ],
+                deletedSections: [],
             }
         },
         created() {
@@ -536,6 +639,12 @@
 
                 $('#englishEditor').summernote('code', vm.citizenshipCollection.description);
                 $('#arabicEditor').summernote('code', vm.citizenshipCollection.translation.description);
+
+                vm.citizenship.sections.forEach(function (section) {
+                    let i = vm.citizenship.sections.indexOf(section);
+                    $(`#${section.section_id}-editor`).summernote('code', vm.citizenship.sections[i].content);
+                    $(`#${section.section_id}-editor-arabic`).summernote('code', vm.citizenship.sections[i].translation.content);
+                })
             });
 
             vm.citizenship = vm.citizenshipCollection;
@@ -708,9 +817,11 @@
                     });
 
                     vm.benefits.length ? citizenship.append('benefits', JSON.stringify(vm.benefits)) : null;
-                    vm.benefits.length ? citizenship.append('deletedBenefits', JSON.stringify(vm.deletedBenefits)) : null;
+                    vm.deletedBenefits.length ? citizenship.append('deletedBenefits', JSON.stringify(vm.deletedBenefits)) : null;
                     vm.supplies.length ? citizenship.append('supplies', JSON.stringify(vm.supplies)) : null;
-                    vm.supplies.length ? citizenship.append('deletedSupplies', JSON.stringify(vm.deletedSupplies)) : null;
+                    vm.deletedSupplies.length ? citizenship.append('deletedSupplies', JSON.stringify(vm.deletedSupplies)) : null;
+                    vm.customSections.length ? citizenship.append('customSections', JSON.stringify(vm.customSections)) : null;
+                    vm.deletedSections.length ? citizenship.append('deletedSections', JSON.stringify(vm.deletedSections)) : null;
 
                     axios.post('/dashboard/citizenship/' + vm.citizenship.slug, citizenship)
                         .then(res => {
@@ -729,8 +840,60 @@
             reset(res) {
                 this.activateSnackbar('success', res.data.message);
                 this.loading = false;
-            }
-
+            },
+            newSection() {
+                let vm = this;
+                let id = 'custom-section-' + new Date().getTime();
+                let section = {
+                    section_id: id,
+                    content: '',
+                    after: 'intro',
+                    translation: {
+                        content: '',
+                    }
+                };
+                vm.customSections.push(section);
+                let index = vm.customSections.indexOf(section);
+                setTimeout(function () {
+                    $(`#${id}-editor`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.customSections[index].content = contents;
+                            }
+                        }
+                    });
+                    $(`#${id}-editor-arabic`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.customSections[index].translation.content = contents;
+                            }
+                        }
+                    });
+                }, 200);
+            },
+            removeSection(section) {
+                let i = this.customSections.indexOf(section);
+                this.customSections.splice(i, 1);
+            },
+            deleteSection(section) {
+                let i = this.citizenship.sections.indexOf(section);
+                this.citizenship.sections.splice(i, 1);
+                this.deletedSections.push(section.id);
+            },
         }
     }
 </script>

@@ -255,6 +255,56 @@
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
+                                <v-flex xs12 class="mt-5" id="custom-sections">
+                                    <v-layout column align-space-between>
+                                        <v-flex py-4>
+                                            <v-btn @click="newSection" color="primary"><v-icon left>add</v-icon>Create Section</v-btn>
+                                        </v-flex>
+                                        <v-flex v-for="section in customSections" :key="section.section_id" my-3>
+                                            <v-layout row wrap>
+                                                <v-flex>
+                                                    <v-card>
+                                                        <v-card-title class="primary--text font-weight-black" v-text="section.section_id"></v-card-title>
+                                                        <v-card-text>
+                                                            <v-layout row wrap>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">Content</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                                <v-flex xs12 md6>
+                                                                    <v-layout row wrap>
+                                                                        <v-flex xs12 class="text-xs-center">
+                                                                            <div class="display-1 grey--text">المحتوى</div>
+                                                                        </v-flex>
+                                                                        <v-flex xs12>
+                                                                            <div :id="`${section.section_id}-editor-arabic`"></div>
+                                                                        </v-flex>
+                                                                    </v-layout>
+                                                                </v-flex>
+                                                            </v-layout>
+                                                        </v-card-text>
+                                                        <v-card-actions>
+                                                            <v-select
+                                                                    label="After"
+                                                                    :items="mainSections"
+                                                                    v-model="section.after"
+                                                            ></v-select>
+                                                            <small class="grey--text"><sup class="red--text">*</sup>select DIV to come after</small>
+                                                            <v-spacer></v-spacer>
+                                                            <v-btn color="primary" @click="removeSection">Cancel</v-btn>
+                                                        </v-card-actions>
+                                                    </v-card>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
                                 <v-flex d-flex xs12 md4 class="mt-3">
                                     <v-layout column align-space-between justify-center>
                                         <v-flex>
@@ -425,6 +475,15 @@
                 previewDropdownFlag: '',
                 previewBodyFlag: '',
                 previewHeader: '',
+                customSections: [],
+                mainSections: [
+                    'intro',
+                    'description',
+                    'propose-consultation',
+                    'benefits',
+                    'provides',
+                    'citizenship',
+                ],
             }
         },
         created() {
@@ -615,6 +674,7 @@
 
                     vm.benefits.length ? citizenship.append('benefits', JSON.stringify(vm.benefits)) : null;
                     vm.supplies.length ? citizenship.append('supplies', JSON.stringify(vm.supplies)) : null;
+                    vm.customSections.length ? citizenship.append('customSections', JSON.stringify(vm.customSections)) : null;
 
                     axios.post('/dashboard/citizenship', citizenship)
                         .then(res => {
@@ -633,15 +693,65 @@
                 $('#englishEditor').summernote('code', '');
                 $('#arabicEditor').summernote('code', '');
                 this.previewDropdownFlag = '';
+                this.previewBodyFlag = '';
                 this.previewHeader = '';
                 this.citizenship.dropdown_flag = null;
+                this.citizenship.body_flag = null;
                 this.citizenship.header = null;
                 this.loading = false;
 
                 this.benefits = [];
                 this.supplies = [];
+                this.customSections = [];
+            },
+            newSection() {
+                let vm = this;
+                let id = 'custom-section-' + new Date().getTime();
+                let section = {
+                    section_id: id,
+                    content: '',
+                    after: '',
+                    translation: {
+                        content: '',
+                    }
+                };
+                vm.customSections.push(section);
+                let index = vm.customSections.indexOf(section);
+                setTimeout(function () {
+                    $(`#${id}-editor`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.customSections[index].content = contents;
+                            }
+                        }
+                    });
+                    $(`#${id}-editor-arabic`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.customSections[index].translation.content = contents;
+                            }
+                        }
+                    });
+                }, 200);
+            },
+            removeSection(section) {
+                let i = this.customSections.indexOf(section);
+                this.customSections.splice(i, 1);
             }
-
         }
     }
 </script>

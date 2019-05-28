@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Citizenship;
 use App\CitizenshipBenefit;
+use App\CitizenshipSection;
 use App\CitizenshipSupply;
 use App\Facades\Logger;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class CitizenshipController extends Controller
     public function index()
     {
         return view('admin.citizenship.index')->with([
-            'citizenshipList' => Citizenship::all(),
+            'citizenships' => Citizenship::all()
         ]);
     }
 
@@ -58,7 +59,8 @@ class CitizenshipController extends Controller
 
         try {
             $citizenship = new Citizenship();
-            $citizenship->country_name = $citizenship->slug = $request->country_name;
+            $citizenship->country_name = $request->country_name;
+            $citizenship->slug = $request->country_name;
             $citizenship->title = $request->title;
             $citizenship->description = $request->description;
             $citizenship->snippet = $request->snippet;
@@ -90,6 +92,10 @@ class CitizenshipController extends Controller
 
             if ($request->has('supplies') && !empty($supplies = json_decode($request->supplies))) {
                 $citizenship->addSupplies($supplies);
+            }
+
+            if ($request->has('customSections') && !empty($customSections = json_decode($request->customSections))) {
+                $citizenship->addSections($customSections);
             }
 
             return response()->json(['message' => 'Success'], 201);
@@ -145,7 +151,8 @@ class CitizenshipController extends Controller
         ]);
 
         try {
-            $citizenship->country_name = $citizenship->slug = $request->country_name;
+            $citizenship->country_name  = $request->country_name;
+            $citizenship->slug = $request->country_name;
             $citizenship->title = $request->title;
             $citizenship->description = $request->description;
             $citizenship->snippet = $request->snippet;
@@ -189,6 +196,14 @@ class CitizenshipController extends Controller
 
             if ($request->has('deletedSupplies') && !empty($deletedSupplies = json_decode($request->deletedSupplies))) {
                 CitizenshipSupply::destroy($deletedSupplies);
+            }
+
+            if ($request->has('customSections') && !empty($customSections = json_decode($request->customSections))) {
+                $citizenship->addSections($customSections);
+            }
+
+            if ($request->has('deletedSections') && !empty($deletedSections = json_decode($request->deletedSections))) {
+                CitizenshipSection::destroy($deletedSections);
             }
 
             return response()->json(['message' => 'Success', 'slug' => $citizenship->slug], 200);
