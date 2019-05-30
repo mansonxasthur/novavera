@@ -172,6 +172,7 @@
                     let sectionDiv  = document.createElement('div');
                     sectionDiv.innerHTML = section.content;
                     sectionDiv.setAttribute('id', section.section_id);
+                    sectionDiv.setAttribute('class', 'layout row wrap justify-center');
                     flex.appendChild(sectionDiv);
                     before.after(flex);
                 })

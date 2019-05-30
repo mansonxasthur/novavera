@@ -642,6 +642,34 @@
 
                 vm.citizenship.sections.forEach(function (section) {
                     let i = vm.citizenship.sections.indexOf(section);
+                    $(`#${section.section_id}-editor`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.citizenship.sections[i].content = contents;
+                            }
+                        }
+                    });
+                    $(`#${section.section_id}-editor-arabic`).summernote({
+                        height: 300,
+                        codemirror: {
+                            mode: 'text/html',
+                            htmlMode: true,
+                            lineNumbers: true,
+                            theme: 'monokai'
+                        },
+                        callbacks: {
+                            onChange: function (contents) {
+                                vm.citizenship.sections[i].translation.content = contents;
+                            }
+                        }
+                    });
                     $(`#${section.section_id}-editor`).summernote('code', vm.citizenship.sections[i].content);
                     $(`#${section.section_id}-editor-arabic`).summernote('code', vm.citizenship.sections[i].translation.content);
                 })
@@ -812,6 +840,13 @@
                                 });
                                 return;
                             }
+
+                            if (key === 'sections') {
+                                item[key].length ? citizenship.append(key, JSON.stringify(item[key])) : null;
+
+                                return;
+                            }
+
                             citizenship.set(key, item[key]);
                         }
                     });

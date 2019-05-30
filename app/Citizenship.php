@@ -170,4 +170,25 @@ class Citizenship extends Model
         $locale = App::getLocale();
         return '/' . $locale . '/countries/' . $this->type . '/' . $this->slug;
     }
+
+    public function updateSections(array $sections)
+    {
+        foreach ($sections as $section) {
+            $section = (array) $section;
+            if (!in_array($section['after'] ,[
+                'intro',
+                'description',
+                'propose-consultation',
+                'benefits',
+                'provides',
+                'citizenship',
+            ])) throw new \Exception('Unknown DIV: ' . $section['after']);
+
+            $translation = (array) $section['translation'];
+            unset($section['translation']);
+            if ($citizenshipSection = CitizenshipSection::find($section['id']))
+                $citizenshipSection->update($section);
+                $citizenshipSection->updateTranslation($translation);
+        }
+    }
 }

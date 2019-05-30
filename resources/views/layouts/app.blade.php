@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    @stack('bootstrap')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         a.sub-menu {

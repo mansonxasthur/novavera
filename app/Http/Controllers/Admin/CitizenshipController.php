@@ -198,6 +198,11 @@ class CitizenshipController extends Controller
                 CitizenshipSupply::destroy($deletedSupplies);
             }
 
+            if (!empty($sections = json_decode($request->sections))) {
+
+                $citizenship->updateSections($sections);
+            }
+
             if ($request->has('customSections') && !empty($customSections = json_decode($request->customSections))) {
                 $citizenship->addSections($customSections);
             }
