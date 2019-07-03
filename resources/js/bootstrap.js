@@ -29,14 +29,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
-window.whois = [
-    {
+window.whois = {
         name: 'Mohamed Elshazly',
         nickname: 'Manson',
         email: 'mansonx13@gmail.com',
         website: 'https://mx13.io',
-    }
-];
+        phone: '0201008325807'
+    };
 
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
