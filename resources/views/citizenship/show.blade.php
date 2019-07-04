@@ -23,6 +23,18 @@
     @endcomponent
 @endpush
 
+@push('styles')
+    <style>
+        .v-menu__content.theme--light.v-menu__content--fixed.menuable__content__active.citizenship-list {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        a.text-capitalize.font-weight-bold.subheading.v-btn.v-btn--flat.theme--light {
+            text-decoration: none;
+        }
+    </style>
+@endpush
 
 @section('content')
     <citizenship :citizenship="{{ $citizenship }}" :citizenship-collection="{{ $citizenships }}"></citizenship>
