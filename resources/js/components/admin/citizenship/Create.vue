@@ -92,7 +92,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="benefit.en"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="benefitRules"
                                                                 label="Benefit"
                                                                 required
@@ -101,7 +101,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="benefit.ar"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="benefitRules"
                                                                 label="ميزة"
                                                                 required
@@ -156,7 +156,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="supply.en"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="supplyRules"
                                                                 label="Provide"
                                                                 required
@@ -165,7 +165,7 @@
                                                     <v-flex xs12 md5>
                                                         <v-textarea
                                                                 v-model="supply.ar"
-                                                                :counter="115"
+                                                                :counter="255"
                                                                 :rules="supplyRules"
                                                                 label="يوفر"
                                                                 required
@@ -438,11 +438,11 @@
                 ],
                 benefitRules: [
                     v => !!v || 'Benefit is required',
-                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
+                    v => (v && v.length <= 255) || 'Name must be less than 255 characters'
                 ],
                 supplyRules: [
                     v => !!v || 'Supply is required',
-                    v => (v && v.length <= 115) || 'Name must be less than 115 characters'
+                    v => (v && v.length <= 255) || 'Name must be less than 255 characters'
                 ],
                 citizenship: {
                     country_name: null,

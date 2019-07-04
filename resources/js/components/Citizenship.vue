@@ -65,14 +65,14 @@
                     <v-layout row wrap>
                         <v-flex xs12 md8>
                             <h2 class="display-1 my-3 text-uppercase">{{ __sentences('whatDoWeProvide') }}</h2>
-                            <v-list>
-                                <v-list-tile v-for="supply in citizenship.supplies" :key="supply.id">
-                                    <v-list-tile-avatar>
-                                        <v-icon color="success">check</v-icon>
-                                    </v-list-tile-avatar>
-                                    <v-list-tile-title v-text="supply.detail"></v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
+                            <v-layout wrap>
+                                <v-flex xs12 v-for="supply in citizenship.supplies" :key="supply.id">
+                                    <v-layout>
+                                        <v-flex shrink pa-2><v-icon color="success">check</v-icon></v-flex>
+                                        <v-flex v-text="supply.detail" pa-2 class="subheading"></v-flex>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
                         </v-flex>
                         <v-flex xs12 md4 id="free-consultation">
                             <h2 class="display-1 my-3 text-uppercase">{{ __sentences('getFreeConsultation') }}</h2>

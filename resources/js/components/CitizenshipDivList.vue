@@ -5,7 +5,7 @@
                 <v-layout column align-center justify-space-between>
                     <v-flex style="min-width: 100px;">
                         <v-avatar size="80" tile>
-                            <img :src="citizenship.dropdown_flag_url" :alt="citizenship.country_name">
+                            <img :src="citizenship.body_flag_url" :alt="citizenship.country_name">
                         </v-avatar>
                     </v-flex>
                     <v-flex>{{ citizenship.country_name }}</v-flex>
