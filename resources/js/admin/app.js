@@ -170,13 +170,15 @@ const app = new Vue({
         }
         let vm = this;
 
-        axios.get('/dashboard/user')
-            .then(res => {
-                vm.setUser(new User(res.data));
-            })
-            .catch(err => {
-                vm.setUser = new User();
-            })
+        if (auth) {
+            axios.get('/dashboard/user')
+                .then(res => {
+                    vm.setUser(new User(res.data));
+                })
+                .catch(err => {
+                    vm.setUser = new User();
+                })
+        }
     },
     methods: {
         ...mapActions(['setUser']),
