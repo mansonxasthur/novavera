@@ -26,6 +26,10 @@
         @yield('content')
     </v-content>
 </v-app>
+
+<script>
+    window.auth = Boolean({!! auth()->check() !!});
+</script>
 @stack('scripts')
 </body>
 </html>
