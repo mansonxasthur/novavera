@@ -165,6 +165,8 @@
                                                     <v-textarea
                                                             v-model="project.meta"
                                                             label="Meta Description"
+                                                            :counter="150"
+                                                            :rules="metaRules"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
@@ -292,6 +294,10 @@
                 nameRules: [
                     v => !!v || 'Name is required',
                     v => (v && v.length <= 30) || 'Name must be less than 30 characters'
+                ],
+                metaRules: [
+                    v => !!v || 'Meta Description is required',
+                    v => (v && v.length <= 150) || 'Name must be less than 150 characters'
                 ],
                 project: {
                     name: null,

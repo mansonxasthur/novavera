@@ -162,6 +162,7 @@
 <script>
     import gmapsInit from '../util/gmaps';
     import SnackbarComponent from '../mixins/SnackbarComponent';
+
     export default {
         name: "Project",
         mixins: [SnackbarComponent],
@@ -206,6 +207,23 @@
                     zoom: 16
                 });
 
+                var marker = new google.maps.Marker({
+                    position: {lat: Number(this.project.lat), lng: Number(this.project.lng)},
+                    map: map
+                });
+                //map.panTo(latLng);
+
+                /*map.addListener('click', function(e) {
+                    placeMarkerAndPanTo(e.latLng, map);
+                });
+
+                function placeMarkerAndPanTo(latLng, map) {
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map
+                    });
+                    map.panTo(latLng);
+                }*/
             } catch (error) {
                 //console.error(error);
             }

@@ -243,6 +243,8 @@
                                                     <v-textarea
                                                             v-model="citizenship.meta"
                                                             label="Meta Description"
+                                                            :counter="150"
+                                                            :rules="metaRules"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
@@ -443,6 +445,10 @@
                 supplyRules: [
                     v => !!v || 'Supply is required',
                     v => (v && v.length <= 255) || 'Name must be less than 255 characters'
+                ],
+                metaRules: [
+                    v => !!v || 'Meta Description is required',
+                    v => (v && v.length <= 150) || 'Name must be less than 150 characters'
                 ],
                 citizenship: {
                     country_name: null,

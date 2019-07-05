@@ -2677,6 +2677,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateCitizenship",
@@ -2718,6 +2720,11 @@ __webpack_require__.r(__webpack_exports__);
         return !!v || 'Supply is required';
       }, function (v) {
         return v && v.length <= 255 || 'Name must be less than 255 characters';
+      }],
+      metaRules: [function (v) {
+        return !!v || 'Meta Description is required';
+      }, function (v) {
+        return v && v.length <= 150 || 'Name must be less than 150 characters';
       }],
       citizenship: {
         country_name: null,
@@ -4486,7 +4493,7 @@ __webpack_require__.r(__webpack_exports__);
         return v && v.length <= 30 || 'Name must be less than 30 characters';
       }],
       descriptionRules: [function (v) {
-        return v && v.length <= 300 || 'Description must be less than 300 characters';
+        return v && v.length <= 500 || 'Description must be less than 500 characters';
       }],
       postRoute: '/dashboard/developers',
       updateRoute: '/dashboard/developers/',
@@ -6587,6 +6594,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateProject",
@@ -6612,6 +6621,11 @@ __webpack_require__.r(__webpack_exports__);
         return !!v || 'Name is required';
       }, function (v) {
         return v && v.length <= 30 || 'Name must be less than 30 characters';
+      }],
+      metaRules: [function (v) {
+        return !!v || 'Meta Description is required';
+      }, function (v) {
+        return v && v.length <= 150 || 'Name must be less than 150 characters';
       }],
       project: {
         name: null,
@@ -32421,7 +32435,9 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Meta Description"
+                                                      label: "Meta Description",
+                                                      counter: 150,
+                                                      rules: _vm.metaRules
                                                     },
                                                     model: {
                                                       value:
@@ -36836,7 +36852,7 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      counter: 300,
+                                                      counter: 500,
                                                       label: "Description"
                                                     },
                                                     model: {
@@ -36866,7 +36882,7 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      counter: 300,
+                                                      counter: 500,
                                                       label: "الوصف"
                                                     },
                                                     model: {
@@ -40872,7 +40888,9 @@ var render = function() {
                                                 [
                                                   _c("v-textarea", {
                                                     attrs: {
-                                                      label: "Meta Description"
+                                                      label: "Meta Description",
+                                                      counter: 150,
+                                                      rules: _vm.metaRules
                                                     },
                                                     model: {
                                                       value: _vm.project.meta,

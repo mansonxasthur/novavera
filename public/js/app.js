@@ -3666,7 +3666,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _mounted = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var google, geocoder, map;
+      var google, geocoder, map, marker;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -3685,23 +3685,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 },
                 zoom: 16
               });
-              _context.next = 10;
+              marker = new google.maps.Marker({
+                position: {
+                  lat: Number(this.project.lat),
+                  lng: Number(this.project.lng)
+                },
+                map: map
+              }); //map.panTo(latLng);
+
+              /*map.addListener('click', function(e) {
+                  placeMarkerAndPanTo(e.latLng, map);
+              });
+               function placeMarkerAndPanTo(latLng, map) {
+                  var marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map
+                  });
+                  map.panTo(latLng);
+              }*/
+
+              _context.next = 11;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context["catch"](0);
 
-            case 10:
+            case 11:
               this.inquiry.project = this.project.name;
               this.inquiry.location = this.project.location.name;
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 8]]);
+      }, _callee, this, [[0, 9]]);
     }));
 
     function mounted() {

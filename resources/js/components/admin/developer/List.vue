@@ -90,14 +90,14 @@
                                                 <v-flex xs12 md6>
                                                     <v-textarea
                                                             v-model="editedItem.description"
-                                                            :counter="300"
+                                                            :counter="500"
                                                             label="Description"
                                                     ></v-textarea>
                                                 </v-flex>
                                                 <v-flex xs12 md6>
                                                     <v-textarea
                                                             v-model="editedItem.translation.description"
-                                                            :counter="300"
+                                                            :counter="500"
                                                             label="الوصف"
                                                     ></v-textarea>
                                                 </v-flex>
@@ -204,7 +204,7 @@
                 v => (v && v.length <= 30) || 'Name must be less than 30 characters'
             ],
             descriptionRules: [
-                v => (v && v.length <= 300) || 'Description must be less than 300 characters'
+                v => (v && v.length <= 500) || 'Description must be less than 500 characters'
             ],
             postRoute: '/dashboard/developers',
             updateRoute: '/dashboard/developers/',
