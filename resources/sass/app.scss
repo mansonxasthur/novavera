@@ -183,3 +183,7 @@ button.v-btn.v-btn--flat.theme--light {
   background-color: $nova-black;
   border-color: $nova-black;
 }
+
+.v-navigation-drawer>.v-list:not(.v-list--dense) .v-list__tile {
+  text-decoration: none;
+}
