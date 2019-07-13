@@ -65,9 +65,9 @@ class CitizenshipController extends Controller
             $citizenship->description = $request->description;
             $citizenship->snippet = $request->snippet;
             $citizenship->type = $request->type;
-            $citizenship->header = $citizenship->uploadImage($request->header, 'webp');
-            $citizenship->dropdown_flag = $citizenship->uploadImage($request->dropdown_flag, 'webp');
-            $citizenship->body_flag = $citizenship->uploadImage($request->body_flag, 'webp');
+            $citizenship->header = $citizenship->uploadImage($request->header);
+            $citizenship->dropdown_flag = $citizenship->uploadImage($request->dropdown_flag);
+            $citizenship->body_flag = $citizenship->uploadImage($request->body_flag);
 
             if ($request->has('meta')) {
                 $citizenship->meta = $request->meta;

@@ -42,14 +42,14 @@
                     <v-layout row wrap>
                         <v-flex xs12 md6>
                             <h2 class="display-1 my-3 text-uppercase">{{ __sentences('programBenefits') }}</h2>
-                            <v-list>
-                                <v-list-tile v-for="benefit in citizenship.benefits" :key="benefit.id">
-                                    <v-list-tile-avatar>
-                                        <v-icon color="primary">star</v-icon>
-                                    </v-list-tile-avatar>
-                                    <v-list-tile-title v-text="benefit.detail"></v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
+                            <v-layout wrap>
+                                <v-flex xs12 v-for="benefit in citizenship.benefits" :key="benefit.id">
+                                    <v-layout>
+                                        <v-flex shrink pa-2><v-icon color="primary">star</v-icon></v-flex>
+                                        <v-flex v-text="benefit.detail" pa-2 class="subheading"></v-flex>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
                         </v-flex>
                         <v-flex xs12 md6>
                             <v-img src="/assets/img/world_alt.webp" width="100%"
